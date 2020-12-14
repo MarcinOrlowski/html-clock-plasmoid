@@ -1,0 +1,8 @@
+/.idea
+*.iml
+*.bak
+*.swp
+*~
+package/contents/config/main.xml
+*.plasmoid
+/*.sh
