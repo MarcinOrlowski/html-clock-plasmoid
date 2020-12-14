@@ -36,5 +36,5 @@ Placeholders
 | %aa%		| lower-cased am/pm marker (i.e. "am") |
 | %a%		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
 | %Aa%		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
-| %t%		| Timezone name (i.e. 'UTC')
+| %t%		| Timezone name (i.e. "UTC")
 
