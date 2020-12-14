@@ -1,0 +1,22 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=HTML Digital Clock
+Comment=HTML stylable digital clock
+Icon=clock
+
+Type=Service
+
+X-KDE-PluginInfo-Author=Marcin Orlowski
+
+# Artificial field
+X-KDE-PluginInfo-Author-Url=http://marcinorlowski.com/
+
+X-KDE-PluginInfo-Email=
+X-KDE-PluginInfo-License=MIT
+X-KDE-PluginInfo-Name=com.marcinorlowski.htmlclock
+X-KDE-PluginInfo-Version=1.0.0
+X-KDE-PluginInfo-Website=https://github.com/MarcinOrlowski/htmlclock-plasmoid
+X-KDE-ServiceTypes=Plasma/Applet
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/main.qml
+X-KDE-PluginInfo-Category=Services

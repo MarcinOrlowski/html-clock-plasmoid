@@ -25,10 +25,6 @@ Placeholders
 | %D%		| one letter day name ("S", "S", "M") |
 | %dd%		| zero prefixed 2 digit day number ("01", "27") |
 | %d%		| day number as is ("1", "27") |
-| %dy%		| day number of the year (i.e. "250") |
-| %dw%		| day number in week (i.e. "1" for Monday **if** weeks start on Mondays!) |
-| %wm%		| week number of current month ("3" for 3rd week) |
-| %wy%		| week number of the year ("3" for 3rd week, 47 for 47th) |
 | %hh%		| current hour, zero prefixed, 24hrs clock (i.e. "01", "16") |
 | %h%		| current hour, 24hrs clock (i.e. "1", "16") |
 | %kk%		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
@@ -40,3 +36,5 @@ Placeholders
 | %aa%		| lower-cased am/pm marker (i.e. "am") |
 | %a%		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
 | %Aa%		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
+| %t%		| Timezone name (i.e. 'UTC')
+
