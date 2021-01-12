@@ -60,7 +60,8 @@ ColumnLayout {
 
 		// https://doc.qt.io/qt-5/qml-qtquick-text.html#textFormat-prop
 		// https://doc.qt.io/qt-5/richtext-html-subset.html
-		clock.text = DTF.format(htmlString)
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+		clock.text = DTF.format(htmlString, localeToUse)
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
