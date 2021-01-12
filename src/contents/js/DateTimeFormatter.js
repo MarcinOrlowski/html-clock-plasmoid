@@ -1,10 +1,10 @@
 /**
- * Weekday Grid widget for KDE
+ * DateTimeFormatter - JS helper library
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
  * @copyright 2020-2021 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
- * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
+ * @link      https://github.com/MarcinOrlowski/datetimeformatter
  */
 
 /*
@@ -18,6 +18,8 @@
 **  padChar: padding character. Default is '0' (zero)
 */
 function pad(str, len, padChar) {
+	if (typeof(str) !== "string") str = str.toString()
+
 	if (len === undefined) len = 2
 
 	if (str.length < len) {
