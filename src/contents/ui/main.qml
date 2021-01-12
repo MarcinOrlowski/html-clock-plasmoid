@@ -43,6 +43,17 @@ Item {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
+	Plasmoid.toolTipMainText: {
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+		return DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
+	}
+	Plasmoid.toolTipSubText: {
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+		return DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+	}
+
+	// ------------------------------------------------------------------------------------------------------------------------
+
 	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
 	Plasmoid.compactRepresentation: HtmlClock { }
 	Plasmoid.fullRepresentation: CalendarView { }
