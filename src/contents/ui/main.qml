@@ -1,8 +1,6 @@
 /**
  * HTML Clock Plasmoid
  *
- * Configurabler vertical multi clock plasmoid.
- *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
  * @copyright 2020-2021 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
@@ -18,6 +16,19 @@ import "../js/meta.js" as Meta
 
 Item {
 	id: root
+
+	// ------------------------------------------------------------------------------------------------------------------------
+
+	Component.onCompleted: {
+		plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
+	}
+
+	function action_showAboutDialog() {
+		aboutDialog.visible = true
+	}
+	AboutDialog {
+		id: aboutDialog
+	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
