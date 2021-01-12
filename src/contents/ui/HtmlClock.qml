@@ -1,7 +1,7 @@
 /**
  * HTML Clock Plasmoid
  *
- * Configurabler vertical multi clock plasmoid.
+ * Configurable HTML styled clock plasmoid.
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
  * @copyright 2020-2021 Marcin Orlowski
@@ -20,13 +20,19 @@ ColumnLayout {
 
 	Layout.fillWidth: true
 
-    // ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
 
-	function pad(str, len) {
-		if (len === undefined) len = 2
-		len = len * -1
-		return ('0000000' + str).substr(len)
+	MouseArea {
+		id: mouseArea
+		anchors.fill: parent
+		onClicked: {
+			if (plasmoid.configuration.calendarViewEnabled) {
+				plasmoid.expanded = !plasmoid.expanded
+			}
+		}
 	}
+
+    // ------------------------------------------------------------------------------------------------------------------------
 
 	PlasmaComponents.Label {
 		id: clock
@@ -36,16 +42,16 @@ ColumnLayout {
 		font.pixelSize: 20  //Qt.application.font.pixelSize * 0.8
 	}
 
-   	Timer {
+	Timer {
 		interval: 1000
 		repeat: true
 		running: true
 		triggeredOnStart: true
 
-		// https://doc.qt.io/qt-5/qml-qtquick-text.html#textFormat-prop
-		// https://doc.qt.io/qt-5/richtext-html-subset.html
-		onTriggered: {
-			clock.text = DTF.format('
+		onTriggered: updateClock()
+	}
+
+	readonly property string defaultLayout: '
 <center>
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">%hh%</span>
 <span style="font-size: 25px; color: #79808d;">:</span>
@@ -53,24 +59,18 @@ ColumnLayout {
 <br />
 <span style="font-size: 15px; text-transform: uppercase;">%yy%-%MM%-%dd%</span>
 </center>
-')
+'
 
-/*
-			clock.text = DTF.format('
-<center>
+	readonly property string layout: plasmoid.configuration.layout
+	onLayoutChanged: updateClock()
 
-<span style="font-size: 35px; font-weight: bold; color: #ff006e;">%hh%</span>
-<span style="font-size: 25px; color: #79808d;">:</span>
-<span style="font-size: 30px; color: white;">%ii%</span>
-<br>
-<span style="font-size: 20px; text-transform: uppercase;">%DD%</span>
-<br>
-<span style="font-size: 15px; text-transform: uppercase;">%yy%-%M%(%mm%)-%dd%</span>
-</center>
-')
-*/
+	function updateClock() {
+		var htmlString = layout
+		if (htmlString == '') htmlString = defaultLayout
 
-		}
+		// https://doc.qt.io/qt-5/qml-qtquick-text.html#textFormat-prop
+		// https://doc.qt.io/qt-5/richtext-html-subset.html
+		clock.text = DTF.format(htmlString)
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
