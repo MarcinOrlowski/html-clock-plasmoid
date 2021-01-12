@@ -14,7 +14,6 @@ import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
-import "../js/themes.js" as Themes
 
 ColumnLayout {
 	Layout.fillWidth: true

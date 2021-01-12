@@ -14,6 +14,7 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import "../js/DateTimeFormatter.js" as DTF
+import "../js/layouts.js" as Layouts
 
 ColumnLayout {
 	id: mainContainer
@@ -32,7 +33,7 @@ ColumnLayout {
 		}
 	}
 
-    // ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
 
 	PlasmaComponents.Label {
 		id: clock
@@ -47,26 +48,15 @@ ColumnLayout {
 		repeat: true
 		running: true
 		triggeredOnStart: true
-
 		onTriggered: updateClock()
 	}
-
-	readonly property string defaultLayout: '
-<center>
-<span style="font-size: 35px; font-weight: bold; color: #ff006e;">%hh%</span>
-<span style="font-size: 25px; color: #79808d;">:</span>
-<span style="font-size: 30px; color: white;">%ii%</span>
-<br />
-<span style="font-size: 15px; text-transform: uppercase;">%yy%-%MM%-%dd%</span>
-</center>
-'
 
 	readonly property string layout: plasmoid.configuration.layout
 	onLayoutChanged: updateClock()
 
 	function updateClock() {
 		var htmlString = layout
-		if (htmlString == '') htmlString = defaultLayout
+		if (htmlString == '') htmlString = Layouts.layouts[Layouts.defaultLayout]['html']
 
 		// https://doc.qt.io/qt-5/qml-qtquick-text.html#textFormat-prop
 		// https://doc.qt.io/qt-5/richtext-html-subset.html
