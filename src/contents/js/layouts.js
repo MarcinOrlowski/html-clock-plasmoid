@@ -11,7 +11,7 @@ var layouts = {
 <span style=\"font-size: 25px; color: #79808d;\">:</span>
 <span style=\"font-size: 30px; color: white;\">%ii%</span>
 <br />
-<span style=\"font-size: 15px;\">%yy%-%MM:U%-%dd%</span>
+<span style=\"font-size: 15px;\">%yyyy%-%MM:U%-%dd%</span>
 </center>
 `
 	}
