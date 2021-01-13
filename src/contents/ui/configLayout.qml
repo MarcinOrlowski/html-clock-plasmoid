@@ -14,6 +14,7 @@ import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
+import "../js/layouts.js" as Layouts
 
 ColumnLayout {
 	Layout.fillWidth: true
@@ -22,6 +23,39 @@ ColumnLayout {
 	// -----------------------------------------------------------------------
 
 	property alias cfg_layout: textInput.text
+
+	property string layoutKey: undefined
+
+	RowLayout {
+		Layout.fillWidth: true
+
+		PlasmaComponents.ComboBox {
+			textRole: "text"
+			model: []
+			Component.onCompleted: {
+				var tmp = []
+				var idx = 0
+				var currentIdx = undefined
+				for(const key in Layouts.layouts) {
+					var name = Layouts.layouts[key]['name']
+					tmp.push({'value':key, 'text': name})
+					if (key === plasmoid.configuration['layoutName']) currentIdx = idx
+					idx++
+				}
+				model = tmp
+
+				currentIndex = currentIdx
+			}
+			onCurrentIndexChanged: layoutKey = model[currentIndex]['value']
+		}
+
+		PlasmaComponents.Button {
+			text: i18n('Clone')
+			onClicked: textInput.text = Layouts.layouts[layoutKey]['html']
+		}
+	} // themeSelector
+
+
 
 	QtControls.TextArea {
 		id: textInput

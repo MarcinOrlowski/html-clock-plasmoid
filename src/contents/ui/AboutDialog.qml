@@ -60,7 +60,7 @@ Dialog {
 				if (currentYear != year) {
 					year += `-${currentYear}`
 				}
-				return `&copy;${year} by <strong><u>Marcin Orlowski</u></strong>`
+				return `&copy;${year} by <strong><u>${Meta.authorName}</u></strong>`
 			}
 			MouseArea {
 				anchors.fill: parent
