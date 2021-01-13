@@ -23,6 +23,11 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
+	property string layoutKey: plasmoid.configuration.layoutKey
+	property bool useUserLayout: plasmoid.configuration.useUserLayout
+
+	// ------------------------------------------------------------------------------------------------------------------------
+
 	MouseArea {
 		id: mouseArea
 		anchors.fill: parent
@@ -40,7 +45,8 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
-		font.pixelSize: 20  //Qt.application.font.pixelSize * 0.8
+//		font.pixelSize: pixelSize  //Qt.application.font.pixelSize * 0.8
+		font.pixelSize: useUserLayout ? 20 : Layouts.layouts[layoutKey]['fontPixelSize']
 	}
 
 	Timer {
@@ -55,13 +61,14 @@ ColumnLayout {
 	onLayoutChanged: updateClock()
 
 	function updateClock() {
-		var htmlString = layout
-		if (htmlString == '') htmlString = Layouts.layouts[Layouts.defaultLayout]['html']
+		var layoutHtml = useUserLayout 
+				? plasmoid.configuration.layout
+				: Layouts.layouts[layoutKey]['html']
 
-		// https://doc.qt.io/qt-5/qml-qtquick-text.html#textFormat-prop
-		// https://doc.qt.io/qt-5/richtext-html-subset.html
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		clock.text = DTF.format(htmlString, localeToUse)
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
+				? plasmoid.configuration.useSpecificLocaleLocaleName 
+				: ''
+		clock.text = DTF.format(layoutHtml, localeToUse)
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

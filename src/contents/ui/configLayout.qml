@@ -39,7 +39,7 @@ ColumnLayout {
 				for(const key in Layouts.layouts) {
 					var name = Layouts.layouts[key]['name']
 					tmp.push({'value':key, 'text': name})
-					if (key === plasmoid.configuration['layoutName']) currentIdx = idx
+					if (key === plasmoid.configuration['layoutKey']) currentIdx = idx
 					idx++
 				}
 				model = tmp
@@ -51,7 +51,7 @@ ColumnLayout {
 
 		PlasmaComponents.Button {
 			text: i18n('Clone')
-			onClicked: textInput.text = Layouts.layouts[layoutKey]['html']
+			onClicked: textInput.text = Layouts.layouts[layoutKey]['html'].trim()
 		}
 	} // themeSelector
 
