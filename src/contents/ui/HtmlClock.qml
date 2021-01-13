@@ -45,8 +45,9 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
-//		font.pixelSize: pixelSize  //Qt.application.font.pixelSize * 0.8
-		font.pixelSize: useUserLayout ? 20 : Layouts.layouts[layoutKey]['fontPixelSize']
+		font.pixelSize: useUserLayout 
+							? plasmoid.configuration.fontPixelSize
+							: Layouts.layouts[layoutKey]['fontPixelSize']
 	}
 
 	Timer {

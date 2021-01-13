@@ -23,6 +23,7 @@ ColumnLayout {
 	// -----------------------------------------------------------------------
 
 	property alias cfg_layout: textInput.text
+	property alias cfg_fontPixelSize: fontPixelSize.value
 
 	property string layoutKey: undefined
 
@@ -103,6 +104,34 @@ ColumnLayout {
 					onTriggered: textInput.paste()
 				}
 			}
+		}
+	} // TextArea
+
+	Kirigami.FormLayout {
+		anchors.left: parent.left
+		anchors.right: parent.right
+
+		PlasmaComponents.SpinBox {
+			id: fontPixelSize
+			editable: true
+			from: 1
+			to: 100
+			stepSize: 1
+			Kirigami.FormData.label: i18n("Base font pixel size")
+		}
+	}
+
+	RowLayout {
+		PlasmaComponents.Label {
+			text: 'Documentation: '
+		}
+		ClickableLabel {
+			text: '<u>Placeholders</u>'
+			url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid'
+		}
+		ClickableLabel {
+			text: '<u>Supported HTML tags</u>'
+			url: 'https://doc.qt.io/qt-5/richtext-html-subset.html'
 		}
 	}
 
