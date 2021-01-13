@@ -55,8 +55,6 @@ ColumnLayout {
 		}
 	} // themeSelector
 
-
-
 	QtControls.TextArea {
 		id: textInput
 		Layout.fillWidth: true
