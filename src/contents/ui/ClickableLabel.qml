@@ -13,6 +13,8 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 PlasmaComponents.Label {
 	property string url: ''
 	text: ''
+
+ 	textFormat: Text.RichText
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
