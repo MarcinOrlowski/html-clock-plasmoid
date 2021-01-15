@@ -26,6 +26,7 @@ PlasmaComponents.Label {
 			} else {
 				console.debug('No URL provided.')
 			}
+		}
 	}
 }
 
