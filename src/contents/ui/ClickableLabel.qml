@@ -11,15 +11,21 @@ import QtQuick 2.0
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 PlasmaComponents.Label {
-	property string url: ''
-	text: ''
+	// URL to open once the label is clicked.
+	property string url: ""
+
+	// Optional label to be shown. If not provided, URL will be used as label.
+	text: url
 
  	textFormat: Text.RichText
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
-			Qt.openUrlExternally(url !== "" ? url : text)
-		}
+			if (url !== "") {
+				Qt.openUrlExternally(url)
+			} else {
+				console.debug('No URL provided.')
+			}
 	}
 }
 
