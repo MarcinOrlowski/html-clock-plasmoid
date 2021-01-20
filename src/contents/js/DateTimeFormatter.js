@@ -102,9 +102,15 @@ function format(template, localeName) {
 
 	map['t'] = now.toLocaleTimeString(locale, 't')
 
-//	system short format
-//	system long format
-//	default system format
+	// date long/short
+	map['ldl'] = now.toLocaleDateString(locale, Locale.LongFormat)
+	map['lds'] = now.toLocaleDateString(locale, Locale.ShortFormat)
+	// time long/short
+	map['ltl'] = now.toLocaleTimeString(locale, Locale.LongFormat)
+	map['lts'] = now.toLocaleTimeString(locale, Locale.ShortFormat)
+	// date, time long/short
+	map['ldtl'] = now.toLocaleString(locale, Locale.LongFormat)
+	map['ldts'] = now.toLocaleString(locale, Locale.ShortFormat)
 
 	for(var key in map) {
 		template = template.replace(new RegExp(`{${key}}`, 'g'), map[key])

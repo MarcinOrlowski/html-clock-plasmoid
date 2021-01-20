@@ -13,7 +13,7 @@ var layouts = {
 </center>
 `},
 
-	'date_time_vertical_': {
+	'date-time-vertical': {
 		"name": "Date&Time (vertical)",
 		"fontPixelSize": 20,
 		"html": `
@@ -23,6 +23,24 @@ var layouts = {
 <span style="font-size: 30px; color: white;">{ii}</span>
 <br />
 <span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>
+</center>
+`},
+
+	'system-time-short': {
+		"name": "System time format (short)",
+		"fontPixelSize": 20,
+		"html": `
+<center>
+{lts}
+</center>
+`},
+
+	'system-time-long': {
+		"name": "System time format (long)",
+		"fontPixelSize": 20,
+		"html": `
+<center>
+{ltl}
 </center>
 `}
 
