@@ -37,4 +37,10 @@ Placeholders
 | {a}		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
 | {Aa}		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
 | {t}		| Timezone name (i.e. "UTC")
+| {ldl}		| Locale based date long format |
+| {lds}		| Locale based date short format |
+| {ltl}		| Locale based time long format |
+| {lts}		| Locale based time short format |
+| {ldtl}	| Locale based date and time long format |
+| {ldts}	| Locale based date and time short format |
 
