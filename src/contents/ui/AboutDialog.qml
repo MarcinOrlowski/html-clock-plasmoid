@@ -1,10 +1,10 @@
 /**
- * HTML Clock Plasmoid
+ * Weekday Grid widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
  * @copyright 2020-2021 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
- * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
+ * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
 import QtQuick 2.1
@@ -32,14 +32,12 @@ Dialog {
 		Layout.fillHeight: true
 		Layout.margins: 30
 
-/*
 		Image {
 			id: aboutLogo
 			Layout.alignment: Qt.AlignHCenter
 			fillMode: Image.PreserveAspectFit
 			source: plasmoid.file('', 'images/logo.png')
-		} // aboutLogo
-*/
+		}
 
 		// metadata access is not available until very recent Plasma
 		// so as a work around we have it auto-generated as JS file
@@ -51,9 +49,7 @@ Dialog {
 			text: `${Meta.title} v${Meta.version}`
 		}
 
-		CopyrightLabel {
-			Layout.alignment: Qt.AlignHCenter
-		}
+		CopyrightLabel { }
 
 		Item {
 			height: 20
@@ -62,7 +58,7 @@ Dialog {
 		ClickableLabel {
 			Layout.alignment: Qt.AlignHCenter
 			text: i18n('Visit <u>project page</u> on Github')
-			url:  Meta.url
+			url: Meta.url
 		}
 
 	} // aboutMainContainer
