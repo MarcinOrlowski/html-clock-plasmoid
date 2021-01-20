@@ -1,7 +1,13 @@
 HTML Clock for KDE
 ==================
 
-Plasma/KDE clock widget, stylable with QT provided subset of HTML.
+Plasma/KDE clock widget, stylable with QT provided subset of HTML
+
+
+![Widget in action](img/widget.png)
+
+
+For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
 
 
 Placeholders
