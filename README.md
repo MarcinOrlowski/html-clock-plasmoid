@@ -45,12 +45,21 @@ Allows you to select one of predefined layouts or use custom one, as defined in 
    different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
    Ensure such locale is available in your system.
 
+### User Layout ###
+
+Aside from using built-in layouts, you can create your own, either from scratch, or using any of built-in
+layouts as starting point.
+
+![User Layout](img/config-layout.png)
+
+ * **Clone**: Copies markup of selected built-in layout to text edit area editor.
+ * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified elsewehere (i.e. CSS).
 
 ### Calendar View ###
 
 Configures built-in calendar view, shown (by default) on widget tap.
 
-![Calendara View](img/config-calendar.png)
+![Calendar View](img/config-calendar.png)
 
  * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
  * **Show week numbers**: specifies if popup calendar view should also show week numbers.
