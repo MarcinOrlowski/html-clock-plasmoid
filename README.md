@@ -36,7 +36,9 @@ Placeholders
 | {kk}		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
 | {k}		| current hour, 12hrs clock (i.e. "1", "11") |
 | {ii}		| current minute, zero prefixed (i.e. "01", "35") |
-| {i}		| current minute, zero prefixed (i.e. "1", "35") |
+| {i}		| current minute (i.e. "1", "35") |
+| {ss}		| current seconde, zero prefixed (i.e. "01", "35") |
+| {s}		| current second (i.e. "1", "35") |
 | {AA}		| upper-cased AM/PM marker (i.e. "AM") |
 | {A}		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
 | {aa}		| lower-cased am/pm marker (i.e. "am") |

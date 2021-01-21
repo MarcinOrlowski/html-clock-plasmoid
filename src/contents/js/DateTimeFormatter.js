@@ -16,6 +16,9 @@
 **  str: string to pad
 **  len: length to pad to (if str is shorter). Default 2
 **  padChar: padding character. Default is '0' (zero)
+**
+** Returns:
+**  Returns padded string.
 */
 function pad(str, len, padChar) {
 	if (typeof(str) !== "string") str = str.toString()
@@ -30,6 +33,15 @@ function pad(str, len, padChar) {
 	return str
 }
 
+/*
+** Uppercase first character of string.
+**
+** Arguments:
+**  string: string to uppercase
+**
+** Returns:
+**  Returns string with first character uppercased (if possible).
+*/
 function ucfirst(string) {
 	return (string.length > 1)
 			? string.substr(0, 1).toUpperCase() + string.substr(1)
@@ -44,6 +56,15 @@ function getDayOfYear(dt) {
 	return Math.floor(diff / oneDay)
 }
 
+/*
+** Returns number of year week.
+**
+** Arguments:
+**  dt: Date object to be used for calculations.
+**
+** Returns:
+**  Number of year week.
+*/
 function getWeekOfYear(dt) {
 	var tdt = new Date(dt.valueOf())
 	var dayn = (dt.getDay() + 6) % 7
@@ -57,9 +78,15 @@ function getWeekOfYear(dt) {
 	return 1 + Math.ceil((firstThursday - tdt) / 604800000)
 }
 
-/**
- ** localeName: locale name to use (i.e. 'en_US', 'pl_PL'). System default will be used if not provided.
- */
+/*
+** Processes provied template string, replacing all known placeholders
+** with corresponding values.
+**
+** Arguments:
+**     template: string to be processed
+**   localeName: (optional) locale name to use (i.e. 'en_US', 'pl_PL').
+**               System default will be used if not provided.
+*/
 function format(template, localeName) {
 	if (localeName === undefined) localeName = ''
 
@@ -75,8 +102,6 @@ function format(template, localeName) {
 	map['M'] = map['MM'].substr(0, 1)
 	map['mm'] = Qt.formatDate(now, 'MM')
 	map['m'] = Qt.formatDate(now, 'M')
-//	ss
-//	s
 	map['DDD'] = now.toLocaleDateString(locale, 'dddd')
 	map['DD'] = now.toLocaleDateString(locale, 'ddd')
 	map['D'] = map['DD'].substr(0, 1)
@@ -94,12 +119,17 @@ function format(template, localeName) {
 	map['k'] = now.getHours()
 	map['ii'] = pad(now.getMinutes())
 	map['i'] = now.getMinutes()
+	map['ss'] = pad(now.getSeconds())
+	map['s'] = now.getSeconds()
+
+	// am/pm
 	map['AA'] = Qt.formatTime(now, 'AP')
 	map['A'] = map['AA'].substr(0, 1)
 	map['aa'] = map['AA'].toLowerCase()
 	map['a'] = map['aa'].substr(0, 1)
 	map['Aa'] = map['A'] + map['aa'].substr(-1)
 
+	// name of current timezone
 	map['t'] = now.toLocaleTimeString(locale, 't')
 
 	// date long/short
