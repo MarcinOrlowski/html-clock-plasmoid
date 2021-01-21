@@ -21,6 +21,8 @@ Kirigami.FormLayout {
 
 	property alias cfg_layoutKey: layoutKey.text
 	property alias cfg_useUserLayout: useUserLayout.checked
+	property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
+	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 
 	Text {
 		visible: false
@@ -28,7 +30,7 @@ Kirigami.FormLayout {
 	}
 
 	PlasmaComponents.ComboBox {
-		Kirigami.FormData.label: i18n('Theme')
+		Kirigami.FormData.label: i18n('Layout')
 		enabled: !cfg_useUserLayout
 		textRole: "text"
 		model: []
@@ -54,6 +56,26 @@ Kirigami.FormLayout {
 		id: useUserLayout
 		text: i18n("Use user layout")
 	}
+
+	Item {
+		height: 10
+	}
+
+
+	RowLayout {
+		CheckBox {
+			id: useSpecificLocaleEnabled
+			text: i18n("Use non default locale")
+		}
+
+		TextField {
+			id: useSpecificLocaleLocaleName
+			enabled: cfg_useSpecificLocaleEnabled
+			Kirigami.FormData.label: i18n('Name of locale')
+		}
+	}
+
+
 
 } // FormLayout
 

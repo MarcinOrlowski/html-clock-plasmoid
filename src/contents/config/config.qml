@@ -12,19 +12,14 @@ import org.kde.plasma.configuration 2.0
 
 ConfigModel {
 	ConfigCategory {
-		name: i18n("Appearance")
+		name: i18n("General")
 		icon: "view-visible"
-		source: "configAppearance.qml"
+		source: "configGeneral.qml"
 	}
 	ConfigCategory {
 		name: i18n("User Layout")
 		icon: "view-visible"
 		source: "configLayout.qml"
-	}
-	ConfigCategory {
-		name: i18n("Locale")
-		icon: "languages"
-		source: "configLocale.qml"
 	}
 	ConfigCategory {
 		name: i18n("Calendar View")
