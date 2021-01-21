@@ -65,13 +65,12 @@ Kirigami.FormLayout {
 	RowLayout {
 		CheckBox {
 			id: useSpecificLocaleEnabled
-			text: i18n("Use non default locale")
+			text: i18n("Locale to use")
 		}
 
 		TextField {
 			id: useSpecificLocaleLocaleName
 			enabled: cfg_useSpecificLocaleEnabled
-			Kirigami.FormData.label: i18n('Name of locale')
 		}
 	}
 
