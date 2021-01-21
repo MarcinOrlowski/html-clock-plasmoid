@@ -3,19 +3,76 @@ HTML Clock for KDE
 
 Plasma/KDE clock widget, stylable with QT provided subset of HTML
 
-
 ![Widget in action](img/widget.png)
-
 
 For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
 
+---
 
-Placeholders
-============
+## Table of Contents ##
 
- Your formatting string can contain anything you like, however certain sequences are considered
+ * [Configuration](#configuration)
+   * [General](#general)
+   * [User Layout](#user-layout)
+   * [Calendar View](#calendar-view)
+   * [Tooltip](#tooltip)
+ * [Placeholders](#placeholders)
+ * [Installation](#installation)
+   * [Using built-in installer](#using-built-in-installer)
+   * [Manual installation](#manual-installation)
+ * [Upgrading](#upgrading)
+ * [Additional resources](#additional-resources)
+ * [Changelog](CHANGES.md)
+ * [License](#license)
+
+---
+
+## Configuration ##
+
+HTML Clock widget is very flexible and configurable by design. Almost all important spects of its behavior
+can be modified to fit your needs.
+
+### General ###
+
+Allows you to select one of predefined layouts or use custom one, as defined in "User Layout" pane.
+
+![General](img/config-general.png)
+
+ * **Layout**: selects widget built-in clock layout.
+ * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
+ * **Locale to use**: By default, the system wide locale settings are used while creating day labels.
+   If you want to override this (i.e. have English originated day labels while your whole system uses
+   different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
+   Ensure such locale is available in your system.
+
+
+### Calendar View ###
+
+Configures built-in calendar view, shown (by default) on widget tap.
+
+![Calendara View](img/config-calendar.png)
+
+ * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
+ * **Show week numbers**: specifies if popup calendar view should also show week numbers.
+
+---
+
+### Tooltip ###
+
+Configures widget tooltip information, shown when you hoover over the widget.
+
+![Tooltip](img/config-tooltip.png)
+
+ * **Main text**: template for main tooltip text line.
+ * **Sub text**: template for tooltip subtext line.
+
+---
+
+## Placeholders ##
+
+ Both HTML layout or tooltip string can contain anything you like, however certain sequences are considered
  placeholders, and will be replaced by corresponding values. Non-placeholders are returned
- unprocessed
+ unprocessed.
 
 | Placeholder | Description |
 |-------------|-------------|
@@ -37,7 +94,7 @@ Placeholders
 | {k}		| current hour, 12hrs clock (i.e. "1", "11") |
 | {ii}		| current minute, zero prefixed (i.e. "01", "35") |
 | {i}		| current minute (i.e. "1", "35") |
-| {ss}		| current seconde, zero prefixed (i.e. "01", "35") |
+| {ss}		| current second, zero prefixed (i.e. "01", "35") |
 | {s}		| current second (i.e. "1", "35") |
 | {AA}		| upper-cased AM/PM marker (i.e. "AM") |
 | {A}		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
@@ -51,4 +108,60 @@ Placeholders
 | {lts}		| Locale based time short format |
 | {ldtl}	| Locale based date and time long format |
 | {ldts}	| Locale based date and time short format |
+
+---
+
+## Installation ##
+
+You should be able to install HTML Clock widget either using built-in Plasma Add-on installer
+or manually, by downloading `*.plasmoid` file either from project
+[Github repository](https://github.com/MarcinOrlowski/html-clock-plasmoid/) or
+from [KDE Store](https://www.pling.com/p/1473016/)
+
+### Using built-in installer ###
+
+To install widget using Plasma built-in mechanism, press right mouse button over your desktop
+or panel and select "Add Widgets..." from the context menu, then "Get new widgets..." eventually
+choosing "Download New Plasma Widgets...". Then search for "HTML Clock" in "Plasma Add-On Installer" window.
+
+![Plasma Add-On Installer](img/plasma-installer.png)
+
+### Manual installation ###
+
+Download `*.plasmoid` file from [project Release section](https://github.com/MarcinOrlowski/html-clock-plasmoid/releases).
+Then you can either install it via Plasmashell's GUI, by clicking right mouse button over your desktop or panel and
+selecting "Add widgets...", then "Get new widgets..." eventually choosing "Install from local file..." and pointing to downloaded
+`*.plasmoid` file.
+
+Alternatively you can install it using your terminal, with help of `kpackagetool5`:
+
+    kpackagetool5 --install /PATH/TO/DOWNLOADED/htmlclock.plasmoid 
+
+## Upgrading ##
+
+If you already have widget running and there's newer release your want to install, use `kpackagetool5`
+with `--upgrade` option. This will update current installation while keeping your settings intact:
+
+    kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
+
+**NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
+so you may want to convince Plasma by doing manual reload:
+
+    kquitapp5 plasmashell ; kstart5 plasmashell
+
+**NOTE:** this will **NOT** log you out nor affects any other apps. 
+
+---
+
+## Additional resources ##
+
+ * [Weekday Grid widget in KDE store](https://www.pling.com/p/1473016/)
+ * [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools)
+
+---
+
+## License ##
+
+ * Written and copyrighted &copy;2020-2021 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+ * Weekday Grid widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
