@@ -164,7 +164,7 @@ so you may want to convince Plasma by doing manual reload:
 
 ## Additional resources ##
 
- * [Weekday Grid widget in KDE store](https://www.pling.com/p/1473016/)
+ * [HTML Clock widget in KDE store](https://www.pling.com/p/1473016/)
  * [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools)
 
 ---
