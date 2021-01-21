@@ -1,4 +1,4 @@
-* @dev
+* v1.1.0 (2021-01-21)
   * Added support for `{s}` and `{ss}` placeholders
   * Rearranged configuration panes
 
