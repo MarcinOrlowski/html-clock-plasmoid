@@ -27,6 +27,16 @@ ColumnLayout {
 
 	property string layoutKey: undefined
 
+	Kirigami.InlineMessage {
+		id: infoMessageWidget
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Information
+		text: i18n('You are currently using built-in layout. No changes made in this pane will be reflected unless you enable "Use user layout" option in "General" settings.')
+		showCloseButton: true
+		visible: !plasmoid.configuration.useUserLayout
+	}
+
 	RowLayout {
 		Layout.fillWidth: true
 
