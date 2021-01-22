@@ -26,8 +26,9 @@ Add any other context or screenshots if you find that necessary.
 ** Confirmation **
 
 * [ ] I confirm this is my original work.
+* [ ] I attached screenshot of my layout to this ticket.
 * [ ] I grant full and unrevocable rights to use the layout with HTML Clock widget free of charge.
 * [ ] I grant users of HTML Clock widget right to use my layout free of charge and freely alter my layout if they need to.
-* [ ] I want to be credited as <PUT YOUR NAME HERE>
-* [ ] This layout is licensed under <PUT LICENSE NAME HERE, PREFERABLY MIT>
+* [ ] I want to be credited as <PUT YOUR NAME HERE>.
+* [ ] This layout is licensed under <PUT LICENSE NAME HERE, PREFERABLY MIT>.
 
