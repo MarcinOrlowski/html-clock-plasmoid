@@ -1,4 +1,4 @@
-* @dev
+* v1.1.1 (2021-01-22)
   * Layout editor now warns if user theme is being edited but not enabled.
   * Updated documentation.
   * Added new layout with superscripted seconds.
