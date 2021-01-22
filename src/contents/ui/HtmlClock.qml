@@ -19,8 +19,6 @@ import "../js/layouts.js" as Layouts
 ColumnLayout {
 	id: mainContainer
 
-	Layout.fillWidth: true
-
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	property string layoutKey: plasmoid.configuration.layoutKey
