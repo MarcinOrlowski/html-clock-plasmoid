@@ -103,20 +103,20 @@ Configures widget tooltip information, shown when you hoover over the widget.
 | {k}		| current hour, 12hrs clock (i.e. "1", "11") |
 | {ii}		| current minute, zero prefixed (i.e. "01", "35") |
 | {i}		| current minute (i.e. "1", "35") |
-| {ss}		| current second, zero prefixed (i.e. "01", "35") |
-| {s}		| current second (i.e. "1", "35") |
+| {ss}		| current second, zero prefixed (i.e. "01", "35") <sup>v1.1.0+</sup>|
+| {s}		| current second (i.e. "1", "35") <sup>v1.1.0+</sup>|
 | {AA}		| upper-cased AM/PM marker (i.e. "AM") |
 | {A}		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
 | {aa}		| lower-cased am/pm marker (i.e. "am") |
 | {a}		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
 | {Aa}		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
 | {t}		| Timezone name (i.e. "UTC")
-| {ldl}		| Locale based date long format |
-| {lds}		| Locale based date short format |
-| {ltl}		| Locale based time long format |
-| {lts}		| Locale based time short format |
-| {ldtl}	| Locale based date and time long format |
-| {ldts}	| Locale based date and time short format |
+| {ldl}		| Locale based date long format <sup>v1.1.0+</sup>|
+| {lds}		| Locale based date short format <sup>v1.1.0+</sup>|
+| {ltl}		| Locale based time long format <sup>v1.1.0+</sup>|
+| {lts}		| Locale based time short format <sup>v1.1.0+</sup>|
+| {ldtl}	| Locale based date and time long format <sup>v1.1.0+</sup>|
+| {ldts}	| Locale based date and time short format <sup>v1.1.0+</sup>|
 
 ---
 
