@@ -23,7 +23,8 @@ instead of currently observed behaviour.
 **Runtime environment**
  - HTML Clock version (see About dialog)
  - Plasma version (output of `plasmashell --version`)
- - Name and version of OS: (just paste output of `lsb_release -a`)
+ - Name and version of OS: (just paste output of `lsb_release -d`)
+ - If you use non-standard dock (i.e. Latte), put its name.
 
 **Notes**
 Any additional information that may be helpful diagnosing the problem.
