@@ -40,7 +40,6 @@ ColumnLayout {
 
 	PlasmaComponents.Label {
 		id: clock
-		Layout.fillWidth: true
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
 		font.pixelSize: useUserLayout 
