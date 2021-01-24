@@ -12,6 +12,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/layouts.js" as Layouts
@@ -47,12 +48,12 @@ ColumnLayout {
 							: Layouts.layouts[layoutKey]['fontPixelSize']
 	}
 
-	Timer {
+	PlasmaCore.DataSource {
+		engine: "time"
+		connectedSources: ["Local"]
 		interval: 1000
-		repeat: true
-		running: true
-		triggeredOnStart: true
-		onTriggered: updateClock()
+		intervalAlignment: PlasmaCore.Types.NoAlignment
+		onDataChanged: updateClock()
 	}
 
 	readonly property string layout: plasmoid.configuration.layout
