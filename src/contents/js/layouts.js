@@ -4,7 +4,7 @@ var defaultLayout='__default__'
 var layouts = {
 	'__default__': {
 		"name": "Default",
-		"fontPixelSize": 20,
+		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -15,7 +15,7 @@ var layouts = {
 
 	'time-seconds-sup': {
 		"name": "Time w/seconds",
-		"fontPixelSize": 20,
+		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -28,7 +28,7 @@ var layouts = {
 
 	'date-time-seconds-sup-vertical': {
 		"name": "Date&Time w/seconds (vertical)",
-		"fontPixelSize": 20,
+		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -41,7 +41,7 @@ var layouts = {
 
 	'date-time-vertical': {
 		"name": "Date&Time (vertical)",
-		"fontPixelSize": 20,
+		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -54,7 +54,7 @@ var layouts = {
 
 	'system-time-short': {
 		"name": "System time format (short)",
-		"fontPixelSize": 20,
+		"fontPixelSize": 1,
 		"html": `
 <center>
 {lts}
@@ -63,7 +63,7 @@ var layouts = {
 
 	'system-time-long': {
 		"name": "System time format (long)",
-		"fontPixelSize": 20,
+		"fontPixelSize": 1,
 		"html": `
 <center>
 {ltl}

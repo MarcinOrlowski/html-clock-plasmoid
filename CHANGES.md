@@ -1,3 +1,7 @@
+* @dev
+  * Replaced `Timer` with "time" DataSource.
+  * All built-in layouts use 1px base font size to make layouts more compact.
+
 * v1.1.2 (2021-01-24)
   * Fixed widget width being truncated in some cases. Reported by @NICHOLAS85 [#11]
 
