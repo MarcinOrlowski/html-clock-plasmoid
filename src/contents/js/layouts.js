@@ -8,7 +8,7 @@ var layouts = {
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
-<span style="font-size: 25px; color: #79808d;">:</span>
+<span style="font-size: 25px; font-weight: bold; color: #{blink}79808d;">:</span>
 <span style="font-size: 30px; color: white;">{ii}</span>
 </center>
 `},
@@ -45,7 +45,7 @@ var layouts = {
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
-<span style="font-size: 25px; color: #79808d;">:</span>
+<span style="font-size: 25px; font-weight: bold: color: #{blink}ff006e;">:</span>
 <span style="font-size: 30px; color: white;">{ii}</span>
 <br />
 <span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>
