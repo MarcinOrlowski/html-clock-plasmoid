@@ -17,6 +17,10 @@ For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-htm
    * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
  * [Placeholders](#placeholders)
+   * [Date and Time](#date-and-time)
+   * [Special placeholders](#special-placeholders)
+ * [Tips and tricks](#tips-and-tricks)
+   * [Blinking](#blinking)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
@@ -83,6 +87,10 @@ Configures widget tooltip information, shown when you hoover over the widget.
  placeholders, and will be replaced by corresponding values. Non-placeholders are returned
  unprocessed.
 
+### Date and Time ###
+
+These are date and time related, and will return values based on your current calendar/clock and system timezone settings.
+
 | Placeholder | Description |
 |-------------|-------------|
 | {yy} 		| long year (i.e. "2009") |
@@ -117,6 +125,32 @@ Configures widget tooltip information, shown when you hoover over the widget.
 | {lts}		| Locale based time short format <sup>v1.1.0+</sup>|
 | {ldtl}	| Locale based date and time long format <sup>v1.1.0+</sup>|
 | {ldts}	| Locale based date and time short format <sup>v1.1.0+</sup>|
+
+### Special placeholders ###
+
+These are extra placeholders that are implemented to work around limitation of QT's supported HTML/CSS.
+
+| Placeholder | Description |
+|-------------|-------------|
+| {blink} 		| Will return '00' on even seconds and 'FF' on odd seconds. You can use this to immitate [blinking](#blinking). |
+
+---
+
+## Tips and tricks ##
+
+QT support for HTML and CSS is not covering all features available, so here are some tricks you
+can pull to achieve effects offten desired while creating new clock.
+
+### Blinking ###
+
+Blinking seconds (usually in for of blinking `:` separator between hours and minutes. To emulate blinking effects
+we need to do some tricks with text color of the element we want to make blinking. Fortunately, QT supports
+color alpha channel, so there's special placeholder `{blink}` that will be replaced by `00` (zero zero) for
+evey even second, and by `FF` for every odd seconds. So all you need is to insert `{blink}` in your markup, i.e.
+
+```html
+<span style="color: #{blink}ff0000;">BLINK!</span>
+```
 
 ---
 
