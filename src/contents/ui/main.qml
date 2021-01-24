@@ -60,11 +60,15 @@ Item {
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	Plasmoid.toolTipMainText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
+			? plasmoid.configuration.useSpecificLocaleLocaleName
+			: ''
 		return DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
 	}
 	Plasmoid.toolTipSubText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
+			? plasmoid.configuration.useSpecificLocaleLocaleName
+			: ''
 		return DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
 	}
 
@@ -83,6 +87,4 @@ Item {
 		checkInterval: (((1000*60)*60)*24*7)
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
-
-} // main
+} // root
