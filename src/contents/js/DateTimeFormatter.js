@@ -116,7 +116,7 @@ function format(template, localeName) {
 	map['hh'] = pad(now.getHours())
 	map['h'] = now.getHours()
 	map['kk'] = pad(now.getHours()%12)
-	map['k'] = now.getHours()
+	map['k'] = now.getHours()%12
 	map['ii'] = pad(now.getMinutes())
 	map['i'] = now.getMinutes()
 	map['ss'] = pad(now.getSeconds())
