@@ -133,6 +133,16 @@ ColumnLayout {
 
 	RowLayout {
 		PlasmaComponents.Label {
+			text: 'Created fancy layout?'
+		}
+		ClickableLabel {
+			text: '<u>Share it!</u>'
+			url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid/issues/new?assignees=&labels=enhancement&template=new_layout.md'
+		}
+	}
+
+	RowLayout {
+		PlasmaComponents.Label {
 			text: 'Documentation: '
 		}
 		ClickableLabel {
