@@ -67,7 +67,11 @@ ColumnLayout {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName 
 				: ''
-		clock.text = DTF.format(layoutHtml, localeToUse)
+		var text = DTF.format(layoutHtml, localeToUse)
+
+		var now = new Date()
+		var blinkAlpha = (now.getSeconds() % 2) ? '00' : 'FF'
+		clock.text = text.replace(new RegExp('{blink}', 'g'), blinkAlpha)
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
