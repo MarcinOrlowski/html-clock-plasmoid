@@ -1,3 +1,6 @@
+// https://doc.qt.io/qt-5/qtqml-javascript-resources.html
+.pragma library
+
 var defaultLayout='__default__'
 
 // Use backticks for multiline strings.

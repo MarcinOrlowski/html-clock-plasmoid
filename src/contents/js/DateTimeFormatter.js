@@ -7,6 +7,9 @@
  * @link      https://github.com/MarcinOrlowski/datetimeformatter
  */
 
+// https://doc.qt.io/qt-5/qtqml-javascript-resources.html
+.pragma library
+
 /*
 ** Pads string with leading zeros to ensure returned
 ** string is at least 'len' characters long. If string
