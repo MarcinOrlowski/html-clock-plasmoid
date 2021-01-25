@@ -1,10 +1,10 @@
 // https://doc.qt.io/qt-5/qtqml-javascript-resources.html
 .pragma library
 
-var defaultLayout='__default__'
+const defaultLayout='__default__'
 
 // Use backticks for multiline strings.
-var layouts = {
+const layouts = {
 	'__default__': {
 		"name": "Default",
 		"fontPixelSize": 20,
