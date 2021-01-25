@@ -18,6 +18,7 @@ For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-htm
    * [Tooltip](#tooltip)
  * [Placeholders](#placeholders)
    * [Date and Time](#date-and-time)
+   * [Formatting directives](#formatting-directives)
    * [Special placeholders](#special-placeholders)
  * [Tips and tricks](#tips-and-tricks)
    * [Blinking](#blinking)
@@ -126,6 +127,22 @@ These are date and time related, and will return values based on your current ca
 | {ldtl}	| Locale based date and time long format <sup>v1.1.0+</sup>|
 | {ldts}	| Locale based date and time short format <sup>v1.1.0+</sup>|
 
+ For example, `Today is {DDD}` will produce `Today is Sunday` (assuming today is named "Sunday").
+
+### Formatting directives ###
+
+ You can also use optional formatting directives. The syntax is `{PLACEHOLDER:DIRECTIVE}`
+ and supported directives are:
+
+| Directive | Description |
+|-------------|-------------|
+| U | Turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
+| L | Turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
+| u | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
+| 00 | Ensures placeholder value is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
+
+ **NOTE:** at the moment, formatting directives cannot be combined.
+
 ### Special placeholders ###
 
 These are extra placeholders that are implemented to work around limitation of QT's supported HTML/CSS.
@@ -133,6 +150,16 @@ These are extra placeholders that are implemented to work around limitation of Q
 | Placeholder | Description |
 |-------------|-------------|
 | {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). |
+
+**NOTE:** Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you
+can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as
+`{flip}` is always processed separately as first one.
+
+**LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is currently not allowed and will cause
+off effects related to how placeholders are currently parsed. This unfortunately this got further implications:
+  * `{flip}` cannot be nested into other `{flip}`
+  * while you can flip other placeholders, you cannot use [formatting modifiers](#formatting-directives).
+  * you cannot flip HTML markup with embedded CSS due to `:` being CSS separator. You can flip part of CSS though.
 
 ---
 
@@ -150,9 +177,7 @@ transparency). So to make thing blink, we will be simply cycling between fully t
 every second. To achieve that effect, you need to use special placeholder called `{flip:XX:YY}`, which is simply
 replaced by `XX` on every even second, and by `YY` on every odd second. 
 
-**NOTE:** Both `XX` and `YY` can be almost any text you want and can be used in any place of you markup, so
-you can flip parts of your CSS style, HTML tags or **even other placeholders!**, as `{flip}` is always
-processed first.
+#### Examples ####
 
 Knowing that CSS color format is `#AARRGGBB` where `AA` is alpha channel value from `00` being fully transparent
 to `FF` (255 in decimal) being fully opaque, we can do this:
@@ -186,7 +211,7 @@ You can use `{flip}` as many times as you want, so you can easily achieve this:
 As already mentioned, you can also flip other placeholders:
 
 ```html
-{flip:
+{flip:{MMM} {dd}, {yyyy}:Today is {DDD}}
 ```
 
 ![Flip example 03](img/flip-03.gif)
