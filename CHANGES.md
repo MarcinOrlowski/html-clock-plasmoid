@@ -1,7 +1,7 @@
 * v1.2.0 (2021-01-25)
   * New placeholder `{flip}` that helps adding some nice tricks with your layouts.
   * Fixed `{k}` to return correct PM hours. PR by @NICHILAS85 [#14]
-  * Fixed `{k}` and `{kk}` to return `12` instead of `0`. PR by @NICHILAS85 [#14]
+  * Fixed `{k}` and `{kk}` to return `12` instead of `0`. PR by @NICHILAS85 [#15]
   * Replaced `Timer` with "time" DataSource.
   * All built-in layouts use 1px base font size to make layouts more compact.
 
