@@ -43,19 +43,19 @@ var layouts = {
 		"html": `
 <table style="border: none;" align="center">
 <tr>
-<td valign="middle">
+  <td valign="middle">
     <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>
     <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>
     <span style="font-size: 40px; color: white;">{ii}</span>
-</td>
-<td width="1" style="vertical-align: middle; background-color: #aa004a; padding-right: 0px;"><br />&nbsp;<br /></td>
-<td>
-<table style="border: 2px solid #0000ff;">
-    <tr><td>{DD:U}</td></tr>
-    <tr><td>{dd}</td></tr>
-    <tr><td>{MM:U}</td></tr>
-</table>
-</td>
+  </td>
+  <td width="1" style="vertical-align: middle; background-color: #FFff006e; padding-right: 0px;"><br />&nbsp;<br /></td>
+  <td>
+    <table style="border: none;">
+      <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DD:U}</span></td></tr>
+      <tr><td align="center"><span style="font-size: 10px; color: white;">{dd}</span></td></tr>
+      <tr><td align="center"><span style="font-size: 10px; color: white;">{MM:U}</span></td></tr>
+    </table>
+  </td>
 </tr>
 </table>
 `},
