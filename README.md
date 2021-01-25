@@ -132,7 +132,7 @@ These are extra placeholders that are implemented to work around limitation of Q
 
 | Placeholder | Description |
 |-------------|-------------|
-| {blink} 		| Will return '00' on even seconds and 'FF' on odd seconds. You can use this to immitate [blinking](#blinking). |
+| {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). |
 
 ---
 
@@ -143,14 +143,53 @@ can pull to achieve effects offten desired while creating new clock.
 
 ### Blinking ###
 
-Blinking seconds (usually in for of blinking `:` separator between hours and minutes. To emulate blinking effects
-we need to do some tricks with text color of the element we want to make blinking. Fortunately, QT supports
-color alpha channel, so there's special placeholder `{blink}` that will be replaced by `00` (zero zero) for
-evey even second, and by `FF` for every odd seconds. So all you need is to insert `{blink}` in your markup, i.e.
+Blinking seconds (usually shown in a form of blinking `:` separator placed between hours and minutes.
+Unfortunately we cannot use CSS animators here as these are not supported by QT implementation. But we can do some
+smart tricks with text colors, as fortunately for us, QT supports CSS colors as well as its alpha channel (aka
+transparency). So to make thing blink, we will be simply cycling between fully transparent and fully opaque
+every second. To achieve that effect, you need to use special placeholder called `{flip:XX:YY}`, which is simply
+replaced by `XX` on every even second, and by `YY` on every odd second. 
+
+**NOTE:** Both `XX` and `YY` can be almost any text you want and can be used in any place of you markup, so
+you can flip parts of your CSS style, HTML tags or **even other placeholders!**, as `{flip}` is always
+processed first.
+
+Knowing that CSS color format is `#AARRGGBB` where `AA` is alpha channel value from `00` being fully transparent
+to `FF` (255 in decimal) being fully opaque, we can do this:
 
 ```html
-<span style="color: #{blink}ff0000;">BLINK!</span>
+<span style="color: #{flip:00:FF}ffffff;">BLINK!</span>
 ```
+
+![Flipping alpha channel value](img/flip-01.gif)
+
+But if you want, you can also blink by toggling whole colors:
+
+```html
+<span style="color: {flip:red:green};">BLINK!</span>
+```
+
+or by using [QT supported SVG color values](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
+
+```html
+<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
+```
+
+You can use `{flip}` as many times as you want, so you can easily achieve this:
+
+```html
+<span style="color: {flip:#ff0000:#00ff00};">{flip:THIS:BLINKS}!</span>
+```
+
+![Flip example 02](img/flip-02.gif)
+
+As already mentioned, you can also flip other placeholders:
+
+```html
+{flip:
+```
+
+![Flip example 03](img/flip-03.gif)
 
 ---
 
