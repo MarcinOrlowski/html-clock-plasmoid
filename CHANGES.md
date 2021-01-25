@@ -1,3 +1,6 @@
+* @dev
+  * Added "Date & Time grid" layout
+
 * v1.2.0 (2021-01-25)
   * New placeholder `{flip}` that helps adding some nice tricks with your layouts.
   * Fixed `{k}` to return correct PM hours. PR by @NICHILAS85 [#14]

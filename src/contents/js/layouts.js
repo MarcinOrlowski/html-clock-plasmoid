@@ -4,7 +4,7 @@ var defaultLayout='__default__'
 var layouts = {
 	'__default__': {
 		"name": "Default",
-		"fontPixelSize": 1,
+		"fontPixelSize": 20,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -37,6 +37,29 @@ var layouts = {
 </center>
 `},
 
+	'date-time-grid': {
+		"name": "Date&Time grid",
+		"fontPixelSize": 10,
+		"html": `
+<table style="border: none;" align="center">
+<tr>
+<td valign="middle">
+    <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>
+    <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>
+    <span style="font-size: 40px; color: white;">{ii}</span>
+</td>
+<td width="1" style="vertical-align: middle; background-color: #aa004a; padding-right: 0px;"><br />&nbsp;<br /></td>
+<td>
+<table style="border: 2px solid #0000ff;">
+    <tr><td>{DD:U}</td></tr>
+    <tr><td>{dd}</td></tr>
+    <tr><td>{MM:U}</td></tr>
+</table>
+</td>
+</tr>
+</table>
+`},
+
 	'date-time-vertical': {
 		"name": "Date&Time (vertical)",
 		"fontPixelSize": 1,
@@ -67,6 +90,7 @@ var layouts = {
 {ltl}
 </center>
 `}
+
 
 }
 

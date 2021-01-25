@@ -5,6 +5,7 @@ Plasma/KDE clock widget, stylable with QT provided subset of HTML
 
 ![Widget with fancy layout](img/widget-01.png)
 ![Widget with blinking dots](img/widget-02.gif)
+![Widget with date and time grid](img/widget-03.png)
 
 For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
 
