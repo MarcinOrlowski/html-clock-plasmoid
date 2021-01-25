@@ -3,8 +3,8 @@ HTML Clock for KDE
 
 Plasma/KDE clock widget, stylable with QT provided subset of HTML
 
-![Widget in action](img/widget.png)
-![Widget in action](img/widget-02.gif)
+![Widget with fancy layout](img/widget-01.png)
+![Widget with blinking dots](img/widget-02.gif)
 
 For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
 
