@@ -140,9 +140,9 @@ These are date and time related, and will return values based on your current ca
 | U | Turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
 | L | Turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
 | u | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
-| 00 | Ensures placeholder value is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
+| 00 | Ensures placeholder value is at last two **characters** (not just digits!) long by adding leading zeros to shorter strings. Longer strings will not be trimmed. Also note zeroes will be prepended unconditionally, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
 
- **NOTE:** at the moment, formatting directives cannot be combined.
+> ![Warning](img/warning.png) **NOTE:** at the moment, formatting directives cannot be combined.
 
 ### Special placeholders ###
 
@@ -150,17 +150,15 @@ These are extra placeholders that are implemented to work around limitation of Q
 
 | Placeholder | Description |
 |-------------|-------------|
-| {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). |
+| {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
 
-**NOTE:** Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you
-can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as
-`{flip}` is always processed separately as first one.
-
-**LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is currently not allowed and will cause
-off effects related to how placeholders are currently parsed. This unfortunately this got further implications:
-  * `{flip}` cannot be nested into other `{flip}`
-  * while you can flip other placeholders, you cannot use [formatting modifiers](#formatting-directives).
-  * you cannot flip HTML markup with embedded CSS due to `:` being CSS separator. You can flip part of CSS though.
+> ![Warning](img/warning.png) **LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is
+> currently not supported and will cause odd effects if ever try. This unfortunately got further implications
+> and affects the following functionality:
+>
+>  * `{flip}` cannot be nested into other `{flip}`
+>  * while you use other placeholders, you cannot use [formatting modifiers](#formatting-directives) with them
+>  * you cannot flip HTML markup with embedded CSS due to `:` being iCSS separator. You can flip part of CSS separately though.
 
 ---
 
@@ -192,19 +190,20 @@ to `FF` (255 in decimal) being fully opaque, we can do this:
 But if you want, you can also blink by toggling whole colors:
 
 ```html
+<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
 <span style="color: {flip:red:green};">BLINK!</span>
 ```
 
-or by using [QT supported SVG color values](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
+or by using [QT supported SVG color names](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
 
 ```html
-<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
+<span style="color: {flip:red:green};">BLINK!</span>
 ```
 
 You can use `{flip}` as many times as you want, so you can easily achieve this:
 
 ```html
-<span style="color: {flip:#ff0000:#00ff00};">{flip:THIS:BLINKS}!</span>
+<span style="color: {flip:#ff0000:green};">{flip:THIS:BLINKS}!</span>
 ```
 
 ![Flip example 02](img/flip-02.gif)
@@ -253,11 +252,10 @@ with `--upgrade` option. This will update current installation while keeping you
     kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
 
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
-so you may want to convince Plasma by doing manual reload:
+so you may want to convince Plasma by doing manual reload (this will **NOT** log you out nor affect
+other apps):
 
     kquitapp5 plasmashell ; kstart5 plasmashell
-
-**NOTE:** this will **NOT** log you out nor affects any other apps. 
 
 ---
 
