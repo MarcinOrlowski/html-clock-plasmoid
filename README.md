@@ -156,8 +156,8 @@ These are extra placeholders that are implemented to work around limitation of Q
 > currently not supported and will cause odd effects if ever try. This unfortunately got further implications
 > and affects the following functionality:
 >
->  * `{flip}` cannot be nested into other `{flip}`
->  * while you use other placeholders, you cannot use [formatting modifiers](#formatting-directives) with them
+>  * `{flip}` can't be nested into other `{flip}`,
+>  * while you can use other placeholders as `{flip}` arguments, they must not use [formatting modifiers](#formatting-directives),
 >  * you cannot flip HTML markup with embedded CSS due to `:` being iCSS separator. You can flip part of CSS separately though.
 
 ---
