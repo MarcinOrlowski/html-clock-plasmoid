@@ -1,5 +1,6 @@
 * @dev
   * Added "Date & Time grid" layout
+  * Added "Date & Time w/dayname grid" layout
 
 * v1.2.0 (2021-01-25)
   * New placeholder `{flip}` that helps adding some nice tricks with your layouts.
