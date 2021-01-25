@@ -12,6 +12,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/layouts.js" as Layouts
@@ -47,12 +48,12 @@ ColumnLayout {
 							: Layouts.layouts[layoutKey]['fontPixelSize']
 	}
 
-	Timer {
+	PlasmaCore.DataSource {
+		engine: "time"
+		connectedSources: ["Local"]
 		interval: 1000
-		repeat: true
-		running: true
-		triggeredOnStart: true
-		onTriggered: updateClock()
+		intervalAlignment: PlasmaCore.Types.NoAlignment
+		onDataChanged: updateClock()
 	}
 
 	readonly property string layout: plasmoid.configuration.layout
@@ -62,11 +63,26 @@ ColumnLayout {
 		var layoutHtml = useUserLayout 
 				? plasmoid.configuration.layout
 				: Layouts.layouts[layoutKey]['html']
-
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName 
 				: ''
-		clock.text = DTF.format(layoutHtml, localeToUse)
+
+		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse)
+	}
+
+	function handleFlip(text) {
+		var reg = new RegExp('\{flip(:(.+)){2}\}', 'g')
+		var matches = text.match(reg)
+		if (matches !== null) {
+			var even = (new Date()).getSeconds() % 2
+			var valReg = new RegExp('^\{flip:(.+):(.+)\}$', '')
+			matches.forEach(function (val, idx) {
+				var valMatch = val.match(valReg)
+				text = text.replace(val, valMatch[even ? 1 : 2])
+			})
+		}
+
+		return text
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

@@ -115,8 +115,8 @@ function format(template, localeName) {
 	map['wy'] = getWeekOfYear(now)
 	map['hh'] = pad(now.getHours())
 	map['h'] = now.getHours()
-	map['kk'] = pad(now.getHours()%12)
-	map['k'] = now.getHours()
+	map['kk'] = pad(now.getHours()%12 || 12)
+	map['k'] = now.getHours()%12 || 12
 	map['ii'] = pad(now.getMinutes())
 	map['i'] = now.getMinutes()
 	map['ss'] = pad(now.getSeconds())

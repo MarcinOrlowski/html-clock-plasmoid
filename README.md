@@ -3,7 +3,8 @@ HTML Clock for KDE
 
 Plasma/KDE clock widget, stylable with QT provided subset of HTML
 
-![Widget in action](img/widget.png)
+![Widget with fancy layout](img/widget-01.png)
+![Widget with blinking dots](img/widget-02.gif)
 
 For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
 
@@ -17,6 +18,11 @@ For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-htm
    * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
  * [Placeholders](#placeholders)
+   * [Date and Time](#date-and-time)
+   * [Formatting directives](#formatting-directives)
+   * [Special placeholders](#special-placeholders)
+ * [Tips and tricks](#tips-and-tricks)
+   * [Blinking](#blinking)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
@@ -83,6 +89,10 @@ Configures widget tooltip information, shown when you hoover over the widget.
  placeholders, and will be replaced by corresponding values. Non-placeholders are returned
  unprocessed.
 
+### Date and Time ###
+
+These are date and time related, and will return values based on your current calendar/clock and system timezone settings.
+
 | Placeholder | Description |
 |-------------|-------------|
 | {yy} 		| long year (i.e. "2009") |
@@ -117,6 +127,95 @@ Configures widget tooltip information, shown when you hoover over the widget.
 | {lts}		| Locale based time short format <sup>v1.1.0+</sup>|
 | {ldtl}	| Locale based date and time long format <sup>v1.1.0+</sup>|
 | {ldts}	| Locale based date and time short format <sup>v1.1.0+</sup>|
+
+ For example, `Today is {DDD}` will produce `Today is Sunday` (assuming today is named "Sunday").
+
+### Formatting directives ###
+
+ You can also use optional formatting directives. The syntax is `{PLACEHOLDER:DIRECTIVE}`
+ and supported directives are:
+
+| Directive | Description |
+|-------------|-------------|
+| U | Turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
+| L | Turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
+| u | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
+| 00 | Ensures placeholder value is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
+
+ **NOTE:** at the moment, formatting directives cannot be combined.
+
+### Special placeholders ###
+
+These are extra placeholders that are implemented to work around limitation of QT's supported HTML/CSS.
+
+| Placeholder | Description |
+|-------------|-------------|
+| {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). |
+
+**NOTE:** Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you
+can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as
+`{flip}` is always processed separately as first one.
+
+**LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is currently not allowed and will cause
+off effects related to how placeholders are currently parsed. This unfortunately this got further implications:
+  * `{flip}` cannot be nested into other `{flip}`
+  * while you can flip other placeholders, you cannot use [formatting modifiers](#formatting-directives).
+  * you cannot flip HTML markup with embedded CSS due to `:` being CSS separator. You can flip part of CSS though.
+
+---
+
+## Tips and tricks ##
+
+QT support for HTML and CSS is not covering all features available, so here are some tricks you
+can pull to achieve effects offten desired while creating new clock.
+
+### Blinking ###
+
+Blinking seconds (usually shown in a form of blinking `:` separator placed between hours and minutes.
+Unfortunately we cannot use CSS animators here as these are not supported by QT implementation. But we can do some
+smart tricks with text colors, as fortunately for us, QT supports CSS colors as well as its alpha channel (aka
+transparency). So to make thing blink, we will be simply cycling between fully transparent and fully opaque
+every second. To achieve that effect, you need to use special placeholder called `{flip:XX:YY}`, which is simply
+replaced by `XX` on every even second, and by `YY` on every odd second. 
+
+#### Examples ####
+
+Knowing that CSS color format is `#AARRGGBB` where `AA` is alpha channel value from `00` being fully transparent
+to `FF` (255 in decimal) being fully opaque, we can do this:
+
+```html
+<span style="color: #{flip:00:FF}ffffff;">BLINK!</span>
+```
+
+![Flipping alpha channel value](img/flip-01.gif)
+
+But if you want, you can also blink by toggling whole colors:
+
+```html
+<span style="color: {flip:red:green};">BLINK!</span>
+```
+
+or by using [QT supported SVG color values](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
+
+```html
+<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
+```
+
+You can use `{flip}` as many times as you want, so you can easily achieve this:
+
+```html
+<span style="color: {flip:#ff0000:#00ff00};">{flip:THIS:BLINKS}!</span>
+```
+
+![Flip example 02](img/flip-02.gif)
+
+As already mentioned, you can also flip other placeholders:
+
+```html
+{flip:{MMM} {dd}, {yyyy}:Today is {DDD}}
+```
+
+![Flip example 03](img/flip-03.gif)
 
 ---
 
