@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+
+	<kcfgfile name=""/>
+
+	<group name="Appearance">
+		<entry name="layoutKey" type="String">
+			<default>__default__</default>
+		</entry>
+		<entry name="useUserLayout" type="Bool">
+			<default>false</default>
+		</entry>
+	</group>
+
+	<group name="Layout">
+		<entry name="layout" type="String">
+			<default>EDIT ME!</default>
+		</entry>
+		<entry name="fontPixelSize" type="Int">
+			<default>20</default>
+		</entry>
+
+		<entry name="enforceWidgetMinWidth" type="Bool">
+			<default>true</default>
+		</entry>
+		<entry name="widgetMinWidth" type="Int">
+			<default>100</default>
+		</entry>
+		<entry name="enforceWidgetMaxWidth" type="Bool">
+			<default>true</default>
+		</entry>
+		<entry name="widgetMaxWidth" type="Int">
+			<default>200</default>
+		</entry>
+		<entry name="widgetBg" type="String">
+			<default>#ff000000</default>
+		</entry>
+	</group>
+
+	<group name="Locale">
+		<entry name="useSpecificLocaleEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="useSpecificLocaleLocaleName" type="String">
+			<default>en_US</default>
+		</entry>
+	</group>
+
+	<group name="Tooltip">
+		<entry name="tooltipFirstLineFormat" type="String">
+			<default>{DDD:u}, {d} {MMM} {yyyy}</default>
+		</entry>
+		<entry name="tooltipSecondLineFormat" type="String">
+			<default>{dy} day of {yyyy} (week {wy})</default>
+		</entry>
+	</group>
+
+	<!-- Calendar View related settings -->
+
+	<group name="CalendarView">
+		<entry name="calendarViewEnabled" type="Bool">
+			<default>true</default>
+		</entry>
+	</group>
+
+	<!-- these are settings required by CalendarView.qml, so we keep
+	them unaltered to also avoid altering original CalendarView.qml -->
+	<group name="NeededByCalendarViewQml">
+		<entry name="showWeekNumbers" type="Bool">
+		  <label>Whether the calendar should show week numbers.</label>
+		  <default>false</default>
+		</entry>
+
+		<entry name="pin" type="Bool">
+			<label>Whether the popup should remain open when another window is activated</label>
+			<default>false</default>
+		</entry>
+	</group>
+
+</kcfg>
