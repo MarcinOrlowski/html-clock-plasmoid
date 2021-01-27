@@ -8,7 +8,7 @@ Plasma/KDE clock widget, stylable with QT provided subset of HTML
 ![Widget with date and time grid](img/widget-03.gif)
 ![Widget with date and time grid and dayname](img/widget-04.gif)
 
-> ![Note](img/note.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
+> ![Note](img/notes.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
 > foundation (plus I use it that way myself :). So worry **not**, you are not limited to neither these layouts, nor colors,
 > nor information types shown, as you can use [QT's subset of HTML and CSS](https://doc.qt.io/qt-5/richtext-html-subset.html)
 > to make yours layout look as **you** like. Please explore the configuration dialog!
@@ -68,7 +68,7 @@ or using one of built-in layouts as your base.
  * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified
    elsewehere (i.e. CSS).
 
-> ![Note](img/note.png) Play with "Base font pixel size", even if you set your sizes i.e. via styles as this
+> ![Note](img/notes.png) Play with "Base font pixel size", even if you set your sizes i.e. via styles as this
 > parameter can still affect i.e. default spacing between elements.
 
 ### Calendar View ###
