@@ -1,7 +1,7 @@
 HTML Clock for KDE
 ==================
 
-Plasma/KDE clock widget, stylable with QT provided subset of HTML
+Plasma/KDE clock widget you can layout and style using HTML/CSS!
 
 ![Widget with fancy layout](img/widget-01.png)
 ![Widget with blinking dots](img/widget-02.gif)
