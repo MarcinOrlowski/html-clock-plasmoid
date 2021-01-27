@@ -1,3 +1,6 @@
+* @dev
+  * Removed layout editor's custom context menu. CTRL-C/CTRL-V/CTRL-X works.
+
 * v1.2.1 (2021-01-27)
   * Added "Date & Time grid" layout
   * Added "Date & Time w/dayname grid" layout
