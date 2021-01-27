@@ -8,7 +8,10 @@ Plasma/KDE clock widget, stylable with QT provided subset of HTML
 ![Widget with date and time grid](img/widget-03.gif)
 ![Widget with date and time grid and dayname](img/widget-04.gif)
 
-For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
+> ![Note](img/note.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
+> foundation (plus I use it that way myself :). So worry **not**, you are not limited to neither these layouts, nor colors,
+> nor information types shown, as you can use [QT's subset of HTML and CSS](https://doc.qt.io/qt-5/richtext-html-subset.html)
+> to make yours layout look as **you** like. Please explore the configuration dialog!
 
 ---
 
@@ -37,12 +40,13 @@ For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-htm
 
 ## Configuration ##
 
-HTML Clock widget is very flexible and configurable by design. Almost all important spects of its behavior
-can be modified to fit your needs.
+HTML Clock widget is very flexible and configurable by design. Almost all important aspects of its behavior
+can be modified or overriden.
 
 ### General ###
 
-Allows you to select one of predefined layouts or use custom one, as defined in "User Layout" pane.
+This pane allows you to select one of predefined layouts or tell the widget you want to use your own
+(defined in "User Layout" pane).
 
 ![General](img/config-general.png)
 
@@ -55,17 +59,21 @@ Allows you to select one of predefined layouts or use custom one, as defined in 
 
 ### User Layout ###
 
-Aside from using built-in layouts, you can create your own, either from scratch, or using any of built-in
-layouts as starting point.
+Aside from using built-in layouts, you can (and probably will) create your own, either completely from scratch
+or using one of built-in layouts as your base.
 
 ![User Layout](img/config-layout.png)
 
- * **Clone**: Copies markup of selected built-in layout to text edit area editor.
- * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified elsewehere (i.e. CSS).
+ * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
+ * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified
+   elsewehere (i.e. CSS).
+
+> ![Note](img/note.png) Play with "Base font pixel size", even if you set your sizes i.e. via styles as this
+> parameter can still affect i.e. default spacing between elements.
 
 ### Calendar View ###
 
-Configures built-in calendar view, shown (by default) on widget tap.
+Configures built-in calendar view, shown (by default) when you tap on the widget.
 
 ![Calendar View](img/config-calendar.png)
 
@@ -87,9 +95,8 @@ Configures widget tooltip information, shown when you hoover over the widget.
 
 ## Placeholders ##
 
- Both HTML layout or tooltip string can contain anything you like, however certain sequences are considered
- placeholders, and will be replaced by corresponding values. Non-placeholders are returned
- unprocessed.
+Both HTML layout or tooltip string can contain anything you like, however certain sequences are considered
+placeholders, and will be replaced by corresponding values, all other elements are returned unaltered.
 
 ### Date and Time ###
 
