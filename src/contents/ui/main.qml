@@ -59,18 +59,25 @@ Item {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	Plasmoid.toolTipMainText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
-			? plasmoid.configuration.useSpecificLocaleLocaleName
-			: ''
-		return DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
+	property string tooltipMainText: ''
+	property string tooltipSubText: ''
+
+	PlasmaCore.DataSource {
+		engine: "time"
+		connectedSources: ["Local"]
+		interval: 1000
+		intervalAlignment: PlasmaCore.Types.NoAlignment
+		onDataChanged: {
+			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
+				? plasmoid.configuration.useSpecificLocaleLocaleName
+				: ''
+			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
+			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+		}
 	}
-	Plasmoid.toolTipSubText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
-			? plasmoid.configuration.useSpecificLocaleLocaleName
-			: ''
-		return DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
-	}
+
+	Plasmoid.toolTipMainText: tooltipMainText
+	Plasmoid.toolTipSubText: tooltipSubText
 
 	// ------------------------------------------------------------------------------------------------------------------------
 

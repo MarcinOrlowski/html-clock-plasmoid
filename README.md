@@ -5,8 +5,13 @@ Plasma/KDE clock widget, stylable with QT provided subset of HTML
 
 ![Widget with fancy layout](img/widget-01.png)
 ![Widget with blinking dots](img/widget-02.gif)
+![Widget with date and time grid](img/widget-03.gif)
+![Widget with date and time grid and dayname](img/widget-04.gif)
 
-For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-html-subset.html).
+> ![Note](img/note.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
+> foundation (plus I use it that way myself :). So worry **not**, you are not limited to neither these layouts, nor colors,
+> nor information types shown, as you can use [QT's subset of HTML and CSS](https://doc.qt.io/qt-5/richtext-html-subset.html)
+> to make yours layout look as **you** like. Please explore the configuration dialog!
 
 ---
 
@@ -35,12 +40,13 @@ For list of supported HTML tags [click here](https://doc.qt.io/qt-5/richtext-htm
 
 ## Configuration ##
 
-HTML Clock widget is very flexible and configurable by design. Almost all important spects of its behavior
-can be modified to fit your needs.
+HTML Clock widget is very flexible and configurable by design. Almost all important aspects of its behavior
+can be modified or overriden.
 
 ### General ###
 
-Allows you to select one of predefined layouts or use custom one, as defined in "User Layout" pane.
+This pane allows you to select one of predefined layouts or tell the widget you want to use your own
+(defined in "User Layout" pane).
 
 ![General](img/config-general.png)
 
@@ -53,17 +59,21 @@ Allows you to select one of predefined layouts or use custom one, as defined in 
 
 ### User Layout ###
 
-Aside from using built-in layouts, you can create your own, either from scratch, or using any of built-in
-layouts as starting point.
+Aside from using built-in layouts, you can (and probably will) create your own, either completely from scratch
+or using one of built-in layouts as your base.
 
 ![User Layout](img/config-layout.png)
 
- * **Clone**: Copies markup of selected built-in layout to text edit area editor.
- * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified elsewehere (i.e. CSS).
+ * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
+ * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified
+   elsewehere (i.e. CSS).
+
+> ![Note](img/note.png) Play with "Base font pixel size", even if you set your sizes i.e. via styles as this
+> parameter can still affect i.e. default spacing between elements.
 
 ### Calendar View ###
 
-Configures built-in calendar view, shown (by default) on widget tap.
+Configures built-in calendar view, shown (by default) when you tap on the widget.
 
 ![Calendar View](img/config-calendar.png)
 
@@ -85,9 +95,8 @@ Configures widget tooltip information, shown when you hoover over the widget.
 
 ## Placeholders ##
 
- Both HTML layout or tooltip string can contain anything you like, however certain sequences are considered
- placeholders, and will be replaced by corresponding values. Non-placeholders are returned
- unprocessed.
+Both HTML layout or tooltip string can contain anything you like, however certain sequences are considered
+placeholders, and will be replaced by corresponding values, all other elements are returned unaltered.
 
 ### Date and Time ###
 
@@ -98,12 +107,12 @@ These are date and time related, and will return values based on your current ca
 | {yy} 		| long year (i.e. "2009") |
 | {y} 		| short year (i.e. "09") |
 | {MMM}	    | long month name (i.e. "January") |
-| {MM}		| abbreviated month name (i.e. "Jan") |
+| {MM}		| abbreviated (locale based) month name (i.e. "Jan") |
 | {M}		| first letter of month name (i.e. "J") |
 | {mm}		| zero prefixed 2 digit month number ("02" for Feb, "12" for Dec) |
 | {m}		| month number as is ("2" for Feb, "12" for Dec) |
 | {DDD}	    | full day name (i.e. ""Saturday", "Sunday", "Monday") |
-| {DD}		| abbreviated day name ("Sat", "Sun", "Mon") |
+| {DD}		| abbreviated (locale based) day name ("Sat", "Sun", "Mon") |
 | {D}		| one letter day name ("S", "S", "M") |
 | {dd}		| zero prefixed 2 digit day number ("01", "27") |
 | {d}		| day number as is ("1", "27") |
@@ -140,9 +149,9 @@ These are date and time related, and will return values based on your current ca
 | U | Turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
 | L | Turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
 | u | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
-| 00 | Ensures placeholder value is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
+| 00 | Ensures placeholder value is at last two **characters** (not just digits!) long by adding leading zeros to shorter strings. Longer strings will not be trimmed. Also note zeroes will be prepended unconditionally, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
 
- **NOTE:** at the moment, formatting directives cannot be combined.
+> ![Warning](img/warning.png) **NOTE:** at the moment, formatting directives cannot be combined.
 
 ### Special placeholders ###
 
@@ -150,17 +159,15 @@ These are extra placeholders that are implemented to work around limitation of Q
 
 | Placeholder | Description |
 |-------------|-------------|
-| {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). |
+| {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
 
-**NOTE:** Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you
-can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as
-`{flip}` is always processed separately as first one.
-
-**LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is currently not allowed and will cause
-off effects related to how placeholders are currently parsed. This unfortunately this got further implications:
-  * `{flip}` cannot be nested into other `{flip}`
-  * while you can flip other placeholders, you cannot use [formatting modifiers](#formatting-directives).
-  * you cannot flip HTML markup with embedded CSS due to `:` being CSS separator. You can flip part of CSS though.
+> ![Warning](img/warning.png) **LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is
+> currently not supported and will cause odd effects if ever try. This unfortunately got further implications
+> and affects the following functionality:
+>
+>  * `{flip}` can't be nested into other `{flip}`,
+>  * while you can use other placeholders as `{flip}` arguments, they must not use [formatting modifiers](#formatting-directives),
+>  * you cannot flip HTML markup with embedded CSS due to `:` being iCSS separator. You can flip part of CSS separately though.
 
 ---
 
@@ -192,19 +199,20 @@ to `FF` (255 in decimal) being fully opaque, we can do this:
 But if you want, you can also blink by toggling whole colors:
 
 ```html
+<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
 <span style="color: {flip:red:green};">BLINK!</span>
 ```
 
-or by using [QT supported SVG color values](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
+or by using [QT supported SVG color names](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
 
 ```html
-<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
+<span style="color: {flip:red:green};">BLINK!</span>
 ```
 
 You can use `{flip}` as many times as you want, so you can easily achieve this:
 
 ```html
-<span style="color: {flip:#ff0000:#00ff00};">{flip:THIS:BLINKS}!</span>
+<span style="color: {flip:#ff0000:green};">{flip:THIS:BLINKS}!</span>
 ```
 
 ![Flip example 02](img/flip-02.gif)
@@ -253,11 +261,10 @@ with `--upgrade` option. This will update current installation while keeping you
     kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
 
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
-so you may want to convince Plasma by doing manual reload:
+so you may want to convince Plasma by doing manual reload (this will **NOT** log you out nor affect
+other apps):
 
     kquitapp5 plasmashell ; kstart5 plasmashell
-
-**NOTE:** this will **NOT** log you out nor affects any other apps. 
 
 ---
 
