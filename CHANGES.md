@@ -1,4 +1,4 @@
-* @dev
+* v1.2.1 (2021-01-27)
   * Added "Date & Time grid" layout
   * Added "Date & Time w/dayname grid" layout
   * Fixed tooltip content not being properly updated (Reported by @noir-Z [#20])
