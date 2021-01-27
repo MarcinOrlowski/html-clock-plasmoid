@@ -71,51 +71,7 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		selectByMouse: true
-
-		MouseArea {
-			anchors.fill: parent
-			acceptedButtons: Qt.RightButton
-			hoverEnabled: true
-			onClicked: {
-				var selectStart = textInput.selectionStart;
-				var selectEnd = textInput.selectionEnd;
-				var curPos = textInput.cursorPosition;
-				contextMenu.x = mouse.x;
-				contextMenu.y = mouse.y;
-				contextMenu.open();
-				textInput.cursorPosition = curPos;
-				textInput.select(selectStart,selectEnd);
-			}
-			onPressAndHold: {
-				if (mouse.source === Qt.MouseEventNotSynthesized) {
-					var selectStart = textInput.selectionStart;
-					var selectEnd = textInput.selectionEnd;
-					var curPos = textInput.cursorPosition;
-					contextMenu.x = mouse.x;
-					contextMenu.y = mouse.y;
-					contextMenu.open();
-					textInput.cursorPosition = curPos;
-					textInput.select(selectStart,selectEnd);
-				}
-			}
-
-			QtControls.Menu {
-				id: contextMenu
-				QtControls.MenuItem {
-					text: i18n("Cut")
-					onTriggered: textInput.cut()
-				}
-				QtControls.MenuItem {
-					text: i18n("Copy")
-					onTriggered: textInput.copy()
-				}
-				QtControls.MenuItem {
-					text: i18n("Paste")
-					onTriggered: textInput.paste()
-				}
-			}
-		}
-	} // TextArea
+	}
 
 	Kirigami.FormLayout {
 		anchors.left: parent.left
