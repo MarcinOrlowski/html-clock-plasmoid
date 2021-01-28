@@ -52,6 +52,8 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 
  * **Layout**: selects widget built-in clock layout.
  * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
+ * **Use custom font**: enables use of custom font (and its size) instead of theme default.
+   * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
  * **Locale to use**: By default, the system wide locale settings are used while creating day labels.
    If you want to override this (i.e. have English originated day labels while your whole system uses
    different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
