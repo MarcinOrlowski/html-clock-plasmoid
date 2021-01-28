@@ -1,5 +1,5 @@
 * @dev
-  * Added support for using custom font.
+  * Added support for using custom font [#23].
   * Removed layout editor's custom context menu. CTRL-C/CTRL-V/CTRL-X works.
   * Removed :Default base font pixel size" as now is taken from font used.
 
