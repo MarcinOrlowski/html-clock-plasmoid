@@ -17,6 +17,8 @@ import org.kde.plasma.plasmoid 2.0
 import "../js/layouts.js" as Layouts
 
 ColumnLayout {
+	id: layoutConfigContainer
+
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
@@ -64,6 +66,57 @@ ColumnLayout {
 			onClicked: textInput.text = Layouts.layouts[layoutKey]['html'].trim()
 		}
 	} // themeSelector
+
+	RowLayout {
+		id: fontHelper
+		property bool isFontSelected: false
+
+		ConfigFontSelector {
+			id: fontSelector
+			onSelectedFontChanged: {
+				fontFamilyName.text = selectedFont.family
+				parent.isFontSelected = true
+			}
+		}
+
+		QtControls.Label {
+			id: fontFamilyName
+			Layout.fillWidth: true
+		}
+
+		RowLayout {
+			enabled: fontHelper.isFontSelected
+			anchors.right: layoutConfigContainer.anchors.right
+			PlasmaComponents.Button {
+				icon.name: 'edit-copy'
+				enabled: fontHelper.isFontSelected
+				onClicked: {
+					clipboardHelper.text = fontSelector.selectedFont.family
+					clipboardHelper.selectAll()
+					clipboardHelper.copy()
+				}
+			}
+			PlasmaComponents.Button {
+				icon.name: 'edit-copy'
+				text: i18n('as HTML')
+				onClicked: {
+					var html = '<span style="'
+					html += 'font-family: ' + fontSelector.selectedFont.family + '; '
+					html += 'font-size: ' + fontSelector.selectedFont.pixelSize + 'px; '
+					if (fontSelector.selectedFont.bold) html += 'font-weight: bold; '
+					html += '">Text</span>'
+					clipboardHelper.text = html
+					clipboardHelper.selectAll()
+					clipboardHelper.copy()
+				}
+			}
+		}
+
+		QtControls.TextField {
+			id: clipboardHelper
+			visible: false
+		}
+	}
 
 	QtControls.TextArea {
 		id: textInput
