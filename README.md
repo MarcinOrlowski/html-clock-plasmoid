@@ -7,6 +7,7 @@ Plasma/KDE clock widget you can layout and style using HTML/CSS!
 ![Widget with blinking dots](img/widget-02.gif)
 ![Widget with date and time grid](img/widget-03.gif)
 ![Widget with date and time grid and dayname](img/widget-04.gif)
+![Widget with different fonts](img/widget-05.gif)
 
 > ![Note](img/notes.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
 > foundation (plus I use it that way myself :). So worry **not**, you are not limited to neither these layouts, nor colors,
@@ -68,7 +69,14 @@ or using one of built-in layouts as your base.
 
  * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
 
-> ![Note](img/notes.png) Even if set your font size directly in markup, custom font's size still matters and influences
+![Notes](img/notes.png) You can specify any font installed on your machine using CSS' `font-family` element,
+giving local font name as argument, i.e. 
+
+```html
+<span class="font-family: Noto Sans">Something here</span>
+```
+
+> ![Warning](img/warning.png) Even if set your font size directly in markup, custom font's size still matters and influences
 > the whole layout, affecting i.e. default spacing between elements. If you are trying to make your layout compact,
 > it's recommended to select custom font size to `1` and set the text size using i.e. CSS.
 
