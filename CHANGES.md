@@ -1,5 +1,7 @@
 * @dev
+  * Added support for using custom font.
   * Removed layout editor's custom context menu. CTRL-C/CTRL-V/CTRL-X works.
+  * Removed :Default base font pixel size" as now is taken from font used.
 
 * v1.2.1 (2021-01-27)
   * Added "Date & Time grid" layout
