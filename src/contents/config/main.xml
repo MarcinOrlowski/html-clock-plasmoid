@@ -24,10 +24,6 @@
 		<entry name="layout" type="String">
 			<default>EDIT ME!</default>
 		</entry>
-		<entry name="fontPixelSize" type="Int">
-			<default>20</default>
-		</entry>
-
 		<entry name="enforceWidgetMinWidth" type="Bool">
 			<default>true</default>
 		</entry>

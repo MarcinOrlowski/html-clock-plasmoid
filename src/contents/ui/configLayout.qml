@@ -23,7 +23,6 @@ ColumnLayout {
 	// -----------------------------------------------------------------------
 
 	property alias cfg_layout: textInput.text
-	property alias cfg_fontPixelSize: fontPixelSize.value
 
 	property string layoutKey: undefined
 
@@ -71,20 +70,6 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		selectByMouse: true
-	}
-
-	Kirigami.FormLayout {
-		anchors.left: parent.left
-		anchors.right: parent.right
-
-		PlasmaComponents.SpinBox {
-			id: fontPixelSize
-			editable: true
-			from: 1
-			to: 100
-			stepSize: 1
-			Kirigami.FormData.label: i18n("Base font pixel size")
-		}
 	}
 
 	RowLayout {
