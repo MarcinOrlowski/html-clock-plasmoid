@@ -67,11 +67,10 @@ or using one of built-in layouts as your base.
 ![User Layout](img/config-layout.png)
 
  * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
- * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified
-   elsewehere (i.e. CSS).
 
-> ![Note](img/notes.png) Play with "Base font pixel size", even if you set your sizes i.e. via styles as this
-> parameter can still affect i.e. default spacing between elements.
+> ![Note](img/notes.png) Even if set your font size directly in markup, custom font's size still matters and influences
+> the whole layout, affecting i.e. default spacing between elements. If you are trying to make your layout compact,
+> it's recommended to select custom font size to `1` and set the text size using i.e. CSS.
 
 ### Calendar View ###
 
@@ -121,7 +120,7 @@ These are date and time related, and will return values based on your current ca
 | {hh}		| current hour, zero prefixed, 24hrs clock (i.e. "01", "16") |
 | {h}		| current hour, 24hrs clock (i.e. "1", "16") |
 | {kk}		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
-| {k}		| current hour, 12hrs clock (i.e. "1", "11") |
+|  {k}		| current hour, 12hrs clock (i.e. "1", "11") |
 | {ii}		| current minute, zero prefixed (i.e. "01", "35") |
 | {i}		| current minute (i.e. "1", "35") |
 | {ss}		| current second, zero prefixed (i.e. "01", "35") <sup>v1.1.0+</sup>|
