@@ -7,6 +7,7 @@ Plasma/KDE clock widget you can layout and style using HTML/CSS!
 ![Widget with blinking dots](img/widget-02.gif)
 ![Widget with date and time grid](img/widget-03.gif)
 ![Widget with date and time grid and dayname](img/widget-04.gif)
+![Widget with different fonts](img/widget-05.gif)
 
 > ![Note](img/notes.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
 > foundation (plus I use it that way myself :). So worry **not**, you are not limited to neither these layouts, nor colors,
@@ -52,6 +53,8 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 
  * **Layout**: selects widget built-in clock layout.
  * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
+ * **Use custom font**: enables use of custom font (and its size) instead of theme default.
+   * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
  * **Locale to use**: By default, the system wide locale settings are used while creating day labels.
    If you want to override this (i.e. have English originated day labels while your whole system uses
    different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
@@ -65,11 +68,17 @@ or using one of built-in layouts as your base.
 ![User Layout](img/config-layout.png)
 
  * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
- * **Base font pixel size**: Defines pixel font size used for widget texts for elements font size is not specified
-   elsewehere (i.e. CSS).
 
-> ![Note](img/notes.png) Play with "Base font pixel size", even if you set your sizes i.e. via styles as this
-> parameter can still affect i.e. default spacing between elements.
+![Notes](img/notes.png) You can specify any font installed on your machine using CSS' `font-family` element,
+giving local font name as argument, i.e. 
+
+```html
+<span class="font-family: Noto Sans">Something here</span>
+```
+
+> ![Warning](img/warning.png) Even if set your font size directly in markup, custom font's size still matters and influences
+> the whole layout, affecting i.e. default spacing between elements. If you are trying to make your layout compact,
+> it's recommended to select custom font size to `1` and set the text size using i.e. CSS.
 
 ### Calendar View ###
 
@@ -119,7 +128,7 @@ These are date and time related, and will return values based on your current ca
 | {hh}		| current hour, zero prefixed, 24hrs clock (i.e. "01", "16") |
 | {h}		| current hour, 24hrs clock (i.e. "1", "16") |
 | {kk}		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
-| {k}		| current hour, 12hrs clock (i.e. "1", "11") |
+|  {k}		| current hour, 12hrs clock (i.e. "1", "11") |
 | {ii}		| current minute, zero prefixed (i.e. "01", "35") |
 | {i}		| current minute (i.e. "1", "35") |
 | {ss}		| current second, zero prefixed (i.e. "01", "35") <sup>v1.1.0+</sup>|
