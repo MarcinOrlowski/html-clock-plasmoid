@@ -24,7 +24,7 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
-	property alias cfg_layout: textInput.text
+	property alias cfg_layout: layoutTextArea.text
 
 	property string layoutKey: undefined
 
@@ -63,7 +63,7 @@ ColumnLayout {
 
 		PlasmaComponents.Button {
 			text: i18n('Clone')
-			onClicked: textInput.text = Layouts.layouts[layoutKey]['html'].trim()
+			onClicked: layoutTextArea.text = Layouts.layouts[layoutKey]['html'].trim()
 		}
 	} // themeSelector
 
@@ -84,42 +84,98 @@ ColumnLayout {
 			Layout.fillWidth: true
 		}
 
+		ColumnLayout {
+			QtControls.TextField {
+				id: clipboardHelper
+				visible: false
+			}
+
+			RowLayout {
+				enabled: fontHelper.isFontSelected
+				anchors.right: layoutConfigContainer.right
+				PlasmaComponents.Button {
+					icon.name: 'edit-copy'
+					onClicked: {
+						clipboardHelper.text = fontSelector.selectedFont.family
+						clipboardHelper.selectAll()
+						clipboardHelper.copy()
+					}
+				}
+				PlasmaComponents.Button {
+					icon.name: 'edit-copy'
+					text: i18n('as HTML')
+					onClicked: {
+						var html = '<span style="'
+						html += 'font-family: ' + fontSelector.selectedFont.family + '; '
+						html += 'font-size: ' + fontSelector.selectedFont.pixelSize + 'px; '
+						if (fontSelector.selectedFont.bold) html += 'font-weight: bold; '
+						html += '">Text</span>'
+						clipboardHelper.text = html
+						clipboardHelper.selectAll()
+						clipboardHelper.copy()
+					}
+				}
+			}
+		}
+	}
+
+	RowLayout {
+		id: colorHelper
+		property bool isColorSelected: false
+
+		KQControls.ColorButton {
+			id: colorSelector
+			showAlphaChannel: false
+			dialogTitle: i18n('Select color')
+			onColorChanged: {
+				colorValue.text = color.toString()
+				colorHelper.isColorSelected = true
+			}
+		}
+		QtControls.Label {
+			id: colorValue
+			Layout.fillWidth: true
+		}
 		RowLayout {
-			enabled: fontHelper.isFontSelected
-			anchors.right: layoutConfigContainer.anchors.right
+			enabled: colorHelper.isColorSelected
+			anchors.right: layoutConfigContainer.right
+
 			PlasmaComponents.Button {
 				icon.name: 'edit-copy'
-				enabled: fontHelper.isFontSelected
 				onClicked: {
-					clipboardHelper.text = fontSelector.selectedFont.family
+					clipboardHelper.text = colorSelector.color.toString()
 					clipboardHelper.selectAll()
 					clipboardHelper.copy()
 				}
 			}
-			PlasmaComponents.Button {
+			QtControls.Button {
 				icon.name: 'edit-copy'
-				text: i18n('as HTML')
+				text: i18n('HTML')
 				onClicked: {
 					var html = '<span style="'
-					html += 'font-family: ' + fontSelector.selectedFont.family + '; '
-					html += 'font-size: ' + fontSelector.selectedFont.pixelSize + 'px; '
-					if (fontSelector.selectedFont.bold) html += 'font-weight: bold; '
-					html += '">Text</span>'
+					html += 'color: ' + colorSelector.color.toString() + ';'
+					html += `">Text</span>`
 					clipboardHelper.text = html
 					clipboardHelper.selectAll()
 					clipboardHelper.copy()
 				}
 			}
-		}
+			PlasmaComponents.Button {
+				icon.name: 'edit-copy'
+				width: 10
+				text: i18n('CSS')
+				onClicked: {
+					clipboardHelper.text = 'color: ' + colorSelector.color.toString() + ';'
+					clipboardHelper.selectAll()
+					clipboardHelper.copy()
+				}
+			}
 
-		QtControls.TextField {
-			id: clipboardHelper
-			visible: false
 		}
 	}
 
 	QtControls.TextArea {
-		id: textInput
+		id: layoutTextArea
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		selectByMouse: true
