@@ -73,18 +73,11 @@ or using one of built-in layouts as your base.
    * **Copy** Click the "Copy" button to have font family copied to the clipboard (then you can use in text area
    with regular `CTRL-V` paste shortcut).
    * **Copy as HTML**: Clicking this button will put complete HTML snippet using `<span>` styled to use font you
-   selected to the clipboard, i.e. `<span style="font-family: Noto Sans; font-size: 16px; font-weight: bold; ">Text</span>`.
+   selected to the clipboard, i.e. `<span style="font-family: Noto Sans; font-size: 16px; font-weight: bold;">Text</span>`.
  * **Select color**: similar to "font helper", it's color helper. Select any color to see its `#RRGGBB` value.
    * **Copy**: Puts your color to the clipboard using `#RRGGBB` notation.
    * **Copy as HTML**: Puts `<span>` styled to use your color to the clipboard, i.e. `<span style="color: #9d7837;">Text</span>`
    * **Copy as CSS**: Puts CSS `color: #RRGGBB;` to the clipboard.
-
-![Notes](img/notes.png) You can specify any font installed on your machine using CSS' `font-family` element,
-giving local font name as argument, i.e. 
-
-```html
-<span class="font-family: Noto Sans">Something here</span>
-```
 
 > ![Warning](img/warning.png) Even if set your font size directly in markup, custom font's size still matters and influences
 > the whole layout, affecting i.e. default spacing between elements. If you are trying to make your layout compact,
