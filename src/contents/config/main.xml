@@ -12,6 +12,12 @@
 		<entry name="useUserLayout" type="Bool">
 			<default>false</default>
 		</entry>
+		<entry name="useCustomFont" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customFont" type="Font">
+			<default>Noto</default>
+		</entry>
 	</group>
 
 	<group name="Layout">

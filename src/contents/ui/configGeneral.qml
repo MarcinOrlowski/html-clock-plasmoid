@@ -23,6 +23,8 @@ Kirigami.FormLayout {
 	property alias cfg_useUserLayout: useUserLayout.checked
 	property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
+	property alias cfg_useCustomFont: useCustomFont.checked
+	property alias cfg_customFont: fontSelector.selectedFont
 
 	Text {
 		visible: false
@@ -55,6 +57,27 @@ Kirigami.FormLayout {
 	PlasmaComponents.CheckBox {
 		id: useUserLayout
 		text: i18n("Use user layout")
+	}
+
+	PlasmaComponents.CheckBox {
+		id: useCustomFont
+		text: i18n("Use custom font")
+	}
+	RowLayout {
+		enabled: cfg_useCustomFont
+
+		ColumnLayout {
+			PlasmaComponents.Label {
+				text: i18n('Font: %1', cfg_customFont.family)
+			}
+			PlasmaComponents.Label {
+				text: i18n('Size: %1', cfg_customFont.pointSize)
+			}
+		}
+
+		ConfigFontSelector {
+			id: fontSelector
+		}
 	}
 
 	Item {
