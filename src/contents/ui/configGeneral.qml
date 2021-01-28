@@ -59,6 +59,10 @@ Kirigami.FormLayout {
 		text: i18n("Use user layout")
 	}
 
+	Item {
+		height: 10
+	}
+
 	PlasmaComponents.CheckBox {
 		id: useCustomFont
 		text: i18n("Use custom font")
