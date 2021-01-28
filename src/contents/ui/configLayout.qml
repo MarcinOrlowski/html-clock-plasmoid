@@ -103,7 +103,7 @@ ColumnLayout {
 				}
 				PlasmaComponents.Button {
 					icon.name: 'edit-copy'
-					text: i18n('as HTML')
+					text: i18n('HTML')
 					onClicked: {
 						var html = '<span style="'
 						html += 'font-family: ' + fontSelector.selectedFont.family + '; '
@@ -182,26 +182,30 @@ ColumnLayout {
 	}
 
 	RowLayout {
-		PlasmaComponents.Label {
-			text: 'Created fancy layout?'
+		Layout.fillWidth: true
+		anchors.left: layoutConfigContainer.left
+		anchors.right: layoutConfigContainer.right
+		RowLayout {
+			PlasmaComponents.Label {
+				text: i18n('Docs:')
+			}
+			ClickableLabel {
+				text: '<u>Placeholders</u>'
+				url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid'
+			}
+			ClickableLabel {
+				text: '<u>HTML tags</u>'
+				url: 'https://doc.qt.io/qt-5/richtext-html-subset.html'
+			}
+		}
+		Item {
+			Layout.fillWidth: true
 		}
 		ClickableLabel {
-			text: '<u>Share it!</u>'
+			Layout.alignment: Qt.AlignRight
+			anchors.right: layoutConfigContainer.right
+			text: '<u>Share your layout!</u>'
 			url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid/issues/new?assignees=&labels=enhancement&template=new_layout.md'
-		}
-	}
-
-	RowLayout {
-		PlasmaComponents.Label {
-			text: 'Documentation: '
-		}
-		ClickableLabel {
-			text: '<u>Placeholders</u>'
-			url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid'
-		}
-		ClickableLabel {
-			text: '<u>Supported HTML tags</u>'
-			url: 'https://doc.qt.io/qt-5/richtext-html-subset.html'
 		}
 	}
 
