@@ -178,12 +178,12 @@ These are extra placeholders that are implemented to work around limitation of Q
 | {flip:XX:YY} 		| Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
 
 > ![Warning](img/warning.png) **LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped value is
-> currently not supported and will cause odd effects if ever try. This unfortunately got further implications
+> currently not supported and will cause odd effects if tried. This unfortunately got further implications
 > and affects the following functionality:
 >
 >  * `{flip}` can't be nested into other `{flip}`,
 >  * while you can use other placeholders as `{flip}` arguments, they must not use [formatting modifiers](#formatting-directives),
->  * you cannot flip HTML markup with embedded CSS due to `:` being iCSS separator. You can flip part of CSS separately though.
+>  * you cannot flip HTML markup with embedded CSS due to `:` being CSS separator. You can flip part of CSS separately though.
 
 ---
 
