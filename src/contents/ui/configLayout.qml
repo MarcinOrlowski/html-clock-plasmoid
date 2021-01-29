@@ -103,8 +103,6 @@ ColumnLayout {
 
 	RowLayout {
 		Layout.fillWidth: true
-		anchors.left: layoutConfigContainer.left
-		anchors.right: layoutConfigContainer.right
 
 		PlasmaComponents.ComboBox {
 			Layout.fillWidth: true
@@ -115,8 +113,8 @@ ColumnLayout {
 				var _idx = 0
 				var _currentIdx = undefined
 				for(const _key in Layouts.layouts) {
-					var _name = Layouts.layouts[key]['name']
-					tmp.push({'value': _key, 'text': _name})
+					var _name = Layouts.layouts[_key]['name']
+					_tmp.push({'value': _key, 'text': _name})
 					if (_key === plasmoid.configuration['layoutKey']) _currentIdx = _idx
 					_idx++
 				}
@@ -157,15 +155,11 @@ ColumnLayout {
 			enabled: fontHelper.isFontSelected
 			anchors.right: layoutConfigContainer.right
 
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: 'edit-copy'
+			CopyButton {
 				onClicked: clipboardHelper.doCopy(fontSelector.selectedFont.family)
 			}
 
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: 'edit-copy'
+			CopyButton {
 				text: i18n('HTML')
 				onClicked: clipboardHelper.doCopy(styleWithFont(xxxx, fontSelector.selectedFont))
 			}
@@ -191,34 +185,17 @@ ColumnLayout {
 		RowLayout {
 			anchors.right: layoutConfigContainer.right
 
-			PlasmaComponents.Button {
-				icon.name: 'edit-copy'
-				onClicked: {
-					clipboardHelper.text = colorSelector.color.toString()
-					clipboardHelper.selectAll()
-					clipboardHelper.copy()
-				}
+			CopyButton {
+				onClicked: clipboardHelper.doCopy(colorSelector.color.toString())
 			}
 
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: 'edit-copy'
+			CopyButton {
 				text: i18n('HTML')
-				onClicked: {
-					clipboardHelper.text = styleWithColor(text, colorSelector.color)
-					clipboardHelper.selectAll()
-					clipboardHelper.copy()
-				}
+				onClicked: clipboardHelper.doCopy(styleWithColor(text, colorSelector.color))
 			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: 'edit-copy'
+			CopyButton {
 				text: i18n('CSS')
-				onClicked: {
-					clipboardHelper.text = 'color: ' + colorSelector.color.toString() + ';'
-					clipboardHelper.selectAll()
-					clipboardHelper.copy()
-				}
+				onClicked: clipboardHelper.doCopy('color: ' + colorSelector.color.toString() + ';')
 			}
 
 		}
@@ -227,10 +204,8 @@ ColumnLayout {
 	// -----------------------------------------------------------------------
 
 	function getTextToStyle() {
-
 		var selStart = layoutTextArea.selectionStart
 		var selEnd = layoutTextArea.selectionEnd
-
 		var text = layoutTextArea.text.substring(selStart, selEnd)
 
 		return (text !== '') ? text : 'Text'
