@@ -72,7 +72,7 @@ or using one of built-in layouts as your base.
    family name shown. Note that name is shown using selected font, so it may not really be readable in case of fonts
    like dingbats.
    * **Copy** Click the "Copy" button to have font family copied to the clipboard (then you can use in text area
-   with regular `CTRL-V` paste shortcut).
+   with regular <kbd>CTRL-V</kbd> keyboard paste shortcut).
    * **Copy as HTML**: Clicking this button will put complete HTML snippet using `<span>` styled to use font you
    selected to the clipboard, i.e. `<span style="font-family: Noto Sans; font-size: 16px; font-weight: bold;">Text</span>`.
  * **Select color**: similar to "font helper", it's color helper. Select any color to see its `#RRGGBB` value.
