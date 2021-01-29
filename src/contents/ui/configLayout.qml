@@ -198,18 +198,35 @@ ColumnLayout {
 	function doReplaceSelection(text) {
 		var selStart = layoutTextArea.selectionStart
 		var selEnd = layoutTextArea.selectionEnd
-		var cursorPosition = layoutTextArea.cursorPosition
 
-		layoutTextArea.remove(selStart, selEnd)
-		layoutTextArea.insert(selStart, text)
-		layoutTextArea.select(selStart, selStart + text.length)
-		layoutTextArea.cursorPosition = cursorPosition
+		if (selStart === selEnd) {
+			noTextSelectedMessage.visible = true
+		} else {
+			noTextSelectedMessage.visible = false
+
+			var cursorPosition = layoutTextArea.cursorPosition
+			layoutTextArea.remove(selStart, selEnd)
+			layoutTextArea.insert(selStart, text)
+			layoutTextArea.cursorPosition = cursorPosition
+
+			if (keepSelection.checked) layoutTextArea.select(selStart, selStart + text.length)
+		}
 	}
+
+	Kirigami.InlineMessage {
+		id: noTextSelectedMessage
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Error
+		text: i18n('No text selected.')
+		showCloseButton: true
+	}
+
 
 	// Styling selection
 	RowLayout {
 		PlasmaComponents.Label {
-			text: i18n('Style selection with:')
+			text: i18n('Style selection:')
 		}
 		PlasmaComponents.Button {
 			implicitWidth: minimumWidth
@@ -227,6 +244,16 @@ ColumnLayout {
 			implicitWidth: minimumWidth
 			text: i18n('Font + Color')
 			onClicked: doReplaceSelection(styleWithFontAndColor(getTextToStyle(), fontSelector.selectedFont, colorSelector.color))
+		}
+
+		Item {
+			Layout.fillWidth: true
+		}
+
+		QtControls.CheckBox {
+			anchors.right: layoutConfigContainer.right
+			id: keepSelection
+			text: i18n("Retain selection")
 		}
 
 	}
