@@ -87,7 +87,7 @@ ColumnLayout {
 	// -----------------------------------------------------------------------
 
 	property alias cfg_layout: layoutTextArea.text
-	property string layoutKey: undefined
+	property alias layoutKey: layoutSelector.selectedLayoutKey
 
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
@@ -104,24 +104,8 @@ ColumnLayout {
 	RowLayout {
 		Layout.fillWidth: true
 
-		PlasmaComponents.ComboBox {
-			Layout.fillWidth: true
-			textRole: "text"
-			model: []
-			Component.onCompleted: {
-				var _tmp = []
-				var _idx = 0
-				var _currentIdx = undefined
-				for(const _key in Layouts.layouts) {
-					var _name = Layouts.layouts[_key]['name']
-					_tmp.push({'value': _key, 'text': _name})
-					if (_key === plasmoid.configuration['layoutKey']) _currentIdx = _idx
-					_idx++
-				}
-				model = _tmp
-				currentIndex = _currentIdx
-			}
-			onCurrentIndexChanged: layoutKey = model[currentIndex]['value']
+		LayoutSelector {
+			id: layoutSelector
 		}
 
 		PlasmaComponents.Button {
