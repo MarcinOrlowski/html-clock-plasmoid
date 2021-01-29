@@ -24,6 +24,8 @@ ColumnLayout {
 
 	property string layoutKey: plasmoid.configuration.layoutKey
 	property bool useUserLayout: plasmoid.configuration.useUserLayout
+	property bool useCustomFont: plasmoid.configuration.useCustomFont
+	property font customFont: plasmoid.configuration.customFont
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -43,9 +45,12 @@ ColumnLayout {
 		id: clock
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
-		font.pixelSize: useUserLayout 
-							? plasmoid.configuration.fontPixelSize
-							: Layouts.layouts[layoutKey]['fontPixelSize']
+
+		font.family: useCustomFont ? customFont.family : theme.defaultFont.family
+		font.pointSize: useCustomFont ? customFont.pointSize : theme.defaultFont.pointSize
+		font.bold: useCustomFont ? customFont.bold : theme.defaultFont.bold
+		font.italic: useCustomFont ? customFont.italic : theme.defaultFont.italic
+		font.underline: useCustomFont ? customFont.underline : theme.defaultFont.underline
 	}
 
 	PlasmaCore.DataSource {

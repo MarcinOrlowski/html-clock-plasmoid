@@ -7,7 +7,6 @@ const defaultLayout='__default__'
 const layouts = {
 	'__default__': {
 		"name": "Default",
-		"fontPixelSize": 20,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -18,7 +17,6 @@ const layouts = {
 
 	'time-seconds-sup': {
 		"name": "Time w/seconds",
-		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -29,7 +27,6 @@ const layouts = {
 
 	'date-time-seconds-sup-vertical': {
 		"name": "Date&Time w/seconds (vertical)",
-		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -42,7 +39,6 @@ const layouts = {
 
 	'date-time-grid': {
 		"name": "Date&Time grid",
-		"fontPixelSize": 10,
 		"html": `
 <table style="border: none;" align="center">
 <tr>
@@ -65,7 +61,6 @@ const layouts = {
 
 	'date-time-grid-big': {
 		"name": "Date&Time grid big",
-		"fontPixelSize": 10,
 		"html": `
 <table style="border: none;" align="center">
 <tr>
@@ -99,7 +94,6 @@ const layouts = {
 
 	'date-time-grid-with-day': {
 		"name": "Date&Time grid w/dayname",
-		"fontPixelSize": 1,
 		"html": `
 <table style="border: none;" align="center">
     <tr>
@@ -129,7 +123,6 @@ const layouts = {
 
 	'date-time-vertical': {
 		"name": "Date&Time (vertical)",
-		"fontPixelSize": 1,
 		"html": `
 <center> 
 <span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>
@@ -142,7 +135,6 @@ const layouts = {
 
 	'system-time-short': {
 		"name": "System time format (short)",
-		"fontPixelSize": 1,
 		"html": `
 <center>
 {lts}
