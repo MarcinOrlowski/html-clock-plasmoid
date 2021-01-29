@@ -126,6 +126,7 @@ ColumnLayout {
 			id: fontSelector
 			onSelectedFontChanged: {
 				fontFamilyName.text = selectedFont.family
+				fontFamilyName.font.family = selectedFont.family
 				parent.isFontSelected = true
 			}
 		}
