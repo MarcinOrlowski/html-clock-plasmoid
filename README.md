@@ -69,7 +69,8 @@ or using one of built-in layouts as your base.
 
  * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
  * **Select font**: is part of "font helper" feature. Select any font from installed on your machine and you will see its
-   family name shown. 
+   family name shown. Note that name is shown using selected font, so it may not really be readable in case of fonts
+   like dingbats.
    * **Copy** Click the "Copy" button to have font family copied to the clipboard (then you can use in text area
    with regular `CTRL-V` paste shortcut).
    * **Copy as HTML**: Clicking this button will put complete HTML snippet using `<span>` styled to use font you
@@ -78,6 +79,9 @@ or using one of built-in layouts as your base.
    * **Copy**: Puts your color to the clipboard using `#RRGGBB` notation.
    * **Copy as HTML**: Puts `<span>` styled to use your color to the clipboard, i.e. `<span style="color: #9d7837;">Text</span>`
    * **Copy as CSS**: Puts CSS `color: #RRGGBB;` to the clipboard.
+ * **Style selection**: This section allows you to apply font, color (or both) to currently selected part of layout.
+   * **Retain selection**: By default selection is clered once style is applied. When this option is checked, selection
+     will be retained and updated to cover replaced text.
 
 > ![Warning](img/warning.png) Even if set your font size directly in markup, custom font's size still matters and influences
 > the whole layout, affecting i.e. default spacing between elements. If you are trying to make your layout compact,
