@@ -1,3 +1,7 @@
+* v1.3.1 (2021-03-23)
+  * Dropped use of "backtick" JS syntax due to problems on Debian 10's Plasma
+    version. Reporeted by @Kolychy [#28]
+
 * v1.3.0 (2021-01-29)
   * Added support for using custom font [#23].
   * Added color and font helpers to layout editor.

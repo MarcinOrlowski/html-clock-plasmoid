@@ -14,11 +14,11 @@ ClickableLabel {
 	url: Meta.authorUrl
 	text: {
 		var currentYear = new Date().getFullYear()
-		var year=`${Meta.firstReleaseYear}`
+		var year='' + Meta.firstReleaseYear
 		if (Meta.firstReleaseYear < currentYear) {
-			year += `-${currentYear}`
+			year += '-' + currentYear
 		}
 
-		return `&copy;${year} by <strong><u>${Meta.authorName}</u></strong>`
+		return '&copy;' + year + ' by <strong><u>' + Meta.authorName + '</u></strong>'
 	}
 }
