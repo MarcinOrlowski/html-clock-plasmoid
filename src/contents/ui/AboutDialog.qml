@@ -46,7 +46,7 @@ Dialog {
 			textFormat: Text.PlainText
 			font.bold: true
 			font.pixelSize: Qt.application.font.pixelSize * 1.5
-			text: `${Meta.title} v${Meta.version}`
+			text: Meta.title + ' v' + Meta.version
 		}
 
 		CopyrightLabel { }

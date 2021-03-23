@@ -41,7 +41,7 @@ ColumnLayout {
 		if (selectedFont.bold) {
 			html += 'font-weight: bold; '
 		}
-		html += `">${text}</span>`
+		html += '">' + text + '</span>'
 
 		return html
 	}
@@ -56,7 +56,7 @@ ColumnLayout {
 			html += 'font-weight: bold; '
 		}
 		html += 'color: ' + selectedColor.toString() + ';'
-		html += `">${text}</span>`
+		html += '">' + text + '</span>'
 
 		return html
 	}
@@ -66,7 +66,7 @@ ColumnLayout {
 		var htmlText = (text !== '') ? text : 'text'
 		var html = '<span style="'
 		html += 'color: ' + selectedColor.toString() + ';'
-		html += `">${htmlText}</span>`
+		html += '">' + htmlText + '</span>'
 
 		return html
 	}
