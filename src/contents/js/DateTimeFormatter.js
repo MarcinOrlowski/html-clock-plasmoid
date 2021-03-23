@@ -143,11 +143,11 @@ function format(template, localeName) {
 	map['ldts'] = now.toLocaleString(locale, Locale.ShortFormat)
 
 	for(var key in map) {
-		template = template.replace(new RegExp(`{${key}}`, 'g'), map[key])
-		template = template.replace(new RegExp(`{${key}:U}`, 'g'), map[key].toString().toUpperCase())
-		template = template.replace(new RegExp(`{${key}:L}`, 'g'), map[key].toString().toLowerCase())
-		template = template.replace(new RegExp(`{${key}:u}`, 'g'), ucfirst(map[key].toString()))
-		template = template.replace(new RegExp(`{${key}:00}`, 'g'), pad(map[key], 2))
+		template = template.replace(new RegExp('{'+key+'}', 'g'), map[key])
+		template = template.replace(new RegExp('{'+key+':U}', 'g'), map[key].toString().toUpperCase())
+		template = template.replace(new RegExp('{'+key+':L}', 'g'), map[key].toString().toLowerCase())
+		template = template.replace(new RegExp('{'+key+':u}', 'g'), ucfirst(map[key].toString()))
+		template = template.replace(new RegExp('{'+key+':00}', 'g'), pad(map[key], 2))
 	}
 
 	return template
