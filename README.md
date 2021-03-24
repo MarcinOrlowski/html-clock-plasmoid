@@ -54,7 +54,9 @@ This pane allows you to select one of predefined layouts or tell the widget you 
  * **Layout**: selects widget built-in clock layout.
  * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
  * **Transparent background**: by default, widget uses theme provided background color. When this option is
-   checked, widget background is no longer drawn, making it fully transparent.
+   checked, widget background is no longer drawn, making it fully transparent. Note: this option is hidden
+   on Plasma 5.19 as it introduces similar feature for the all widgets which is preferred.
+   option to built-in or newer these version 
  * **Use custom font**: enables use of custom font (and its size) instead of theme default.
    * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
  * **Locale to use**: By default, the system wide locale settings are used while creating day labels.
