@@ -85,7 +85,10 @@ Item {
 	Plasmoid.compactRepresentation: HtmlClock { }
 	Plasmoid.fullRepresentation: CalendarView { }
 
-	Plasmoid.backgroundHints: plasmoid.configuration.transparentBackgroundEnabled ? "NoBackground" : "StandardBackground"
+	Plasmoid.backgroundHints: (typeof PlasmaCore.Types.ConfigurableBackground !== "undefined"
+		? PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
+		: plasmoid.configuration.transparentBackgroundEnabled ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
+	)
 
 	// ------------------------------------------------------------------------------------------------------------------------
 

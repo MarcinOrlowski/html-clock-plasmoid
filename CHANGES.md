@@ -1,3 +1,6 @@
+* @dev
+  * Added support for Plasma 5.19's transparent background feature.
+
 * 1.4.0 (2021-03-24)
   * Added option to make widget background transparent.
 

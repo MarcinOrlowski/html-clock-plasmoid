@@ -14,6 +14,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.plasma.core 2.0 as PlasmaCore
 import "../js/layouts.js" as Layouts
 
 Kirigami.FormLayout {
@@ -42,6 +43,7 @@ Kirigami.FormLayout {
 		id: transparentBackground
 		text: i18n("Transparent background")
 		checked: cfg_transparentBackgroundEnabled
+		visible: typeof PlasmaCore.Types.ConfigurableBackground === "undefined"
 	}
 
 	Item {
