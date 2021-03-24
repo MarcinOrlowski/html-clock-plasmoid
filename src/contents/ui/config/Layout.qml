@@ -14,7 +14,8 @@ import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
-import "../js/layouts.js" as Layouts
+import "../../js/layouts.js" as Layouts
+import "../lib"
 
 ColumnLayout {
 	id: layoutConfigContainer
@@ -122,7 +123,7 @@ ColumnLayout {
 		id: fontHelper
 		property bool isFontSelected: false
 
-		ConfigFontSelector {
+		FontSelector {
 			id: fontSelector
 			onSelectedFontChanged: {
 				fontFamilyName.text = selectedFont.family
