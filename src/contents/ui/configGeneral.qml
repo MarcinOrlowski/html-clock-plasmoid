@@ -43,6 +43,9 @@ Kirigami.FormLayout {
 		id: transparentBackground
 		text: i18n("Transparent background")
 		checked: cfg_transparentBackgroundEnabled
+
+		// If ConfigurableBackground is set, the we most likely run on Plasma 5.19+ and if so,
+		// we prefer using widget's background control features instead.
 		visible: typeof PlasmaCore.Types.ConfigurableBackground === "undefined"
 	}
 

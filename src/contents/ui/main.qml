@@ -85,9 +85,11 @@ Item {
 	Plasmoid.compactRepresentation: HtmlClock { }
 	Plasmoid.fullRepresentation: CalendarView { }
 
+	// If ConfigurableBackground is set, the we most likely run on Plasma 5.19+ and if so, we prefer using
+	// widget's background control features instead.
 	Plasmoid.backgroundHints: (typeof PlasmaCore.Types.ConfigurableBackground !== "undefined"
 		? PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
-		: plasmoid.configuration.transparentBackgroundEnabled ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
+		: plasmoid.configuration.transparentBackgroundEnabled ? PlasmaCore.Types.NoBackground : PlasmaCore.Types.DefaultBackground
 	)
 
 	// ------------------------------------------------------------------------------------------------------------------------
