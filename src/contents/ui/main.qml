@@ -85,6 +85,8 @@ Item {
 	Plasmoid.compactRepresentation: HtmlClock { }
 	Plasmoid.fullRepresentation: CalendarView { }
 
+	Plasmoid.backgroundHints: plasmoid.configuration. transparentBackgroundEnabled ? "NoBackground" : "StandardBackground"
+
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	UpdateChecker {
