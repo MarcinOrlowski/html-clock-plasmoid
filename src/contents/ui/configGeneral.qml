@@ -25,6 +25,7 @@ Kirigami.FormLayout {
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 	property alias cfg_useCustomFont: useCustomFont.checked
 	property alias cfg_customFont: fontSelector.selectedFont
+	property alias cfg_transparentBackgroundEnabled: transparentBackground.checked
 
 	LayoutSelector {
 		id: layoutSelector
@@ -35,6 +36,12 @@ Kirigami.FormLayout {
 	PlasmaComponents.CheckBox {
 		id: useUserLayout
 		text: i18n("Use user layout")
+	}
+
+	CheckBox {
+		id: transparentBackground
+		text: i18n("Transparent background")
+		checked: cfg_transparentBackgroundEnabled
 	}
 
 	Item {
