@@ -15,7 +15,8 @@ import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.core 2.0 as PlasmaCore
-import "../js/layouts.js" as Layouts
+import "../../js/layouts.js" as Layouts
+import "../lib"
 
 Kirigami.FormLayout {
 	Layout.fillWidth: true
@@ -69,7 +70,7 @@ Kirigami.FormLayout {
 			}
 		}
 
-		ConfigFontSelector {
+		FontSelector {
 			id: fontSelector
 		}
 	}

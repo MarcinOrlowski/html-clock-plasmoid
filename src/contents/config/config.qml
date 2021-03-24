@@ -14,22 +14,21 @@ ConfigModel {
 	ConfigCategory {
 		name: i18n("General")
 		icon: "view-visible"
-		source: "configGeneral.qml"
+		source: "config/General.qml"
 	}
 	ConfigCategory {
 		name: i18n("User Layout")
 		icon: "view-visible"
-		source: "configLayout.qml"
+		source: "config/Layout.qml"
 	}
 	ConfigCategory {
 		name: i18n("Calendar View")
 		icon: "view-calendar"
-		source: "configCalendar.qml"
+		source: "config/Calendar.qml"
 	}
 	ConfigCategory {
 		name: i18n("Tooltip")
 		icon: "view-calendar-workweek"
-		source: "configTooltip.qml"
+		source: "config/Tooltip.qml"
 	}
-
 }

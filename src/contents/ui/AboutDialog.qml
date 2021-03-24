@@ -13,6 +13,7 @@ import QtQuick.Controls 2.3
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import QtQuick.Dialogs 1.3
 import "../js/meta.js" as Meta
+import "lib"
 
 Dialog {
 	visible: false

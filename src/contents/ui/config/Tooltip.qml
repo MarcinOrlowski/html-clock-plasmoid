@@ -12,7 +12,7 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
-import "../js/meta.js" as Meta
+import "../../js/meta.js" as Meta
 
 Kirigami.FormLayout {
 	Layout.fillWidth: true

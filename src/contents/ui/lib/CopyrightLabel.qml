@@ -8,7 +8,7 @@
  */
 
 import QtQuick 2.1
-import "../js/meta.js" as Meta
+import "../../js/meta.js" as Meta
 
 ClickableLabel {
 	url: Meta.authorUrl
