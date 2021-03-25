@@ -1,4 +1,4 @@
-* @dev
+* 1.4.1 (2021-03-25)
   * Added support for Plasma 5.19's transparent background feature.
 
 * 1.4.0 (2021-03-24)
