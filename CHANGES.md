@@ -1,3 +1,7 @@
+* 1.6.0 (@021-12-06)
+  * Added option to specify time zone offset (in `[+/-]HH:MM` format) to support "world clock" application.
+  * Added option to force widget contaner fill its parent container in 100% available.
+
 * 1.5.0 (2021-03-25)
   * Added support for Plasma 5.19's transparent background feature.
 

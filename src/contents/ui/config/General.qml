@@ -29,6 +29,11 @@ Kirigami.FormLayout {
 	property alias cfg_customFont: fontSelector.selectedFont
 	property alias cfg_transparentBackgroundEnabled: transparentBackground.checked
 
+	property alias cfg_clockTimezoneOffsetEnabled: clockTimezoneOffsetEnabled.checked
+	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
+	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
+	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
+
 	LayoutSelector {
 		id: layoutSelector
 		enabled: !cfg_useUserLayout
@@ -79,7 +84,6 @@ Kirigami.FormLayout {
 		height: 10
 	}
 
-
 	RowLayout {
 		CheckBox {
 			id: useSpecificLocaleEnabled
@@ -92,6 +96,25 @@ Kirigami.FormLayout {
 		}
 	}
 
+	RowLayout {
+		CheckBox {
+			id: clockTimezoneOffsetEnabled
+			text: i18n("Timezone offset")
+		}
+
+		TextField {
+			id: clockTimezoneOffset
+			enabled: cfg_clockTimezoneOffsetEnabled
+		}
+	}
+	PlasmaComponents.CheckBox {
+		id: widgetContainerFillWidth
+		text: i18n("Container fill width")
+	}
+	PlasmaComponents.CheckBox {
+		id: widgetContainerFillHeight
+		text: i18n("Container fill height")
+	}
 
 
 } // FormLayout
