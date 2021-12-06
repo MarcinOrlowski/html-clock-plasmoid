@@ -21,6 +21,12 @@
 		<entry name="transparentBackgroundEnabled" type="Bool">
 			<default>false</default>
 		</entry>
+		<entry name="widgetContainerFillWidth" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="widgetContainerFillHeight" type="Bool">
+			<default>false</default>
+		</entry>
 	</group>
 
 	<group name="Layout">

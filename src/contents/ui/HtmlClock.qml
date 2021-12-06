@@ -26,6 +26,8 @@ ColumnLayout {
 	property bool useUserLayout: plasmoid.configuration.useUserLayout
 	property bool useCustomFont: plasmoid.configuration.useCustomFont
 	property font customFont: plasmoid.configuration.customFont
+	property bool widgetContainerFillWidth: plasmoid.configuration.widgetContainerFillWidth
+	property bool widgetContainerFillHeight: plasmoid.configuration.widgetContainerFillHeight
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -45,7 +47,8 @@ ColumnLayout {
 		id: clock
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
-
+		Layout.fillWidth: widgetContainerFillWidth
+		Layout.fillHeight: widgetContainerFillHeight
 
 		font.family: useCustomFont ? customFont.family : theme.defaultFont.family
 		font.pointSize: useCustomFont ? customFont.pointSize : theme.defaultFont.pointSize

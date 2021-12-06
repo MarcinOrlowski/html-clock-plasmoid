@@ -31,6 +31,8 @@ Kirigami.FormLayout {
 
 	property alias cfg_clockTimezoneOffsetEnabled: clockTimezoneOffsetEnabled.checked
 	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
+	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
+	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
 
 	LayoutSelector {
 		id: layoutSelector
@@ -105,6 +107,15 @@ Kirigami.FormLayout {
 			enabled: cfg_clockTimezoneOffsetEnabled
 		}
 	}
+	PlasmaComponents.CheckBox {
+		id: widgetContainerFillWidth
+		text: i18n("Container fill width")
+	}
+	PlasmaComponents.CheckBox {
+		id: widgetContainerFillHeight
+		text: i18n("Container fill height")
+	}
+
 
 } // FormLayout
 

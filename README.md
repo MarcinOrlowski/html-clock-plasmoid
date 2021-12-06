@@ -50,7 +50,6 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 (defined in "User Layout" pane).
 
 ![General](img/config-general.png)
-
  * **Layout**: selects widget built-in clock layout.
  * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
  * **Transparent background**: by default, widget uses theme provided background color. When this option is
@@ -65,6 +64,11 @@ This pane allows you to select one of predefined layouts or tell the widget you 
    Ensure such locale is available in your system.
  * **Timezone offset**: by default, widget shows your **local** time. But if you want to use different time zone than your
    local, enable this option and provide the offset in form of `[+-]HH:MM`, i.e. `-03:30` or `5:00`. If no sign is specified, positive (`+`) offset is assumed. Faulty offset falls back to `00:00` (which means `GMT` time zone).
+ * **Container fill width**: By default clock container takes as much horizontal space as needed to render its content. This may be incorrect behavior if i.e. you use vertical panel and would like to use custom background color. In such case you'd end up having ugly side borders if your clock contant is taking less space than panel's width. To combat this, enable this option to force the widget. **NOTE:** this option is most useful if you use this widget in a dock/panel. For desktop widgets it's recommended to keep
+ it off.
+ * **Container fill height**: By default clock container takes as much space as needed to render its content. This may be incorrect behavior if i.e. you use horizontal panel and would like to use custom background color. In such case you'd end up having ugly  borders on the top and bottom if your clock contant is taking less vertical space than panel's occupies. To combat this, enable this option to force the widget to take as much vertical space as its parent container allows. **NOTE:** this option is most useful if you use this widget in a dock/panel. For desktop widgets it's recommended to keep
+ it off.
+
 
 ### User Layout ###
 
@@ -273,20 +277,26 @@ selecting "Add widgets...", then "Get new widgets..." eventually choosing "Insta
 
 Alternatively you can install it using your terminal, with help of `kpackagetool5`:
 
-    kpackagetool5 --install /PATH/TO/DOWNLOADED/htmlclock.plasmoid 
+```bash
+kpackagetool5 --install /PATH/TO/DOWNLOADED/htmlclock.plasmoid 
+```
 
 ## Upgrading ##
 
 If you already have widget running and there's newer release your want to install, use `kpackagetool5`
 with `--upgrade` option. This will update current installation while keeping your settings intact:
 
-    kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
+```bash
+kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
+```
 
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
 so you may want to convince Plasma by doing manual reload (this will **NOT** log you out nor affect
 other apps):
 
-    kquitapp5 plasmashell ; kstart5 plasmashell
+```bash
+kquitapp5 plasmashell ; kstart5 plasmashell
+```
 
 ---
 
