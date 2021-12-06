@@ -63,6 +63,8 @@ This pane allows you to select one of predefined layouts or tell the widget you 
    If you want to override this (i.e. have English originated day labels while your whole system uses
    different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
    Ensure such locale is available in your system.
+ * **Timezone offset**: by default, widget shows your **local** time. But if you want to use different time zone than your
+   local, enable this option and provide the offset in form of `[+-]HH:MM`, i.e. `-03:30` or `5:00`. If no sign is specified, positive (`+`) offset is assumed. Faulty offset falls back to `00:00` (which means `GMT` time zone).
 
 ### User Layout ###
 

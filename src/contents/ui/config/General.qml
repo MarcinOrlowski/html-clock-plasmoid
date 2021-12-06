@@ -29,6 +29,9 @@ Kirigami.FormLayout {
 	property alias cfg_customFont: fontSelector.selectedFont
 	property alias cfg_transparentBackgroundEnabled: transparentBackground.checked
 
+	property alias cfg_clockTimezoneOffsetEnabled: clockTimezoneOffsetEnabled.checked
+	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
+
 	LayoutSelector {
 		id: layoutSelector
 		enabled: !cfg_useUserLayout
@@ -79,7 +82,6 @@ Kirigami.FormLayout {
 		height: 10
 	}
 
-
 	RowLayout {
 		CheckBox {
 			id: useSpecificLocaleEnabled
@@ -92,7 +94,17 @@ Kirigami.FormLayout {
 		}
 	}
 
+	RowLayout {
+		CheckBox {
+			id: clockTimezoneOffsetEnabled
+			text: i18n("Timezone offset")
+		}
 
+		TextField {
+			id: clockTimezoneOffset
+			enabled: cfg_clockTimezoneOffsetEnabled
+		}
+	}
 
 } // FormLayout
 

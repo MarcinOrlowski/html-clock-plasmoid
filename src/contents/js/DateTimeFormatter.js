@@ -86,14 +86,22 @@ function getWeekOfYear(dt) {
 **     template: string to be processed
 **   localeName: (optional) locale name to use (i.e. 'en_US', 'pl_PL').
 **               System default will be used if not provided.
+**     tzOffset: (optional) timezone offset from GMT in minutes,
+**               stored as signed integer
 */
-function format(template, localeName) {
+function format(template, localeName, tzOffset = null) {
 	if (localeName === undefined) localeName = ''
-
 	var locale = Qt.locale(localeName)
-	var map = {}
+
 	var now = new Date()
 
+	if (tzOffset !== null) {
+		var nowSrc = new Date()
+		var offset = (nowSrc.getTimezoneOffset() + tzOffset) * 60 * 1000
+		now = new Date(nowSrc.valueOf() + offset)
+	}
+
+	var map = {}
 	// https://doc.qt.io/qt-5/qml-qtqml-qt.html#formatDateTime-method
 	map['yyyy'] = Qt.formatDate(now, 'yyyy')
 	map['yy'] = Qt.formatDate(now, 'yy')
