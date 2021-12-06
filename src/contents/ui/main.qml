@@ -13,6 +13,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/meta.js" as Meta
+import "../js/utils.js" as Utils
 
 Item {
 	id: root
@@ -71,8 +72,13 @@ Item {
 			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName
 				: ''
-			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
-			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+
+			var tzOffsetOrNull = null
+			if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
+				tzOffsetOrNull = Utils.calcFinalOffset(plasmoid.configuration.clockTimezoneOffset)
+			}
+			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse, tzOffsetOrNull)
+			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse, tzOffsetOrNull)
 		}
 	}
 

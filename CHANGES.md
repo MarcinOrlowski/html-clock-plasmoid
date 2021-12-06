@@ -1,3 +1,6 @@
+* dev
+  * Fixed widget tooltip not honoring TimeZone offset when enabled.
+
 * 1.6.0 (@021-12-06)
   * Added option to specify time zone offset (in `[+/-]HH:MM` format) to support "world clock" application.
   * Added option to force widget contaner fill its parent container in 100% available.
