@@ -60,7 +60,7 @@ ColumnLayout {
 
 	PlasmaCore.DataSource {
 		engine: "time"
-		connectedSources: ["Local"]
+		connectedSources: ["Local", "UTC"]
 		interval: 1000
 		intervalAlignment: PlasmaCore.Types.NoAlignment
 		onDataChanged: updateClock()
@@ -80,8 +80,10 @@ ColumnLayout {
 
 		var finalOffset = null
 		if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
-			finalOffset = Utils.calcFinalOffset(plasmoid.configuration.clockTimezoneOffset)
+			finalOffset = dataSource.data["Local"]["Offset"] + 
+				Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
 		}
+
 		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, finalOffset)
 	}
 

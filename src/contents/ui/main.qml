@@ -44,19 +44,24 @@ Item {
 //		  connectedSources: allTimezones
 //		  interval: plasmoid.configuration.showSeconds ? 1000 : 60000
 //		  intervalAlignment: plasmoid.configuration.showSeconds ? PlasmaCore.Types.NoAlignment : PlasmaCore.Types.AlignToMinute
-		connectedSources: ["Local", "UTC"]
+		connectedSources: {
+			return [
+				"Local",
+				"UTC",
+			]
+		}
 		interval: 60000
-		intervalAlignment: PlasmaCore.Types.AlignToMinute
+		intervalAlignment: PlasmaCore.Types.NoAlignment
 	}
 
-	property date tzDate: {
-		// get the time for the given timezone from the dataengine
-		var now = dataSource.data["Local"]["DateTime"];
-		// get current UTC time
-		var msUTC = now.getTime() + (now.getTimezoneOffset() * 60000);
-		// add the dataengine TZ offset to it
-		return new Date(msUTC + (dataSource.data["Local"]["Offset"] * 1000));
-	}
+	// property date tzDate: {
+	// 	// get the time for the given timezone from the dataengine
+	// 	var now = dataSource.data["Local"]["DateTime"];
+	// 	// get current UTC time
+	// 	var msUTC = now.getTime() + (now.getTimezoneOffset() * 60000);
+	// 	// add the dataengine TZ offset to it
+	// 	return new Date(msUTC + (dataSource.data["Local"]["Offset"] * 1000));
+	// }
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -75,7 +80,7 @@ Item {
 
 			var tzOffsetOrNull = null
 			if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
-				tzOffsetOrNull = Utils.calcFinalOffset(plasmoid.configuration.clockTimezoneOffset)
+				tzOffsetOrNull = Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
 			}
 			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse, tzOffsetOrNull)
 			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse, tzOffsetOrNull)
