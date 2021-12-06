@@ -26,6 +26,8 @@ ColumnLayout {
 	property bool useUserLayout: plasmoid.configuration.useUserLayout
 	property bool useCustomFont: plasmoid.configuration.useCustomFont
 	property font customFont: plasmoid.configuration.customFont
+	property bool widgetContainerFillWidth: plasmoid.configuration.widgetContainerFillWidth
+	property bool widgetContainerFillHeight: plasmoid.configuration.widgetContainerFillHeight
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -45,6 +47,8 @@ ColumnLayout {
 		id: clock
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
+		Layout.fillWidth: widgetContainerFillWidth
+		Layout.fillHeight: widgetContainerFillHeight
 
 		font.family: useCustomFont ? customFont.family : theme.defaultFont.family
 		font.pointSize: useCustomFont ? customFont.pointSize : theme.defaultFont.pointSize
@@ -62,6 +66,7 @@ ColumnLayout {
 	}
 
 	readonly property string layout: plasmoid.configuration.layout
+	property string configTimezoneOffset: plasmoid.configuration.clockTimezoneOffset
 	onLayoutChanged: updateClock()
 
 	function updateClock() {
@@ -72,7 +77,30 @@ ColumnLayout {
 				? plasmoid.configuration.useSpecificLocaleLocaleName 
 				: ''
 
-		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse)
+		var tzOffsetHours = 0
+		var tzOffsetMinutes = 0
+		var tzOffset = null
+		if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
+			tzOffset = 0
+			var tzString = plasmoid.configuration.clockTimezoneOffset
+			if (tzString != '') {
+				var tzSign = 1
+				if(tzString.charAt(0) == '-') {
+					tzSign = -1
+					tzString = tzString.substring(1)
+				} else if(tzString.charAt(0) == '+') {
+					tzSign = 1
+					tzString = tzString.substring(1)
+				}
+
+				var segments = tzString.split(':');
+				tzOffsetHours = parseInt(segments[0])
+				tzOffsetMinutes = parseInt(segments[1])
+
+				tzOffset = (tzOffsetHours * 60 + tzOffsetMinutes) * tzSign
+			}
+		}
+		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, tzOffset)
 	}
 
 	function handleFlip(text) {
