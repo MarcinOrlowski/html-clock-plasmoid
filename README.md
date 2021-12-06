@@ -200,8 +200,15 @@ These are extra placeholders that are implemented to work around limitation of Q
 
 ## Tips and tricks ##
 
-QT support for HTML and CSS is not covering all features available, so here are some tricks you
-can pull to achieve effects offten desired while creating new clock.
+* QT support for HTML and CSS is not covering all features available, so here are some tricks you 
+  can pull to achieve effects offten desired while creating new clock.
+* Want custom background color for your widget? Just ensure your template uses `<body>` tag and set its  `bgcolor` as you like.
+  Remember that you also need to enable either `Container fill width` or `Container fill height` depending on your desired orientation.
+* To get 100% in vertical orientation, set `<BODY>`'s `width` attribute to `100%` (i.e. `<body width="100%">`) or use CSS
+* To get 100% in vertical height, try set `<BODY>`'s `height` attribute to `100%` (i.e. `<body height="100%">`)
+You may also want to set 
+
+
 
 ### Blinking ###
 
