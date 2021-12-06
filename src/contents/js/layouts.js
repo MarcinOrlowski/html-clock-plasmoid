@@ -7,36 +7,50 @@ const defaultLayout='__default__'
 const layouts = {
 	'__default__': {
 		"name": "Default",
-		"html":	'<center>' + "\n" +
-				'<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
-				'<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}79808d;">:</span>' + "\n" +
-				'<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
-				'</center>'
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<center>' + "\n" +
+				'	<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
+				'	<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}79808d;">:</span>' + "\n" +
+				'	<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
+				'</center>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'time-seconds-sup': {
 		"name": "Time w/seconds",
-		"html":	'<center>' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<center>' + "\n" +
 				'<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
 				'<span style="font-size: 25px; color: #79808d;">:</span>' + "\n" +
 				'<span style="font-size: 30px; color: white;">{ii}<span style="font-size: 20px; color: #cccccc;"><sup>{ss}</sup></span></span>' + "\n" +
-				'</center>'
+				'</center>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'date-time-seconds-sup-vertical': {
 		"name": "Date&Time w/seconds (vertical)",
-		"html":	'<center>' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<center>' + "\n" +
 				'<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
 				'<span style="font-size: 25px; color: #79808d;">:</span>' + "\n" +
 				'<span style="font-size: 30px; color: white;">{ii}<span style="font-size: 20px; color: #cccccc;"><sup>{ss}</sup></span></span>' + "\n" +
 				'<br />' + "\n" +
 				'<span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>' + "\n" +
-				'</center>'
+				'</center>' +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'date-time-grid': {
 		"name": "Date&Time grid",
-		"html":	'<table style="border: none;" align="center">' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<table style="border: none;" align="center">' + "\n" +
 				'<tr>' + "\n" +
 				'  <td valign="middle">' + "\n" +
 				'    <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
@@ -52,12 +66,16 @@ const layouts = {
 				'    </table>' + "\n" +
 				'  </td>' + "\n" +
 				'</tr>' + "\n" +
-				'</table>'
+				'</table>' +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'date-time-grid-big': {
 		"name": "Date&Time grid big",
-		"html":	'<table style="border: none;" align="center">' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<table style="border: none;" align="center">' + "\n" +
 				'<tr>' + "\n" +
 				'  <td valign="middle">' + "\n" +
 				'    <table>' + "\n" +
@@ -84,12 +102,16 @@ const layouts = {
 				'    </table>' + "\n" +
 				'  </td>' + "\n" +
 				'</tr>' + "\n" +
-				'</table>'
+				'</table>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'date-time-grid-with-day': {
 		"name": "Date&Time grid w/dayname",
-		"html":	'<table style="border: none;" align="center">' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<table style="border: none;" align="center">' + "\n" +
 				'    <tr>' + "\n" +
 				'        <!-- clock -->' + "\n" +
 				'        <td valign="middle" align="center" style="padding-right: 4px;">' + "\n" +
@@ -112,33 +134,47 @@ const layouts = {
 				'            <span style="font-size: 15px; font-weight: bold; color: white;">{DDD:U}</span>' + "\n" +
 				'        </td>' + "\n" +
 				'    </tr>' + "\n" +
-				'</table>'
+				'</table>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'date-time-vertical': {
 		"name": "Date&Time (vertical)",
-		"html":	'<center>' + "\n" +
-				'<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
-				'<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
-				'<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
-				'<br />' + "\n" +
-				'<span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>' + "\n" +
-				'</center>'
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<center>' + "\n" +
+				'	<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
+				'	<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'	<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
+				'	<br />' + "\n" +
+				'	<span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>' + "\n" +
+				'</center>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'system-time-short': {
 		"name": "System time format (short)",
-		"html":	'<center>' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<center>' + "\n" +
 				'{lts}' + "\n" +
-				'</center>'
+				'</center>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	},
 
 	'system-time-long': {
 		"name": "System time format (long)",
 		"fontPixelSize": 1,
-		"html":	'<center>' + "\n" +
+		"html":	'<html>' + "\n" +
+				'<body>' + "\n" +
+				'<center>' + "\n" +
 				'{ltl}' + "\n" +
-				'</center>'
+				'</center>' + "\n" +
+				'</body>' + "\n" +
+				'</html>'
 	}
 
 }
