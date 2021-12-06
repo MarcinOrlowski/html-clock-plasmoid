@@ -54,15 +54,6 @@ Item {
 		intervalAlignment: PlasmaCore.Types.NoAlignment
 	}
 
-	// property date tzDate: {
-	// 	// get the time for the given timezone from the dataengine
-	// 	var now = dataSource.data["Local"]["DateTime"];
-	// 	// get current UTC time
-	// 	var msUTC = now.getTime() + (now.getTimezoneOffset() * 60000);
-	// 	// add the dataengine TZ offset to it
-	// 	return new Date(msUTC + (dataSource.data["Local"]["Offset"] * 1000));
-	// }
-
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	property string tooltipMainText: ''
@@ -77,13 +68,11 @@ Item {
 			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName
 				: ''
-
-			var tzOffsetOrNull = null
-			if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
-				tzOffsetOrNull = Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
-			}
-			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse, tzOffsetOrNull)
-			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse, tzOffsetOrNull)
+			var finalOffsetOrNull = plasmoid.configuration.clockTimezoneOffsetEnabled
+				? Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
+				: null
+			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse, finalOffsetOrNull)
+			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse, finalOffsetOrNull)
 		}
 	}
 

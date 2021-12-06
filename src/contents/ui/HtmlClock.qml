@@ -77,14 +77,10 @@ ColumnLayout {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName 
 				: ''
-
-		var finalOffset = null
-		if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
-			finalOffset = dataSource.data["Local"]["Offset"] + 
-				Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
-		}
-
-		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, finalOffset)
+		var finalOffsetOrNull = plasmoid.configuration.clockTimezoneOffsetEnabled
+			? Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
+			: null
+		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, finalOffsetOrNull)
 	}
 
 	function handleFlip(text) {

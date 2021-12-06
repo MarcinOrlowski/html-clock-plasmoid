@@ -96,9 +96,9 @@ function format(template, localeName, tzOffset = null) {
 	var now = new Date()
 
 	if (tzOffset !== null) {
-		var nowSrc = new Date()
-		var offset = (nowSrc.getTimezoneOffset() + tzOffset) * 60 * 1000
-		now = new Date(nowSrc.valueOf() + offset)
+		// if offset is set, we need to calc the date relative to UTC
+		var offsetInMillis = tzOffset * 60 * 1000
+		now = new Date(now.valueOf() + offsetInMillis)
 	}
 
 	var map = {}
