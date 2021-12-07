@@ -16,6 +16,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/layouts.js" as Layouts
+import "../js/utils.js" as Utils
 
 ColumnLayout {
 	id: mainContainer
@@ -59,7 +60,7 @@ ColumnLayout {
 
 	PlasmaCore.DataSource {
 		engine: "time"
-		connectedSources: ["Local"]
+		connectedSources: ["Local", "UTC"]
 		interval: 1000
 		intervalAlignment: PlasmaCore.Types.NoAlignment
 		onDataChanged: updateClock()
@@ -76,31 +77,10 @@ ColumnLayout {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName 
 				: ''
-
-		var tzOffsetHours = 0
-		var tzOffsetMinutes = 0
-		var tzOffset = null
-		if (plasmoid.configuration.clockTimezoneOffsetEnabled == true) {
-			tzOffset = 0
-			var tzString = plasmoid.configuration.clockTimezoneOffset
-			if (tzString != '') {
-				var tzSign = 1
-				if(tzString.charAt(0) == '-') {
-					tzSign = -1
-					tzString = tzString.substring(1)
-				} else if(tzString.charAt(0) == '+') {
-					tzSign = 1
-					tzString = tzString.substring(1)
-				}
-
-				var segments = tzString.split(':');
-				tzOffsetHours = parseInt(segments[0])
-				tzOffsetMinutes = parseInt(segments[1])
-
-				tzOffset = (tzOffsetHours * 60 + tzOffsetMinutes) * tzSign
-			}
-		}
-		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, tzOffset)
+		var finalOffsetOrNull = plasmoid.configuration.clockTimezoneOffsetEnabled
+			? Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
+			: null
+		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, finalOffsetOrNull)
 	}
 
 	function handleFlip(text) {

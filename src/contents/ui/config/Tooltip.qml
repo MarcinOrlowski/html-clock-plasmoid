@@ -31,13 +31,13 @@ Kirigami.FormLayout {
 	}
 
 	PlasmaComponents.Label {
-		 Layout.alignment: Qt.AlignHCenter
-		 textFormat: Text.RichText
-		 text: 'See <u>placeholders documentation</u> page.'
-		 MouseArea {
-			 anchors.fill: parent
-			 onClicked: Qt.openUrlExternally(Meta.url)
-		 }
+		Layout.alignment: Qt.AlignHCenter
+		textFormat: Text.RichText
+		text: 'See <u>placeholders documentation</u> page.'
+		MouseArea {
+			anchors.fill: parent
+			onClicked: Qt.openUrlExternally(Meta.url)
+		}
 	}
 
 	Item {

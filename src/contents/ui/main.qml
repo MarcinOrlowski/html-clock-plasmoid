@@ -13,6 +13,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/meta.js" as Meta
+import "../js/utils.js" as Utils
 
 Item {
 	id: root
@@ -43,18 +44,14 @@ Item {
 //		  connectedSources: allTimezones
 //		  interval: plasmoid.configuration.showSeconds ? 1000 : 60000
 //		  intervalAlignment: plasmoid.configuration.showSeconds ? PlasmaCore.Types.NoAlignment : PlasmaCore.Types.AlignToMinute
-		connectedSources: ["Local", "UTC"]
+		connectedSources: {
+			return [
+				"Local",
+				"UTC",
+			]
+		}
 		interval: 60000
-		intervalAlignment: PlasmaCore.Types.AlignToMinute
-	}
-
-	property date tzDate: {
-		// get the time for the given timezone from the dataengine
-		var now = dataSource.data["Local"]["DateTime"];
-		// get current UTC time
-		var msUTC = now.getTime() + (now.getTimezoneOffset() * 60000);
-		// add the dataengine TZ offset to it
-		return new Date(msUTC + (dataSource.data["Local"]["Offset"] * 1000));
+		intervalAlignment: PlasmaCore.Types.NoAlignment
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
@@ -71,8 +68,11 @@ Item {
 			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName
 				: ''
-			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
-			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+			var finalOffsetOrNull = plasmoid.configuration.clockTimezoneOffsetEnabled
+				? Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
+				: null
+			tooltipMainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse, finalOffsetOrNull)
+			tooltipSubText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse, finalOffsetOrNull)
 		}
 	}
 
