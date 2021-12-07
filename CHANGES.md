@@ -1,4 +1,4 @@
-* dev
+* 1.6.1 (2021-12-07)
   * Fixed widget tooltip not honoring TimeZone offset when enabled.
 
 * 1.6.0 (@021-12-06)
