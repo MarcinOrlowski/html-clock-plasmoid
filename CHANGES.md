@@ -1,3 +1,6 @@
+* 1.6.2 (2021-12-12)
+  * Fixed broken calendar view.
+
 * 1.6.1 (2021-12-07)
   * Fixed widget tooltip not honoring TimeZone offset when enabled.
 

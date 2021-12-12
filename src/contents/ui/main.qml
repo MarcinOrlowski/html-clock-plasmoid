@@ -54,6 +54,16 @@ Item {
 		intervalAlignment: PlasmaCore.Types.NoAlignment
 	}
 
+	// Used by CalendarView.qml component
+	property date tzDate: {
+		// get the time for the given timezone from the dataengine
+		var now = dataSource.data["Local"]["DateTime"];
+		// get current UTC time
+		var msUTC = now.getTime() + (now.getTimezoneOffset() * 60000);
+		// add the dataengine TZ offset to it
+		return new Date(msUTC + (dataSource.data["Local"]["Offset"] * 1000));
+	}
+
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	property string tooltipMainText: ''
