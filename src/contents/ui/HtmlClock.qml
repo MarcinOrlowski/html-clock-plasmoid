@@ -4,7 +4,7 @@
  * Configurable HTML styled clock plasmoid.
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2021 Marcin Orlowski
+ * @copyright 2020-2022 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
