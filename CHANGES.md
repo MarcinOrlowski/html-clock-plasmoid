@@ -1,5 +1,5 @@
 * 1.6.3 (2022-09-02)
-  * Fixed layout config control buttons being rendered in unusable form.
+  * Fixed layout config control buttons being rendered in unusable form [#35]
 
 * 1.6.2 (2021-12-12)
   * Fixed broken calendar view.
