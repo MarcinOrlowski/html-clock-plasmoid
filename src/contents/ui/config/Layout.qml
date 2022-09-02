@@ -2,7 +2,7 @@
  * HTML Clock Plasmoid
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2021 Marcin Orlowski
+ * @copyright 2020-2022 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
@@ -110,7 +110,7 @@ ColumnLayout {
 		}
 
 		PlasmaComponents.Button {
-			implicitWidth: minimumWidth
+			// implicitWidth: minimumWidth
 			text: i18n('Clone')
 			onClicked: layoutTextArea.text = Layouts.layouts[layoutKey]['html'].trim()
 		}
@@ -231,19 +231,19 @@ ColumnLayout {
 			text: i18n('Style selection:')
 		}
 		PlasmaComponents.Button {
-			implicitWidth: minimumWidth
+			// implicitWidth: minimumWidth
 			text: i18n('Font')
 			onClicked: doReplaceSelection(styleWithFontAndColor(getTextToStyle(), fontSelector.selectedFont, colorSelector.color))
 		}
 
 		PlasmaComponents.Button {
-			implicitWidth: minimumWidth
+			// implicitWidth: minimumWidth
 			text: i18n('Color')
 			onClicked: doReplaceSelection(styleWithColor(getTextToStyle(), colorSelector.color))
 		}
 
 		PlasmaComponents.Button {
-			implicitWidth: minimumWidth
+			// implicitWidth: minimumWidth
 			text: i18n('Font + Color')
 			onClicked: doReplaceSelection(styleWithFontAndColor(getTextToStyle(), fontSelector.selectedFont, colorSelector.color))
 		}
