@@ -84,14 +84,15 @@ ColumnLayout {
 	}
 
 	function handleFlip(text) {
-		var reg = new RegExp('\{flip(:(.+)){2}\}', 'g')
+		var reg = new RegExp('\{flip:(.+?):(.+?)\}', 'gi')
 		var matches = text.match(reg)
 		if (matches !== null) {
 			var even = (new Date()).getSeconds() % 2
-			var valReg = new RegExp('^\{flip:(.+):(.+)\}$', '')
+			var valReg = new RegExp('^\{flip:(.+?):(.+?)\}$', 'i')
 			matches.forEach(function (val, idx) {
 				var valMatch = val.match(valReg)
 				text = text.replace(val, valMatch[even ? 1 : 2])
+				console.log(`XXXXX val: ${val}, 1: ${valMatch[1]}, 2: ${valMatch[2]}`)
 			})
 		}
 
