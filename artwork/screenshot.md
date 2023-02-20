@@ -1,1 +1,3 @@
-plasmoidviewer window width: 774 px
+# Screenshots params
+
+Made using plasmoidviewer window with width: 774 px
