@@ -13,7 +13,7 @@ Plasma/KDE clock widget you can layout and style using HTML/CSS!
 > nor information types shown, as you can use [QT's subset of HTML and CSS](https://doc.qt.io/qt-5/richtext-html-subset.html)
 > to make yours layout look as **you** like. Please explore the configuration dialog!
 
-**[See user contributed clock layouts](https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates)**
+## 👉 [See user contributed layout templates!](https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates) ##
 
 ---
 
