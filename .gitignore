@@ -6,3 +6,50 @@
 package/contents/config/main.xml
 *.plasmoid
 /*.sh
+
+build/
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+
+# Qt Creator specific files
+.qtcreator/
+*.autosave
+*.creator.user
+*.creator.user.*
+*.creator.*
+
+# CMake generated files
+CMakeLists.txt.user
+CMakeLists.txt.user.*
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Intermediate and compiled files
+*.moc
+*.obj
+*.o
+*.lo
+*.la
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.dSYM/
+
+# Generated documentation
+doc/
+docs/
+
+# Plasma specific files
+metadata.desktop~
+translations/.qm
+plasma_package/
+*.kdev4
