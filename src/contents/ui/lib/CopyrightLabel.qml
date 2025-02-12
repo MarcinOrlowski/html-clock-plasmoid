@@ -7,7 +7,7 @@
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.1
+import QtQuick
 import "../../js/meta.js" as Meta
 
 ClickableLabel {

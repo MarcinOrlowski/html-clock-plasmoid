@@ -7,8 +7,8 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import QtQuick
+import org.kde.plasma.components as PlasmaComponents
 
 PlasmaComponents.Button {
 	// implicitWidth: minimumWidth

@@ -7,9 +7,9 @@
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.3
-import QtQuick.Dialogs 1.2
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Dialogs
 
 Button {
 	// There seems to be a bug in FontDialog that causes "font" property to

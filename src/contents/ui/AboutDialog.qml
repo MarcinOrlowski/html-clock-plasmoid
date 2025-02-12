@@ -7,11 +7,11 @@
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import QtQuick.Dialogs 1.3
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import org.kde.plasma.components as PlasmaComponents
+import QtQuick.Dialogs
 import "../js/meta.js" as Meta
 import "lib"
 

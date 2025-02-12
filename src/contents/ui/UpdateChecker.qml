@@ -7,8 +7,8 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import Qt.labs.settings 1.0
+import QtQuick
+import Qt.labs.settings
 import "../js/meta.js" as Meta
 
 Item {

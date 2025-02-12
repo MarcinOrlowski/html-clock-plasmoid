@@ -7,8 +7,8 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
+import QtQuick
+import org.kde.plasma.core as PlasmaCore
 
 QtObject {
 	id: notificationManager
