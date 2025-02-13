@@ -18,9 +18,10 @@
 import QtQuick
 import QtQuick.Layouts
 import org.kde.plasma.core as PlasmaCore
-import org.kde.plasma.calendar as PlasmaCalendar
+import org.kde.plasma.workspace.calendar as PlasmaCalendar
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.extras as PlasmaExtras
+import org.kde.kirigami as Kirigami
 
 Item {
     id: calendar
@@ -117,7 +118,7 @@ Item {
         Connections {
             target: plasmoid.configuration
 
-            onEnabledCalendarPluginsChanged: {
+            function onEnabledCalendarPluginsChanged() {
                 PlasmaCalendar.EventPluginsManager.enabledPlugins = plasmoid.configuration.enabledCalendarPlugins;
             }
         }
@@ -175,7 +176,7 @@ Item {
             text: timeString.length > dateString.length ? timeString : dateString
         }
 
-        PlasmaExtras.ScrollArea {
+        PlasmaComponents.ScrollView {
             id: holidaysView
             anchors {
                 top: dateHeading.bottom
@@ -183,12 +184,12 @@ Item {
                 right: parent.right
                 bottom: parent.bottom
             }
-            flickableItem.boundsBehavior: Flickable.StopAtBounds
+            // flickableItem.boundsBehavior: Flickable.StopAtBounds
 
             ListView {
                 id: holidaysList
 
-                delegate: PlasmaComponents.ListItem {
+                delegate: PlasmaComponents.ItemDelegate {
                     id: eventItem
                     property bool hasTime: {
                         // Explicitly all-day event
@@ -219,104 +220,85 @@ Item {
                         return true;
                     }
 
-                    PlasmaCore.ToolTipArea {
-                        width: parent.width
-                        height: eventGrid.height
-                        active: eventTitle.truncated || eventDescription.truncated
-                        mainText: active ? eventTitle.text : ""
-                        subText: active ? eventDescription.text : ""
+                    contentItem: GridLayout {
+                        id: eventGrid
+                        columns: 3
+                        rows: 2
+                        rowSpacing: 0
+                        columnSpacing: 2 * units.smallSpacing
 
-                        GridLayout {
-                            id: eventGrid
-                            columns: 3
-                            rows: 2
-                            rowSpacing: 0
-                            columnSpacing: 2 * units.smallSpacing
-
-                            width: parent.width
-
-                            Rectangle {
-                                id: eventColor
-
-                                Layout.row: 0
-                                Layout.column: 0
-                                Layout.rowSpan: 2
-                                Layout.fillHeight: true
-
-                                color: modelData.eventColor
-                                width: 5 * units.devicePixelRatio
-                                visible: modelData.eventColor !== ""
-                            }
-
-                            PlasmaComponents.Label {
-                                id: startTimeLabel
-
-                                readonly property bool startsToday: modelData.startDateTime - monthView.currentDate >= 0
-                                readonly property bool startedYesterdayLessThan12HoursAgo: modelData.startDateTime - monthView.currentDate >= -43200000 //12hrs in ms
-
-                                Layout.row: 0
-                                Layout.column: 1
-                                Layout.minimumWidth: dateLabelMetrics.width
-
-                                text: startsToday || startedYesterdayLessThan12HoursAgo
-                                        ? Qt.formatTime(modelData.startDateTime)
-                                        : agenda.formatDateWithoutYear(modelData.startDateTime)
-                                horizontalAlignment: Qt.AlignRight
-                                visible: eventItem.hasTime
-                            }
-
-                            PlasmaComponents.Label {
-                                id: endTimeLabel
-
-                                readonly property bool endsToday: modelData.endDateTime - monthView.currentDate <= 86400000 // 24hrs in ms
-                                readonly property bool endsTomorrowInLessThan12Hours: modelData.endDateTime - monthView.currentDate <= 86400000 + 43200000 // 36hrs in ms
-
-                                Layout.row: 1
-                                Layout.column: 1
-                                Layout.minimumWidth: dateLabelMetrics.width
-
-                                text: endsToday || endsTomorrowInLessThan12Hours
-                                        ? Qt.formatTime(modelData.endDateTime)
-                                        : agenda.formatDateWithoutYear(modelData.endDateTime)
-                                horizontalAlignment: Qt.AlignRight
-                                enabled: false
-
-                                visible: eventItem.hasTime
-                            }
-
-                            PlasmaComponents.Label {
-                                id: eventTitle
-
-                                readonly property bool wrap: eventDescription.text === ""
-
-                                Layout.row: 0
-                                Layout.rowSpan: wrap ? 2 : 1
-                                Layout.column: 2
-                                Layout.fillWidth: true
-
-                                font.weight: Font.Bold
-                                elide: Text.ElideRight
-                                text: modelData.title
-                                verticalAlignment: Text.AlignVCenter
-                                maximumLineCount: 2
-                                wrapMode: wrap ? Text.Wrap : Text.NoWrap
-                            }
-
-                            PlasmaComponents.Label {
-                                id: eventDescription
-
-                                Layout.row: 1
-                                Layout.column: 2
-                                Layout.fillWidth: true
-
-                                elide: Text.ElideRight
-                                text: modelData.description
-                                verticalAlignment: Text.AlignVCenter
-                                enabled: false
-
-                                visible: text !== ""
-                            }
+                        Rectangle {
+                            id: eventColor
+                            Layout.row: 0
+                            Layout.column: 0
+                            Layout.rowSpan: 2
+                            Layout.fillHeight: true
+                            color: modelData.eventColor
+                            width: 5 * units.devicePixelRatio
+                            visible: modelData.eventColor !== ""
                         }
+
+                        PlasmaComponents.Label {
+                            id: startTimeLabel
+                            readonly property bool startsToday: modelData.startDateTime - monthView.currentDate >= 0
+                            readonly property bool startedYesterdayLessThan12HoursAgo: modelData.startDateTime - monthView.currentDate >= -43200000
+                            Layout.row: 0
+                            Layout.column: 1
+                            Layout.minimumWidth: dateLabelMetrics.width
+                            text: startsToday || startedYesterdayLessThan12HoursAgo
+                                    ? Qt.formatTime(modelData.startDateTime)
+                                    : agenda.formatDateWithoutYear(modelData.startDateTime)
+                            horizontalAlignment: Qt.AlignRight
+                            visible: eventItem.hasTime
+                        }
+
+                        PlasmaComponents.Label {
+                            id: endTimeLabel
+                            readonly property bool endsToday: modelData.endDateTime - monthView.currentDate <= 86400000
+                            readonly property bool endsTomorrowInLessThan12Hours: modelData.endDateTime - monthView.currentDate <= 86400000 + 43200000
+                            Layout.row: 1
+                            Layout.column: 1
+                            Layout.minimumWidth: dateLabelMetrics.width
+                            text: endsToday || endsTomorrowInLessThan12Hours
+                                    ? Qt.formatTime(modelData.endDateTime)
+                                    : agenda.formatDateWithoutYear(modelData.endDateTime)
+                            horizontalAlignment: Qt.AlignRight
+                            enabled: false
+                            visible: eventItem.hasTime
+                        }
+
+                        PlasmaComponents.Label {
+                            id: eventTitle
+                            readonly property bool wrap: eventDescription.text === ""
+                            Layout.row: 0
+                            Layout.rowSpan: wrap ? 2 : 1
+                            Layout.column: 2
+                            Layout.fillWidth: true
+                            font.weight: Font.Bold
+                            elide: Text.ElideRight
+                            text: modelData.title
+                            verticalAlignment: Text.AlignVCenter
+                            maximumLineCount: 2
+                            wrapMode: wrap ? Text.Wrap : Text.NoWrap
+                        }
+
+                        PlasmaComponents.Label {
+                            id: eventDescription
+                            Layout.row: 1
+                            Layout.column: 2
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            text: modelData.description
+                            verticalAlignment: Text.AlignVCenter
+                            enabled: false
+                            visible: text !== ""
+                        }
+                    }
+
+                    PlasmaComponents.ToolTip {
+                        text: active ? eventTitle.text : ""
+                        // subText: active ? eventDescription.text : ""
+                        visible: active && (eventTitle.truncated || eventDescription.truncated)
                     }
                 }
 
@@ -339,8 +321,8 @@ Item {
             opacity: 0.4
             visible: holidaysList.count == 0
         }
-
     }
+
     Item {
         id: cal
         width: boxWidth
@@ -367,9 +349,11 @@ Item {
         width: Math.round(units.gridUnit * 1.25)
         height: width
         checkable: true
-        iconSource: "window-pin"
+        icon.name: "window-pin"
         checked: plasmoid.configuration.pin
         onCheckedChanged: plasmoid.configuration.pin = checked
-        tooltip: i18n("Keep Open")
+        PlasmaComponents.ToolTip {
+            text: i18n("Keep Open")
+        }
     }
 }
