@@ -17,7 +17,7 @@ import "../js/utils.js" as Utils
 
 PlasmoidItem {
 	id: root
-
+	
 	// ------------------------------------------------------------------------------------------------------------------------
 	Plasmoid.contextualActions: [
 		PlasmaCore.Action {
@@ -85,13 +85,10 @@ PlasmoidItem {
 	compactRepresentation: HtmlClock {}
 	fullRepresentation: CalendarView {}
 
-	// If ConfigurableBackground is set, the we most likely run on Plasma 5.19+ and if so, we prefer using
-	// widget's background control features instead.
-	//    backgroundHints: (typeof Plasma5Support.Types.ConfigurableBackground !== "undefined"
-	// 	? Plasma5Support.Types.DefaultBackground | Plasma5Support.Types.ConfigurableBackground
-	// 	: plasmoid.configuration.transparentBackgroundEnabled ? Plasma5Support.Types.NoBackground : Plasma5Support.Types.DefaultBackground
-	// )
-
+	Plasmoid.backgroundHints: Plasmoid.configuration.transparentBackgroundEnabled 
+																											? PlasmaCore.Types.ShadowBackground | PlasmaCore.Types.ConfigurableBackground 
+																											: PlasmaCore.Types.DefaultBackground
+	
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	UpdateChecker {
