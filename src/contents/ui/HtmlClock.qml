@@ -19,6 +19,15 @@ import "../js/utils.js" as Utils
 
 ColumnLayout {
 	id: mainContainer
+	spacing: 0
+
+	Layout.fillWidth: widgetContainerFillWidth
+	Layout.fillHeight: widgetContainerFillHeight
+	Layout.minimumWidth: mouseArea.implicitWidth
+	Layout.minimumHeight: mouseArea.implicitHeight
+	Layout.preferredWidth: mouseArea.implicitWidth
+	Layout.preferredHeight: mouseArea.implicitHeight
+	Layout.alignment: Qt.AlignCenter
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -35,27 +44,31 @@ ColumnLayout {
 		id: mouseArea
 		Layout.fillWidth: true
 		Layout.fillHeight: true
+		Layout.alignment: Qt.AlignCenter
+		implicitWidth: clock.implicitWidth + Kirigami.Units.largeSpacing * 2
+		implicitHeight: clock.implicitHeight + Kirigami.Units.largeSpacing * 2
+
 		onClicked: {
 			if (plasmoid.configuration.calendarViewEnabled) {
 				plasmoid.expanded = !plasmoid.expanded
 			}
 		}
-	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
+		PlasmaComponents.Label {
+			id: clock
+			anchors.centerIn: parent
+			textFormat: Text.RichText
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
+			width: implicitWidth
+			height: implicitHeight
 
-	PlasmaComponents.Label {
-		id: clock
-		Layout.alignment: Qt.AlignHCenter
-		textFormat: Text.RichText
-		Layout.fillWidth: widgetContainerFillWidth
-		Layout.fillHeight: widgetContainerFillHeight
-
-		font.family: useCustomFont ? customFont.family : Kirigami.Theme.defaultFont.family
-		font.pointSize: useCustomFont ? customFont.pointSize : Kirigami.Theme.defaultFont.pointSize
-		font.bold: useCustomFont ? customFont.bold : Kirigami.Theme.defaultFont.bold
-		font.italic: useCustomFont ? customFont.italic : Kirigami.Theme.defaultFont.italic
-		font.underline: useCustomFont ? customFont.underline : Kirigami.Theme.defaultFont.underline
+			font.family: useCustomFont ? customFont.family : Kirigami.Theme.defaultFont.family
+			font.pointSize: useCustomFont ? customFont.pointSize : Kirigami.Theme.defaultFont.pointSize
+			font.bold: useCustomFont ? customFont.bold : Kirigami.Theme.defaultFont.bold
+			font.italic: useCustomFont ? customFont.italic : Kirigami.Theme.defaultFont.italic
+			font.underline: useCustomFont ? customFont.underline : Kirigami.Theme.defaultFont.underline
+		}
 	}
 
 	Plasma5Support.DataSource {
