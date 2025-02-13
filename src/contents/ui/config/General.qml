@@ -15,6 +15,8 @@ import org.kde.kirigami as Kirigami
 import org.kde.kquickcontrols as KQControls
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasma5support as Plasma5Support
+import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
 import "../lib"
 
@@ -52,7 +54,7 @@ Kirigami.FormLayout {
 
 		// If ConfigurableBackground is set, the we most likely run on Plasma 5.19+ and if so,
 		// we prefer using widget's background control features instead.
-		visible: typeof PlasmaCore.Types.ConfigurableBackground === "undefined"
+		visible: typeof Plasma5Support.Types.ConfigurableBackground === "undefined"
 	}
 
 	Item {
@@ -77,6 +79,7 @@ Kirigami.FormLayout {
 
 		FontSelector {
 			id: fontSelector
+			enabled: useCustomFont.checked
 		}
 	}
 
@@ -118,4 +121,3 @@ Kirigami.FormLayout {
 
 
 } // FormLayout
-
