@@ -8,42 +8,40 @@
  */
 
 import QtQuick
-import org.kde.plasma.calendar as PlasmaCalendar
+import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/meta.js" as Meta
 import "../js/utils.js" as Utils
 
-Item {
+PlasmoidItem {
 	id: root
 
 	// ------------------------------------------------------------------------------------------------------------------------
+	Plasmoid.contextualActions: [
+		PlasmaCore.Action {
+			text: i18n('About %1…', Meta.title)
+			onTriggered: aboutDialog.visible = true
+		},
+		PlasmaCore.Action {
+			text: i18n("Check update…")
+			onTriggered: updateChecker.checkUpdateAvailability(true)
+		}
+	]
 
-	Component.onCompleted: {
-		plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
-		plasmoid.setAction("checkUpdateAvailability", i18n("Check update…"));
-	}
-
-	function action_checkUpdateAvailability() {
-		updateChecker.checkUpdateAvailability(true)
-	}
-
-	function action_showAboutDialog() {
-		aboutDialog.visible = true
-	}
 	AboutDialog {
 		id: aboutDialog
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		id: dataSource
 		engine: "time"
 //		  connectedSources: allTimezones
 //		  interval: plasmoid.configuration.showSeconds ? 1000 : 60000
-//		  intervalAlignment: plasmoid.configuration.showSeconds ? PlasmaCore.Types.NoAlignment : PlasmaCore.Types.AlignToMinute
+//		  intervalAlignment: plasmoid.configuration.showSeconds ? Plasma5Support.Types.NoAlignment : Plasma5Support.Types.AlignToMinute
 		connectedSources: {
 			return [
 				"Local",
@@ -51,7 +49,7 @@ Item {
 			]
 		}
 		interval: 60000
-		intervalAlignment: PlasmaCore.Types.NoAlignment
+		intervalAlignment: Plasma5Support.Types.NoAlignment
 	}
 
 	// Used by CalendarView.qml component
@@ -69,11 +67,11 @@ Item {
 	property string tooltipMainText: ''
 	property string tooltipSubText: ''
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		engine: "time"
 		connectedSources: ["Local"]
 		interval: 1000
-		intervalAlignment: PlasmaCore.Types.NoAlignment
+		intervalAlignment: Plasma5Support.Types.NoAlignment
 		onDataChanged: {
 			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
 				? plasmoid.configuration.useSpecificLocaleLocaleName
@@ -86,21 +84,21 @@ Item {
 		}
 	}
 
-	Plasmoid.toolTipMainText: tooltipMainText
-	Plasmoid.toolTipSubText: tooltipSubText
+	toolTipMainText: tooltipMainText
+	toolTipSubText: tooltipSubText
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
-	Plasmoid.compactRepresentation: HtmlClock { }
-	Plasmoid.fullRepresentation: CalendarView { }
+	preferredRepresentation: compactRepresentation
+	compactRepresentation: HtmlClock {}
+	fullRepresentation: CalendarView {}
 
 	// If ConfigurableBackground is set, the we most likely run on Plasma 5.19+ and if so, we prefer using
 	// widget's background control features instead.
-	Plasmoid.backgroundHints: (typeof PlasmaCore.Types.ConfigurableBackground !== "undefined"
-		? PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
-		: plasmoid.configuration.transparentBackgroundEnabled ? PlasmaCore.Types.NoBackground : PlasmaCore.Types.DefaultBackground
-	)
+	//    backgroundHints: (typeof Plasma5Support.Types.ConfigurableBackground !== "undefined"
+	// 	? Plasma5Support.Types.DefaultBackground | Plasma5Support.Types.ConfigurableBackground
+	// 	: plasmoid.configuration.transparentBackgroundEnabled ? Plasma5Support.Types.NoBackground : Plasma5Support.Types.DefaultBackground
+	// )
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -108,7 +106,7 @@ Item {
 		id: updateChecker
 
 		// once per 7 days
-		checkInterval: (((1000*60)*60)*24*7)
+		checkInterval: (((1000 * 60) * 60) * 24 * 7)
 	}
 
 } // root
