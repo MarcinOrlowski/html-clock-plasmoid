@@ -6,6 +6,19 @@
 																"Name": "Marcin Orlowski"
 												}
 								],
+								"OtherContributors": [
+												{
+																"Email": "sendevent@gmail.com",
+																"Name": "Denis Gofman"
+												},
+												{
+																"Name": "NICHOLAS85"
+												},
+												{
+																"Email": "solankivibhakar82@gmail.com",
+																"Name": "Vibhakar Solanki"
+												}
+								],
 								"Category": "Date and Time",
 								"Description": "HTML stylable digital clock",
 								"Icon": "clock",
