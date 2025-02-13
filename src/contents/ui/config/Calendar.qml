@@ -19,6 +19,7 @@ Kirigami.FormLayout {
 
 	property alias cfg_calendarViewEnabled: calendarViewEnabled.checked
 	property alias cfg_showWeekNumbers: showWeekNumbers.checked
+	property alias cfg_pin: pin.checked
 
 //	Item {
 //		Kirigami.FormData.label: i18n('Localization')
@@ -34,6 +35,11 @@ Kirigami.FormLayout {
 		id: showWeekNumbers
 		enabled: cfg_calendarViewEnabled
 		text: i18n("Show week numbers")
+	}
+
+	CheckBox {
+		id: pin
+		text: i18n("Pin popup")
 	}
 
 	Item {
