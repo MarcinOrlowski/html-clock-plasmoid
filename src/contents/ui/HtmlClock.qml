@@ -50,7 +50,7 @@ ColumnLayout {
 
 		onClicked: {
 			if (plasmoid.configuration.calendarViewEnabled) {
-				plasmoid.expanded = !plasmoid.expanded
+				expanded = !expanded
 			}
 		}
 

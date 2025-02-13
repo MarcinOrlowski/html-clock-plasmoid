@@ -31,7 +31,7 @@ Item {
 
     // The "sensible" values
     property int _minimumWidth: (showAgenda ? agendaViewWidth : 0) + monthViewWidth
-    property int _minimumHeight: units.gridUnit * 14
+    property int _minimumHeight: Kirigami.Units.gridUnit * 14
     Layout.preferredWidth: _minimumWidth
     Layout.preferredHeight: _minimumHeight * 1.5
     Layout.maximumWidth: Layout.preferredWidth
@@ -44,13 +44,13 @@ Item {
 
     property int boxWidth: (agendaViewWidth + monthViewWidth - ((showAgenda ? 3 : 4) * spacing)) / 2
 
-    property int spacing: units.largeSpacing
+    property int spacing: Kirigami.Units.largeSpacing
     property alias borderWidth: monthView.borderWidth
     property alias monthView: monthView
 
     property bool debug: false
 
-    property bool isExpanded: plasmoid.expanded
+    property bool isExpanded: plasmoid.configuration.calendarViewEnabled && expanded
 
     onIsExpandedChanged: {
         // clear all the selections when the plasmoid is showing/hiding
@@ -89,7 +89,7 @@ Item {
         Connections {
             target: monthView
 
-            onCurrentDateChanged: {
+            function onCurrentDateChanged() {
                 // Apparently this is needed because this is a simple QList being
                 // returned and if the list for the current day has 1 event and the
                 // user clicks some other date which also has 1 event, QML sees the
@@ -104,7 +104,7 @@ Item {
         Connections {
             target: monthView.daysModel
 
-            onAgendaUpdated: {
+            function onAgendaUpdated() {
                 // Checks if the dates are the same, comparing the date objects
                 // directly won't work and this does a simple integer subtracting
                 // so should be fastest. One of the JS weirdness.
@@ -124,7 +124,7 @@ Item {
         }
 
         Binding {
-            target: plasmoid
+            target: plasmoid.configuration
             property: "hideOnWindowDeactivate"
             value: !plasmoid.configuration.pin
         }
@@ -172,7 +172,7 @@ Item {
             readonly property string timeString: Qt.formatTime(new Date(2000, 12, 12, 12, 12, 12, 12))
             readonly property string dateString: agenda.formatDateWithoutYear(new Date(2000, 12, 12, 12, 12, 12))
 
-            font: theme.defaultFont
+            font: Kirigami.Theme.defaultFont
             text: timeString.length > dateString.length ? timeString : dateString
         }
 
@@ -225,7 +225,7 @@ Item {
                         columns: 3
                         rows: 2
                         rowSpacing: 0
-                        columnSpacing: 2 * units.smallSpacing
+                        columnSpacing: 2 * Kirigami.Units.smallSpacing
 
                         Rectangle {
                             id: eventColor
@@ -234,7 +234,7 @@ Item {
                             Layout.rowSpan: 2
                             Layout.fillHeight: true
                             color: modelData.eventColor
-                            width: 5 * units.devicePixelRatio
+                            width: 5 * Kirigami.Units.devicePixelRatio
                             visible: modelData.eventColor !== ""
                         }
 
@@ -313,8 +313,8 @@ Item {
 
         PlasmaExtras.Heading {
             anchors.fill: holidaysView
-            anchors.leftMargin: units.largeSpacing
-            anchors.rightMargin: units.largeSpacing
+            anchors.leftMargin: Kirigami.Units.largeSpacing
+            anchors.rightMargin: Kirigami.Units.largeSpacing
             text: monthView.isToday(monthView.currentDate) ? i18n("No events for today")
                                                            : i18n("No events for this day");
             level: 3
@@ -346,7 +346,7 @@ Item {
     // Allows the user to keep the calendar open for reference
     PlasmaComponents.ToolButton {
         anchors.right: parent.right
-        width: Math.round(units.gridUnit * 1.25)
+        width: Math.round(Kirigami.Units.gridUnit * 1.25)
         height: width
         checkable: true
         icon.name: "window-pin"
