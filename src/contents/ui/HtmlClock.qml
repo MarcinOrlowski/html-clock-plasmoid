@@ -42,6 +42,8 @@ ColumnLayout {
 
 	MouseArea {
 		id: mouseArea
+
+		hoverEnabled: true
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		Layout.alignment: Qt.AlignCenter

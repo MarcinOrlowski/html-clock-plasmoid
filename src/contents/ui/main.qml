@@ -82,7 +82,9 @@ PlasmoidItem {
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	preferredRepresentation: compactRepresentation
-	compactRepresentation: HtmlClock {}
+	compactRepresentation: HtmlClock {
+		activeFocusOnTab: true
+}
 	fullRepresentation: CalendarView {}
 
 	Plasmoid.backgroundHints: Plasmoid.configuration.transparentBackgroundEnabled 
