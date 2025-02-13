@@ -11,6 +11,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.plasmoid
 import QtQuick.Dialogs
 import "../js/meta.js" as Meta
 import "lib"
@@ -37,7 +38,7 @@ Dialog {
 			id: aboutLogo
 			Layout.alignment: Qt.AlignHCenter
 			fillMode: Image.PreserveAspectFit
-			source: plasmoid.file('', 'images/logo.png')
+			source: plasmoid.configuration.root + '/images/logo.png'
 		}
 
 		// metadata access is not available until very recent Plasma
