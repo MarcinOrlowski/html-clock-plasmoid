@@ -36,5 +36,9 @@
 				"X-KDE-PluginInfo-Author-Url": "https://marcinorlowski.com/",
 				"X-KDE-PluginInfo-FirstReleaseYear": "2020",
 				"X-KDE-PluginInfo-UpdateChecker-Url": "https://raw.githubusercontent.com/MarcinOrlowski/html-clock-plasmoid/master/src/metadata.desktop",
-				"X-Plasma-API": "declarativeappletscript"
+				"X-Plasma-API": "declarativeappletscript",
+				"X-Plasma-Provides": [
+				        "org.kde.plasma.time",
+												"org.kde.plasma.date"
+				    ]
 }
