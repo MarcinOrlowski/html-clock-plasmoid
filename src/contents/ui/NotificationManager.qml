@@ -8,12 +8,12 @@
  */
 
 import QtQuick
-import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasma5support as Plasma5Support
 
 QtObject {
 	id: notificationManager
 
-	property var dataSource: PlasmaCore.DataSource {
+	property var dataSource: Plasma5Support.DataSource {
 		id: dataSource
 		engine: "notifications"
 		connectedSources: ["org.freedesktop.Notifications"]
