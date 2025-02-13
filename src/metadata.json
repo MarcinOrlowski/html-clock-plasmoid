@@ -21,7 +21,12 @@
 								],
 								"Category": "Date and Time",
 								"Description": "HTML stylable digital clock",
-								"Icon": "clock",
+								"Icon": "preferences-system-time",
+								"FormFactors": [
+								            "tablet",
+								            "handset",
+								            "desktop"
+								        ],
 								"Id": "com.marcinorlowski.htmlclock",
 								"License": "MIT",
 								"Name": "HTML Clock",
