@@ -10,20 +10,20 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Dialogs
+import org.kde.plasma.plasmoid
 
 Button {
 	// There seems to be a bug in FontDialog that causes "font" property to
 	// act as "selectedFont" which means both are updated immediately while
 	// "font" is documented to be updated only once selection is Accepted,
 	// so I had to add "proxy" property to work that around.
-	property font selectedFont: theme.defaultFont
+	property alias selectedFont: customFontDialog.selectedFont
 
 	text: i18n("Select font")
 	onClicked: customFontDialog.open()
 	FontDialog {
 		id: customFontDialog
-		onAccepted: selectedFont = font
-		Component.onCompleted: font = selectedFont
+		Component.onCompleted: selectedFont = plasmoid.configuration.customFont
 	}
 }
 
