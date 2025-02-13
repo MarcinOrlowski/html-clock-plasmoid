@@ -89,6 +89,8 @@ PlasmoidItem {
 																											? PlasmaCore.Types.ShadowBackground | PlasmaCore.Types.ConfigurableBackground 
 																											: PlasmaCore.Types.DefaultBackground
 	
+	hideOnWindowDeactivate: !Plasmoid.configuration.pin	
+
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	UpdateChecker {

@@ -123,12 +123,6 @@ Item {
             }
         }
 
-        Binding {
-            target: plasmoid.configuration
-            property: "hideOnWindowDeactivate"
-            value: !plasmoid.configuration.pin
-        }
-
         PlasmaComponents.Label {
             id: dayLabel
             anchors.left: parent.left
