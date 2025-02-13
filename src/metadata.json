@@ -6,21 +6,18 @@
 																"Name": "Marcin Orlowski"
 												}
 								],
-								"Category": "Services",
+								"Category": "Date and Time",
 								"Description": "HTML stylable digital clock",
 								"Icon": "clock",
 								"Id": "com.marcinorlowski.htmlclock",
 								"License": "MIT",
 								"Name": "HTML Clock",
-								"ServiceTypes": [
-												"Plasma/Applet"
-								],
 								"Version": "2.0.0",
 								"Website": "https://github.com/MarcinOrlowski/html-clock-plasmoid"
 				},
 				"X-KDE-ParentApp": "org.kde.plasmashell",
 				"X-Plasma-API-Minimum-Version": "6.0",
-				"KPackageStructure": "Plasma/Wallpaper",
+				"KPackageStructure": "Plasma/Applet",
 
 				"X-KDE-PluginInfo-Author-Url": "https://marcinorlowski.com/",
 				"X-KDE-PluginInfo-FirstReleaseYear": "2020",
