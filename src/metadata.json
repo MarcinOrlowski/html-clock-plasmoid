@@ -13,7 +13,8 @@
 								"License": "MIT",
 								"Name": "HTML Clock",
 								"Version": "2.0.0",
-								"Website": "https://github.com/MarcinOrlowski/html-clock-plasmoid"
+								"Website": "https://github.com/MarcinOrlowski/html-clock-plasmoid",
+								"BugReportUrl": "https://github.com/MarcinOrlowski/html-clock-plasmoid/issues/new?template=bug_report.md"
 				},
 				"X-KDE-ParentApp": "org.kde.plasmashell",
 				"X-Plasma-API-Minimum-Version": "6.0",
