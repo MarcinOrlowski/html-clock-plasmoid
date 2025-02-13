@@ -10,8 +10,9 @@
 import QtQuick
 import QtQuick.Layouts
 import org.kde.plasma.components as PlasmaComponents
-import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.plasma.plasmoid
+import org.kde.kirigami as Kirigami
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/layouts.js" as Layouts
 import "../js/utils.js" as Utils
@@ -32,7 +33,8 @@ ColumnLayout {
 
 	MouseArea {
 		id: mouseArea
-		anchors.fill: parent
+		Layout.fillWidth: true
+		Layout.fillHeight: true
 		onClicked: {
 			if (plasmoid.configuration.calendarViewEnabled) {
 				plasmoid.expanded = !plasmoid.expanded
@@ -49,18 +51,18 @@ ColumnLayout {
 		Layout.fillWidth: widgetContainerFillWidth
 		Layout.fillHeight: widgetContainerFillHeight
 
-		font.family: useCustomFont ? customFont.family : theme.defaultFont.family
-		font.pointSize: useCustomFont ? customFont.pointSize : theme.defaultFont.pointSize
-		font.bold: useCustomFont ? customFont.bold : theme.defaultFont.bold
-		font.italic: useCustomFont ? customFont.italic : theme.defaultFont.italic
-		font.underline: useCustomFont ? customFont.underline : theme.defaultFont.underline
+		font.family: useCustomFont ? customFont.family : Kirigami.Theme.defaultFont.family
+		font.pointSize: useCustomFont ? customFont.pointSize : Kirigami.Theme.defaultFont.pointSize
+		font.bold: useCustomFont ? customFont.bold : Kirigami.Theme.defaultFont.bold
+		font.italic: useCustomFont ? customFont.italic : Kirigami.Theme.defaultFont.italic
+		font.underline: useCustomFont ? customFont.underline : Kirigami.Theme.defaultFont.underline
 	}
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		engine: "time"
 		connectedSources: ["Local", "UTC"]
 		interval: 1000
-		intervalAlignment: PlasmaCore.Types.NoAlignment
+		intervalAlignment: Plasma5Support.Types.NoAlignment
 		onDataChanged: updateClock()
 	}
 
