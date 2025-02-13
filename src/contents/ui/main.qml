@@ -21,18 +21,10 @@ PlasmoidItem {
 	// ------------------------------------------------------------------------------------------------------------------------
 	Plasmoid.contextualActions: [
 		PlasmaCore.Action {
-			text: i18n('About %1…', Meta.title)
-			onTriggered: aboutDialog.visible = true
-		},
-		PlasmaCore.Action {
 			text: i18n("Check update…")
 			onTriggered: updateChecker.checkUpdateAvailability(true)
 		}
 	]
-
-	AboutDialog {
-		id: aboutDialog
-	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
