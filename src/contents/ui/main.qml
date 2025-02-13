@@ -11,6 +11,9 @@ import QtQuick
 import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
+import org.kde.config as KConfig
+import org.kde.kcmutils as KCMUtils
+
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/meta.js" as Meta
 import "../js/utils.js" as Utils
@@ -23,6 +26,18 @@ PlasmoidItem {
 		PlasmaCore.Action {
 			text: i18n("Check update…")
 			onTriggered: updateChecker.checkUpdateAvailability(true)
+		},
+		PlasmaCore.Action {
+			text: i18n("Adjust Date and Time…")
+			icon.name: "clock"
+			visible: KConfig.KAuthorized.authorize("kcm_clock")
+			onTriggered: KCMUtils.KCMLauncher.openSystemSettings("kcm_clock")
+		},
+		PlasmaCore.Action {
+			text: i18n("Set Time Format…")
+			icon.name: "gnumeric-format-thousand-separator"
+			visible: KConfig.KAuthorized.authorizeControlModule("kcm_regionandlang")
+			onTriggered: KCMUtils.KCMLauncher.openSystemSettings("kcm_regionandlang")
 		}
 	]
 
