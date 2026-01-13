@@ -7,10 +7,10 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.plasmoid 2.0
+import QtQuick
+import QtQuick.Layouts
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
 
 	// -----------------------------------------------------------------------
@@ -28,7 +28,7 @@ PlasmaComponents.ComboBox {
 		for(const _key in Layouts.layouts) {
 			var _name = Layouts.layouts[_key]['name']
 			_tmp.push({'value': _key, 'text': _name})
-			if (_key === plasmoid.configuration['layoutKey']) _currentIdx = _idx
+			if (_key === Plasmoid.configuration['layoutKey']) _currentIdx = _idx
 			_idx++
 		}
 		model = _tmp
@@ -36,4 +36,3 @@ PlasmaComponents.ComboBox {
 	}
 	onCurrentIndexChanged: selectedLayoutKey = model[currentIndex]['value']
 }
-

@@ -7,11 +7,12 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.plasmoid 2.0
+import QtQuick
+import QtQuick.Layouts
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
+import org.kde.plasma.plasma5support as Plasma5Support
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/layouts.js" as Layouts
 import "../js/utils.js" as Utils
@@ -19,14 +20,17 @@ import "../js/utils.js" as Utils
 ColumnLayout {
 	id: mainContainer
 
+	// Signal to notify parent to toggle expanded state
+	signal toggleExpanded()
+
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	property string layoutKey: plasmoid.configuration.layoutKey
-	property bool useUserLayout: plasmoid.configuration.useUserLayout
-	property bool useCustomFont: plasmoid.configuration.useCustomFont
-	property font customFont: plasmoid.configuration.customFont
-	property bool widgetContainerFillWidth: plasmoid.configuration.widgetContainerFillWidth
-	property bool widgetContainerFillHeight: plasmoid.configuration.widgetContainerFillHeight
+	property string layoutKey: Plasmoid.configuration.layoutKey
+	property bool useUserLayout: Plasmoid.configuration.useUserLayout
+	property bool useCustomFont: Plasmoid.configuration.useCustomFont
+	property font customFont: Plasmoid.configuration.customFont
+	property bool widgetContainerFillWidth: Plasmoid.configuration.widgetContainerFillWidth
+	property bool widgetContainerFillHeight: Plasmoid.configuration.widgetContainerFillHeight
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -34,8 +38,8 @@ ColumnLayout {
 		id: mouseArea
 		anchors.fill: parent
 		onClicked: {
-			if (plasmoid.configuration.calendarViewEnabled) {
-				plasmoid.expanded = !plasmoid.expanded
+			if (Plasmoid.configuration.calendarViewEnabled) {
+				mainContainer.toggleExpanded()
 			}
 		}
 	}
@@ -49,34 +53,34 @@ ColumnLayout {
 		Layout.fillWidth: widgetContainerFillWidth
 		Layout.fillHeight: widgetContainerFillHeight
 
-		font.family: useCustomFont ? customFont.family : theme.defaultFont.family
-		font.pointSize: useCustomFont ? customFont.pointSize : theme.defaultFont.pointSize
-		font.bold: useCustomFont ? customFont.bold : theme.defaultFont.bold
-		font.italic: useCustomFont ? customFont.italic : theme.defaultFont.italic
-		font.underline: useCustomFont ? customFont.underline : theme.defaultFont.underline
+		font.family: useCustomFont ? customFont.family : Qt.application.font.family
+		font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
+		font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
+		font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
+		font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 	}
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		engine: "time"
 		connectedSources: ["Local", "UTC"]
 		interval: 1000
-		intervalAlignment: PlasmaCore.Types.NoAlignment
+		intervalAlignment: Plasma5Support.Types.NoAlignment
 		onDataChanged: updateClock()
 	}
 
-	readonly property string layout: plasmoid.configuration.layout
-	property string configTimezoneOffset: plasmoid.configuration.clockTimezoneOffset
+	readonly property string layout: Plasmoid.configuration.layout
+	property string configTimezoneOffset: Plasmoid.configuration.clockTimezoneOffset
 	onLayoutChanged: updateClock()
 
 	function updateClock() {
-		var layoutHtml = useUserLayout 
-				? plasmoid.configuration.layout
+		var layoutHtml = useUserLayout
+				? Plasmoid.configuration.layout
 				: Layouts.layouts[layoutKey]['html']
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
-				? plasmoid.configuration.useSpecificLocaleLocaleName 
+		var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
+				? Plasmoid.configuration.useSpecificLocaleLocaleName
 				: ''
-		var finalOffsetOrNull = plasmoid.configuration.clockTimezoneOffsetEnabled
-			? Utils.parseTimezoneOffset(plasmoid.configuration.clockTimezoneOffset)
+		var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
+			? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
 			: null
 		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, finalOffsetOrNull)
 	}

@@ -7,13 +7,13 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.3 as QtControls
-import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.kquickcontrols 2.0 as KQControls
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.plasmoid 2.0
+import QtQuick
+import QtQuick.Controls as QtControls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.kde.kquickcontrols as KQControls
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
 import "../lib"
 
@@ -97,7 +97,7 @@ ColumnLayout {
 		type: Kirigami.MessageType.Information
 		text: i18n('You are currently using built-in layout. No changes made in this pane will be reflected unless you enable "Use user layout" option in "General" settings.')
 		showCloseButton: true
-		visible: !plasmoid.configuration.useUserLayout
+		visible: !Plasmoid.configuration.useUserLayout
 	}
 
 	// -----------------------------------------------------------------------
@@ -284,7 +284,7 @@ ColumnLayout {
 			}
 			ClickableLabel {
 				text: '<u>HTML tags</u>'
-				url: 'https://doc.qt.io/qt-5/richtext-html-subset.html'
+				url: 'https://doc.qt.io/qt-6/richtext-html-subset.html'
 			}
 		}
 		Item {

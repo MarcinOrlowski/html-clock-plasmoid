@@ -8,13 +8,13 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.kquickcontrols 2.0 as KQControls
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.core 2.0 as PlasmaCore
+import QtQuick
+import QtQuick.Controls as QtControls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.kde.kquickcontrols as KQControls
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
 import "../../js/layouts.js" as Layouts
 import "../lib"
 
@@ -45,14 +45,13 @@ Kirigami.FormLayout {
 		text: i18n("Use user layout")
 	}
 
-	CheckBox {
+	QtControls.CheckBox {
 		id: transparentBackground
 		text: i18n("Transparent background")
 		checked: cfg_transparentBackgroundEnabled
 
-		// If ConfigurableBackground is set, the we most likely run on Plasma 5.19+ and if so,
-		// we prefer using widget's background control features instead.
-		visible: typeof PlasmaCore.Types.ConfigurableBackground === "undefined"
+		// Plasma 6 always supports configurable background, hide this option
+		visible: false
 	}
 
 	Item {
@@ -85,24 +84,24 @@ Kirigami.FormLayout {
 	}
 
 	RowLayout {
-		CheckBox {
+		QtControls.CheckBox {
 			id: useSpecificLocaleEnabled
 			text: i18n("Locale to use")
 		}
 
-		TextField {
+		QtControls.TextField {
 			id: useSpecificLocaleLocaleName
 			enabled: cfg_useSpecificLocaleEnabled
 		}
 	}
 
 	RowLayout {
-		CheckBox {
+		QtControls.CheckBox {
 			id: clockTimezoneOffsetEnabled
 			text: i18n("Timezone offset")
 		}
 
-		TextField {
+		QtControls.TextField {
 			id: clockTimezoneOffset
 			enabled: cfg_clockTimezoneOffsetEnabled
 		}
@@ -118,4 +117,3 @@ Kirigami.FormLayout {
 
 
 } // FormLayout
-
