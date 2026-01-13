@@ -1,6 +1,6 @@
 # HTML Clock for KDE #
 
-Plasma/KDE clock widget you can layout and style using HTML/CSS!
+Plasma 6/KDE clock widget you can layout and style using HTML/CSS!
 
 ![Widget with fancy layout](img/widget-01.png)
 ![Widget with blinking dots](img/widget-02.gif)
@@ -56,7 +56,7 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
 * **Transparent background**: by default, widget uses theme provided background color. When this option is
   checked, widget background is no longer drawn, making it fully transparent. Note: this option is hidden
-  on Plasma 5.19 as it introduces similar feature for the all widgets which is preferred.
+  on Plasma 65.19 as it introduces similar feature for the all widgets which is preferred.
   option to built-in or newer these version.
 * **Use custom font**: enables use of custom font (and its size) instead of theme default.
   * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
