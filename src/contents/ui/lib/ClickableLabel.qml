@@ -7,8 +7,8 @@
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.0
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import QtQuick
+import org.kde.plasma.components as PlasmaComponents
 
 PlasmaComponents.Label {
 	// URL to open once the label is clicked.
@@ -29,4 +29,3 @@ PlasmaComponents.Label {
 		}
 	}
 }
-

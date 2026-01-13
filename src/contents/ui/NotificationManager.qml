@@ -7,13 +7,13 @@
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
 
-import QtQuick 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
+import QtQuick
+import org.kde.plasma.plasma5support as Plasma5Support
 
 QtObject {
 	id: notificationManager
 
-	property var dataSource: PlasmaCore.DataSource {
+	property var dataSource: Plasma5Support.DataSource {
 		id: dataSource
 		engine: "notifications"
 		connectedSources: ["org.freedesktop.Notifications"]
