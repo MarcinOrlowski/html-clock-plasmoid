@@ -8,34 +8,14 @@
  */
 
 import QtQuick
-import org.kde.plasma.workspace.calendar as PlasmaCalendar
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import org.kde.plasma.plasma5support as Plasma5Support
-import org.kde.kirigami as Kirigami
 import "../js/DateTimeFormatter.js" as DTF
-import "../js/meta.js" as Meta
 import "../js/utils.js" as Utils
 
 PlasmoidItem {
 	id: root
-
-	// ------------------------------------------------------------------------------------------------------------------------
-
-	Plasmoid.contextualActions: [
-		PlasmaCore.Action {
-			text: i18n("Check update…")
-			onTriggered: updateChecker.checkUpdateAvailability(true)
-		},
-		PlasmaCore.Action {
-			text: i18n('About %1…', Meta.title)
-			onTriggered: aboutDialog.visible = true
-		}
-	]
-
-	AboutDialog {
-		id: aboutDialog
-	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -100,14 +80,5 @@ PlasmoidItem {
 
 	// Plasma 6 always supports configurable background
 	Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
-
-	// ------------------------------------------------------------------------------------------------------------------------
-
-	UpdateChecker {
-		id: updateChecker
-
-		// once per 7 days
-		checkInterval: (((1000*60)*60)*24*7)
-	}
 
 } // root
