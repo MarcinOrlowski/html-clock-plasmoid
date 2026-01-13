@@ -1,4 +1,4 @@
-* dev (TBD)
+* 2.0.0 (2026-01-13)
   * Ported widget to KDE Plasma 6.
   * Removed custom version checking (KDE Discover handles updates).
 
