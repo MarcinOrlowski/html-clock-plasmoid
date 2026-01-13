@@ -1,5 +1,6 @@
-* dev (TBD)
+* 2.0.0 (2026-01-13)
   * Ported widget to KDE Plasma 6.
+  * Removed custom version checking (KDE Discover handles updates).
 
 * 1.6.4 (2023-02-20)
   * Fixed incorrect handling of multiple `{flip}` entries placed in the same line in template markup [#57].
