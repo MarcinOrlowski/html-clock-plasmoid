@@ -3,7 +3,7 @@
         "Authors": [{"Name": "Marcin Orlowski"}],
         "Category": "Services",
         "Description": "HTML stylable digital clock",
-        "Icon": "clock",
+        "Icon": "com.marcinorlowski.htmlclock",
         "Id": "com.marcinorlowski.htmlclock",
         "License": "MIT",
         "Name": "HTML Clock",
