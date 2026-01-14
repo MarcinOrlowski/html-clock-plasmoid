@@ -1,4 +1,4 @@
-![HTML CLock for Plasma](img/logo.png)
+![HTML Clock for Plasma](img/logo.png)
 
 
 # Changelog
@@ -10,7 +10,7 @@
 - Added widget logo.
 - Reorganized documentation into separate files.
 
-## 2.0.0 (2026-01-13)
+## v2.0.0 (2026-01-13)
 
 - Ported widget to KDE Plasma 6.
 - Removed custom version checking (KDE Discover handles updates).
@@ -36,7 +36,7 @@
 
 - Added option to specify time zone offset (in `[+/-]HH:MM` format) to support "world clock"
   application.
-- Added option to force widget contaner fill its parent container in 100% available.
+- Added option to force widget container fill its parent container in 100% available.
 
 ## v1.5.0 (2021-03-25)
 
@@ -49,7 +49,7 @@
 ## v1.3.1 (2021-03-23)
 
 - Dropped use of "backtick" JS syntax due to problems on Debian 10's Plasma
-  version. Reporeted by @Kolychy [#28]
+  version. Reported by @Kolychy [#28]
 
 ## v1.3.0 (2021-01-29)
 
