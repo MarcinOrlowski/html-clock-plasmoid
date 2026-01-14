@@ -1,6 +1,10 @@
-# HTML Clock for KDE #
+![HTML CLock for Plasma](img/logo.png)
 
-Plasma 6/KDE clock widget you can layout and style using HTML/CSS!
+# HTML Clock for Plasma 6 #
+
+Plasma 6 (KDE) clock widget you can layout and style using just elementary HTML/CSS!
+
+> **Note:** Looking for Plasma 5 version? See the [`plasma5` branch](https://github.com/MarcinOrlowski/html-clock-plasmoid/tree/plasma5).
 
 ![Widget with fancy layout](img/widget-01.png)
 ![Widget with blinking dots](img/widget-02.gif)
@@ -10,7 +14,7 @@ Plasma 6/KDE clock widget you can layout and style using HTML/CSS!
 
 > ![Note](img/notes.png) Similar look of the above images is just because I quickly crafted them using the same markup and colors
 > foundation (plus I use it that way myself :). So worry **not**, you are not limited to neither these layouts, nor colors,
-> nor information types shown, as you can use [QT's subset of HTML and CSS](https://doc.qt.io/qt-5/richtext-html-subset.html)
+> nor information types shown, as you can use [QT's subset of HTML and CSS](https://doc.qt.io/qt-6/richtext-html-subset.html)
 > to make yours layout look as **you** like. Please explore the configuration dialog!
 
 ## 👉 [See user contributed layout templates!](https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates) ##
@@ -43,7 +47,7 @@ Plasma 6/KDE clock widget you can layout and style using HTML/CSS!
 ## Configuration ##
 
 HTML Clock widget is very flexible and configurable by design. Almost all important aspects of its behavior
-can be modified or overriden.
+can be modified or overridden.
 
 ### General ###
 
@@ -54,10 +58,6 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 
 * **Layout**: selects widget built-in clock layout.
 * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
-* **Transparent background**: by default, widget uses theme provided background color. When this option is
-  checked, widget background is no longer drawn, making it fully transparent. Note: this option is hidden
-  on Plasma 65.19 as it introduces similar feature for the all widgets which is preferred.
-  option to built-in or newer these version.
 * **Use custom font**: enables use of custom font (and its size) instead of theme default.
   * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
 * **Locale to use**: By default, the system wide locale settings are used while creating day labels.
@@ -239,7 +239,7 @@ But if you want, you can also blink by toggling whole colors:
 <span style="color: {flip:red:green};">BLINK!</span>
 ```
 
-or by using [QT supported SVG color names](https://doc.qt.io/qt-5/qml-color.html#svg-color-reference):
+or by using [QT supported SVG color names](https://doc.qt.io/qt-6/qml-color.html#svg-color-reference):
 
 ```html
 <span style="color: {flip:red:green};">BLINK!</span>
@@ -285,19 +285,19 @@ Then you can either install it via Plasmashell's GUI, by clicking right mouse bu
 selecting "Add widgets...", then "Get new widgets..." eventually choosing "Install from local file..." and pointing to downloaded
 `*.plasmoid` file.
 
-Alternatively you can install it using your terminal, with help of `kpackagetool5`:
+Alternatively you can install it using your terminal, with help of `kpackagetool6`:
 
 ```bash
-kpackagetool5 --install /PATH/TO/DOWNLOADED/htmlclock.plasmoid 
+kpackagetool6 --install /PATH/TO/DOWNLOADED/htmlclock.plasmoid 
 ```
 
 ## Upgrading ##
 
-If you already have widget running and there's newer release your want to install, use `kpackagetool5`
+If you already have widget running and there's newer release your want to install, use `kpackagetool6`
 with `--upgrade` option. This will update current installation while keeping your settings intact:
 
 ```bash
-kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
+kpackagetool6 --upgrade /PATH/TO/DOWNLOADED/htmlclock.plasmoid
 ```
 
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
@@ -305,7 +305,7 @@ so you may want to convince Plasma by doing manual reload (this will **NOT** log
 other apps):
 
 ```bash
-kquitapp5 plasmashell ; kstart5 plasmashell
+kquitapp6 plasmashell && kstart plasmashell
 ```
 
 ---
@@ -319,5 +319,5 @@ kquitapp5 plasmashell ; kstart5 plasmashell
 
 ## License ##
 
-* Written and copyrighted &copy;2020-2023 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
-* Weekday Grid widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+* Written and copyrighted &copy;2020-2026 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+* HTML Clock widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
