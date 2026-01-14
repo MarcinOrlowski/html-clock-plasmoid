@@ -54,8 +54,9 @@ ColumnLayout {
 
 	// Preview container
 	Rectangle {
-		Layout.fillWidth: true
-		Layout.preferredHeight: 80
+		Layout.preferredWidth: 250
+		Layout.preferredHeight: 120
+		clip: true
 		color: Kirigami.Theme.backgroundColor
 		border.color: Kirigami.Theme.disabledTextColor
 		border.width: 1
@@ -63,7 +64,10 @@ ColumnLayout {
 
 		PlasmaComponents.Label {
 			id: previewLabel
-			anchors.centerIn: parent
+			anchors.fill: parent
+			anchors.margins: Kirigami.Units.largeSpacing
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
 			textFormat: Text.RichText
 			text: {
 				if (root.selectedLayoutKey === '' || !Layouts.layouts[root.selectedLayoutKey]) {
