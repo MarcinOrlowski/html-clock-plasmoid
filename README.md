@@ -1,6 +1,8 @@
-# HTML Clock for KDE #
+![HTML CLock for Plasma](img/logo.png)
 
-Plasma 6/KDE clock widget you can layout and style using HTML/CSS!
+# HTML Clock for Plasma 6 #
+
+Plasma 6 (KDE) clock widget you can layout and style using just elementary HTML/CSS!
 
 ![Widget with fancy layout](img/widget-01.png)
 ![Widget with blinking dots](img/widget-02.gif)
@@ -43,7 +45,7 @@ Plasma 6/KDE clock widget you can layout and style using HTML/CSS!
 ## Configuration ##
 
 HTML Clock widget is very flexible and configurable by design. Almost all important aspects of its behavior
-can be modified or overriden.
+can be modified or overridden.
 
 ### General ###
 
