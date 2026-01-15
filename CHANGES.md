@@ -23,6 +23,7 @@
 - Added `{random}` placeholder for random value selection [#128].
 - Added separate `{random} interval` config option for independent random timing [#128].
 - Added 3 user layout slots for experimentation and easy rollback [#130].
+- Fixed padding above widget on thin toolbars [#108].
 
 ## v2.0.0 (2026-01-13)
 
