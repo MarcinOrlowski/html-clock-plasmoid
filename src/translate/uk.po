@@ -20,8 +20,16 @@ msgid "General"
 msgstr "Загальне"
 
 #: contents/config/config.qml
-msgid "User Layout"
-msgstr "Компонування користувача"
+msgid "User Layout 1"
+msgstr "Компонування користувача 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
 
 #: contents/config/config.qml
 msgid "Calendar View"
@@ -38,6 +46,7 @@ msgstr "Компонування"
 #: contents/ui/config/General.qml
 msgid "Use user layout"
 msgstr "Використовувати компонування користувача"
+
 
 #: contents/ui/config/General.qml
 msgid "Flip interval (ms)"
@@ -76,7 +85,7 @@ msgid "Text"
 msgstr "Текст"
 
 #: contents/ui/config/Layout.qml
-msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
 msgstr "Зараз використовується вбудоване компонування. Жодні зміни на цій панелі не набудуть чинності, доки ви не увімкнете параметр \"Використовувати компонування користувача\" у налаштуваннях \"Загальне\"."
 
 #: contents/ui/config/Layout.qml

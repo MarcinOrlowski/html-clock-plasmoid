@@ -21,6 +21,7 @@
 - Documented `{wy}` week of year placeholder [#71].
 - Added `{cycle}` placeholder for multi-value cycling [#127].
 - Added `{random}` placeholder for random value selection [#128].
+- Added 3 user layout slots for experimentation and easy rollback [#130].
 
 ## v2.0.0 (2026-01-13)
 

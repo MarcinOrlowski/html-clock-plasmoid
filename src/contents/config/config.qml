@@ -17,9 +17,19 @@ ConfigModel {
 		source: "config/General.qml"
 	}
 	ConfigCategory {
-		name: i18n("User Layout")
+		name: i18n("User Layout 1")
 		icon: "view-visible"
 		source: "config/Layout.qml"
+	}
+	ConfigCategory {
+		name: i18n("User Layout 2")
+		icon: "view-visible"
+		source: "config/Layout2.qml"
+	}
+	ConfigCategory {
+		name: i18n("User Layout 3")
+		icon: "view-visible"
+		source: "config/Layout3.qml"
 	}
 	ConfigCategory {
 		name: i18n("Calendar View")

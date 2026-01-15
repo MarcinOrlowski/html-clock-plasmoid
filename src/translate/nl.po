@@ -20,8 +20,16 @@ msgid "General"
 msgstr "Algemeen"
 
 #: contents/config/config.qml
-msgid "User Layout"
-msgstr "Gebruikersindeling"
+msgid "User Layout 1"
+msgstr "Gebruikersindeling 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
 
 #: contents/config/config.qml
 msgid "Calendar View"
@@ -38,6 +46,7 @@ msgstr "Indeling"
 #: contents/ui/config/General.qml
 msgid "Use user layout"
 msgstr "Gebruikersindeling gebruiken"
+
 
 #: contents/ui/config/General.qml
 msgid "Flip interval (ms)"
@@ -76,7 +85,7 @@ msgid "Text"
 msgstr "Tekst"
 
 #: contents/ui/config/Layout.qml
-msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
 msgstr "U gebruikt momenteel de ingebouwde indeling. Wijzigingen in dit paneel worden niet toegepast tenzij u de optie \"Gebruikersindeling gebruiken\" inschakelt in de \"Algemeen\" instellingen."
 
 #: contents/ui/config/Layout.qml

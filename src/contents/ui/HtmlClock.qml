@@ -27,6 +27,7 @@ ColumnLayout {
 
 	property string layoutKey: Plasmoid.configuration.layoutKey
 	property bool useUserLayout: Plasmoid.configuration.useUserLayout
+	property int activeLayoutSlot: Plasmoid.configuration.activeLayoutSlot
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
 	property bool widgetContainerFillWidth: Plasmoid.configuration.widgetContainerFillWidth
@@ -111,9 +112,17 @@ ColumnLayout {
 	property string configTimezoneOffset: Plasmoid.configuration.clockTimezoneOffset
 	onLayoutChanged: updateClock()
 
+	function getActiveUserLayout() {
+		switch (activeLayoutSlot) {
+			case 2: return Plasmoid.configuration.layout2
+			case 3: return Plasmoid.configuration.layout3
+			default: return Plasmoid.configuration.layout
+		}
+	}
+
 	function updateClock() {
 		var layoutHtml = useUserLayout
-				? Plasmoid.configuration.layout
+				? getActiveUserLayout()
 				: Layouts.layouts[layoutKey]['html']
 		var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
 				? Plasmoid.configuration.useSpecificLocaleLocaleName

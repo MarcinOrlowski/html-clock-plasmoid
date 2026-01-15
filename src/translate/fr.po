@@ -21,8 +21,16 @@ msgid "General"
 msgstr "Général"
 
 #: contents/config/config.qml
-msgid "User Layout"
-msgstr "Disposition personnalisée"
+msgid "User Layout 1"
+msgstr "Disposition personnalisée 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
 
 #: contents/config/config.qml
 msgid "Calendar View"
@@ -39,6 +47,7 @@ msgstr "Disposition"
 #: contents/ui/config/General.qml
 msgid "Use user layout"
 msgstr "Utiliser la disposition personnalisée"
+
 
 #: contents/ui/config/General.qml
 msgid "Flip interval (ms)"
@@ -77,8 +86,24 @@ msgid "Text"
 msgstr "Texte"
 
 #: contents/ui/config/Layout.qml
-msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
 msgstr "Vous utilisez actuellement une disposition intégrée. Aucune modification effectuée dans ce panneau ne sera appliquée tant que vous n'aurez pas activé l'option « Utiliser la disposition personnalisée » dans les paramètres « Général »."
+
+#: contents/ui/config/Layout.qml
+msgid "This slot is not active. Select \"Slot 1\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout2.qml
+msgid "This slot is not active. Select \"Slot 2\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout3.qml
+msgid "This slot is not active. Select \"Slot 3\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout.qml contents/ui/config/Layout2.qml contents/ui/config/Layout3.qml
+msgid "Activate this slot"
+msgstr ""
 
 #: contents/ui/config/Layout.qml
 msgid "Clone"

@@ -88,7 +88,7 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
-	property alias cfg_layout: layoutTextArea.text
+	property alias cfg_layout3: layoutTextArea.text
 	property alias layoutKey: layoutSelector.selectedLayoutKey
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
@@ -139,38 +139,6 @@ ColumnLayout {
 		return text
 	}
 
-	// Store last picked index for each {random} pattern to avoid repetition
-	property var randomLastPicks: ({})
-
-	// Process {random|v1|v2|v3|...} placeholders
-	function handleRandom(text) {
-		var reg = /\{random\|([^}]+)\}/gi
-		var matches = text.match(reg)
-		if (matches !== null) {
-			matches.forEach(function(val) {
-				var valMatch = val.match(/^\{random\|([^}]+)\}$/i)
-				if (valMatch) {
-					var values = valMatch[1].split('|')
-					var lastIndex = randomLastPicks[val]
-					var newIndex
-
-					if (values.length <= 1) {
-						newIndex = 0
-					} else {
-						// Pick random index different from last
-						do {
-							newIndex = Math.floor(Math.random() * values.length)
-						} while (newIndex === lastIndex)
-					}
-
-					randomLastPicks[val] = newIndex
-					text = text.replace(val, values[newIndex])
-				}
-			})
-		}
-		return text
-	}
-
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
 		Layout.fillWidth: true
@@ -178,16 +146,16 @@ ColumnLayout {
 		type: Kirigami.MessageType.Information
 		text: !Plasmoid.configuration.useUserLayout
 			? i18n('You are currently using built-in layout. Enable "Use user layout" in "General" settings to use this layout.')
-			: i18n('This slot is not active. Select "Slot 1" in "General" settings to use this layout.')
+			: i18n('This slot is not active. Select "Slot 3" in "General" settings to use this layout.')
 		showCloseButton: true
-		visible: !Plasmoid.configuration.useUserLayout || Plasmoid.configuration.activeLayoutSlot !== 1
+		visible: !Plasmoid.configuration.useUserLayout || Plasmoid.configuration.activeLayoutSlot !== 3
 		actions: [
 			Kirigami.Action {
 				text: i18n("Activate this slot")
 				icon.name: "checkmark"
 				onTriggered: {
 					Plasmoid.configuration.useUserLayout = true
-					Plasmoid.configuration.activeLayoutSlot = 1
+					Plasmoid.configuration.activeLayoutSlot = 3
 				}
 			}
 		]
@@ -387,7 +355,6 @@ ColumnLayout {
 					var txt = layoutTextArea.text
 					txt = handleFlip(txt)
 					txt = handleCycle(txt)
-					txt = handleRandom(txt)
 					return DTF.format(txt, '', null)
 				}
 			}

@@ -20,8 +20,16 @@ msgid "General"
 msgstr "Generale"
 
 #: contents/config/config.qml
-msgid "User Layout"
-msgstr "Layout utente"
+msgid "User Layout 1"
+msgstr "Layout utente 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
 
 #: contents/config/config.qml
 msgid "Calendar View"
@@ -38,6 +46,7 @@ msgstr "Layout"
 #: contents/ui/config/General.qml
 msgid "Use user layout"
 msgstr "Usa layout utente"
+
 
 #: contents/ui/config/General.qml
 msgid "Flip interval (ms)"
@@ -76,7 +85,7 @@ msgid "Text"
 msgstr "Testo"
 
 #: contents/ui/config/Layout.qml
-msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
 msgstr "Stai attualmente utilizzando un layout integrato. Le modifiche apportate in questo pannello non saranno applicate a meno che non abiliti l'opzione \"Usa layout utente\" nelle impostazioni \"Generale\"."
 
 #: contents/ui/config/Layout.qml
