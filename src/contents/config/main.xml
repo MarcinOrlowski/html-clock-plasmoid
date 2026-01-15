@@ -81,8 +81,11 @@
 	<!-- Calendar View related settings -->
 
 	<group name="CalendarView">
-		<entry name="calendarViewEnabled" type="Bool">
-			<default>true</default>
+		<entry name="onClickAction" type="String">
+			<default>calendar</default>
+		</entry>
+		<entry name="onClickAppCommand" type="String">
+			<default></default>
 		</entry>
 	</group>
 
