@@ -322,22 +322,29 @@ ColumnLayout {
 		border.width: 1
 		radius: 4
 
-		PlasmaComponents.Label {
-			id: userLayoutPreview
+		Item {
 			anchors.fill: parent
-			anchors.margins: Kirigami.Units.largeSpacing
-			horizontalAlignment: Text.AlignHCenter
-			verticalAlignment: Text.AlignVCenter
-			textFormat: Text.RichText
-			font.family: useCustomFont ? customFont.family : Qt.application.font.family
-			font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
-			font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
-			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
-			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
-			text: {
-				cycleIndex // Force re-evaluation on timer tick
-				if (layoutTextArea.text === '') return ''
-				return DTF.format(handleCycle(handleFlip(layoutTextArea.text)), '', null)
+			anchors.margins: 8
+
+			PlasmaComponents.Label {
+				id: userLayoutPreview
+				anchors.centerIn: parent
+				width: parent.width
+				horizontalAlignment: Text.AlignHCenter
+				textFormat: Text.RichText
+				font.family: useCustomFont ? customFont.family : Qt.application.font.family
+				font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
+				font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
+				font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
+				font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
+				text: {
+					cycleIndex // Force re-evaluation on timer tick
+					if (layoutTextArea.text === '') return ''
+					var txt = layoutTextArea.text
+					txt = handleFlip(txt)
+					txt = handleCycle(txt)
+					return DTF.format(txt, '', null)
+				}
 			}
 		}
 	}

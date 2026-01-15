@@ -54,7 +54,7 @@ system timezone settings.
 | {aa}        | lower-cased am/pm marker (i.e. "am")                               |
 | {a}         | lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm"   |
 | {Aa}        | AM/PM marker with first letter uppercased (i.e. "Am"/"Pm")         |
-| {t}         | Timezone name (i.e. "UTC")                                         
+| {t}         | Timezone name (i.e. "UTC")                                         |
 | {ldl}       | Locale based date long format <sup>v1.1.0+</sup>                   |
 | {lds}       | Locale based date short format <sup>v1.1.0+</sup>                  |
 | {ltl}       | Locale based time long format <sup>v1.1.0+</sup>                   |
@@ -190,27 +190,24 @@ As already mentioned, you can also flip other placeholders:
 
 ### Traffic light ###
 
-Using `{cycle}` you can create animations with more than 2 states. Here's a 3x3 grid with a
-diagonal wave effect using 10 color values per cell, creating a smooth flowing animation:
+Using `{cycle}` you can create animations with more than 2 states. Here's a traffic light
+made with 3 color values per cell, creating a color change animation:
 
 ```html
-<table align="center" style="border-spacing: 4px;">
-  <tr>
-    <td><span style="font-size: 28px; color: {cycle|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF};">●</span></td>
-    <td><span style="font-size: 28px; color: {cycle|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF};">●</span></td>
-    <td><span style="font-size: 28px; color: {cycle|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88};">●</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-size: 28px; color: {cycle|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00};">●</span></td>
-    <td><span style="font-size: 28px; color: {cycle|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00};">●</span></td>
-    <td><span style="font-size: 28px; color: {cycle|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00};">●</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-size: 28px; color: {cycle|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00};">●</span></td>
-    <td><span style="font-size: 28px; color: {cycle|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800};">●</span></td>
-    <td><span style="font-size: 28px; color: {cycle|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400};">●</span></td>
-  </tr>
-</table>
+<html>
+<body>
+<table style="border: none;" align="center">
+    <tr>
+        <!-- clock -->
+<div style="text-align: center;">
+  <span style="font-size: 22px; color: {cycle|#FF0000|#444444|#444444};">●</span><br/>
+   <span style="font-size: 22px; color: {cycle|#444444|#FFCC00|#444444};">●</span><br/>
+   <span style="font-size: 22px; color: {cycle|#444444|#444444|#00FF00};">●</span>
+</div>
+
+</body>
+</html>
+
 ```
 
 Each cell cycles through the same rainbow colors but offset by one position, creating a diagonal

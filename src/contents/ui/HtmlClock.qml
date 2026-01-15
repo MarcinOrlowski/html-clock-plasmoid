@@ -121,7 +121,10 @@ ColumnLayout {
 		var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
 			? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
 			: null
-		clock.text = DTF.format(handleCycle(handleFlip(layoutHtml)), localeToUse, finalOffsetOrNull)
+		var txt = layoutHtml
+		txt = handleFlip(txt)
+		txt = handleCycle(txt)
+		clock.text = DTF.format(txt, localeToUse, finalOffsetOrNull)
 	}
 
 	function handleFlip(text) {
