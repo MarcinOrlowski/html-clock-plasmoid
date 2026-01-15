@@ -24,18 +24,28 @@ ColumnLayout {
 	property bool showPreview: true
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
+	property int tick: 0
 
 	spacing: Kirigami.Units.smallSpacing
 
-	// Process {flip:X:Y} placeholders - always show first value for static preview
+	// Timer to animate {flip} placeholders in preview
+	Timer {
+		interval: 1000
+		running: showPreview
+		repeat: true
+		onTriggered: tick++
+	}
+
+	// Process {flip:X:Y} placeholders - alternate based on current second
 	function handleFlip(text) {
 		var reg = new RegExp('\{flip:(.+?):(.+?)\}', 'gi')
 		var matches = text.match(reg)
 		if (matches !== null) {
+			var even = (new Date()).getSeconds() % 2
 			var valReg = new RegExp('^\{flip:(.+?):(.+?)\}$', 'i')
 			matches.forEach(function(val) {
 				var valMatch = val.match(valReg)
-				text = text.replace(val, valMatch[1])
+				text = text.replace(val, valMatch[even ? 1 : 2])
 			})
 		}
 		return text
@@ -93,6 +103,7 @@ ColumnLayout {
 			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
 			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 			text: {
+				tick // Force re-evaluation on timer tick
 				if (root.selectedLayoutKey === '' || !Layouts.layouts[root.selectedLayoutKey]) {
 					return ''
 				}
