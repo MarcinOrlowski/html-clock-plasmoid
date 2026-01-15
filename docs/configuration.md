@@ -6,7 +6,7 @@
 
 * [Configuration](configuration.md)
   * [General](#general)
-  * [User Layout](#user-layout)
+  * [User Layout 1/2/3](#user-layout)
   * [Calendar View](#calendar-view)
   * [Tooltip](#tooltip)
 * [Placeholders](placeholders.md)
@@ -30,7 +30,8 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 * **Layout**: selects widget built-in clock layout. A live preview below the selector shows how the
   selected layout will look. The preview updates in real-time, including animated effects like
   blinking colons (using the `{flip}` placeholder).
-* **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
+* **Use user layout**: uses [user layout](#user-layout), instead of built-in one. When enabled,
+  a slot selector appears allowing you to choose which of the 3 user layout slots to display.
 * **Flip interval (ms)**: controls how fast the `{flip}` placeholder alternates between its two
   values. Default is 1000ms (1 second). Lower values make the flip animation faster, e.g. 500ms
   for a full visible/invisible cycle of 1 second.
@@ -66,6 +67,9 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 Aside from using built-in layouts, you can (and probably will) create your own, either completely
 from scratch or using one of built-in layouts as your base.
 
+The widget provides **3 user layout slots** (User Layout 1, 2, and 3), allowing you to experiment
+with different designs and easily switch between them or rollback to a previous working layout.
+
 ![User Layout](img/config-layout.png)
 
 A **live preview** above the text editor shows how your layout will render in real-time as you type.
@@ -93,7 +97,7 @@ effects so you can see exactly how your clock will look.
   * **Retain selection**: By default selection is clered once style is applied. When this option is
     checked, selection will be retained and updated to cover replaced text.
 
-> ![Warning](img/warning.png) Even if set your font size directly in markup, custom font's size
+> ![Warning](../img/warning.png) Even if set your font size directly in markup, custom font's size
 > still matters and influences the whole layout, affecting i.e. default spacing between elements.
 > If you are trying to make your layout compact, it's recommended to select custom font size to `1`
 > and set the text size using i.e. CSS.

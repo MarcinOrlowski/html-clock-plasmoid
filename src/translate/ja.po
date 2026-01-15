@@ -21,8 +21,16 @@ msgid "General"
 msgstr "全般"
 
 #: contents/config/config.qml
-msgid "User Layout"
-msgstr "ユーザーレイアウト"
+msgid "User Layout 1"
+msgstr "ユーザーレイアウト 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
 
 #: contents/config/config.qml
 msgid "Calendar View"
@@ -39,6 +47,7 @@ msgstr "レイアウト"
 #: contents/ui/config/General.qml
 msgid "Use user layout"
 msgstr "ユーザーレイアウトを使用"
+
 
 #: contents/ui/config/General.qml
 msgid "Flip interval (ms)"
@@ -77,8 +86,24 @@ msgid "Text"
 msgstr "テキスト"
 
 #: contents/ui/config/Layout.qml
-msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
 msgstr "現在、組み込みレイアウトを使用しています。「全般」設定で「ユーザーレイアウトを使用」オプションを有効にしない限り、このパネルでの変更は反映されません。"
+
+#: contents/ui/config/Layout.qml
+msgid "This slot is not active. Select \"Slot 1\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout2.qml
+msgid "This slot is not active. Select \"Slot 2\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout3.qml
+msgid "This slot is not active. Select \"Slot 3\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout.qml contents/ui/config/Layout2.qml contents/ui/config/Layout3.qml
+msgid "Activate this slot"
+msgstr ""
 
 #: contents/ui/config/Layout.qml
 msgid "Clone"

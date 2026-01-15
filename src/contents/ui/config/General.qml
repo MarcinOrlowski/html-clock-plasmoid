@@ -23,6 +23,7 @@ Kirigami.FormLayout {
 
 	property alias cfg_layoutKey: layoutSelector.selectedLayoutKey
 	property alias cfg_useUserLayout: useUserLayout.checked
+	property int cfg_activeLayoutSlot: 1
 	property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 	property alias cfg_useCustomFont: useCustomFont.checked
@@ -40,9 +41,19 @@ Kirigami.FormLayout {
 		Kirigami.FormData.label: i18n('Layout')
 	}
 
-	PlasmaComponents.CheckBox {
-		id: useUserLayout
-		text: i18n("Use user layout")
+	RowLayout {
+		PlasmaComponents.CheckBox {
+			id: useUserLayout
+			text: i18n("Use user layout")
+		}
+
+		PlasmaComponents.ComboBox {
+			id: activeLayoutSlotSelector
+			enabled: cfg_useUserLayout
+			model: [i18n("Slot 1"), i18n("Slot 2"), i18n("Slot 3")]
+			currentIndex: cfg_activeLayoutSlot - 1
+			onCurrentIndexChanged: cfg_activeLayoutSlot = currentIndex + 1
+		}
 	}
 
 	RowLayout {
