@@ -106,22 +106,22 @@ src/
 
 Most translations are machine-generated. Improvements and corrections are welcome!
 
-| Language              | Code  |
-|-----------------------|-------|
-| Chinese (Simplified)  | zh_CN |
-| Czech                 | cs    |
-| Dutch                 | nl    |
-| Estonian              | et    |
-| French                | fr    |
-| German                | de    |
-| Italian               | it    |
-| Japanese              | ja    |
-| Norwegian (Bokmål)    | nb    |
-| Polish                | pl    |
-| Portuguese (Brazil)   | pt_BR |
-| Spanish               | es    |
-| Swedish               | sv    |
-| Ukrainian             | uk    |
+| Language              | Code  | Proofread        |
+|-----------------------|-------|------------------|
+| Chinese (Simplified)  | zh_CN |                  |
+| Czech                 | cs    |                  |
+| Dutch                 | nl    |                  |
+| Estonian              | et    |                  |
+| French                | fr    |                  |
+| German                | de    |                  |
+| Italian               | it    |                  |
+| Japanese              | ja    |                  |
+| Norwegian (Bokmål)    | nb    |                  |
+| Polish                | pl    | Marcin Orlowski  |
+| Portuguese (Brazil)   | pt_BR |                  |
+| Spanish               | es    |                  |
+| Swedish               | sv    |                  |
+| Ukrainian             | uk    |                  |
 
 ### Improving Existing Translations
 

@@ -45,10 +45,6 @@ msgid "Flip interval (ms)"
 msgstr "切り替え間隔 (ミリ秒)"
 
 #: contents/ui/config/General.qml
-msgid "Transparent background"
-msgstr "背景を透明にする"
-
-#: contents/ui/config/General.qml
 msgid "Use custom font"
 msgstr "カスタムフォントを使用"
 

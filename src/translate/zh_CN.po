@@ -44,10 +44,6 @@ msgid "Flip interval (ms)"
 msgstr "翻页间隔 (毫秒)"
 
 #: contents/ui/config/General.qml
-msgid "Transparent background"
-msgstr "透明背景"
-
-#: contents/ui/config/General.qml
 msgid "Use custom font"
 msgstr "使用自定义字体"
 

@@ -44,10 +44,6 @@ msgid "Flip interval (ms)"
 msgstr "Interval přepínání (ms)"
 
 #: contents/ui/config/General.qml
-msgid "Transparent background"
-msgstr "Průhledné pozadí"
-
-#: contents/ui/config/General.qml
 msgid "Use custom font"
 msgstr "Použít vlastní písmo"
 

@@ -44,10 +44,6 @@ msgid "Flip interval (ms)"
 msgstr "Interwał przełączania (ms)"
 
 #: contents/ui/config/General.qml
-msgid "Transparent background"
-msgstr "Przezroczyste tło"
-
-#: contents/ui/config/General.qml
 msgid "Use custom font"
 msgstr "Użyj własnej czcionki"
 
@@ -61,7 +57,7 @@ msgstr "Rozmiar: %1"
 
 #: contents/ui/config/General.qml
 msgid "Locale to use"
-msgstr "Używane ustawienia regionalne"
+msgstr "Locale"
 
 #: contents/ui/config/General.qml
 msgid "Timezone offset"
@@ -85,7 +81,7 @@ msgstr "Obecnie używasz wbudowanego szablonu. Zmiany wprowadzone w tym panelu n
 
 #: contents/ui/config/Layout.qml
 msgid "Clone"
-msgstr "Klonuj"
+msgstr "Powiel"
 
 #: contents/ui/config/Layout.qml
 msgid "HTML"
@@ -105,7 +101,7 @@ msgstr "Nie zaznaczono tekstu."
 
 #: contents/ui/config/Layout.qml
 msgid "Style selection:"
-msgstr "Stylizuj zaznaczenie:"
+msgstr "Stylizuj zaznaczone:"
 
 #: contents/ui/config/Layout.qml
 msgid "Font"
@@ -129,7 +125,7 @@ msgstr "Dokumentacja:"
 
 #: contents/ui/config/Layout.qml
 msgid "<u>Placeholders</u>"
-msgstr "<u>Znaczniki</u>"
+msgstr "<u>Zamienniki</u>"
 
 #: contents/ui/config/Layout.qml
 msgid "<u>HTML tags</u>"
@@ -177,7 +173,7 @@ msgstr "Druga linia"
 
 #: contents/ui/config/Tooltip.qml
 msgid "See <u>placeholders documentation</u> page."
-msgstr "Zobacz stronę <u>dokumentacji znaczników</u>."
+msgstr "Zobacz <u>dokumentację zamienników</u>."
 
 #: contents/ui/CalendarView.qml
 msgid "No events for today"

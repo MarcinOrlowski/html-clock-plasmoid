@@ -44,10 +44,6 @@ msgid "Flip interval (ms)"
 msgstr "Intervallo di rotazione (ms)"
 
 #: contents/ui/config/General.qml
-msgid "Transparent background"
-msgstr "Sfondo trasparente"
-
-#: contents/ui/config/General.qml
 msgid "Use custom font"
 msgstr "Usa carattere personalizzato"
 
