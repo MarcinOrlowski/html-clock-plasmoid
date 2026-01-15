@@ -19,6 +19,7 @@ import "../js/utils.js" as Utils
 
 ColumnLayout {
 	id: mainContainer
+	spacing: 0
 
 	// Signal to notify parent to toggle expanded state
 	signal toggleExpanded()
