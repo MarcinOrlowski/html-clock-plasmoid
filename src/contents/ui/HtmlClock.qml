@@ -33,6 +33,24 @@ ColumnLayout {
 	property bool widgetContainerFillHeight: Plasmoid.configuration.widgetContainerFillHeight
 	property int flipInterval: Plasmoid.configuration.flipInterval
 	property bool flipState: false
+	property string onClickAction: Plasmoid.configuration.onClickAction
+	property string onClickAppCommand: Plasmoid.configuration.onClickAppCommand
+
+	// DataSource for launching applications
+	Plasma5Support.DataSource {
+		id: executable
+		engine: "executable"
+		connectedSources: []
+		onNewData: function(source, data) {
+			disconnectSource(source)
+		}
+	}
+
+	function launchApp(command) {
+		if (command && command.trim() !== '') {
+			executable.connectSource(command)
+		}
+	}
 
 	Timer {
 		id: flipTimer
@@ -51,8 +69,16 @@ ColumnLayout {
 		id: mouseArea
 		anchors.fill: parent
 		onClicked: {
-			if (Plasmoid.configuration.calendarViewEnabled) {
-				mainContainer.toggleExpanded()
+			switch (onClickAction) {
+				case "calendar":
+					mainContainer.toggleExpanded()
+					break
+				case "launchApp":
+					launchApp(onClickAppCommand)
+					break
+				case "disabled":
+				default:
+					break
 			}
 		}
 	}

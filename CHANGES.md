@@ -12,6 +12,7 @@
 - Added live clock layout preview in configuration dialog.
 - Changed widget icon from analog to digital clock [#95].
 - Added configurable flip interval for {flip} placeholder [#69].
+- Added option to launch app on widget click instead of calendar [#73].
 
 ## v2.0.0 (2026-01-13)
 

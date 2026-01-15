@@ -17,22 +17,43 @@ import org.kde.plasma.components as PlasmaComponents
 Kirigami.FormLayout {
 	Layout.fillWidth: true
 
-	property alias cfg_calendarViewEnabled: calendarViewEnabled.checked
 	property alias cfg_showWeekNumbers: showWeekNumbers.checked
+	property string cfg_onClickAction: "calendar"
+	property alias cfg_onClickAppCommand: appCommandField.text
 
-//	Item {
-//		Kirigami.FormData.label: i18n('Localization')
-//		Kirigami.FormData.isSection: true
-//	}
+	ComboBox {
+		id: onClickActionCombo
+		Kirigami.FormData.label: i18n("On click")
+		model: [
+			{ text: i18n("Show calendar"), value: "calendar" },
+			{ text: i18n("Launch application"), value: "launchApp" },
+			{ text: i18n("Do nothing"), value: "disabled" }
+		]
+		textRole: "text"
+		currentIndex: {
+			for (var i = 0; i < model.length; i++) {
+				if (model[i].value === cfg_onClickAction) return i
+			}
+			return 0
+		}
+		onCurrentIndexChanged: {
+			if (currentIndex >= 0) {
+				cfg_onClickAction = model[currentIndex].value
+			}
+		}
+	}
 
-	CheckBox {
-		id: calendarViewEnabled
-		text: i18n("Enable calendar view")
+	TextField {
+		id: appCommandField
+		Kirigami.FormData.label: i18n("Command")
+		visible: cfg_onClickAction === "launchApp"
+		Layout.fillWidth: true
+		placeholderText: i18n("e.g. kalendar, gnome-calendar")
 	}
 
 	CheckBox {
 		id: showWeekNumbers
-		enabled: cfg_calendarViewEnabled
+		visible: cfg_onClickAction === "calendar"
 		text: i18n("Show week numbers")
 	}
 
