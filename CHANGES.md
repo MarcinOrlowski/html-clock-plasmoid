@@ -14,6 +14,7 @@
 - Added configurable flip interval for {flip} placeholder [#69].
 - Added option to launch app on widget click instead of calendar [#73].
 - Fixed timezone offset calculation for positive offsets [#1].
+- Fixed global timezone offset not updating date placeholders correctly [#82].
 - Added `|` as placeholder separator for modifiers (e.g. `{hh|U}`) and `{flip}` (allows `:` in values).
 - Added per-placeholder timezone offset support using `|` separator (e.g. `{hh|+09:00}`) [#1].
 
