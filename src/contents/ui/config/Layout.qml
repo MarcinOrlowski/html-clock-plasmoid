@@ -15,6 +15,7 @@ import org.kde.kquickcontrols as KQControls
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
+import "../../js/DateTimeFormatter.js" as DTF
 import "../lib"
 
 ColumnLayout {
@@ -89,6 +90,8 @@ ColumnLayout {
 
 	property alias cfg_layout: layoutTextArea.text
 	property alias layoutKey: layoutSelector.selectedLayoutKey
+	property bool useCustomFont: Plasmoid.configuration.useCustomFont
+	property font customFont: Plasmoid.configuration.customFont
 
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
@@ -107,6 +110,7 @@ ColumnLayout {
 
 		LayoutSelector {
 			id: layoutSelector
+			showPreview: false
 		}
 
 		PlasmaComponents.Button {
@@ -258,6 +262,37 @@ ColumnLayout {
 			text: i18n("Retain selection")
 		}
 
+	}
+
+	// -----------------------------------------------------------------------
+
+	// Live preview
+	Rectangle {
+		Layout.fillWidth: true
+		Layout.preferredHeight: 100
+		clip: true
+		color: Kirigami.Theme.backgroundColor
+		border.color: Kirigami.Theme.disabledTextColor
+		border.width: 1
+		radius: 4
+
+		PlasmaComponents.Label {
+			id: userLayoutPreview
+			anchors.fill: parent
+			anchors.margins: Kirigami.Units.largeSpacing
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
+			textFormat: Text.RichText
+			font.family: useCustomFont ? customFont.family : Qt.application.font.family
+			font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
+			font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
+			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
+			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
+			text: {
+				if (layoutTextArea.text === '') return ''
+				return DTF.format(layoutTextArea.text, '', null)
+			}
+		}
 	}
 
 	// -----------------------------------------------------------------------

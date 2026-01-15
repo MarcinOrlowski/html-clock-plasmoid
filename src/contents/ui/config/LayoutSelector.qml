@@ -21,6 +21,9 @@ ColumnLayout {
 	id: root
 
 	property string selectedLayoutKey: ''
+	property bool showPreview: true
+	property bool useCustomFont: Plasmoid.configuration.useCustomFont
+	property font customFont: Plasmoid.configuration.customFont
 
 	spacing: Kirigami.Units.smallSpacing
 
@@ -54,6 +57,7 @@ ColumnLayout {
 
 	// Preview container
 	Rectangle {
+		visible: showPreview
 		Layout.preferredWidth: 250
 		Layout.preferredHeight: 120
 		clip: true
@@ -69,6 +73,11 @@ ColumnLayout {
 			horizontalAlignment: Text.AlignHCenter
 			verticalAlignment: Text.AlignVCenter
 			textFormat: Text.RichText
+			font.family: useCustomFont ? customFont.family : Qt.application.font.family
+			font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
+			font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
+			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
+			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 			text: {
 				if (root.selectedLayoutKey === '' || !Layouts.layouts[root.selectedLayoutKey]) {
 					return ''
