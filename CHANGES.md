@@ -10,6 +10,7 @@
 - Added widget logo.
 - Reorganized documentation into separate files.
 - Added live clock layout preview in configuration dialog.
+- Changed widget icon from analog to digital clock [#95].
 
 ## v2.0.0 (2026-01-13)
 
