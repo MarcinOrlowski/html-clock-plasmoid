@@ -32,7 +32,7 @@ ColumnLayout {
 	property bool widgetContainerFillWidth: Plasmoid.configuration.widgetContainerFillWidth
 	property bool widgetContainerFillHeight: Plasmoid.configuration.widgetContainerFillHeight
 	property int flipInterval: Plasmoid.configuration.flipInterval
-	property bool flipState: false
+	property int cycleIndex: 0
 	property string onClickAction: Plasmoid.configuration.onClickAction
 	property string onClickAppCommand: Plasmoid.configuration.onClickAppCommand
 
@@ -58,7 +58,7 @@ ColumnLayout {
 		running: true
 		repeat: true
 		onTriggered: {
-			flipState = !flipState
+			cycleIndex++
 			updateClock()
 		}
 	}
@@ -121,11 +121,12 @@ ColumnLayout {
 		var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
 			? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
 			: null
-		clock.text = DTF.format(handleFlip(layoutHtml), localeToUse, finalOffsetOrNull)
+		clock.text = DTF.format(handleCycle(handleFlip(layoutHtml)), localeToUse, finalOffsetOrNull)
 	}
 
 	function handleFlip(text) {
 		// Support both | (new) and : (legacy) separators
+		// flip is just cycle with 2 values, uses cycleIndex % 2
 		var patterns = [
 			{ reg: /\{flip\|(.+?)\|(.+?)\}/gi, valReg: /^\{flip\|(.+?)\|(.+?)\}$/i },
 			{ reg: /\{flip:(.+?):(.+?)\}/gi, valReg: /^\{flip:(.+?):(.+?)\}$/i }
@@ -135,10 +136,27 @@ ColumnLayout {
 			if (matches !== null) {
 				matches.forEach(function (val) {
 					var valMatch = val.match(pattern.valReg)
-					text = text.replace(val, valMatch[flipState ? 1 : 2])
+					text = text.replace(val, valMatch[(cycleIndex % 2) + 1])
 				})
 			}
 		})
+		return text
+	}
+
+	function handleCycle(text) {
+		// Match {cycle|val1|val2|val3|...} with variable number of values
+		var reg = /\{cycle\|([^}]+)\}/gi
+		var matches = text.match(reg)
+		if (matches !== null) {
+			matches.forEach(function (val) {
+				var valMatch = val.match(/^\{cycle\|([^}]+)\}$/i)
+				if (valMatch) {
+					var values = valMatch[1].split('|')
+					var selectedValue = values[cycleIndex % values.length]
+					text = text.replace(val, selectedValue)
+				}
+			})
+		}
 		return text
 	}
 

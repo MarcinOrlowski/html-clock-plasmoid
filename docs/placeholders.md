@@ -122,8 +122,9 @@ HTML/CSS.
 | Placeholder    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {flip\|XX\|YY} | Alternates between `XX` and `YY` values at configurable interval (see "Flip interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
+| {cycle\|A\|B\|C\|...} | Cycles through multiple values at configurable interval. Similar to `{flip}` but supports more than 2 values. Example: `{cycle|1|2|3|4}` produces 1, 2, 3, 4, 1, 2... See [traffic light example](#traffic-light). |
 
-> ![Warning](img/warning.png) **NOTE:** `{flip}` cannot be nested into other `{flip}`.
+> ![Warning](img/warning.png) **NOTE:** `{flip}` and `{cycle}` cannot be nested into each other.
 
 ---
 
@@ -186,3 +187,32 @@ As already mentioned, you can also flip other placeholders:
 ```
 
 ![Flip example 03](img/flip-03.gif)
+
+### Traffic light ###
+
+Using `{cycle}` you can create animations with more than 2 states. Here's a 3x3 grid with a
+diagonal wave effect using 10 color values per cell, creating a smooth flowing animation:
+
+```html
+<table align="center" style="border-spacing: 4px;">
+  <tr>
+    <td><span style="font-size: 28px; color: {cycle|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF};">●</span></td>
+    <td><span style="font-size: 28px; color: {cycle|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF};">●</span></td>
+    <td><span style="font-size: 28px; color: {cycle|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88};">●</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-size: 28px; color: {cycle|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00};">●</span></td>
+    <td><span style="font-size: 28px; color: {cycle|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00|#88FF00};">●</span></td>
+    <td><span style="font-size: 28px; color: {cycle|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00|#FFFF00};">●</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-size: 28px; color: {cycle|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800|#FFCC00};">●</span></td>
+    <td><span style="font-size: 28px; color: {cycle|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400|#FF8800};">●</span></td>
+    <td><span style="font-size: 28px; color: {cycle|#FF8800|#FFCC00|#FFFF00|#88FF00|#00FF00|#00FF88|#00FFFF|#0088FF|#FF0000|#FF4400};">●</span></td>
+  </tr>
+</table>
+```
+
+Each cell cycles through the same rainbow colors but offset by one position, creating a diagonal
+wave that flows from top-left to bottom-right. Adjust "Flip interval" in General settings to
+control animation speed.
