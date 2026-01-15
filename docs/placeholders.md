@@ -28,8 +28,8 @@ system timezone settings.
 
 | Placeholder | Description                                                        |
 |-------------|--------------------------------------------------------------------|
-| {yy}        | long year (i.e. "2009")                                            |
-| {y}         | short year (i.e. "09")                                             |
+| {yyyy}      | long year (i.e. "2009")                                            |
+| {yy}        | short year (i.e. "09")                                             |
 | {MMM}       | long month name (i.e. "January")                                   |
 | {MM}        | abbreviated (locale based) month name (i.e. "Jan")                 |
 | {M}         | first letter of month name (i.e. "J")                              |
