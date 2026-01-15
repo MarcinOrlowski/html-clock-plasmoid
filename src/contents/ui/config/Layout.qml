@@ -93,17 +93,17 @@ ColumnLayout {
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
 	property int flipInterval: Plasmoid.configuration.flipInterval
-	property bool flipState: false
+	property int cycleIndex: 0
 
-	// Timer to animate {flip} placeholders in preview
+	// Timer to animate {flip} and {cycle} placeholders in preview
 	Timer {
 		interval: flipInterval
 		running: true
 		repeat: true
-		onTriggered: flipState = !flipState
+		onTriggered: cycleIndex++
 	}
 
-	// Process {flip:X:Y} placeholders - alternate based on flipState
+	// Process {flip|X|Y} placeholders - flip is cycle with 2 values
 	function handleFlip(text) {
 		// Support both | (new) and : (legacy) separators
 		var patterns = [
@@ -115,10 +115,27 @@ ColumnLayout {
 			if (matches !== null) {
 				matches.forEach(function(val) {
 					var valMatch = val.match(pattern.valReg)
-					text = text.replace(val, valMatch[flipState ? 1 : 2])
+					text = text.replace(val, valMatch[(cycleIndex % 2) + 1])
 				})
 			}
 		})
+		return text
+	}
+
+	// Process {cycle|v1|v2|v3|...} placeholders
+	function handleCycle(text) {
+		var reg = /\{cycle\|([^}]+)\}/gi
+		var matches = text.match(reg)
+		if (matches !== null) {
+			matches.forEach(function(val) {
+				var valMatch = val.match(/^\{cycle\|([^}]+)\}$/i)
+				if (valMatch) {
+					var values = valMatch[1].split('|')
+					var selectedValue = values[cycleIndex % values.length]
+					text = text.replace(val, selectedValue)
+				}
+			})
+		}
 		return text
 	}
 
@@ -305,22 +322,29 @@ ColumnLayout {
 		border.width: 1
 		radius: 4
 
-		PlasmaComponents.Label {
-			id: userLayoutPreview
+		Item {
 			anchors.fill: parent
-			anchors.margins: Kirigami.Units.largeSpacing
-			horizontalAlignment: Text.AlignHCenter
-			verticalAlignment: Text.AlignVCenter
-			textFormat: Text.RichText
-			font.family: useCustomFont ? customFont.family : Qt.application.font.family
-			font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
-			font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
-			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
-			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
-			text: {
-				flipState // Force re-evaluation on timer tick
-				if (layoutTextArea.text === '') return ''
-				return DTF.format(handleFlip(layoutTextArea.text), '', null)
+			anchors.margins: 8
+
+			PlasmaComponents.Label {
+				id: userLayoutPreview
+				anchors.centerIn: parent
+				width: parent.width
+				horizontalAlignment: Text.AlignHCenter
+				textFormat: Text.RichText
+				font.family: useCustomFont ? customFont.family : Qt.application.font.family
+				font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
+				font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
+				font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
+				font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
+				text: {
+					cycleIndex // Force re-evaluation on timer tick
+					if (layoutTextArea.text === '') return ''
+					var txt = layoutTextArea.text
+					txt = handleFlip(txt)
+					txt = handleCycle(txt)
+					return DTF.format(txt, '', null)
+				}
 			}
 		}
 	}

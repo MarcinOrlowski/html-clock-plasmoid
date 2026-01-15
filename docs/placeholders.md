@@ -54,7 +54,7 @@ system timezone settings.
 | {aa}        | lower-cased am/pm marker (i.e. "am")                               |
 | {a}         | lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm"   |
 | {Aa}        | AM/PM marker with first letter uppercased (i.e. "Am"/"Pm")         |
-| {t}         | Timezone name (i.e. "UTC")                                         
+| {t}         | Timezone name (i.e. "UTC")                                         |
 | {ldl}       | Locale based date long format <sup>v1.1.0+</sup>                   |
 | {lds}       | Locale based date short format <sup>v1.1.0+</sup>                  |
 | {ltl}       | Locale based time long format <sup>v1.1.0+</sup>                   |
@@ -122,8 +122,9 @@ HTML/CSS.
 | Placeholder    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {flip\|XX\|YY} | Alternates between `XX` and `YY` values at configurable interval (see "Flip interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
+| {cycle\|A\|B\|C\|...} | Cycles through multiple values at configurable interval. Similar to `{flip}` but supports more than 2 values. Example: `{cycle|1|2|3|4}` produces 1, 2, 3, 4, 1, 2... See [traffic light example](#traffic-light). |
 
-> ![Warning](img/warning.png) **NOTE:** `{flip}` cannot be nested into other `{flip}`.
+> ![Warning](img/warning.png) **NOTE:** `{flip}` and `{cycle}` cannot be nested into each other.
 
 ---
 
@@ -186,3 +187,29 @@ As already mentioned, you can also flip other placeholders:
 ```
 
 ![Flip example 03](img/flip-03.gif)
+
+### Traffic light ###
+
+Using `{cycle}` you can create animations with more than 2 states. Here's a traffic light
+made with 3 color values per cell, creating a color change animation:
+
+```html
+<html>
+<body>
+<table style="border: none;" align="center">
+    <tr>
+        <!-- clock -->
+<div style="text-align: center;">
+  <span style="font-size: 22px; color: {cycle|#FF0000|#444444|#444444};">●</span><br/>
+   <span style="font-size: 22px; color: {cycle|#444444|#FFCC00|#444444};">●</span><br/>
+   <span style="font-size: 22px; color: {cycle|#444444|#444444|#00FF00};">●</span>
+</div>
+
+</body>
+</html>
+
+```
+
+Each cell cycles through the same rainbow colors but offset by one position, creating a diagonal
+wave that flows from top-left to bottom-right. Adjust "Flip interval" in General settings to
+control animation speed.
