@@ -123,8 +123,9 @@ HTML/CSS.
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {flip\|XX\|YY} | Alternates between `XX` and `YY` values at configurable interval (see "Flip interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
 | {cycle\|A\|B\|C\|...} | Cycles through multiple values at configurable interval. Similar to `{flip}` but supports more than 2 values. Example: `{cycle|1|2|3|4}` produces 1, 2, 3, 4, 1, 2... See [traffic light example](#traffic-light). |
+| {random\|A\|B\|C\|...} | Picks a random value from the list at each flip interval. Unlike `{cycle}`, the order is random. Will never pick the same value twice in a row (if more than one value provided). Example: `{random|red|green|blue}` randomly shows one of the colors. |
 
-> ![Warning](img/warning.png) **NOTE:** `{flip}` and `{cycle}` cannot be nested into each other.
+> ![Warning](img/warning.png) **NOTE:** `{flip}`, `{cycle}`, and `{random}` cannot be nested into each other.
 
 ---
 

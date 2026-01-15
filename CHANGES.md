@@ -20,6 +20,7 @@
 - Added translation/i18n support for settings UI with 14 languages [#85].
 - Documented `{wy}` week of year placeholder [#71].
 - Added `{cycle}` placeholder for multi-value cycling [#127].
+- Added `{random}` placeholder for random value selection [#128].
 
 ## v2.0.0 (2026-01-13)
 
