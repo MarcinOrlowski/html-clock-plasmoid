@@ -33,6 +33,7 @@ Kirigami.FormLayout {
 	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
 	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
 	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
+	property int cfg_flipInterval: 1000
 
 	LayoutSelector {
 		id: layoutSelector
@@ -43,6 +44,19 @@ Kirigami.FormLayout {
 	PlasmaComponents.CheckBox {
 		id: useUserLayout
 		text: i18n("Use user layout")
+	}
+
+	RowLayout {
+		Kirigami.FormData.label: i18n('Flip interval (ms)')
+
+		QtControls.SpinBox {
+			id: flipIntervalSpinBox
+			from: 100
+			to: 5000
+			stepSize: 50
+			value: cfg_flipInterval
+			onValueChanged: cfg_flipInterval = value
+		}
 	}
 
 	QtControls.CheckBox {

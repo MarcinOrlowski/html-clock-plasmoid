@@ -31,6 +31,9 @@ This pane allows you to select one of predefined layouts or tell the widget you 
   selected layout will look. The preview updates in real-time, including animated effects like
   blinking colons (using the `{flip}` placeholder).
 * **Use user layout**: uses [user layout](#user-layout), instead of built-in one.
+* **Flip interval (ms)**: controls how fast the `{flip}` placeholder alternates between its two
+  values. Default is 1000ms (1 second). Lower values make the flip animation faster, e.g. 500ms
+  for a full visible/invisible cycle of 1 second.
 * **Use custom font**: enables use of custom font (and its size) instead of theme default.
   * **Select font**: opens font dialog to select new typeface to use. You can also specify font
     size.

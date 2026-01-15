@@ -92,26 +92,26 @@ ColumnLayout {
 	property alias layoutKey: layoutSelector.selectedLayoutKey
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
-	property int tick: 0
+	property int flipInterval: Plasmoid.configuration.flipInterval
+	property bool flipState: false
 
 	// Timer to animate {flip} placeholders in preview
 	Timer {
-		interval: 1000
+		interval: flipInterval
 		running: true
 		repeat: true
-		onTriggered: tick++
+		onTriggered: flipState = !flipState
 	}
 
-	// Process {flip:X:Y} placeholders - alternate based on current second
+	// Process {flip:X:Y} placeholders - alternate based on flipState
 	function handleFlip(text) {
 		var reg = new RegExp('\\{flip:(.+?):(.+?)\\}', 'gi')
 		var matches = text.match(reg)
 		if (matches !== null) {
-			var even = (new Date()).getSeconds() % 2
 			var valReg = new RegExp('^\\{flip:(.+?):(.+?)\\}$', 'i')
 			matches.forEach(function(val) {
 				var valMatch = val.match(valReg)
-				text = text.replace(val, valMatch[even ? 1 : 2])
+				text = text.replace(val, valMatch[flipState ? 1 : 2])
 			})
 		}
 		return text
@@ -313,7 +313,7 @@ ColumnLayout {
 			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
 			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 			text: {
-				tick // Force re-evaluation on timer tick
+				flipState // Force re-evaluation on timer tick
 				if (layoutTextArea.text === '') return ''
 				return DTF.format(handleFlip(layoutTextArea.text), '', null)
 			}
