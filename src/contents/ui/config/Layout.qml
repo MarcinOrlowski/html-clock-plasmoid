@@ -141,17 +141,18 @@ ColumnLayout {
 
 	// Store last picked index for each {random} pattern to avoid repetition
 	property var randomLastPicks: ({})
-	property int randomLastCycleIndex: -1
+	property real randomLastPickTime: 0
 
 	// Process {random|v1|v2|v3|...} placeholders
 	function handleRandom(text) {
 		var reg = /\{random\|([^}]+)\}/gi
 		var matches = text.match(reg)
 		if (matches !== null) {
-			// Only pick new values when cycleIndex changes
-			var needNewPick = (cycleIndex !== randomLastCycleIndex)
+			// Only pick new values if enough time has passed (80% of flipInterval)
+			var now = Date.now()
+			var needNewPick = (now - randomLastPickTime) >= (flipInterval * 0.8)
 			if (needNewPick) {
-				randomLastCycleIndex = cycleIndex
+				randomLastPickTime = now
 			}
 
 			matches.forEach(function(val) {
