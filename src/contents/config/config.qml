@@ -2,7 +2,7 @@
  * Weekday Grid widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2022 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
@@ -17,9 +17,19 @@ ConfigModel {
 		source: "config/General.qml"
 	}
 	ConfigCategory {
-		name: i18n("User Layout")
+		name: i18n("User Layout 1")
 		icon: "view-visible"
 		source: "config/Layout.qml"
+	}
+	ConfigCategory {
+		name: i18n("User Layout 2")
+		icon: "view-visible"
+		source: "config/Layout2.qml"
+	}
+	ConfigCategory {
+		name: i18n("User Layout 3")
+		icon: "view-visible"
+		source: "config/Layout3.qml"
 	}
 	ConfigCategory {
 		name: i18n("Calendar View")

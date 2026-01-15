@@ -24,11 +24,26 @@
 		<entry name="widgetContainerFillHeight" type="Bool">
 			<default>false</default>
 		</entry>
+		<entry name="flipInterval" type="Int">
+			<default>1000</default>
+		</entry>
+		<entry name="randomInterval" type="Int">
+			<default>1000</default>
+		</entry>
 	</group>
 
 	<group name="Layout">
 		<entry name="layout" type="String">
 			<default>EDIT ME!</default>
+		</entry>
+		<entry name="layout2" type="String">
+			<default></default>
+		</entry>
+		<entry name="layout3" type="String">
+			<default></default>
+		</entry>
+		<entry name="activeLayoutSlot" type="Int">
+			<default>1</default>
 		</entry>
 		<entry name="enforceWidgetMinWidth" type="Bool">
 			<default>true</default>
@@ -58,7 +73,7 @@
 
 	<group name="Tooltip">
 		<entry name="tooltipFirstLineFormat" type="String">
-			<default>{DDD:u}, {d} {MMM} {yyyy}</default>
+			<default>{DDD|u}, {d} {MMM} {yyyy}</default>
 		</entry>
 		<entry name="tooltipSecondLineFormat" type="String">
 			<default>{dy} day of {yyyy} (week {wy})</default>
@@ -78,8 +93,11 @@
 	<!-- Calendar View related settings -->
 
 	<group name="CalendarView">
-		<entry name="calendarViewEnabled" type="Bool">
-			<default>true</default>
+		<entry name="onClickAction" type="String">
+			<default>calendar</default>
+		</entry>
+		<entry name="onClickAppCommand" type="String">
+			<default></default>
 		</entry>
 	</group>
 

@@ -1,0 +1,201 @@
+# Czech translation for HTML Clock Plasmoid
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0100\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Czech\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "Obecné"
+
+#: contents/config/config.qml
+msgid "User Layout 1"
+msgstr "Uživatelské rozvržení 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "Zobrazení kalendáře"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "Nástrojový tip"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "Rozvržení"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "Použít uživatelské rozvržení"
+
+
+#: contents/ui/config/General.qml
+msgid "{cycle} interval"
+msgstr "Interval přepínání (ms)"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "Použít vlastní písmo"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "Písmo: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "Velikost: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "Použité národní prostředí"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "Posun časového pásma"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "Vyplnit šířku kontejneru"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "Vyplnit výšku kontejneru"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "Text"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
+msgstr "Aktuálně používáte vestavěné rozvržení. Žádné změny provedené v tomto panelu se neprojeví, dokud nepovolíte možnost \"Použít uživatelské rozvržení\" v nastavení \"Obecné\"."
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "Klonovat"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "Vybrat barvu"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "Není vybrán žádný text."
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "Výběr stylu:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "Písmo"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "Barva"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "Písmo + Barva"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "Zachovat výběr"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "Dokumentace:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>Zástupné symboly</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>HTML tagy</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>Sdílejte své rozvržení!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "Po kliknutí"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "Zobrazit kalendář"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "Spustit aplikaci"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "Nedělat nic"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "Příkaz"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "např. kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "Zobrazovat čísla týdnů"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "První řádek"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "Druhý řádek"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "Viz stránka <u>dokumentace zástupných symbolů</u>."
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "Pro dnešek nejsou žádné události"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "Pro tento den nejsou žádné události"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Ponechat otevřené"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "Vybrat písmo"

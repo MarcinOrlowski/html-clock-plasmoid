@@ -3,7 +3,7 @@
  * HTML Clock Plasmoid
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
@@ -23,16 +23,18 @@ Kirigami.FormLayout {
 
 	property alias cfg_layoutKey: layoutSelector.selectedLayoutKey
 	property alias cfg_useUserLayout: useUserLayout.checked
+	property int cfg_activeLayoutSlot: 1
 	property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 	property alias cfg_useCustomFont: useCustomFont.checked
 	property alias cfg_customFont: fontSelector.selectedFont
-	property alias cfg_transparentBackgroundEnabled: transparentBackground.checked
 
 	property alias cfg_clockTimezoneOffsetEnabled: clockTimezoneOffsetEnabled.checked
 	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
 	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
 	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
+	property int cfg_flipInterval: 1000
+	property int cfg_randomInterval: 1000
 
 	LayoutSelector {
 		id: layoutSelector
@@ -40,22 +42,51 @@ Kirigami.FormLayout {
 		Kirigami.FormData.label: i18n('Layout')
 	}
 
-	PlasmaComponents.CheckBox {
-		id: useUserLayout
-		text: i18n("Use user layout")
+	RowLayout {
+		PlasmaComponents.CheckBox {
+			id: useUserLayout
+			text: i18n("Use user layout")
+		}
+
+		PlasmaComponents.ComboBox {
+			id: activeLayoutSlotSelector
+			enabled: cfg_useUserLayout
+			model: [i18n("Slot 1"), i18n("Slot 2"), i18n("Slot 3")]
+			currentIndex: cfg_activeLayoutSlot - 1
+			onCurrentIndexChanged: cfg_activeLayoutSlot = currentIndex + 1
+		}
 	}
 
-	QtControls.CheckBox {
-		id: transparentBackground
-		text: i18n("Transparent background")
-		checked: cfg_transparentBackgroundEnabled
+	RowLayout {
+		Kirigami.FormData.label: i18n('{cycle} interval')
 
-		// Plasma 6 always supports configurable background, hide this option
-		visible: false
+		QtControls.SpinBox {
+			id: flipIntervalSpinBox
+			from: 100
+			to: 5000
+			stepSize: 50
+			value: cfg_flipInterval
+			onValueChanged: cfg_flipInterval = value
+		}
+		PlasmaComponents.Label {
+			text: i18n('ms')
+		}
 	}
 
-	Item {
-		height: 10
+	RowLayout {
+		Kirigami.FormData.label: i18n('{random} interval')
+
+		QtControls.SpinBox {
+			id: randomIntervalSpinBox
+			from: 100
+			to: 5000
+			stepSize: 50
+			value: cfg_randomInterval
+			onValueChanged: cfg_randomInterval = value
+		}
+		PlasmaComponents.Label {
+			text: i18n('ms')
+		}
 	}
 
 	PlasmaComponents.CheckBox {

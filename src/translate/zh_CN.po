@@ -1,0 +1,201 @@
+# Chinese Simplified translation for HTML Clock Plasmoid
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0000\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "常规"
+
+#: contents/config/config.qml
+msgid "User Layout 1"
+msgstr "用户布局 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "日历视图"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "悬停提示"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "布局"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "使用用户布局"
+
+
+#: contents/ui/config/General.qml
+msgid "{cycle} interval"
+msgstr "翻页间隔 (毫秒)"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "使用自定义字体"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "字体：%1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "大小：%1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "使用的区域设置"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "时区偏移"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "容器填充宽度"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "容器填充高度"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "文本"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
+msgstr "您当前正在使用内置布局。除非在\"常规\"设置中启用\"使用用户布局\"选项，否则在此窗格中所做的任何更改都不会生效。"
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "克隆"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "选择颜色"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "未选择文本。"
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "样式选择："
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "字体"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "颜色"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "字体 + 颜色"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "保留选择"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "文档："
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>占位符</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>HTML 标签</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>分享您的布局！</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "点击时"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "显示日历"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "启动应用程序"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "无操作"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "命令"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "例如：kalendar、gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "显示周数"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "第一行"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "第二行"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "请参阅<u>占位符文档</u>页面。"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "今天没有事件"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "这一天没有事件"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "保持打开"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "选择字体"

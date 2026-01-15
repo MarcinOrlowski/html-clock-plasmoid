@@ -1,0 +1,202 @@
+# Norwegian Bokmål translation for HTML Clock Plasmoid
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0100\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Norwegian Bokmål\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "Generelt"
+
+#: contents/config/config.qml
+msgid "User Layout 1"
+msgstr "Brukeroppsett 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "Kalendervisning"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "Hjelpeboble"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "Oppsett"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "Bruk brukeroppsett"
+
+
+#: contents/ui/config/General.qml
+msgid "{cycle} interval"
+msgstr "Bytteintervall (ms)"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "Bruk tilpasset skrift"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "Skrift: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "Størrelse: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "Regionalinnstilling"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "Tidssone-forskyvning"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "Fyll beholderbredde"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "Fyll beholderhøyde"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "Tekst"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
+msgstr "Du bruker for øyeblikket innebygd oppsett. Ingen endringer gjort i dette panelet vil vises med mindre du aktiverer \"Bruk brukeroppsett\" i \"Generelt\"-innstillingene."
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "Kopier"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "Velg farge"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "Ingen tekst er valgt."
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "Stiltilpasning:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "Skrift"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "Farge"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "Skrift + Farge"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "Behold markering"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "Dokumentasjon:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>Plassholdere</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>HTML-tagger</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>Del oppsettet ditt!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "Ved klikk"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "Vis kalender"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "Start program"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "Gjør ingenting"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "Kommando"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "f.eks. kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "Vis ukenummer"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "Første linje"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "Andre linje"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "Se siden for <u>plassholderdokumentasjon</u>."
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "Ingen hendelser i dag"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "Ingen hendelser denne datoen."
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Hold åpen"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "Velg skrift"

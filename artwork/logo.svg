@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2000"
+   height="620"
+   viewBox="0 0 2000 620"
+   role="img"
+   aria-label="HTML Clock logo"
+   version="1.1"
+   id="svg32"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   inkscape:export-filename="../img/banner.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title35">HTML Clock Plasma Widget Logo</title>
+  <sodipodi:namedview
+     id="namedview32"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.65635254"
+     inkscape:cx="-188.16108"
+     inkscape:cy="285.66965"
+     inkscape:window-width="4960"
+     inkscape:window-height="2126"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g35" />
+  <defs
+     id="defs8">
+    <linearGradient
+       id="gShield"
+       x1="101.73167"
+       y1="-4.1776481"
+       x2="544.56342"
+       y2="438.65408"
+       gradientTransform="scale(0.83553169,1.1968427)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#ff8a2a"
+         id="stop1" />
+      <stop
+         offset="0.55"
+         stop-color="#ff5a1f"
+         id="stop2" />
+      <stop
+         offset="1"
+         stop-color="#ffb04a"
+         id="stop3" />
+    </linearGradient>
+    <radialGradient
+       id="gRing"
+       cx="192.5"
+       cy="150.00002"
+       r="360"
+       fx="192.5"
+       fy="150.00002"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#f7f9ff"
+         id="stop4" />
+      <stop
+         offset="0.5"
+         stop-color="#cfd7e6"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#7a879c"
+         id="stop6" />
+    </radialGradient>
+    <radialGradient
+       id="gFace"
+       cx="178.8"
+       cy="138.5"
+       r="345.10001"
+       fx="178.8"
+       fy="138.5"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#ffffff"
+         id="stop7" />
+      <stop
+         offset="1"
+         stop-color="#eef2f8"
+         id="stop8" />
+    </radialGradient>
+  </defs>
+  <!-- Icon group (NO FILTERS) -->
+  <!-- Wordmark -->
+  <g
+     id="g35"
+     transform="translate(-7.1618047e-8,32.53209)"
+     inkscape:label="HtmlClockLogo">
+    <g
+       id="g6"
+       transform="translate(10.446433,-3.4342641)">
+      <g
+         id="g5">
+        <g
+           transform="translate(-71.604016,-43.674695)"
+           id="g31"
+           inkscape:label="Logo">
+          <!-- Clock (behind, right) -->
+          <!-- Shield (front, left) -->
+          <g
+             id="g36"
+             transform="translate(18.31457,2.6735914)">
+            <g
+               transform="translate(323.37086,66.794319)"
+               id="g25"
+               inkscape:label="Clock">
+              <circle
+                 cx="260"
+                 cy="240"
+                 r="220"
+                 fill="url(#gRing)"
+                 stroke="#1e2b3a"
+                 stroke-width="10"
+                 id="circle8"
+                 style="fill:url(#gRing)" />
+              <circle
+                 cx="260"
+                 cy="240"
+                 r="200"
+                 fill="url(#gFace)"
+                 stroke="#b9c3d6"
+                 stroke-width="6"
+                 id="circle9"
+                 style="fill:url(#gFace)" />
+              <!-- Hour ticks -->
+              <g
+                 stroke="#132235"
+                 stroke-width="14"
+                 stroke-linecap="round"
+                 id="g21"
+                 inkscape:label="HourMarks">
+                <line
+                   x1="260"
+                   y1="70"
+                   x2="260"
+                   y2="100"
+                   id="line9" />
+                <g
+                   transform="rotate(30,260,240)"
+                   id="g10">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line10" />
+                </g>
+                <g
+                   transform="rotate(60,260,240)"
+                   id="g11">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line11" />
+                </g>
+                <g
+                   transform="rotate(90,260,240)"
+                   id="g12">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line12" />
+                </g>
+                <g
+                   transform="rotate(120,260,240)"
+                   id="g13">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line13" />
+                </g>
+                <g
+                   transform="rotate(150,260,240)"
+                   id="g14">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line14" />
+                </g>
+                <g
+                   transform="rotate(180,260,240)"
+                   id="g15">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line15" />
+                </g>
+                <g
+                   transform="rotate(-150,260,240)"
+                   id="g16">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line16" />
+                </g>
+                <g
+                   transform="rotate(-120,260,240)"
+                   id="g17">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line17" />
+                </g>
+                <g
+                   transform="rotate(-90,260,240)"
+                   id="g18">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line18" />
+                </g>
+                <g
+                   transform="rotate(-60,260,240)"
+                   id="g19">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line19" />
+                </g>
+                <g
+                   transform="rotate(-30,260,240)"
+                   id="g20">
+                  <line
+                     x1="260"
+                     y1="70"
+                     x2="260"
+                     y2="100"
+                     id="line20" />
+                </g>
+              </g>
+              <!-- Hands -->
+              <g
+                 id="g24"
+                 inkscape:label="Arms">
+                <line
+                   x1="260"
+                   y1="240"
+                   x2="190"
+                   y2="190"
+                   stroke="#0b2a4a"
+                   stroke-width="22"
+                   stroke-linecap="round"
+                   id="line21" />
+                <line
+                   x1="260"
+                   y1="240"
+                   x2="350"
+                   y2="150"
+                   stroke="#1f6feb"
+                   stroke-width="18"
+                   stroke-linecap="round"
+                   id="line22" />
+                <line
+                   x1="260"
+                   y1="240"
+                   x2="325"
+                   y2="300"
+                   stroke="#ff5a1f"
+                   stroke-width="10"
+                   stroke-linecap="round"
+                   id="line23" />
+                <circle
+                   cx="260"
+                   cy="240"
+                   r="18"
+                   fill="#0b2a4a"
+                   id="circle23" />
+                <circle
+                   cx="260"
+                   cy="240"
+                   r="8"
+                   fill="#ffffff"
+                   id="circle24" />
+              </g>
+            </g>
+            <g
+               transform="translate(0,46.794354)"
+               id="g30"
+               inkscape:label="HTML">
+              <path
+                 d="M 90,40 280,0 450,40 420,430 270,520 120,430 Z"
+                 fill="url(#gShield)"
+                 stroke="#d84a18"
+                 stroke-width="10"
+                 stroke-linejoin="round"
+                 id="path25"
+                 style="fill:url(#gShield)" />
+              <path
+                 d="M 120,70 280,35 420,70 395,410 270,485 145,410 Z"
+                 fill="none"
+                 stroke="#ffffff"
+                 stroke-opacity="0.35"
+                 stroke-width="10"
+                 stroke-linejoin="round"
+                 id="path26"
+                 style="display:inline" />
+              <!-- Code glyph </> -->
+              <g
+                 transform="translate(165,170)"
+                 fill="none"
+                 stroke="#ffffff"
+                 stroke-width="26"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 id="g29"
+                 style="display:inline"
+                 inkscape:label="Label">
+                <g
+                   id="g33"
+                   transform="matrix(0.72183256,0,0,0.95741516,14.081119,-28.520367)">
+                  <path
+                     d="m 69.917412,1.0773277 -85,60.0000003 85,60.000002"
+                     id="path27" />
+                  <path
+                     d="m 148.07996,-11.077328 -40,149.999998"
+                     id="path28" />
+                  <path
+                     d="m 186.2425,1.0773273 85,59.9999997 -85,60.000003"
+                     id="path29" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <text
+           x="398.98975"
+           y="558.9613"
+           font-size="130px"
+           font-weight="800"
+           font-family="system-ui, '-apple-system', 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif"
+           fill="#ff5a1f"
+           letter-spacing="1"
+           id="text32"
+           inkscape:label="Clock"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:130px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:#ffc5c5;stroke-width:1.5;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1">Clock</text>
+        <text
+           x="21.752522"
+           y="560.26105"
+           font-size="130px"
+           font-weight="800"
+           font-family="system-ui, '-apple-system', 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif"
+           fill="#0b2a4a"
+           letter-spacing="1"
+           id="text31"
+           inkscape:label="HTML"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:130px;line-height:normal;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:1;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;display:inline;vector-effect:none;fill:#40c68f;fill-opacity:1;stroke:#1a9d67;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000">HTML</text>
+      </g>
+      <g
+         id="g3"
+         transform="matrix(0.83728219,0,0,0.83728219,-20.025682,-126.2604)">
+        <text
+           x="1166.3274"
+           y="596.07031"
+           font-size="130px"
+           font-weight="800"
+           font-family="system-ui, '-apple-system', 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif"
+           fill="#ff5a1f"
+           letter-spacing="1.29259"
+           id="text32-7"
+           inkscape:label="Marcin Orlowski"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:168.036px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#fd6630;fill-opacity:1;stroke:#ffa58a;stroke-width:1.93888;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           transform="scale(0.90636627,1.1033067)">Marcin Orlowski</text>
+        <path
+           style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#de684a;fill-opacity:1;stroke:#ffada5;stroke-width:1.33669;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+           id="path3"
+           d="m 1044.1144,498.5161 c 116.6911,-3.84086 233.4868,-4.47563 350.2385,-6.09243 92.7439,-1.28435 130.4994,-2.01284 222.8878,-3.60574 38.2695,-0.95859 76.5431,-1.80941 114.8088,-2.87577 254.1899,-7.08357 -7.1748,-0.5801 259.5134,-7.60667 119.1656,-3.13974 238.3477,-5.52587 357.5409,-7.73421 0,0 -11.9047,-7.29017 -11.9047,-7.29017 v 0 c -118.918,2.56477 -237.8346,5.16588 -356.7362,8.23991 -363.6772,9.40236 84.5452,-1.93752 -259.9979,7.3053 -38.3012,1.02748 -76.6092,1.86571 -114.9138,2.79857 -94.7846,1.66108 -127.6924,2.34269 -222.9052,3.58527 -117.4763,1.53314 -234.9759,2.11891 -352.4275,4.82071 z"
+           inkscape:label="separator" />
+        <text
+           x="1061.927"
+           y="431.41"
+           font-size="130px"
+           font-weight="800"
+           font-family="system-ui, '-apple-system', 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif"
+           fill="#ff5a1f"
+           letter-spacing="0.724244"
+           id="text32-7-7"
+           inkscape:label="Plasma Widget"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:94.1515px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;stroke:#ff978d;stroke-width:1.08636;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1">Plasma / KDE Widget</text>
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata35">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>HTML Clock Plasma Widget Logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Marcin Orlowski</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:date>2026-01-14</dc:date>
+        <dc:description>A project logo for HTML Clock, the clock widget for Plasma / KDE</dc:description>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

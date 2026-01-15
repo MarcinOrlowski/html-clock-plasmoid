@@ -11,7 +11,7 @@ const layouts = {
 				'<body>' + "\n" +
 				'<center>' + "\n" +
 				'	<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
-				'	<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}79808d;">:</span>' + "\n" +
+				'	<span style="font-size: 25px; font-weight: bold; color: #{cycle|00|FF}79808d;">:</span>' + "\n" +
 				'	<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
 				'</center>' + "\n" +
 				'</body>' + "\n" +
@@ -40,7 +40,7 @@ const layouts = {
 				'<span style="font-size: 25px; color: #79808d;">:</span>' + "\n" +
 				'<span style="font-size: 30px; color: white;">{ii}<span style="font-size: 20px; color: #cccccc;"><sup>{ss}</sup></span></span>' + "\n" +
 				'<br />' + "\n" +
-				'<span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>' + "\n" +
+				'<span style="font-size: 15px;">{yyyy}-{MM|U}-{dd}</span>' + "\n" +
 				'</center>' +
 				'</body>' + "\n" +
 				'</html>'
@@ -54,15 +54,15 @@ const layouts = {
 				'<tr>' + "\n" +
 				'  <td valign="middle">' + "\n" +
 				'    <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'    <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'    <span style="font-size: 35px; font-weight: bold; color: #{cycle|00|FF}ff006e;">:</span>' + "\n" +
 				'    <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
 				'  </td>' + "\n" +
 				'  <td width="1" style="vertical-align: middle; background-color: #FFff006e; padding-right: 0px;"><br />&nbsp;<br /></td>' + "\n" +
 				'  <td>' + "\n" +
 				'    <table style="border: none;">' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DD:U}</span></td></tr>' + "\n" +
+				'      <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DD|U}</span></td></tr>' + "\n" +
 				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{dd}</span></td></tr>' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{MM:U}</span></td></tr>' + "\n" +
+				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{MM|U}</span></td></tr>' + "\n" +
 				'    </table>' + "\n" +
 				'  </td>' + "\n" +
 				'</tr>' + "\n" +
@@ -82,13 +82,13 @@ const layouts = {
 				'    <tr>' + "\n" +
 				'      <td valign="middle" align="center">' + "\n" +
 				'        <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'        <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'        <span style="font-size: 35px; font-weight: bold; color: #{cycle|00|FF}ff006e;">:</span>' + "\n" +
 				'        <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
 				'      </td>' + "\n" +
 				'    <tr>' + "\n" +
 				'    <tr>' + "\n" +
 				'      <td valign="middle" align="center">' + "\n" +
-				'        <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DDD:U}</span></td></tr>' + "\n" +
+				'        <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DDD|U}</span></td></tr>' + "\n" +
 				'      </td>' + "\n" +
 				'    <tr>' + "\n" +
 				'    </table>' + "\n" +
@@ -96,9 +96,9 @@ const layouts = {
 				'  <td width="1" style="vertical-align: middle; background-color: #FFff006e; padding-right: 0px;"><br />&nbsp;<br /></td>' + "\n" +
 				'  <td>' + "\n" +
 				'    <table style="border: none;">' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DD:U}</span></td></tr>' + "\n" +
+				'      <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DD|U}</span></td></tr>' + "\n" +
 				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{dd}</span></td></tr>' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{MM:U}</span></td></tr>' + "\n" +
+				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{MM|U}</span></td></tr>' + "\n" +
 				'    </table>' + "\n" +
 				'  </td>' + "\n" +
 				'</tr>' + "\n" +
@@ -116,7 +116,7 @@ const layouts = {
 				'        <!-- clock -->' + "\n" +
 				'        <td valign="middle" align="center" style="padding-right: 4px;">' + "\n" +
 				'            <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'            <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'            <span style="font-size: 35px; font-weight: bold; color: #{cycle|00|FF}ff006e;">:</span>' + "\n" +
 				'            <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
 				'        </td>' + "\n" +
 				'        <!-- verical divider -->' + "\n" +
@@ -125,13 +125,13 @@ const layouts = {
 				'        </td>' + "\n" +
 				'        <!-- calendar -->' + "\n" +
 				'        <td rowspan="2" valign="middle" align="center" style="padding-left: 4px;">' + "\n" +
-				'            <span style="font-size: 15px; font-weight: bold; color: white;">{dd}<br />{MM:U}<br />{yyyy}</span>' + "\n" +
+				'            <span style="font-size: 15px; font-weight: bold; color: white;">{dd}<br />{MM|U}<br />{yyyy}</span>' + "\n" +
 				'        <td>' + "\n" +
 				'    </tr>' + "\n" +
 				'    <tr>' + "\n" +
 				'        <!-- weekday name -->' + "\n" +
 				'        <td valign="middle" align="center" style="padding-right: 4px;">' + "\n" +
-				'            <span style="font-size: 15px; font-weight: bold; color: white;">{DDD:U}</span>' + "\n" +
+				'            <span style="font-size: 15px; font-weight: bold; color: white;">{DDD|U}</span>' + "\n" +
 				'        </td>' + "\n" +
 				'    </tr>' + "\n" +
 				'</table>' + "\n" +
@@ -145,10 +145,10 @@ const layouts = {
 				'<body>' + "\n" +
 				'<center>' + "\n" +
 				'	<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
-				'	<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'	<span style="font-size: 25px; font-weight: bold; color: #{cycle|00|FF}ff006e;">:</span>' + "\n" +
 				'	<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
 				'	<br />' + "\n" +
-				'	<span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>' + "\n" +
+				'	<span style="font-size: 15px;">{yyyy}-{MM|U}-{dd}</span>' + "\n" +
 				'</center>' + "\n" +
 				'</body>' + "\n" +
 				'</html>'

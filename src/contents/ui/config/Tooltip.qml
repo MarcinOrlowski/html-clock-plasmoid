@@ -2,7 +2,7 @@
  * HTML Clock Plasmoid
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/html-clock-plasmoid
  */
@@ -33,7 +33,7 @@ Kirigami.FormLayout {
 	PlasmaComponents.Label {
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
-		text: 'See <u>placeholders documentation</u> page.'
+		text: i18n('See <u>placeholders documentation</u> page.')
 		MouseArea {
 			anchors.fill: parent
 			onClicked: Qt.openUrlExternally(Meta.url)

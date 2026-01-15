@@ -6,5 +6,6 @@
 package/contents/config/main.xml
 *.plasmoid
 /*.sh
-*.md
+CLAUDE.md
+*.mo
 

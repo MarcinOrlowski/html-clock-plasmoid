@@ -1,0 +1,201 @@
+# Ukrainian translation for HTML Clock Plasmoid
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0000\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "Загальне"
+
+#: contents/config/config.qml
+msgid "User Layout 1"
+msgstr "Компонування користувача 1"
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "Перегляд календаря"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "Підказка"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "Компонування"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "Використовувати компонування користувача"
+
+
+#: contents/ui/config/General.qml
+msgid "{cycle} interval"
+msgstr "Інтервал перемикання (мс)"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "Використовувати власний шрифт"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "Шрифт: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "Розмір: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "Локаль"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "Зсув часового поясу"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "Заповнення ширини контейнера"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "Заповнення висоти контейнера"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "Текст"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
+msgstr "Зараз використовується вбудоване компонування. Жодні зміни на цій панелі не набудуть чинності, доки ви не увімкнете параметр \"Використовувати компонування користувача\" у налаштуваннях \"Загальне\"."
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "Клонувати"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "Вибрати колір"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "Текст не вибрано."
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "Вибір стилю:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "Шрифт"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "Колір"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "Шрифт + Колір"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "Зберігати вибір"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "Документація:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>Замінники</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>Теги HTML</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>Поділіться своїм компонуванням!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "При натисканні"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "Показати календар"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "Запустити програму"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "Нічого не робити"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "Команда"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "напр. kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "Показувати номери тижнів"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "Перший рядок"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "Другий рядок"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "Див. сторінку <u>документації із замінників</u>."
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "На сьогодні подій немає"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "На цей день подій немає"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Тримати відкритим"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "Вибрати шрифт"
