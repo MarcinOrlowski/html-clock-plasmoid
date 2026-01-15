@@ -33,6 +33,15 @@
 		<entry name="layout" type="String">
 			<default>EDIT ME!</default>
 		</entry>
+		<entry name="layout2" type="String">
+			<default></default>
+		</entry>
+		<entry name="layout3" type="String">
+			<default></default>
+		</entry>
+		<entry name="activeLayoutSlot" type="Int">
+			<default>1</default>
+		</entry>
 		<entry name="enforceWidgetMinWidth" type="Bool">
 			<default>true</default>
 		</entry>

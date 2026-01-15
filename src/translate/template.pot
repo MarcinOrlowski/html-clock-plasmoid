@@ -20,7 +20,15 @@ msgid "General"
 msgstr ""
 
 #: contents/config/config.qml
-msgid "User Layout"
+msgid "User Layout 1"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 2"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout 3"
 msgstr ""
 
 #: contents/config/config.qml
@@ -37,6 +45,18 @@ msgstr ""
 
 #: contents/ui/config/General.qml
 msgid "Use user layout"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Slot 1"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Slot 2"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Slot 3"
 msgstr ""
 
 #: contents/ui/config/General.qml
@@ -75,8 +95,24 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
+#: contents/ui/config/Layout.qml contents/ui/config/Layout2.qml contents/ui/config/Layout3.qml
+msgid "You are currently using built-in layout. Enable \"Use user layout\" in \"General\" settings to use this layout."
+msgstr ""
+
 #: contents/ui/config/Layout.qml
-msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgid "This slot is not active. Select \"Slot 1\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout2.qml
+msgid "This slot is not active. Select \"Slot 2\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout3.qml
+msgid "This slot is not active. Select \"Slot 3\" in \"General\" settings to use this layout."
+msgstr ""
+
+#: contents/ui/config/Layout.qml contents/ui/config/Layout2.qml contents/ui/config/Layout3.qml
+msgid "Activate this slot"
 msgstr ""
 
 #: contents/ui/config/Layout.qml

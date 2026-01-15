@@ -88,7 +88,7 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
-	property alias cfg_layout: layoutTextArea.text
+	property alias cfg_layout2: layoutTextArea.text
 	property alias layoutKey: layoutSelector.selectedLayoutKey
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
@@ -146,16 +146,16 @@ ColumnLayout {
 		type: Kirigami.MessageType.Information
 		text: !Plasmoid.configuration.useUserLayout
 			? i18n('You are currently using built-in layout. Enable "Use user layout" in "General" settings to use this layout.')
-			: i18n('This slot is not active. Select "Slot 1" in "General" settings to use this layout.')
+			: i18n('This slot is not active. Select "Slot 2" in "General" settings to use this layout.')
 		showCloseButton: true
-		visible: !Plasmoid.configuration.useUserLayout || Plasmoid.configuration.activeLayoutSlot !== 1
+		visible: !Plasmoid.configuration.useUserLayout || Plasmoid.configuration.activeLayoutSlot !== 2
 		actions: [
 			Kirigami.Action {
 				text: i18n("Activate this slot")
 				icon.name: "checkmark"
 				onTriggered: {
 					Plasmoid.configuration.useUserLayout = true
-					Plasmoid.configuration.activeLayoutSlot = 1
+					Plasmoid.configuration.activeLayoutSlot = 2
 				}
 			}
 		]
