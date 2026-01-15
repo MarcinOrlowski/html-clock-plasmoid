@@ -1,4 +1,4 @@
-![HTML CLock for Plasma](img/logo.png)
+![HTML CLock for Plasma](img/banner.png)
 
 # HTML Clock for Plasma 6 #
 

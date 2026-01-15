@@ -1,4 +1,4 @@
-![HTML Clock for Plasma](img/logo.png)
+![HTML CLock for Plasma](img/banner.png)
 
 
 # Changelog
