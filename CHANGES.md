@@ -5,6 +5,10 @@
 
 ---
 
+## dev (TBD)
+
+- Fixed "Date&Time grid big" built-in layout rendering incorrectly.
+
 ## v2.1.0 (2026-01-15)
 
 - Added widget logo.
