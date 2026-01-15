@@ -15,6 +15,7 @@ import org.kde.kquickcontrols as KQControls
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
+import "../../js/DateTimeFormatter.js" as DTF
 import "../lib"
 
 ColumnLayout {
@@ -89,6 +90,32 @@ ColumnLayout {
 
 	property alias cfg_layout: layoutTextArea.text
 	property alias layoutKey: layoutSelector.selectedLayoutKey
+	property bool useCustomFont: Plasmoid.configuration.useCustomFont
+	property font customFont: Plasmoid.configuration.customFont
+	property int tick: 0
+
+	// Timer to animate {flip} placeholders in preview
+	Timer {
+		interval: 1000
+		running: true
+		repeat: true
+		onTriggered: tick++
+	}
+
+	// Process {flip:X:Y} placeholders - alternate based on current second
+	function handleFlip(text) {
+		var reg = new RegExp('\\{flip:(.+?):(.+?)\\}', 'gi')
+		var matches = text.match(reg)
+		if (matches !== null) {
+			var even = (new Date()).getSeconds() % 2
+			var valReg = new RegExp('^\\{flip:(.+?):(.+?)\\}$', 'i')
+			matches.forEach(function(val) {
+				var valMatch = val.match(valReg)
+				text = text.replace(val, valMatch[even ? 1 : 2])
+			})
+		}
+		return text
+	}
 
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
@@ -107,6 +134,7 @@ ColumnLayout {
 
 		LayoutSelector {
 			id: layoutSelector
+			showPreview: false
 		}
 
 		PlasmaComponents.Button {
@@ -258,6 +286,38 @@ ColumnLayout {
 			text: i18n("Retain selection")
 		}
 
+	}
+
+	// -----------------------------------------------------------------------
+
+	// Live preview
+	Rectangle {
+		Layout.fillWidth: true
+		Layout.preferredHeight: 100
+		clip: true
+		color: Kirigami.Theme.backgroundColor
+		border.color: Kirigami.Theme.disabledTextColor
+		border.width: 1
+		radius: 4
+
+		PlasmaComponents.Label {
+			id: userLayoutPreview
+			anchors.fill: parent
+			anchors.margins: Kirigami.Units.largeSpacing
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
+			textFormat: Text.RichText
+			font.family: useCustomFont ? customFont.family : Qt.application.font.family
+			font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize
+			font.bold: useCustomFont ? customFont.bold : Qt.application.font.bold
+			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
+			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
+			text: {
+				tick // Force re-evaluation on timer tick
+				if (layoutTextArea.text === '') return ''
+				return DTF.format(handleFlip(layoutTextArea.text), '', null)
+			}
+		}
 	}
 
 	// -----------------------------------------------------------------------

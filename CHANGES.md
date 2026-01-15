@@ -9,6 +9,7 @@
 
 - Added widget logo.
 - Reorganized documentation into separate files.
+- Added live clock layout preview in configuration dialog.
 
 ## v2.0.0 (2026-01-13)
 
