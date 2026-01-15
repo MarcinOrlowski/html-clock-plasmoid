@@ -27,6 +27,20 @@ ColumnLayout {
 
 	spacing: Kirigami.Units.smallSpacing
 
+	// Process {flip:X:Y} placeholders - always show first value for static preview
+	function handleFlip(text) {
+		var reg = new RegExp('\{flip:(.+?):(.+?)\}', 'gi')
+		var matches = text.match(reg)
+		if (matches !== null) {
+			var valReg = new RegExp('^\{flip:(.+?):(.+?)\}$', 'i')
+			matches.forEach(function(val) {
+				var valMatch = val.match(valReg)
+				text = text.replace(val, valMatch[1])
+			})
+		}
+		return text
+	}
+
 	PlasmaComponents.ComboBox {
 		id: layoutComboBox
 
@@ -83,7 +97,7 @@ ColumnLayout {
 					return ''
 				}
 				var html = Layouts.layouts[root.selectedLayoutKey]['html']
-				return DTF.format(html, '', null)
+				return DTF.format(handleFlip(html), '', null)
 			}
 		}
 	}

@@ -93,6 +93,20 @@ ColumnLayout {
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
 
+	// Process {flip:X:Y} placeholders - always show first value for static preview
+	function handleFlip(text) {
+		var reg = new RegExp('\\{flip:(.+?):(.+?)\\}', 'gi')
+		var matches = text.match(reg)
+		if (matches !== null) {
+			var valReg = new RegExp('^\\{flip:(.+?):(.+?)\\}$', 'i')
+			matches.forEach(function(val) {
+				var valMatch = val.match(valReg)
+				text = text.replace(val, valMatch[1])
+			})
+		}
+		return text
+	}
+
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
 		Layout.fillWidth: true
@@ -290,7 +304,7 @@ ColumnLayout {
 			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 			text: {
 				if (layoutTextArea.text === '') return ''
-				return DTF.format(layoutTextArea.text, '', null)
+				return DTF.format(handleFlip(layoutTextArea.text), '', null)
 			}
 		}
 	}
