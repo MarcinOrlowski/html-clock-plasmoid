@@ -96,12 +96,21 @@ You can also combine timezone offset with a formatting directive:
 {hh|+00:00|00}:{ii|+00:00|00}  <!-- UTC time, zero-padded -->
 ```
 
-This allows showing multiple timezones in a single layout:
+This allows showing multiple timezones in a single layout (world clock):
 
 ```html
-<p>Local: {hh}:{ii}</p>
-<p>UTC: {hh|+00:00}:{ii|+00:00}</p>
-<p>Tokyo: {hh|+09:00}:{ii|+09:00}</p>
+<table>
+  <tr>
+    <td style="padding-right: 10px;">
+      <span style="font-size: 12px; color: gray;">New York</span><br/>
+      <span style="font-size: 24px;">{hh|-05:00}:{ii|-05:00}</span>
+    </td>
+    <td style="padding-left: 10px;">
+      <span style="font-size: 12px; color: gray;">Tokyo</span><br/>
+      <span style="font-size: 24px;">{hh|+09:00}:{ii|+09:00}</span>
+    </td>
+  </tr>
+</table>
 ```
 
 ### Special placeholders ###
