@@ -11,7 +11,7 @@ const layouts = {
 				'<body>' + "\n" +
 				'<center>' + "\n" +
 				'	<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
-				'	<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}79808d;">:</span>' + "\n" +
+				'	<span style="font-size: 25px; font-weight: bold; color: #{flip|00|FF}79808d;">:</span>' + "\n" +
 				'	<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
 				'</center>' + "\n" +
 				'</body>' + "\n" +
@@ -54,7 +54,7 @@ const layouts = {
 				'<tr>' + "\n" +
 				'  <td valign="middle">' + "\n" +
 				'    <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'    <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'    <span style="font-size: 35px; font-weight: bold; color: #{flip|00|FF}ff006e;">:</span>' + "\n" +
 				'    <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
 				'  </td>' + "\n" +
 				'  <td width="1" style="vertical-align: middle; background-color: #FFff006e; padding-right: 0px;"><br />&nbsp;<br /></td>' + "\n" +
@@ -82,7 +82,7 @@ const layouts = {
 				'    <tr>' + "\n" +
 				'      <td valign="middle" align="center">' + "\n" +
 				'        <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'        <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'        <span style="font-size: 35px; font-weight: bold; color: #{flip|00|FF}ff006e;">:</span>' + "\n" +
 				'        <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
 				'      </td>' + "\n" +
 				'    <tr>' + "\n" +
@@ -116,7 +116,7 @@ const layouts = {
 				'        <!-- clock -->' + "\n" +
 				'        <td valign="middle" align="center" style="padding-right: 4px;">' + "\n" +
 				'            <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'            <span style="font-size: 35px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'            <span style="font-size: 35px; font-weight: bold; color: #{flip|00|FF}ff006e;">:</span>' + "\n" +
 				'            <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
 				'        </td>' + "\n" +
 				'        <!-- verical divider -->' + "\n" +
@@ -145,7 +145,7 @@ const layouts = {
 				'<body>' + "\n" +
 				'<center>' + "\n" +
 				'	<span style="font-size: 35px; font-weight: bold; color: #ff006e;">{hh}</span>' + "\n" +
-				'	<span style="font-size: 25px; font-weight: bold; color: #{flip:00:FF}ff006e;">:</span>' + "\n" +
+				'	<span style="font-size: 25px; font-weight: bold; color: #{flip|00|FF}ff006e;">:</span>' + "\n" +
 				'	<span style="font-size: 30px; color: white;">{ii}</span>' + "\n" +
 				'	<br />' + "\n" +
 				'	<span style="font-size: 15px;">{yyyy}-{MM:U}-{dd}</span>' + "\n" +

@@ -125,16 +125,20 @@ ColumnLayout {
 	}
 
 	function handleFlip(text) {
-		var reg = new RegExp('\{flip:(.+?):(.+?)\}', 'gi')
-		var matches = text.match(reg)
-		if (matches !== null) {
-			var valReg = new RegExp('^\{flip:(.+?):(.+?)\}$', 'i')
-			matches.forEach(function (val, idx) {
-				var valMatch = val.match(valReg)
-				text = text.replace(val, valMatch[flipState ? 1 : 2])
-			})
-		}
-
+		// Support both | (new) and : (legacy) separators
+		var patterns = [
+			{ reg: /\{flip\|(.+?)\|(.+?)\}/gi, valReg: /^\{flip\|(.+?)\|(.+?)\}$/i },
+			{ reg: /\{flip:(.+?):(.+?)\}/gi, valReg: /^\{flip:(.+?):(.+?)\}$/i }
+		]
+		patterns.forEach(function(pattern) {
+			var matches = text.match(pattern.reg)
+			if (matches !== null) {
+				matches.forEach(function (val) {
+					var valMatch = val.match(pattern.valReg)
+					text = text.replace(val, valMatch[flipState ? 1 : 2])
+				})
+			}
+		})
 		return text
 	}
 
