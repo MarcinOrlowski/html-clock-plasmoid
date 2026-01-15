@@ -36,7 +36,7 @@ system timezone settings.
 | {mm}        | zero prefixed 2 digit month number ("02" for Feb, "12" for Dec)    |
 | {m}         | month number as is ("2" for Feb, "12" for Dec)                     |
 | {DDD}       | full day name (i.e. ""Saturday", "Sunday", "Monday")               |
-| {DD}        | abbreviated (locale based) day name ("Sat", "Sun", "Mon")          |
+| {DD}        | abbreviated day name, locale based (**usually** 3, but can be 1-6 chars) |
 | {D}         | one letter day name ("S", "S", "M")                                |
 | {dd}        | zero prefixed 2 digit day number ("01", "27")                      |
 | {d}         | day number as is ("1", "27")                                       |
