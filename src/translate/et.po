@@ -1,0 +1,193 @@
+# HTML Clock Plasmoid Estonian Translation
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0100\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Estonian\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "Üldine"
+
+#: contents/config/config.qml
+msgid "User Layout"
+msgstr "Kasutaja paigutus"
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "Kalendrivaade"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "Kohtspikker"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "Paigutus"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "Kasuta kasutaja paigutust"
+
+#: contents/ui/config/General.qml
+msgid "Flip interval (ms)"
+msgstr "Vahetuse intervall (ms)"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "Kasuta kohandatud fonti"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "Font: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "Suurus: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "Kasutatav lokaat"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "Ajavööndi nihe"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "Konteineri täislaius"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "Konteineri täiskõrgus"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "Tekst"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgstr "Praegu kasutatakse sisseehitatud paigutust. Selle paneeli muudatused ei rakendu, kui sa ei luba \"Kasuta kasutaja paigutust\" valikut \"Üldine\" seadetes."
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "Klooni"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "Vali värv"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "Teksti pole valitud."
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "Stiili valik:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "Font"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "Värv"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "Font + Värv"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "Säilita valik"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "Dokumentatsioon:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>Kohahoidjad</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>HTML-sildid</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>Jaga oma paigutust!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "Klõpsamisel"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "Näita kalendrit"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "Käivita rakendus"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "Ära tee midagi"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "Käsk"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "nt kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "Nädalanumbrite näitamine"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "Esimene rida"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "Teine rida"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "Vaata <u>kohahoidjate dokumentatsiooni</u> lehte."
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "Täna pole sündmusi"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "Sel päeval pole sündmusi"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Hoia avatuna"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "Vali font"

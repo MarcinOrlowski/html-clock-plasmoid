@@ -1,0 +1,192 @@
+# Italian translation for HTML Clock Plasmoid
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0100\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "Generale"
+
+#: contents/config/config.qml
+msgid "User Layout"
+msgstr "Layout utente"
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "Vista calendario"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "Suggerimento"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "Layout"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "Usa layout utente"
+
+#: contents/ui/config/General.qml
+msgid "Flip interval (ms)"
+msgstr "Intervallo di rotazione (ms)"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "Usa carattere personalizzato"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "Carattere: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "Dimensione: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "Impostazioni regionali da utilizzare"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "Scostamento del fuso orario"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "Larghezza riempimento contenitore"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "Altezza riempimento contenitore"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "Testo"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgstr "Stai attualmente utilizzando un layout integrato. Le modifiche apportate in questo pannello non saranno applicate a meno che non abiliti l'opzione \"Usa layout utente\" nelle impostazioni \"Generale\"."
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "Clona"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "Seleziona colore"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "Nessun testo selezionato."
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "Selezione stile:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "Carattere"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "Colore"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "Carattere + Colore"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "Mantieni selezione"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "Documentazione:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>Segnaposto</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>Tag HTML</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>Condividi il tuo layout!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "Al clic"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "Mostra calendario"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "Avvia applicazione"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "Non fare nulla"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "Comando"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "es. kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "Mostra numeri di settimana"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "Prima riga"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "Seconda riga"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "Vedi la pagina della <u>documentazione dei segnaposto</u>."
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "Nessun evento per oggi"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "Nessun evento per questo giorno"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Mantieni aperto"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "Seleziona carattere"

@@ -27,7 +27,6 @@ Kirigami.FormLayout {
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 	property alias cfg_useCustomFont: useCustomFont.checked
 	property alias cfg_customFont: fontSelector.selectedFont
-	property alias cfg_transparentBackgroundEnabled: transparentBackground.checked
 
 	property alias cfg_clockTimezoneOffsetEnabled: clockTimezoneOffsetEnabled.checked
 	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
@@ -57,19 +56,6 @@ Kirigami.FormLayout {
 			value: cfg_flipInterval
 			onValueChanged: cfg_flipInterval = value
 		}
-	}
-
-	QtControls.CheckBox {
-		id: transparentBackground
-		text: i18n("Transparent background")
-		checked: cfg_transparentBackgroundEnabled
-
-		// Plasma 6 always supports configurable background, hide this option
-		visible: false
-	}
-
-	Item {
-		height: 10
 	}
 
 	PlasmaComponents.CheckBox {

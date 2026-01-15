@@ -344,11 +344,11 @@ ColumnLayout {
 				text: i18n('Docs:')
 			}
 			ClickableLabel {
-				text: '<u>Placeholders</u>'
+				text: i18n('<u>Placeholders</u>')
 				url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid'
 			}
 			ClickableLabel {
-				text: '<u>HTML tags</u>'
+				text: i18n('<u>HTML tags</u>')
 				url: 'https://doc.qt.io/qt-6/richtext-html-subset.html'
 			}
 		}
@@ -358,8 +358,8 @@ ColumnLayout {
 		ClickableLabel {
 			Layout.alignment: Qt.AlignRight
 			anchors.right: layoutConfigContainer.right
-			text: '<u>Share your layout!</u>'
-			url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid/issues/new?assignees=&labels=enhancement&template=new_layout.md'
+			text: i18n('<u>Share your layout!</u>')
+			url: 'https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates'
 		}
 	}
 

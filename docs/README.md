@@ -30,6 +30,7 @@ Plasma 6 (KDE) clock widget you can layout and style using just elementary HTML/
 * [Placeholders](placeholders.md)
 * [Tips and tricks](tips.md)
 * [Installation and upgrading](installation.md)
+* [Translation guide](translation.md)
 
 
 * [User contributed layouts!](https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates) ##
