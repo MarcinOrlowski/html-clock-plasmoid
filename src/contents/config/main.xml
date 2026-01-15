@@ -27,6 +27,9 @@
 		<entry name="flipInterval" type="Int">
 			<default>1000</default>
 		</entry>
+		<entry name="randomInterval" type="Int">
+			<default>1000</default>
+		</entry>
 	</group>
 
 	<group name="Layout">
