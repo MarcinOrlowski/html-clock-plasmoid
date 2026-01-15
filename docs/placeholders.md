@@ -65,38 +65,64 @@ For example, `Today is {DDD}` will produce `Today is Sunday` (assuming today is 
 
 ### Formatting directives ###
 
-You can also use optional formatting directives. The syntax is `{PLACEHOLDER:DIRECTIVE}`
-and supported directives are:
+You can also use optional formatting directives. The syntax is `{PLACEHOLDER|DIRECTIVE}`:
 
 | Directive | Description                                                                                                                                                                                                                                                                                                                         |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| U         | Turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT")                                                                                                                                                                                                                                                                         |
-| L         | Turns whole placeholder lowercased (i.e. "{DD:L}" => "sat")                                                                                                                                                                                                                                                                         |
-| u         | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
-| 00        | Ensures placeholder value is at last two **characters** (not just digits!) long by adding leading zeros to shorter strings. Longer strings will not be trimmed. Also note zeroes will be prepended unconditionally, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays.                                   |
+| U         | Turns whole placeholder uppercased (i.e. `{DD\|U}` => "SAT")                                                                                                                                                                                                                                                                         |
+| L         | Turns whole placeholder lowercased (i.e. `{DD\|L}` => "sat")                                                                                                                                                                                                                                                                         |
+| u         | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, `{DDD}` can produce "wtorek" for Tuesday. With `{DDD\|u}` you would get "Wtorek" instead. |
+| 00        | Ensures placeholder value is at last two **characters** (not just digits!) long by adding leading zeros to shorter strings. Longer strings will not be trimmed. Also note zeroes will be prepended unconditionally, even if that would make no much sense, i.e. `{D\|00}` produce `0M` on Mondays.                                   |
 
 > ![Warning](img/warning.png) **NOTE:** at the moment, formatting directives cannot be combined.
+
+### Timezone offset ###
+
+You can display time in a different timezone by adding a timezone offset to time-related placeholders.
+This feature requires the `|` separator (not `:`).
+
+The syntax is `{PLACEHOLDER|[+-]HH:MM}` where `[+-]HH:MM` is the UTC offset:
+
+| Example | Description |
+|---------|-------------|
+| `{hh\|+00:00}:{ii\|+00:00}` | UTC time |
+| `{hh\|+05:30}:{ii\|+05:30}` | India Standard Time (UTC+5:30) |
+| `{hh\|-05:00}:{ii\|-05:00}` | US Eastern Time (UTC-5) |
+| `{hh\|+09:00}:{ii\|+09:00}` | Japan Standard Time (UTC+9) |
+
+You can also combine timezone offset with a formatting directive:
+
+```html
+{hh|+00:00|00}:{ii|+00:00|00}  <!-- UTC time, zero-padded -->
+```
+
+This allows showing multiple timezones in a single layout (world clock):
+
+```html
+<table>
+  <tr>
+    <td style="padding-right: 10px;">
+      <span style="font-size: 12px; color: gray;">New York</span><br/>
+      <span style="font-size: 24px;">{hh|-05:00}:{ii|-05:00}</span>
+    </td>
+    <td style="padding-left: 10px;">
+      <span style="font-size: 12px; color: gray;">Tokyo</span><br/>
+      <span style="font-size: 24px;">{hh|+09:00}:{ii|+09:00}</span>
+    </td>
+  </tr>
+</table>
+```
 
 ### Special placeholders ###
 
 These are extra placeholders that are implemented to work around limitation of QT's supported
 HTML/CSS.
 
-| Placeholder  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| {flip:XX:YY} | Alternates between `XX` and `YY` values at configurable interval (see "Flip interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
+| Placeholder    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| {flip\|XX\|YY} | Alternates between `XX` and `YY` values at configurable interval (see "Flip interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
 
-> ![Warning](img/warning.png) **LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped
-> value is
-> currently not supported and will cause odd effects if tried. This unfortunately got further
-> implications
-> and affects the following functionality:
->
-> * `{flip}` can't be nested into other `{flip}`,
-> * while you can use other placeholders as `{flip}` arguments, they must not
-    use [formatting modifiers](#formatting-directives),
-> * you cannot flip HTML markup with embedded CSS due to `:` being CSS separator. You can flip part
-    of CSS separately though.
+> ![Warning](img/warning.png) **NOTE:** `{flip}` cannot be nested into other `{flip}`.
 
 ---
 
@@ -117,7 +143,7 @@ minutes). Unfortunately we cannot use CSS animators here as these are not suppor
 implementation. But we can do some smart tricks with text colors, as fortunately for us, QT supports
 CSS colors as well as its alpha channel (aka transparency). So to make thing blink, we will be
 simply cycling between fully transparent and fully opaque. To achieve that effect, you need to use
-special placeholder called `{flip:XX:YY}`, which alternates between `XX` and `YY` at the configured
+special placeholder called `{flip|XX|YY}`, which alternates between `XX` and `YY` at the configured
 flip interval (default 1000ms, configurable in General settings).
 
 #### Examples ####
@@ -126,7 +152,7 @@ Knowing that CSS color format is `#AARRGGBB` where `AA` is alpha channel value f
 transparent to `FF` (255 in decimal) being fully opaque, we can do this:
 
 ```html
-<span style="color: #{flip:00:FF}ffffff;">BLINK!</span>
+<span style="color: #{flip|00|FF}ffffff;">BLINK!</span>
 ```
 
 ![Flipping alpha channel value](img/flip-01.gif)
@@ -134,21 +160,20 @@ transparent to `FF` (255 in decimal) being fully opaque, we can do this:
 But if you want, you can also blink by toggling whole colors:
 
 ```html
-<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
-<span style="color: {flip:red:green};">BLINK!</span>
+<span style="color: {flip|#ff0000|#00ff00};">BLINK!</span>
 ```
 
 or by
 using [QT supported SVG color names](https://doc.qt.io/qt-6/qml-color.html#svg-color-reference):
 
 ```html
-<span style="color: {flip:red:green};">BLINK!</span>
+<span style="color: {flip|red|green};">BLINK!</span>
 ```
 
 You can use `{flip}` as many times as you want, so you can easily achieve this:
 
 ```html
-<span style="color: {flip:#ff0000:green};">{flip:THIS:BLINKS}!</span>
+<span style="color: {flip|#ff0000|green};">{flip|THIS|BLINKS}!</span>
 ```
 
 ![Flip example 02](img/flip-02.gif)
@@ -156,7 +181,7 @@ You can use `{flip}` as many times as you want, so you can easily achieve this:
 As already mentioned, you can also flip other placeholders:
 
 ```html
-{flip:{MMM} {dd}, {yy}:Today is {DDD}}
+{flip|{MMM} {dd}, {yy}|Today is {DDD}}
 ```
 
 ![Flip example 03](img/flip-03.gif)
