@@ -18,6 +18,7 @@
 - Added `|` as placeholder separator for modifiers (e.g. `{hh|U}`) and `{flip}` (allows `:` in values).
 - Added per-placeholder timezone offset support using `|` separator (e.g. `{hh|+09:00}`) [#1].
 - Added translation/i18n support for settings UI with 14 languages [#85].
+- Documented `{wy}` week of year placeholder [#71].
 
 ## v2.0.0 (2026-01-13)
 
