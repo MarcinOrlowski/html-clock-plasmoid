@@ -94,6 +94,8 @@ ColumnLayout {
 	property font customFont: Plasmoid.configuration.customFont
 	property int flipInterval: Plasmoid.configuration.flipInterval
 	property int cycleIndex: 0
+	property int randomInterval: Plasmoid.configuration.randomInterval
+	property int randomIndex: 0
 
 	// Timer to animate {flip} and {cycle} placeholders in preview
 	Timer {
@@ -101,6 +103,14 @@ ColumnLayout {
 		running: layoutConfigContainer.visible
 		repeat: true
 		onTriggered: cycleIndex++
+	}
+
+	// Separate timer for {random} placeholder
+	Timer {
+		interval: randomInterval
+		running: layoutConfigContainer.visible
+		repeat: true
+		onTriggered: randomIndex++
 	}
 
 	// Process {flip|X|Y} placeholders - flip is cycle with 2 values
@@ -139,42 +149,55 @@ ColumnLayout {
 		return text
 	}
 
-	// Store last picked index for each {random} pattern to avoid repetition
-	property var randomLastPicks: ({})
-	property int randomLastCycleIndex: -1
+	// Store picked indices keyed by randomIndex and position
+	property var randomPicks: ({})
+	property int randomLastIndex: -1
 
 	// Process {random|v1|v2|v3|...} placeholders
 	function handleRandom(text) {
 		var reg = /\{random\|([^}]+)\}/gi
 		var matches = text.match(reg)
 		if (matches !== null) {
-			// Only pick new values when cycleIndex changes
-			var needNewPick = (cycleIndex !== randomLastCycleIndex)
+			// Check if we need to pick new values (randomIndex changed)
+			var needNewPick = (randomIndex !== randomLastIndex)
 			if (needNewPick) {
-				randomLastCycleIndex = cycleIndex
+				randomLastIndex = randomIndex
+				randomPicks[randomIndex] = {}
+				// Clean up old entries
+				for (var key in randomPicks) {
+					if (parseInt(key) < randomIndex - 1) {
+						delete randomPicks[key]
+					}
+				}
 			}
+
+			var currentPicks = randomPicks[randomIndex] || {}
+			var lastPicks = randomPicks[randomIndex - 1] || {}
+			var position = 0
 
 			matches.forEach(function(val) {
 				var valMatch = val.match(/^\{random\|([^}]+)\}$/i)
 				if (valMatch) {
 					var values = valMatch[1].split('|')
-					var lastIndex = randomLastPicks[val]
+					var posKey = 'p' + position
+					var pickedIndex = currentPicks[posKey]
 
-					if (needNewPick) {
-						var newIndex
+					if (pickedIndex === undefined) {
+						var lastIndex = lastPicks[posKey]
+
 						if (values.length <= 1) {
-							newIndex = 0
+							pickedIndex = 0
 						} else {
-							// Pick random index different from last
 							do {
-								newIndex = Math.floor(Math.random() * values.length)
-							} while (newIndex === lastIndex)
+								pickedIndex = Math.floor(Math.random() * values.length)
+							} while (pickedIndex === lastIndex)
 						}
-						randomLastPicks[val] = newIndex
-						lastIndex = newIndex
+						currentPicks[posKey] = pickedIndex
+						randomPicks[randomIndex] = currentPicks
 					}
 
-					text = text.replace(val, values[lastIndex !== undefined ? lastIndex : 0])
+					text = text.replace(val, values[pickedIndex])
+					position++
 				}
 			})
 		}

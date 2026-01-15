@@ -34,6 +34,7 @@ Kirigami.FormLayout {
 	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
 	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
 	property int cfg_flipInterval: 1000
+	property int cfg_randomInterval: 1000
 
 	LayoutSelector {
 		id: layoutSelector
@@ -57,7 +58,7 @@ Kirigami.FormLayout {
 	}
 
 	RowLayout {
-		Kirigami.FormData.label: i18n('Flip interval (ms)')
+		Kirigami.FormData.label: i18n('{cycle} interval')
 
 		QtControls.SpinBox {
 			id: flipIntervalSpinBox
@@ -66,6 +67,25 @@ Kirigami.FormLayout {
 			stepSize: 50
 			value: cfg_flipInterval
 			onValueChanged: cfg_flipInterval = value
+		}
+		PlasmaComponents.Label {
+			text: i18n('ms')
+		}
+	}
+
+	RowLayout {
+		Kirigami.FormData.label: i18n('{random} interval')
+
+		QtControls.SpinBox {
+			id: randomIntervalSpinBox
+			from: 100
+			to: 5000
+			stepSize: 50
+			value: cfg_randomInterval
+			onValueChanged: cfg_randomInterval = value
+		}
+		PlasmaComponents.Label {
+			text: i18n('ms')
 		}
 	}
 
