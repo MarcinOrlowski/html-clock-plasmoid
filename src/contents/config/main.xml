@@ -73,7 +73,7 @@
 
 	<group name="Tooltip">
 		<entry name="tooltipFirstLineFormat" type="String">
-			<default>{DDD:u}, {d} {MMM} {yyyy}</default>
+			<default>{DDD|u}, {d} {MMM} {yyyy}</default>
 		</entry>
 		<entry name="tooltipSecondLineFormat" type="String">
 			<default>{dy} day of {yyyy} (week {wy})</default>

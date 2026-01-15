@@ -5,25 +5,25 @@
 
 ---
 
-## dev (TBD)
+## v2.1.0 (2026-01-15)
 
 - Added widget logo.
 - Reorganized documentation into separate files.
 - Added live clock layout preview in configuration dialog.
 - Changed widget icon from analog to digital clock [#95].
-- Added configurable flip interval for {flip} placeholder [#69].
 - Added option to launch app on widget click instead of calendar [#73].
 - Fixed timezone offset calculation for positive offsets [#1].
 - Fixed global timezone offset not updating date placeholders correctly [#82].
-- Added `|` as placeholder separator for modifiers (e.g. `{hh|U}`) and `{flip}` (allows `:` in values).
+- Added `|` as placeholder separator for modifiers (e.g. `{hh|U}`) and `{cycle}` (allows `:` in values).
 - Added per-placeholder timezone offset support using `|` separator (e.g. `{hh|+09:00}`) [#1].
 - Added translation/i18n support for settings UI with 14 languages [#85].
 - Documented `{wy}` week of year placeholder [#71].
-- Added `{cycle}` placeholder for multi-value cycling [#127].
+- Added `{cycle}` placeholder for multi-value cycling (replaces `{flip}`) [#127].
 - Added `{random}` placeholder for random value selection [#128].
-- Added separate `{random} interval` config option for independent random timing [#128].
+- Added configurable `{cycle} interval` and `{random} interval` settings [#69] [#128].
 - Added 3 user layout slots for experimentation and easy rollback [#130].
 - Fixed padding above widget on thin toolbars [#108].
+- Deprecated `{flip}` placeholder (use `{cycle}` with 2 values instead).
 
 ## v2.0.0 (2026-01-13)
 

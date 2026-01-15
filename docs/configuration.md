@@ -29,12 +29,13 @@ This pane allows you to select one of predefined layouts or tell the widget you 
 
 * **Layout**: selects widget built-in clock layout. A live preview below the selector shows how the
   selected layout will look. The preview updates in real-time, including animated effects like
-  blinking colons (using the `{flip}` placeholder).
+  blinking colons (using the `{cycle}` placeholder).
 * **Use user layout**: uses [user layout](#user-layout), instead of built-in one. When enabled,
   a slot selector appears allowing you to choose which of the 3 user layout slots to display.
-* **Flip interval (ms)**: controls how fast the `{flip}` placeholder alternates between its two
-  values. Default is 1000ms (1 second). Lower values make the flip animation faster, e.g. 500ms
-  for a full visible/invisible cycle of 1 second.
+* **{cycle} interval**: controls how fast the `{cycle}` placeholder cycles through its values.
+  Default is 1000ms (1 second). Lower values make the animation faster.
+* **{random} interval**: controls how often the `{random}` placeholder picks a new random value.
+  Default is 1000ms (1 second).
 * **Use custom font**: enables use of custom font (and its size) instead of theme default.
   * **Select font**: opens font dialog to select new typeface to use. You can also specify font
     size.
@@ -73,8 +74,8 @@ with different designs and easily switch between them or rollback to a previous 
 ![User Layout](img/config-layout.png)
 
 A **live preview** above the text editor shows how your layout will render in real-time as you type.
-The preview displays the current time with all placeholders resolved, and animates any `{flip}`
-effects so you can see exactly how your clock will look.
+The preview displays the current time with all placeholders resolved, and animates any `{cycle}`
+and `{random}` effects so you can see exactly how your clock will look.
 
 * **Clone**: Copies the selected built-in layout's markup and parameters to text edit area editor.
 * **Select font**: is part of "font helper" feature. Select any font from installed on your machine

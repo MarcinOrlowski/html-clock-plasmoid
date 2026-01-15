@@ -60,7 +60,15 @@ msgid "Slot 3"
 msgstr ""
 
 #: contents/ui/config/General.qml
-msgid "Flip interval (ms)"
+msgid "{cycle} interval"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "{random} interval"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "ms"
 msgstr ""
 
 #: contents/ui/config/General.qml

@@ -25,11 +25,11 @@
 ### Blinking ###
 
 Blinking seconds (usually shown in a form of blinking `:` separator placed between hours and
-minutes.Unfortunately we cannot use CSS animators here as these are not supported by QT
+minutes. Unfortunately we cannot use CSS animators here as these are not supported by QT
 implementation. But we can do some smart tricks with text colors, as fortunately for us, QT supports
 CSS colors as well as its alpha channel (aka transparency). So to make thing blink, we will be
 simply cycling between fully transparent and fully opaque every second. To achieve that effect, you
-need to use special placeholder called `{flip:XX:YY}`, which is simply replaced by `XX` on every
+need to use special placeholder called `{cycle|XX|YY}`, which is simply replaced by `XX` on every
 even second, and by `YY` on every odd second.
 
 #### Examples ####
@@ -38,37 +38,37 @@ Knowing that CSS color format is `#AARRGGBB` where `AA` is alpha channel value f
 transparent to `FF` (255 in decimal) being fully opaque, we can do this:
 
 ```html
-<span style="color: #{flip:00:FF}ffffff;">BLINK!</span>
+<span style="color: #{cycle|00|FF}ffffff;">BLINK!</span>
 ```
 
-![Flipping alpha channel value](img/flip-01.gif)
+![Cycling alpha channel value](img/flip-01.gif)
 
 But if you want, you can also blink by toggling whole colors:
 
 ```html
-<span style="color: {flip:#ff0000:#00ff00};">BLINK!</span>
-<span style="color: {flip:red:green};">BLINK!</span>
+<span style="color: {cycle|#ff0000|#00ff00};">BLINK!</span>
+<span style="color: {cycle|red|green};">BLINK!</span>
 ```
 
 or by
 using [QT supported SVG color names](https://doc.qt.io/qt-6/qml-color.html#svg-color-reference):
 
 ```html
-<span style="color: {flip:red:green};">BLINK!</span>
+<span style="color: {cycle|red|green};">BLINK!</span>
 ```
 
-You can use `{flip}` as many times as you want, so you can easily achieve this:
+You can use `{cycle}` as many times as you want, so you can easily achieve this:
 
 ```html
-<span style="color: {flip:#ff0000:green};">{flip:THIS:BLINKS}!</span>
+<span style="color: {cycle|#ff0000|green};">{cycle|THIS|BLINKS}!</span>
 ```
 
-![Flip example 02](img/flip-02.gif)
+![Cycle example 02](img/flip-02.gif)
 
-As already mentioned, you can also flip other placeholders:
+As already mentioned, you can also cycle other placeholders:
 
 ```html
-{flip:{MMM} {dd}, {yyyy}:Today is {DDD}}
+{cycle|{MMM} {dd}, {yyyy}|Today is {DDD}}
 ```
 
-![Flip example 03](img/flip-03.gif)
+![Cycle example 03](img/flip-03.gif)

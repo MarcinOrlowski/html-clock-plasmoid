@@ -50,7 +50,7 @@ msgstr "Använd egen layout"
 
 
 #: contents/ui/config/General.qml
-msgid "Flip interval (ms)"
+msgid "{cycle} interval"
 msgstr "Intervall för byte (ms)"
 
 #: contents/ui/config/General.qml
