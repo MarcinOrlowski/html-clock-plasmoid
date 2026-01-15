@@ -50,7 +50,7 @@ msgstr "ユーザーレイアウトを使用"
 
 
 #: contents/ui/config/General.qml
-msgid "Flip interval (ms)"
+msgid "{cycle} interval"
 msgstr "切り替え間隔 (ミリ秒)"
 
 #: contents/ui/config/General.qml

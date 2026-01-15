@@ -50,7 +50,7 @@ msgstr "Kasuta kasutaja paigutust"
 
 
 #: contents/ui/config/General.qml
-msgid "Flip interval (ms)"
+msgid "{cycle} interval"
 msgstr "Vahetuse intervall (ms)"
 
 #: contents/ui/config/General.qml

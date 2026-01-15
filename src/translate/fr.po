@@ -50,7 +50,7 @@ msgstr "Utiliser la disposition personnalisée"
 
 
 #: contents/ui/config/General.qml
-msgid "Flip interval (ms)"
+msgid "{cycle} interval"
 msgstr "Intervalle de rotation (ms)"
 
 #: contents/ui/config/General.qml

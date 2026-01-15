@@ -49,7 +49,7 @@ msgstr "使用用户布局"
 
 
 #: contents/ui/config/General.qml
-msgid "Flip interval (ms)"
+msgid "{cycle} interval"
 msgstr "翻页间隔 (毫秒)"
 
 #: contents/ui/config/General.qml
