@@ -1,0 +1,196 @@
+# HTML Clock Plasmoid Translation Template
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "User Layout"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr ""
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Flip interval (ms)"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Transparent background"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr ""
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr ""
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr ""
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr ""
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr ""
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr ""
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr ""
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr ""
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr ""
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr ""
