@@ -16,7 +16,7 @@ function parseTimezoneOffset(offsetString) {
 		tzSign = -1
 		tzString = tzString.substring(1)
 	} else if(tzString.charAt(0) == '+') {
-		tzSign = -1
+		tzSign = 1
 		tzString = tzString.substring(1)
 	}
 
