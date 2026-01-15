@@ -84,7 +84,7 @@ HTML/CSS.
 
 | Placeholder  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| {flip:XX:YY} | Will be replaced by value given as `XX` for every even second and with value specified as `YY` for every odd second. This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
+| {flip:XX:YY} | Alternates between `XX` and `YY` values at configurable interval (see "Flip interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Both `XX` and `YY` can be almost any text you want and can be used in any place of your layout, so you can flip **parts** of your CSS style, HTML markup or **even flip other placeholders**, as `{flip}` is always processed separately as first one. |
 
 > ![Warning](img/warning.png) **LIMITATIONS:** There is one, but bold. Use of `:` as part of flipped
 > value is
@@ -113,12 +113,12 @@ HTML/CSS.
 ### Blinking ###
 
 Blinking seconds (usually shown in a form of blinking `:` separator placed between hours and
-minutes.Unfortunately we cannot use CSS animators here as these are not supported by QT
+minutes). Unfortunately we cannot use CSS animators here as these are not supported by QT
 implementation. But we can do some smart tricks with text colors, as fortunately for us, QT supports
 CSS colors as well as its alpha channel (aka transparency). So to make thing blink, we will be
-simply cycling between fully transparent and fully opaque every second. To achieve that effect, you
-need to use special placeholder called `{flip:XX:YY}`, which is simply replaced by `XX` on every
-even second, and by `YY` on every odd second.
+simply cycling between fully transparent and fully opaque. To achieve that effect, you need to use
+special placeholder called `{flip:XX:YY}`, which alternates between `XX` and `YY` at the configured
+flip interval (default 1000ms, configurable in General settings).
 
 #### Examples ####
 
