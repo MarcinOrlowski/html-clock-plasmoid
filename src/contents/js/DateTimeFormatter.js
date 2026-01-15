@@ -191,8 +191,7 @@ function format(template, localeName, tzOffset = null) {
 
 	var now = new Date()
 	if (tzOffset !== null) {
-		var offsetInMillis = tzOffset * 60 * 1000
-		now = new Date(now.valueOf() + offsetInMillis)
+		now = new Date(now.valueOf() + (tzOffset + now.getTimezoneOffset()) * 60 * 1000)
 	}
 
 	// Build map for current/offset time
