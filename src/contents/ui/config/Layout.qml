@@ -139,6 +139,48 @@ ColumnLayout {
 		return text
 	}
 
+	// Store last picked index for each {random} pattern to avoid repetition
+	property var randomLastPicks: ({})
+	property int randomLastCycleIndex: -1
+
+	// Process {random|v1|v2|v3|...} placeholders
+	function handleRandom(text) {
+		var reg = /\{random\|([^}]+)\}/gi
+		var matches = text.match(reg)
+		if (matches !== null) {
+			// Only pick new values when cycleIndex changes
+			var needNewPick = (cycleIndex !== randomLastCycleIndex)
+			if (needNewPick) {
+				randomLastCycleIndex = cycleIndex
+			}
+
+			matches.forEach(function(val) {
+				var valMatch = val.match(/^\{random\|([^}]+)\}$/i)
+				if (valMatch) {
+					var values = valMatch[1].split('|')
+					var lastIndex = randomLastPicks[val]
+
+					if (needNewPick) {
+						var newIndex
+						if (values.length <= 1) {
+							newIndex = 0
+						} else {
+							// Pick random index different from last
+							do {
+								newIndex = Math.floor(Math.random() * values.length)
+							} while (newIndex === lastIndex)
+						}
+						randomLastPicks[val] = newIndex
+						lastIndex = newIndex
+					}
+
+					text = text.replace(val, values[lastIndex !== undefined ? lastIndex : 0])
+				}
+			})
+		}
+		return text
+	}
+
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
 		Layout.fillWidth: true
@@ -355,6 +397,7 @@ ColumnLayout {
 					var txt = layoutTextArea.text
 					txt = handleFlip(txt)
 					txt = handleCycle(txt)
+					txt = handleRandom(txt)
 					return DTF.format(txt, '', null)
 				}
 			}
