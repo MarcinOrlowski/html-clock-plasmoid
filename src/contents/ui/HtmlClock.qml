@@ -31,6 +31,19 @@ ColumnLayout {
 	property font customFont: Plasmoid.configuration.customFont
 	property bool widgetContainerFillWidth: Plasmoid.configuration.widgetContainerFillWidth
 	property bool widgetContainerFillHeight: Plasmoid.configuration.widgetContainerFillHeight
+	property int flipInterval: Plasmoid.configuration.flipInterval
+	property bool flipState: false
+
+	Timer {
+		id: flipTimer
+		interval: flipInterval
+		running: true
+		repeat: true
+		onTriggered: {
+			flipState = !flipState
+			updateClock()
+		}
+	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -89,12 +102,10 @@ ColumnLayout {
 		var reg = new RegExp('\{flip:(.+?):(.+?)\}', 'gi')
 		var matches = text.match(reg)
 		if (matches !== null) {
-			var even = (new Date()).getSeconds() % 2
 			var valReg = new RegExp('^\{flip:(.+?):(.+?)\}$', 'i')
 			matches.forEach(function (val, idx) {
 				var valMatch = val.match(valReg)
-				text = text.replace(val, valMatch[even ? 1 : 2])
-				// console.log(`XXXXX val: ${val}, 1: ${valMatch[1]}, 2: ${valMatch[2]}`)
+				text = text.replace(val, valMatch[flipState ? 1 : 2])
 			})
 		}
 
