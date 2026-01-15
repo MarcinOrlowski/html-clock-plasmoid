@@ -40,6 +40,7 @@ system timezone settings.
 | {D}         | one letter day name ("S", "S", "M")                                |
 | {dd}        | zero prefixed 2 digit day number ("01", "27")                      |
 | {d}         | day number as is ("1", "27")                                       |
+| {wy}        | week of year, ISO 8601 ("1" to "53")                               |
 | {hh}        | current hour, zero prefixed, 24hrs clock (i.e. "01", "16")         |
 | {h}         | current hour, 24hrs clock (i.e. "1", "16")                         |
 | {kk}        | current hour, zero prefixed, 12hrs clock (i.e. "01", "11")         |
