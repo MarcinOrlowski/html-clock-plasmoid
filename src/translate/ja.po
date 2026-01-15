@@ -1,0 +1,197 @@
+# HTML Clock Plasmoid Japanese Translation
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0900\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "全般"
+
+#: contents/config/config.qml
+msgid "User Layout"
+msgstr "ユーザーレイアウト"
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "カレンダー表示"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "ツールチップ"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "レイアウト"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "ユーザーレイアウトを使用"
+
+#: contents/ui/config/General.qml
+msgid "Flip interval (ms)"
+msgstr "切り替え間隔 (ミリ秒)"
+
+#: contents/ui/config/General.qml
+msgid "Transparent background"
+msgstr "背景を透明にする"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "カスタムフォントを使用"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "フォント: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "サイズ: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "使用するロケール"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "タイムゾーンオフセット"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "コンテナの幅を埋める"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "コンテナの高さを埋める"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "テキスト"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgstr "現在、組み込みレイアウトを使用しています。「全般」設定で「ユーザーレイアウトを使用」オプションを有効にしない限り、このパネルでの変更は反映されません。"
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "複製"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "色を選択"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "テキストが選択されていません。"
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "選択部分のスタイル:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "フォント"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "色"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "フォント + 色"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "選択を保持"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "ドキュメント:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>プレースホルダー</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>HTMLタグ</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>レイアウトを共有!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "クリック時"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "カレンダーを表示"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "アプリケーションを起動"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "何もしない"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "コマンド"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "例: kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "週番号を表示"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "1行目"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "2行目"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "<u>プレースホルダーのドキュメント</u>ページを参照してください。"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "今日のイベントはありません"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "この日のイベントはありません"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "開いたままにする"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "フォントを選択"

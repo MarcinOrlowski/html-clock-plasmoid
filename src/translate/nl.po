@@ -1,0 +1,196 @@
+# Dutch translation for HTML Clock Plasmoid
+# Copyright (C) 2020-2026 Marcin Orlowski
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_com.marcinorlowski.htmlclock\n"
+"Report-Msgid-Bugs-To: https://github.com/MarcinOrlowski/html-clock-plasmoid/issues\n"
+"POT-Creation-Date: 2026-01-15 04:00+0100\n"
+"PO-Revision-Date: 2026-01-15 12:00+0100\n"
+"Last-Translator: Machine Translation\n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+msgid "General"
+msgstr "Algemeen"
+
+#: contents/config/config.qml
+msgid "User Layout"
+msgstr "Gebruikersindeling"
+
+#: contents/config/config.qml
+msgid "Calendar View"
+msgstr "Agendaweergave"
+
+#: contents/config/config.qml
+msgid "Tooltip"
+msgstr "Tekstballon"
+
+#: contents/ui/config/General.qml
+msgid "Layout"
+msgstr "Indeling"
+
+#: contents/ui/config/General.qml
+msgid "Use user layout"
+msgstr "Gebruikersindeling gebruiken"
+
+#: contents/ui/config/General.qml
+msgid "Flip interval (ms)"
+msgstr "Wisselinterval (ms)"
+
+#: contents/ui/config/General.qml
+msgid "Transparent background"
+msgstr "Transparante achtergrond"
+
+#: contents/ui/config/General.qml
+msgid "Use custom font"
+msgstr "Aangepast lettertype gebruiken"
+
+#: contents/ui/config/General.qml
+msgid "Font: %1"
+msgstr "Lettertype: %1"
+
+#: contents/ui/config/General.qml
+msgid "Size: %1"
+msgstr "Grootte: %1"
+
+#: contents/ui/config/General.qml
+msgid "Locale to use"
+msgstr "Te gebruiken taalregio"
+
+#: contents/ui/config/General.qml
+msgid "Timezone offset"
+msgstr "Tijdzone-offset"
+
+#: contents/ui/config/General.qml
+msgid "Container fill width"
+msgstr "Container vult breedte"
+
+#: contents/ui/config/General.qml
+msgid "Container fill height"
+msgstr "Container vult hoogte"
+
+#: contents/ui/config/Layout.qml
+msgid "Text"
+msgstr "Tekst"
+
+#: contents/ui/config/Layout.qml
+msgid "You are currently using built-in layout. No changes made in this pane will be reflected unless you enable \"Use user layout\" option in \"General\" settings."
+msgstr "U gebruikt momenteel de ingebouwde indeling. Wijzigingen in dit paneel worden niet toegepast tenzij u de optie \"Gebruikersindeling gebruiken\" inschakelt in de \"Algemeen\" instellingen."
+
+#: contents/ui/config/Layout.qml
+msgid "Clone"
+msgstr "Klonen"
+
+#: contents/ui/config/Layout.qml
+msgid "HTML"
+msgstr "HTML"
+
+#: contents/ui/config/Layout.qml
+msgid "Select color"
+msgstr "Kleur selecteren"
+
+#: contents/ui/config/Layout.qml
+msgid "CSS"
+msgstr "CSS"
+
+#: contents/ui/config/Layout.qml
+msgid "No text selected."
+msgstr "Geen tekst geselecteerd."
+
+#: contents/ui/config/Layout.qml
+msgid "Style selection:"
+msgstr "Stijlselectie:"
+
+#: contents/ui/config/Layout.qml
+msgid "Font"
+msgstr "Lettertype"
+
+#: contents/ui/config/Layout.qml
+msgid "Color"
+msgstr "Kleur"
+
+#: contents/ui/config/Layout.qml
+msgid "Font + Color"
+msgstr "Lettertype + Kleur"
+
+#: contents/ui/config/Layout.qml
+msgid "Retain selection"
+msgstr "Selectie behouden"
+
+#: contents/ui/config/Layout.qml
+msgid "Docs:"
+msgstr "Documentatie:"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Placeholders</u>"
+msgstr "<u>Plaatsaanduidingen</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>HTML tags</u>"
+msgstr "<u>HTML-tags</u>"
+
+#: contents/ui/config/Layout.qml
+msgid "<u>Share your layout!</u>"
+msgstr "<u>Deel uw indeling!</u>"
+
+#: contents/ui/config/Calendar.qml
+msgid "On click"
+msgstr "Bij klikken"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show calendar"
+msgstr "Agenda tonen"
+
+#: contents/ui/config/Calendar.qml
+msgid "Launch application"
+msgstr "Toepassing starten"
+
+#: contents/ui/config/Calendar.qml
+msgid "Do nothing"
+msgstr "Niets doen"
+
+#: contents/ui/config/Calendar.qml
+msgid "Command"
+msgstr "Opdracht"
+
+#: contents/ui/config/Calendar.qml
+msgid "e.g. kalendar, gnome-calendar"
+msgstr "bijv. kalendar, gnome-calendar"
+
+#: contents/ui/config/Calendar.qml
+msgid "Show week numbers"
+msgstr "Weeknummers tonen"
+
+#: contents/ui/config/Tooltip.qml
+msgid "First line"
+msgstr "Eerste regel"
+
+#: contents/ui/config/Tooltip.qml
+msgid "Second line"
+msgstr "Tweede regel"
+
+#: contents/ui/config/Tooltip.qml
+msgid "See <u>placeholders documentation</u> page."
+msgstr "Zie de pagina <u>documentatie van plaatsaanduidingen</u>."
+
+#: contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "Geen gebeurtenissen voor vandaag"
+
+#: contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "Geen gebeurtenissen voor deze dag"
+
+#: contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Open houden"
+
+#: contents/ui/lib/FontSelector.qml
+msgid "Select font"
+msgstr "Lettertype selecteren"
