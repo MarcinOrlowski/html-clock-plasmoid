@@ -1,4 +1,4 @@
-![HTML Clock for Plasma](../img/banner.png)
+![HTML Clock for Plasma](../img/banner.webp)
 
 ---
 

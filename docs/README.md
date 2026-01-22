@@ -1,4 +1,4 @@
-![HTML CLock for Plasma](../img/banner.png)
+![HTML CLock for Plasma](../img/banner.webp)
 
 ---
 
@@ -10,13 +10,13 @@ Plasma 6 (KDE) clock widget you can layout and style using just elementary HTML/
 > See the [`plasma5` branch](https://github.com/MarcinOrlowski/html-clock-plasmoid/tree/plasma5), 
 > or the v1.x releases in general.
 
-![Widget with fancy layout](img/widget-01.png)
+![Widget with fancy layout](img/widget-01.webp)
 ![Widget with blinking dots](img/widget-02.gif)
 ![Widget with date and time grid](img/widget-03.gif)
 ![Widget with date and time grid and dayname](img/widget-04.gif)
 ![Widget with different fonts](img/widget-05.gif)
 
-> ![Note](img/notes.png) Similar look of the above images is just because I quickly crafted them
+> ![Note](img/notes.webp) Similar look of the above images is just because I quickly crafted them
 > using the same markup and colors foundation (plus I use it that way myself :). So worry **not**,
 > you are not limited to neither these layouts, nor colors, nor information types shown, as you can
 > use [QT's subset of HTML and CSS](https://doc.qt.io/qt-6/richtext-html-subset.html)

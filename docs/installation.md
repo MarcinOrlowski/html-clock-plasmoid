@@ -1,4 +1,4 @@
-![HTML CLock for Plasma](../img/banner.png)
+![HTML CLock for Plasma](../img/banner.webp)
 
 ---
 
@@ -28,7 +28,7 @@ or panel and select "Add Widgets..." from the context menu, then "Get new widget
 choosing "Download New Plasma Widgets...". Then search for "HTML Clock" in "Plasma Add-On Installer"
 window.
 
-![Plasma Add-On Installer](img/plasma-installer.png)
+![Plasma Add-On Installer](img/plasma-installer.webp)
 
 ### Manual installation ###
 

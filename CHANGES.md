@@ -1,4 +1,4 @@
-![HTML CLock for Plasma](img/banner.png)
+![HTML CLock for Plasma](img/banner.webp)
 
 
 # Changelog

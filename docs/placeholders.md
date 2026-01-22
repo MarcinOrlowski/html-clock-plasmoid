@@ -1,4 +1,4 @@
-![HTML Clock for Plasma](../img/banner.png)
+![HTML Clock for Plasma](../img/banner.webp)
 
 ---
 
@@ -75,7 +75,7 @@ You can also use optional formatting directives. The syntax is `{PLACEHOLDER|DIR
 | u         | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, `{DDD}` can produce "wtorek" for Tuesday. With `{DDD\|u}` you would get "Wtorek" instead. |
 | 00        | Ensures placeholder value is at last two **characters** (not just digits!) long by adding leading zeros to shorter strings. Longer strings will not be trimmed. Also note zeroes will be prepended unconditionally, even if that would make no much sense, i.e. `{D\|00}` produce `0M` on Mondays.                                   |
 
-> ![Warning](img/warning.png) **NOTE:** at the moment, formatting directives cannot be combined.
+> ![Warning](img/warning.webp) **NOTE:** at the moment, formatting directives cannot be combined.
 
 ### Timezone offset ###
 
@@ -125,7 +125,7 @@ HTML/CSS.
 | {cycle\|A\|B\|C\|...}  | Cycles through multiple values at configurable interval (see "{cycle} interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Values can be almost any text you want and can be used in any place of your layout, so you can cycle **parts** of your CSS style, HTML markup or **even cycle other placeholders**, as `{cycle}` is always processed separately as first one. Example: `{cycle\|1\|2\|3\|4}` produces 1, 2, 3, 4, 1, 2... See [traffic light example](#traffic-light). |
 | {random\|A\|B\|C\|...} | Picks a random value from the list at configurable interval (see "{random} interval" in General settings). Unlike `{cycle}`, the order is random. Will never pick the same value twice in a row (if more than one value provided). Example: `{random\|red\|green\|blue}` randomly shows one of the colors. |
 
-> ![Warning](img/warning.png) **NOTE:** `{cycle}` and `{random}` cannot be nested into each other.
+> ![Warning](img/warning.webp) **NOTE:** `{cycle}` and `{random}` cannot be nested into each other.
 
 ---
 
