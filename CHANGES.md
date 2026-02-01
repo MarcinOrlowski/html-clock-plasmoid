@@ -1,9 +1,12 @@
-![HTML CLock for Plasma](img/banner.png)
+![HTML CLock for Plasma](img/banner.webp)
 
 
 # Changelog
 
----
+## dev (TBD)
+
+- Fixed "Date&Time grid big" built-in layout rendering incorrectly.
+- Updated project logo and artwork.
 
 ## v2.1.0 (2026-01-15)
 

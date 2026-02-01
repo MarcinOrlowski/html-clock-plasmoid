@@ -1,4 +1,4 @@
-![HTML Clock for Plasma](../img/banner.png)
+![HTML Clock for Plasma](../img/banner.webp)
 
 ---
 
@@ -25,7 +25,7 @@ behavior can be modified or overridden.
 This pane allows you to select one of predefined layouts or tell the widget you want to use your own
 (defined in "User Layout" pane).
 
-![General](img/config-general.png)
+![General](img/config-general.webp)
 
 * **Layout**: selects widget built-in clock layout. A live preview below the selector shows how the
   selected layout will look. The preview updates in real-time, including animated effects like
@@ -71,7 +71,7 @@ from scratch or using one of built-in layouts as your base.
 The widget provides **3 user layout slots** (User Layout 1, 2, and 3), allowing you to experiment
 with different designs and easily switch between them or rollback to a previous working layout.
 
-![User Layout](img/config-layout.png)
+![User Layout](img/config-layout.webp)
 
 A **live preview** above the text editor shows how your layout will render in real-time as you type.
 The preview displays the current time with all placeholders resolved, and animates any `{cycle}`
@@ -98,7 +98,7 @@ and `{random}` effects so you can see exactly how your clock will look.
   * **Retain selection**: By default selection is clered once style is applied. When this option is
     checked, selection will be retained and updated to cover replaced text.
 
-> ![Warning](../img/warning.png) Even if set your font size directly in markup, custom font's size
+> ![Warning](../img/warning.webp) Even if set your font size directly in markup, custom font's size
 > still matters and influences the whole layout, affecting i.e. default spacing between elements.
 > If you are trying to make your layout compact, it's recommended to select custom font size to `1`
 > and set the text size using i.e. CSS.
@@ -107,7 +107,7 @@ and `{random}` effects so you can see exactly how your clock will look.
 
 Configures built-in calendar view, shown (by default) when you tap on the widget.
 
-![Calendar View](img/config-calendar.png)
+![Calendar View](img/config-calendar.webp)
 
 * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
 * **Show week numbers**: specifies if popup calendar view should also show week numbers.
@@ -118,7 +118,7 @@ Configures built-in calendar view, shown (by default) when you tap on the widget
 
 Configures widget tooltip information, shown when you hover over the widget.
 
-![Tooltip](img/config-tooltip.png)
+![Tooltip](img/config-tooltip.webp)
 
 * **Main text**: template for main tooltip text line.
 * **Sub text**: template for tooltip subtext line.

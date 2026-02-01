@@ -76,32 +76,26 @@ const layouts = {
 		"html":	'<html>' + "\n" +
 				'<body>' + "\n" +
 				'<table style="border: none;" align="center">' + "\n" +
-				'<tr>' + "\n" +
-				'  <td valign="middle">' + "\n" +
-				'    <table>' + "\n" +
-				'    <tr>' + "\n" +
-				'      <td valign="middle" align="center">' + "\n" +
-				'        <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
-				'        <span style="font-size: 35px; font-weight: bold; color: #{cycle|00|FF}ff006e;">:</span>' + "\n" +
-				'        <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
-				'      </td>' + "\n" +
-				'    <tr>' + "\n" +
-				'    <tr>' + "\n" +
-				'      <td valign="middle" align="center">' + "\n" +
-				'        <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DDD|U}</span></td></tr>' + "\n" +
-				'      </td>' + "\n" +
-				'    <tr>' + "\n" +
-				'    </table>' + "\n" +
-				'  </td>' + "\n" +
-				'  <td width="1" style="vertical-align: middle; background-color: #FFff006e; padding-right: 0px;"><br />&nbsp;<br /></td>' + "\n" +
-				'  <td>' + "\n" +
-				'    <table style="border: none;">' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 15px; font-weight: bold; color: white;">{DD|U}</span></td></tr>' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{dd}</span></td></tr>' + "\n" +
-				'      <tr><td align="center"><span style="font-size: 10px; color: white;">{MM|U}</span></td></tr>' + "\n" +
-				'    </table>' + "\n" +
-				'  </td>' + "\n" +
-				'</tr>' + "\n" +
+				'  <tr>' + "\n" +
+				'    <td valign="middle" align="center" style="padding-right: 4px;">' + "\n" +
+				'      <span style="font-size: 40px; font-weight: bold; color: #FFff006e;">{hh}</span>' + "\n" +
+				'      <span style="font-size: 35px; font-weight: bold; color: #{cycle|00|FF}ff006e;">:</span>' + "\n" +
+				'      <span style="font-size: 40px; color: white;">{ii}</span>' + "\n" +
+				'    </td>' + "\n" +
+				'    <td rowspan="2" width="1" style="background-color: #FFff006e;">' + "\n" +
+				'      <span style="font-size: 25px;"><br /><br /></span>' + "\n" +
+				'    </td>' + "\n" +
+				'    <td rowspan="2" valign="middle" align="center" style="padding-left: 4px;">' + "\n" +
+				'      <span style="font-size: 15px; font-weight: bold; color: white;">{DD|U}</span><br />' + "\n" +
+				'      <span style="font-size: 10px; color: white;">{dd}</span><br />' + "\n" +
+				'      <span style="font-size: 10px; color: white;">{MM|U}</span>' + "\n" +
+				'    </td>' + "\n" +
+				'  </tr>' + "\n" +
+				'  <tr>' + "\n" +
+				'    <td align="center" style="padding-right: 4px;">' + "\n" +
+				'      <span style="font-size: 15px; font-weight: bold; color: white;">{DDD|U}</span>' + "\n" +
+				'    </td>' + "\n" +
+				'  </tr>' + "\n" +
 				'</table>' + "\n" +
 				'</body>' + "\n" +
 				'</html>'
