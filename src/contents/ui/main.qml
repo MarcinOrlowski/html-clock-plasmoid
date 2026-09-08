@@ -59,12 +59,8 @@ PlasmoidItem {
 		interval: 1000
 		intervalAlignment: Plasma5Support.Types.NoAlignment
 		onDataChanged: {
-			var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
-				? Plasmoid.configuration.useSpecificLocaleLocaleName
-				: ''
-			var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
-				? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
-				: null
+			var localeToUse = Utils.configuredLocale(Plasmoid.configuration)
+			var finalOffsetOrNull = Utils.configuredTzOffset(Plasmoid.configuration)
 			tooltipMainText = DTF.format(Plasmoid.configuration.tooltipFirstLineFormat, localeToUse, finalOffsetOrNull)
 			tooltipSubText = DTF.format(Plasmoid.configuration.tooltipSecondLineFormat, localeToUse, finalOffsetOrNull)
 		}

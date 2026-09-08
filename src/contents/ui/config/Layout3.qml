@@ -17,6 +17,7 @@ import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
 import "../../js/DateTimeFormatter.js" as DTF
 import "../../js/placeholders.js" as Placeholders
+import "../../js/utils.js" as Utils
 import "../lib"
 
 ColumnLayout {
@@ -98,6 +99,9 @@ ColumnLayout {
 	property int randomInterval: Plasmoid.configuration.randomInterval
 	property int randomIndex: 0
 	property var randomState: ({ picks: {}, lastIndex: -1 })
+
+	property string previewLocale: Utils.configuredLocale(Plasmoid.configuration)
+	property var previewTzOffset: Utils.configuredTzOffset(Plasmoid.configuration)
 
 	// Timer to animate {flip} and {cycle} placeholders in preview
 	Timer {
@@ -332,7 +336,7 @@ ColumnLayout {
 					txt = Placeholders.expandFlip(txt, cycleIndex)
 					txt = Placeholders.expandCycle(txt, cycleIndex)
 					txt = Placeholders.expandRandom(txt, randomIndex, randomState)
-					return DTF.format(txt, '', null)
+					return DTF.format(txt, previewLocale, previewTzOffset)
 				}
 			}
 		}

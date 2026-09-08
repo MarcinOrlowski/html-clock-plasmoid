@@ -16,6 +16,7 @@ import org.kde.kquickcontrols as KQControls
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.core as PlasmaCore
 import "../../js/layouts.js" as Layouts
+import "../../js/utils.js" as Utils
 import "../lib"
 
 Kirigami.FormLayout {
@@ -40,6 +41,11 @@ Kirigami.FormLayout {
 		id: layoutSelector
 		enabled: !cfg_useUserLayout
 		Kirigami.FormData.label: i18n('Layout')
+
+		previewLocale: cfg_useSpecificLocaleEnabled ? cfg_useSpecificLocaleLocaleName : ''
+		previewTzOffset: cfg_clockTimezoneOffsetEnabled
+				? Utils.parseTimezoneOffset(cfg_clockTimezoneOffset)
+				: null
 	}
 
 	RowLayout {
