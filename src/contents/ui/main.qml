@@ -77,6 +77,12 @@ PlasmoidItem {
 	}
 	fullRepresentation: CalendarView { }
 
+	// Without this hint the panel containment insets the widget by the panel
+	// background margins (Layout.topMargin/bottomMargin in the panel
+	// containment), which shows up as blank padding around the clock and makes
+	// the usable panel thickness smaller than the panel itself.
+	Plasmoid.constraintHints: Plasmoid.CanFillArea
+
 	// Plasma 6 always supports configurable background
 	Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
 
