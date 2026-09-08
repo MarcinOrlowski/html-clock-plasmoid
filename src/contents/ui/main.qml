@@ -59,12 +59,8 @@ PlasmoidItem {
 		interval: 1000
 		intervalAlignment: Plasma5Support.Types.NoAlignment
 		onDataChanged: {
-			var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
-				? Plasmoid.configuration.useSpecificLocaleLocaleName
-				: ''
-			var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
-				? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
-				: null
+			var localeToUse = Utils.configuredLocale(Plasmoid.configuration)
+			var finalOffsetOrNull = Utils.configuredTzOffset(Plasmoid.configuration)
 			tooltipMainText = DTF.format(Plasmoid.configuration.tooltipFirstLineFormat, localeToUse, finalOffsetOrNull)
 			tooltipSubText = DTF.format(Plasmoid.configuration.tooltipSecondLineFormat, localeToUse, finalOffsetOrNull)
 		}
@@ -80,6 +76,12 @@ PlasmoidItem {
 		onToggleExpanded: root.expanded = !root.expanded
 	}
 	fullRepresentation: CalendarView { }
+
+	// Without this hint the panel containment insets the widget by the panel
+	// background margins (Layout.topMargin/bottomMargin in the panel
+	// containment), which shows up as blank padding around the clock and makes
+	// the usable panel thickness smaller than the panel itself.
+	Plasmoid.constraintHints: Plasmoid.CanFillArea
 
 	// Plasma 6 always supports configurable background
 	Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground

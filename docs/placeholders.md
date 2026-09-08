@@ -120,10 +120,15 @@ This allows showing multiple timezones in a single layout (world clock):
 These are extra placeholders that are implemented to work around limitation of QT's supported
 HTML/CSS.
 
-| Placeholder            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Placeholder            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {cycle\|A\|B\|C\|...}  | Cycles through multiple values at configurable interval (see "{cycle} interval" in General settings, default 1000ms). This can be used to do some animation or other [tricks](#tips-and-tricks). Values can be almost any text you want and can be used in any place of your layout, so you can cycle **parts** of your CSS style, HTML markup or **even cycle other placeholders**, as `{cycle}` is always processed separately as first one. Example: `{cycle\|1\|2\|3\|4}` produces 1, 2, 3, 4, 1, 2... See [traffic light example](#traffic-light). |
-| {random\|A\|B\|C\|...} | Picks a random value from the list at configurable interval (see "{random} interval" in General settings). Unlike `{cycle}`, the order is random. Will never pick the same value twice in a row (if more than one value provided). Example: `{random\|red\|green\|blue}` randomly shows one of the colors. |
+| {random\|A\|B\|C\|...} | Picks a random value from the list at configurable interval (see "{random} interval" in General settings). Unlike `{cycle}`, the order is random. Will never pick the same value twice in a row (if more than one value provided). Example: `{random\|red\|green\|blue}` randomly shows one of the colors.                                                                                                                                                                                                                                              |
+
+Values of `{cycle}` and `{random}` can contain other placeholders, including their
+[formatting directives](#formatting-directives) and [timezone offsets](#timezone-offset), as
+both are resolved before date and time placeholders are, i.e.
+`{cycle|{DD|U}|{dd}.{mm}}` or `{cycle|{hh|+09:00}|{hh|-05:00}}`.
 
 > ![Warning](img/warning.webp) **NOTE:** `{cycle}` and `{random}` cannot be nested into each other.
 
@@ -195,6 +200,7 @@ Using `{cycle}` you can create animations with more than 2 states. Here's a traf
 made with 3 color values per cell, creating a color change animation:
 
 ```html
+
 <html>
 <body>
 <table style="border: none;" align="center">

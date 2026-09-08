@@ -14,6 +14,8 @@ import org.kde.plasma.plasmoid
 import org.kde.kirigami as Kirigami
 import "../../js/layouts.js" as Layouts
 import "../../js/DateTimeFormatter.js" as DTF
+import "../../js/placeholders.js" as Placeholders
+import "../../js/utils.js" as Utils
 
 // -----------------------------------------------------------------------
 
@@ -25,35 +27,19 @@ ColumnLayout {
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
 	property int flipInterval: Plasmoid.configuration.flipInterval
-	property bool flipState: false
+	property int cycleIndex: 0
+
+	property string previewLocale: Utils.configuredLocale(Plasmoid.configuration)
+	property var previewTzOffset: Utils.configuredTzOffset(Plasmoid.configuration)
 
 	spacing: Kirigami.Units.smallSpacing
 
-	// Timer to animate {flip} placeholders in preview
+	// Timer to animate {flip} and {cycle} placeholders in preview
 	Timer {
 		interval: flipInterval
 		running: showPreview
 		repeat: true
-		onTriggered: flipState = !flipState
-	}
-
-	// Process {flip:X:Y} placeholders - alternate based on flipState
-	function handleFlip(text) {
-		// Support both | (new) and : (legacy) separators
-		var patterns = [
-			{ reg: /\{flip\|(.+?)\|(.+?)\}/gi, valReg: /^\{flip\|(.+?)\|(.+?)\}$/i },
-			{ reg: /\{flip:(.+?):(.+?)\}/gi, valReg: /^\{flip:(.+?):(.+?)\}$/i }
-		]
-		patterns.forEach(function(pattern) {
-			var matches = text.match(pattern.reg)
-			if (matches !== null) {
-				matches.forEach(function(val) {
-					var valMatch = val.match(pattern.valReg)
-					text = text.replace(val, valMatch[flipState ? 1 : 2])
-				})
-			}
-		})
-		return text
+		onTriggered: cycleIndex++
 	}
 
 	PlasmaComponents.ComboBox {
@@ -108,12 +94,15 @@ ColumnLayout {
 			font.italic: useCustomFont ? customFont.italic : Qt.application.font.italic
 			font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 			text: {
-				flipState // Force re-evaluation on timer tick
+				cycleIndex // Force re-evaluation on timer tick
 				if (root.selectedLayoutKey === '' || !Layouts.layouts[root.selectedLayoutKey]) {
 					return ''
 				}
+				// Built-in layouts never use {random}, so it is not expanded here.
 				var html = Layouts.layouts[root.selectedLayoutKey]['html']
-				return DTF.format(handleFlip(html), '', null)
+				html = Placeholders.expandFlip(html, cycleIndex)
+				html = Placeholders.expandCycle(html, cycleIndex)
+				return DTF.format(html, previewLocale, previewTzOffset)
 			}
 		}
 	}

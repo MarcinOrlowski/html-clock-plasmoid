@@ -3,8 +3,14 @@
 
 # Changelog
 
-## dev (TBD)
+## dev (2026-09-08)
 
+- Removed panel padding around the widget [#141] [#140].
+- Fixed handling of `{cycle}`, `{random}` and `{flip}` with values holding
+  other placeholders that were being cut at the first `}` [#156].
+- Fixed built-in layout preview in "General" settings not animating `{cycle}`.
+- Fixed layout previews ignoring "Locale to use" and "Timezone offset" settings [#147].
+- Fixed faulty "Timezone offset" value blanking the clock instead of falling back to `00:00`.
 - Fixed "Date&Time grid big" built-in layout rendering incorrectly.
 - Updated project logo and artwork.
 

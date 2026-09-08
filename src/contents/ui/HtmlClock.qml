@@ -15,6 +15,7 @@ import org.kde.plasma.plasmoid
 import org.kde.plasma.plasma5support as Plasma5Support
 import "../js/DateTimeFormatter.js" as DTF
 import "../js/layouts.js" as Layouts
+import "../js/placeholders.js" as Placeholders
 import "../js/utils.js" as Utils
 
 ColumnLayout {
@@ -37,6 +38,7 @@ ColumnLayout {
 	property int cycleIndex: 0
 	property int randomInterval: Plasmoid.configuration.randomInterval
 	property int randomIndex: 0
+	property var randomState: ({ picks: {}, lastIndex: -1 })
 	property string onClickAction: Plasmoid.configuration.onClickAction
 	property string onClickAppCommand: Plasmoid.configuration.onClickAppCommand
 
@@ -138,109 +140,13 @@ ColumnLayout {
 		var layoutHtml = useUserLayout
 				? getActiveUserLayout()
 				: Layouts.layouts[layoutKey]['html']
-		var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
-				? Plasmoid.configuration.useSpecificLocaleLocaleName
-				: ''
-		var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
-			? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
-			: null
+		var localeToUse = Utils.configuredLocale(Plasmoid.configuration)
+		var finalOffsetOrNull = Utils.configuredTzOffset(Plasmoid.configuration)
 		var txt = layoutHtml
-		txt = handleFlip(txt)
-		txt = handleCycle(txt)
-		txt = handleRandom(txt)
+		txt = Placeholders.expandFlip(txt, cycleIndex)
+		txt = Placeholders.expandCycle(txt, cycleIndex)
+		txt = Placeholders.expandRandom(txt, randomIndex, randomState)
 		clock.text = DTF.format(txt, localeToUse, finalOffsetOrNull)
-	}
-
-	function handleFlip(text) {
-		// Support both | (new) and : (legacy) separators
-		// flip is just cycle with 2 values, uses cycleIndex % 2
-		var patterns = [
-			{ reg: /\{flip\|(.+?)\|(.+?)\}/gi, valReg: /^\{flip\|(.+?)\|(.+?)\}$/i },
-			{ reg: /\{flip:(.+?):(.+?)\}/gi, valReg: /^\{flip:(.+?):(.+?)\}$/i }
-		]
-		patterns.forEach(function(pattern) {
-			var matches = text.match(pattern.reg)
-			if (matches !== null) {
-				matches.forEach(function (val) {
-					var valMatch = val.match(pattern.valReg)
-					text = text.replace(val, valMatch[(cycleIndex % 2) + 1])
-				})
-			}
-		})
-		return text
-	}
-
-	function handleCycle(text) {
-		// Match {cycle|val1|val2|val3|...} with variable number of values
-		var reg = /\{cycle\|([^}]+)\}/gi
-		var matches = text.match(reg)
-		if (matches !== null) {
-			matches.forEach(function (val) {
-				var valMatch = val.match(/^\{cycle\|([^}]+)\}$/i)
-				if (valMatch) {
-					var values = valMatch[1].split('|')
-					var selectedValue = values[cycleIndex % values.length]
-					text = text.replace(val, selectedValue)
-				}
-			})
-		}
-		return text
-	}
-
-	// Store picked indices keyed by randomIndex and position
-	property var randomPicks: ({})       // { randomIndex: { position: pickedIndex } }
-	property int randomLastIndex: -1
-
-	function handleRandom(text) {
-		// Match {random|val1|val2|val3|...} with variable number of values
-		var reg = /\{random\|([^}]+)\}/gi
-		var matches = text.match(reg)
-		if (matches !== null) {
-			// Check if we need to pick new values (randomIndex changed)
-			var needNewPick = (randomIndex !== randomLastIndex)
-			if (needNewPick) {
-				randomLastIndex = randomIndex
-				randomPicks[randomIndex] = {}
-				// Clean up old entries to prevent memory leak
-				for (var key in randomPicks) {
-					if (parseInt(key) < randomIndex - 1) {
-						delete randomPicks[key]
-					}
-				}
-			}
-
-			var currentPicks = randomPicks[randomIndex] || {}
-			var lastPicks = randomPicks[randomIndex - 1] || {}
-			var position = 0
-
-			matches.forEach(function (val) {
-				var valMatch = val.match(/^\{random\|([^}]+)\}$/i)
-				if (valMatch) {
-					var values = valMatch[1].split('|')
-					var posKey = 'p' + position
-					var pickedIndex = currentPicks[posKey]
-
-					if (pickedIndex === undefined) {
-						var lastIndex = lastPicks[posKey]
-
-						if (values.length <= 1) {
-							pickedIndex = 0
-						} else {
-							// Pick random index different from last
-							do {
-								pickedIndex = Math.floor(Math.random() * values.length)
-							} while (pickedIndex === lastIndex)
-						}
-						currentPicks[posKey] = pickedIndex
-						randomPicks[randomIndex] = currentPicks
-					}
-
-					text = text.replace(val, values[pickedIndex])
-					position++
-				}
-			})
-		}
-		return text
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
