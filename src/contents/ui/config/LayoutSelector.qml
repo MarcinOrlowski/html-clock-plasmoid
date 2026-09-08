@@ -15,6 +15,7 @@ import org.kde.kirigami as Kirigami
 import "../../js/layouts.js" as Layouts
 import "../../js/DateTimeFormatter.js" as DTF
 import "../../js/placeholders.js" as Placeholders
+import "../../js/utils.js" as Utils
 
 // -----------------------------------------------------------------------
 
@@ -27,6 +28,9 @@ ColumnLayout {
 	property font customFont: Plasmoid.configuration.customFont
 	property int flipInterval: Plasmoid.configuration.flipInterval
 	property int cycleIndex: 0
+
+	property string previewLocale: Utils.configuredLocale(Plasmoid.configuration)
+	property var previewTzOffset: Utils.configuredTzOffset(Plasmoid.configuration)
 
 	spacing: Kirigami.Units.smallSpacing
 
@@ -98,7 +102,7 @@ ColumnLayout {
 				var html = Layouts.layouts[root.selectedLayoutKey]['html']
 				html = Placeholders.expandFlip(html, cycleIndex)
 				html = Placeholders.expandCycle(html, cycleIndex)
-				return DTF.format(html, '', null)
+				return DTF.format(html, previewLocale, previewTzOffset)
 			}
 		}
 	}

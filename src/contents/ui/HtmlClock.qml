@@ -140,12 +140,8 @@ ColumnLayout {
 		var layoutHtml = useUserLayout
 				? getActiveUserLayout()
 				: Layouts.layouts[layoutKey]['html']
-		var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
-				? Plasmoid.configuration.useSpecificLocaleLocaleName
-				: ''
-		var finalOffsetOrNull = Plasmoid.configuration.clockTimezoneOffsetEnabled
-			? Utils.parseTimezoneOffset(Plasmoid.configuration.clockTimezoneOffset)
-			: null
+		var localeToUse = Utils.configuredLocale(Plasmoid.configuration)
+		var finalOffsetOrNull = Utils.configuredTzOffset(Plasmoid.configuration)
 		var txt = layoutHtml
 		txt = Placeholders.expandFlip(txt, cycleIndex)
 		txt = Placeholders.expandCycle(txt, cycleIndex)
