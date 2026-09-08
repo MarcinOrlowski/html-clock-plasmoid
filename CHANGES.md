@@ -5,6 +5,9 @@
 
 ## dev (TBD)
 
+- Fixed handling of `{cycle}`, `{random}` and `{flip}` with values holding
+  other placeholders that were being cut at the first `}` [#156].
+- Fixed built-in layout preview in "General" settings not animating `{cycle}`.
 - Fixed "Date&Time grid big" built-in layout rendering incorrectly.
 - Updated project logo and artwork.
 
