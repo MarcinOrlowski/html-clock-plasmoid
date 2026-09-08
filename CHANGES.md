@@ -3,7 +3,7 @@
 
 # Changelog
 
-## dev (2026-09-08)
+## v2.2.0 (2026-09-08)
 
 - Removed panel padding around the widget [#141] [#140].
 - Fixed handling of `{cycle}`, `{random}` and `{flip}` with values holding
