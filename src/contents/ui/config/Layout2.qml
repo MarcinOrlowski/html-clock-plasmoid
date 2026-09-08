@@ -16,6 +16,7 @@ import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasmoid
 import "../../js/layouts.js" as Layouts
 import "../../js/DateTimeFormatter.js" as DTF
+import "../../js/placeholders.js" as Placeholders
 import "../lib"
 
 ColumnLayout {
@@ -96,6 +97,7 @@ ColumnLayout {
 	property int cycleIndex: 0
 	property int randomInterval: Plasmoid.configuration.randomInterval
 	property int randomIndex: 0
+	property var randomState: ({ picks: {}, lastIndex: -1 })
 
 	// Timer to animate {flip} and {cycle} placeholders in preview
 	Timer {
@@ -111,97 +113,6 @@ ColumnLayout {
 		running: layoutConfigContainer.visible
 		repeat: true
 		onTriggered: randomIndex++
-	}
-
-	// Process {flip|X|Y} placeholders - flip is cycle with 2 values
-	function handleFlip(text) {
-		// Support both | (new) and : (legacy) separators
-		var patterns = [
-			{ reg: /\{flip\|(.+?)\|(.+?)\}/gi, valReg: /^\{flip\|(.+?)\|(.+?)\}$/i },
-			{ reg: /\{flip:(.+?):(.+?)\}/gi, valReg: /^\{flip:(.+?):(.+?)\}$/i }
-		]
-		patterns.forEach(function(pattern) {
-			var matches = text.match(pattern.reg)
-			if (matches !== null) {
-				matches.forEach(function(val) {
-					var valMatch = val.match(pattern.valReg)
-					text = text.replace(val, valMatch[(cycleIndex % 2) + 1])
-				})
-			}
-		})
-		return text
-	}
-
-	// Process {cycle|v1|v2|v3|...} placeholders
-	function handleCycle(text) {
-		var reg = /\{cycle\|([^}]+)\}/gi
-		var matches = text.match(reg)
-		if (matches !== null) {
-			matches.forEach(function(val) {
-				var valMatch = val.match(/^\{cycle\|([^}]+)\}$/i)
-				if (valMatch) {
-					var values = valMatch[1].split('|')
-					var selectedValue = values[cycleIndex % values.length]
-					text = text.replace(val, selectedValue)
-				}
-			})
-		}
-		return text
-	}
-
-	// Store picked indices keyed by randomIndex and position
-	property var randomPicks: ({})
-	property int randomLastIndex: -1
-
-	// Process {random|v1|v2|v3|...} placeholders
-	function handleRandom(text) {
-		var reg = /\{random\|([^}]+)\}/gi
-		var matches = text.match(reg)
-		if (matches !== null) {
-			// Check if we need to pick new values (randomIndex changed)
-			var needNewPick = (randomIndex !== randomLastIndex)
-			if (needNewPick) {
-				randomLastIndex = randomIndex
-				randomPicks[randomIndex] = {}
-				// Clean up old entries
-				for (var key in randomPicks) {
-					if (parseInt(key) < randomIndex - 1) {
-						delete randomPicks[key]
-					}
-				}
-			}
-
-			var currentPicks = randomPicks[randomIndex] || {}
-			var lastPicks = randomPicks[randomIndex - 1] || {}
-			var position = 0
-
-			matches.forEach(function(val) {
-				var valMatch = val.match(/^\{random\|([^}]+)\}$/i)
-				if (valMatch) {
-					var values = valMatch[1].split('|')
-					var posKey = 'p' + position
-					var pickedIndex = currentPicks[posKey]
-
-					if (pickedIndex === undefined) {
-						var lastIndex = lastPicks[posKey]
-
-						if (values.length <= 1) {
-							pickedIndex = 0
-						} else {
-							do {
-								pickedIndex = Math.floor(Math.random() * values.length)
-							} while (pickedIndex === lastIndex)
-						}
-						currentPicks[posKey] = pickedIndex
-						randomPicks[randomIndex] = currentPicks
-					}
-
-					text = text.replace(val, values[pickedIndex])
-					position++
-				}
-			})
-		}
-		return text
 	}
 
 	Kirigami.InlineMessage {
@@ -418,9 +329,9 @@ ColumnLayout {
 					cycleIndex // Force re-evaluation on timer tick
 					if (layoutTextArea.text === '') return ''
 					var txt = layoutTextArea.text
-					txt = handleFlip(txt)
-					txt = handleCycle(txt)
-					txt = handleRandom(txt)
+					txt = Placeholders.expandFlip(txt, cycleIndex)
+					txt = Placeholders.expandCycle(txt, cycleIndex)
+					txt = Placeholders.expandRandom(txt, randomIndex, randomState)
 					return DTF.format(txt, '', null)
 				}
 			}
