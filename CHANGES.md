@@ -5,6 +5,7 @@
 
 ## dev (TBD)
 
+- Removed panel padding around the widget [#141] [#140].
 - Fixed handling of `{cycle}`, `{random}` and `{flip}` with values holding
   other placeholders that were being cut at the first `}` [#156].
 - Fixed built-in layout preview in "General" settings not animating `{cycle}`.
