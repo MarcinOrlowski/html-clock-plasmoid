@@ -3,7 +3,7 @@
 
 # Changelog
 
-## dev (TBD)
+## v2.2.1 (2026-09-11)
 
 - Fixed clock updating out of phase with the real second boundary, which made it
   lag behind other clocks [#162].
