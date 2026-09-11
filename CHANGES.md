@@ -3,6 +3,11 @@
 
 # Changelog
 
+## dev (TBD)
+
+- Fixed clock updating out of phase with the real second boundary, which made it
+  lag behind other clocks [#162].
+
 ## v2.2.0 (2026-09-08)
 
 - Removed panel padding around the widget [#141] [#140].

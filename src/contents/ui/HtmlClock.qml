@@ -116,12 +116,21 @@ ColumnLayout {
 		font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 	}
 
-	Plasma5Support.DataSource {
-		engine: "time"
-		connectedSources: ["Local", "UTC"]
+	// The clock reads the time itself (DTF.format() calls new Date()), so this timer
+	// is just the heartbeat. The time data engine used to do that job, but neither it
+	// nor a plain 1000ms Timer aligns to the second boundary, so the clock lagged up
+	// to a second behind other clocks [#162]. Recomputing the interval after every
+	// tick pulls it back to the ".000" boundary, still at one wakeup per second.
+	Timer {
+		id: clockTimer
 		interval: 1000
-		intervalAlignment: Plasma5Support.Types.NoAlignment
-		onDataChanged: updateClock()
+		running: true
+		repeat: true
+		triggeredOnStart: true
+		onTriggered: {
+			updateClock()
+			interval = Utils.msToNextSecond()
+		}
 	}
 
 	readonly property string layout: Plasmoid.configuration.layout
