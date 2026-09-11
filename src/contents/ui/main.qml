@@ -53,16 +53,20 @@ PlasmoidItem {
 	property string tooltipMainText: ''
 	property string tooltipSubText: ''
 
-	Plasma5Support.DataSource {
-		engine: "time"
-		connectedSources: ["Local"]
+	// Self-correcting heartbeat, phase locked to the second boundary. See the same
+	// timer in HtmlClock.qml for why the time data engine is not used here [#162].
+	Timer {
+		id: tooltipTimer
 		interval: 1000
-		intervalAlignment: Plasma5Support.Types.NoAlignment
-		onDataChanged: {
+		running: true
+		repeat: true
+		triggeredOnStart: true
+		onTriggered: {
 			var localeToUse = Utils.configuredLocale(Plasmoid.configuration)
 			var finalOffsetOrNull = Utils.configuredTzOffset(Plasmoid.configuration)
 			tooltipMainText = DTF.format(Plasmoid.configuration.tooltipFirstLineFormat, localeToUse, finalOffsetOrNull)
 			tooltipSubText = DTF.format(Plasmoid.configuration.tooltipSecondLineFormat, localeToUse, finalOffsetOrNull)
+			interval = Utils.msToNextSecond()
 		}
 	}
 
