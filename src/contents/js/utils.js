@@ -46,6 +46,19 @@ function configuredLocale(config) {
 }
 
 /**
+ * Returns number of milliseconds left till the next full second, to be used as
+ * interval of a self-correcting Timer. A Timer with a fixed 1000ms interval keeps
+ * whatever phase it was started with, so the clock would update up to a second
+ * off the real second boundary. Result is never lower than 10ms, so a trigger
+ * fired a hair too early cannot turn into a busy loop.
+ *
+ * @returns int milliseconds till the next full second
+ */
+function msToNextSecond() {
+	return Math.max(10, 1000 - (new Date()).getMilliseconds())
+}
+
+/**
  * Returns timezone offset the clock is to be formatted with, or null
  * when local time is to be used.
  *
