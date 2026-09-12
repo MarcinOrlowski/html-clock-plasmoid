@@ -1,10 +1,10 @@
 ![HTML CLock for Plasma](img/banner.webp)
 
-# HTML Clock for Plasma 6 #
+# HTML Clock for Plasma 6
 
 Plasma 6 (KDE) clock widget you can layout and style using just elementary HTML/CSS!
 
-**Get Html Clock from KDE Store:** https://store.kde.org/p/1473016
+**Get HTML Clock from KDE Store:** https://store.kde.org/p/1473016
 
 > **Note:** Looking for Plasma 5 version? See the [`plasma5` branch](https://github.com/MarcinOrlowski/html-clock-plasmoid/tree/plasma5).
 
@@ -20,23 +20,26 @@ Plasma 6 (KDE) clock widget you can layout and style using just elementary HTML/
 > use [QT's subset of HTML and CSS](https://doc.qt.io/qt-6/richtext-html-subset.html)
 > to make yours layout look as **you** like. Please explore the configuration dialog!
 
-## 👉 [See user contributed layout templates!](https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates) ##
+## 👉 [See user contributed layout templates!](https://github.com/MarcinOrlowski/html-clock-plasmoid/discussions/categories/html-clock-templates)
 
----
+______________________________________________________________________
 
-## Table of Contents ##
+## Table of Contents
 
-* [Configuration](docs/configuration.md)
-* [Placeholders](docs/placeholders.md)
-* [Tips and tricks](docs/tips.md)
-* [Installation and upgrading](docs/installation.md)
+- [Configuration](docs/configuration.md)
 
-* [Changelog](CHANGES.md)
+- [Placeholders](docs/placeholders.md)
 
----
+- [Tips and tricks](docs/tips.md)
 
-## License ##
+- [Installation and upgrading](docs/installation.md)
 
-* Written and copyrighted &copy;2020-2026 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
-* HTML Clock widget is open-sourced software licensed under
+- [Changelog](CHANGES.md)
+
+______________________________________________________________________
+
+## License
+
+- Written and copyrighted ©2020-2026 by Marcin Orlowski \<mail (#) marcinorlowski (.) com>
+- HTML Clock widget is open-sourced software licensed under
   the [MIT license](http://opensource.org/licenses/MIT)

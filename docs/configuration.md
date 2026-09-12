@@ -85,7 +85,7 @@ and `{random}` effects so you can see exactly how your clock will look.
   really be readable in case of fonts
   like dingbats.
   - **Copy** Click the "Copy" button to have font family copied to the clipboard (then you can use
-    in text area with regular `CTRL-V` keyboard paste shortcut).
+    in text area with regular <kbd>CTRL-V</kbd> keyboard paste shortcut).
   - **Copy as HTML**: Clicking this button will put complete HTML snippet using `<span>` styled to
     use font you selected to the clipboard, i.e.
     `<span style="font-family: Noto Sans; font-size: 16px; font-weight: bold;">Text</span>`.
