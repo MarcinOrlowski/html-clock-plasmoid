@@ -24,8 +24,13 @@ ColumnLayout {
 
 	// The clock renders before the panel can resize the widget around it, so a
 	// value longer than the one before it would paint over the neighbouring
-	// widgets for a frame. Clipping keeps every pixel inside the widget [#166].
-	clip: true
+	// widgets for a frame. Clipping keeps those pixels inside the widget [#166].
+	//
+	// Only while the clock really is too wide, because clipping cuts height as
+	// well: "line-height" below 100% makes QT report a text height smaller than
+	// the pixels it then draws, and permanent clipping would shave the
+	// descenders off such a layout in a tight vertical panel [#166].
+	clip: clock.implicitWidth > width + 0.5
 
 	// Signal to notify parent to toggle expanded state
 	signal toggleExpanded()
@@ -125,6 +130,10 @@ ColumnLayout {
 		// so the "align" of the layout markup decides, as it should.
 		Layout.fillWidth: true
 		Layout.fillHeight: widgetContainerFillHeight
+		// Without this the clock sticks to the top edge as soon as the label is
+		// taller than the text, which is exactly what "Container fill height"
+		// does [#166].
+		verticalAlignment: Text.AlignVCenter
 
 		font.family: useCustomFont ? customFont.family : Qt.application.font.family
 		font.pointSize: useCustomFont ? customFont.pointSize : Qt.application.font.pointSize

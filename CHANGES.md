@@ -13,8 +13,11 @@
   behavior and which could put the clock off centre in the widget [#166].
 - Fixed short `{cycle}` values being drawn off to the right of the widget. The clock label
   kept the text width of the longest value shown before it [#166].
-- Fixed the clock painting outside the widget. A value too long for the widget is now cut
+- Fixed the clock painting outside the widget. A value too wide for the widget is now cut
   at its edge instead of covering the neighbouring panel widgets [#166].
+- Fixed the bottom of the clock being cut in a vertical panel, for layouts using a
+  `line-height` below 100% [#166].
+- Fixed "Container fill height" pushing the clock to the top edge of the widget [#166].
 - Added automatic widget size stability: the widget keeps the size of the widest value its
   layout can show, so `{cycle}` and `{random}` no longer make it grow and shrink.
 - Added "Minimum width" and "Maximum width" options to set the widget width explicitly.
