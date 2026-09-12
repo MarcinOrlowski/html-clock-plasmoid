@@ -1,0 +1,71 @@
+##################################################################################
+#
+# Runs ShellCheck on all *.sh files
+#
+# Author: Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+#
+##################################################################################
+
+name: "ShellCheck"
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  analyze_sources:
+    name: "Is there any source code to work on?"
+    runs-on: ubuntu-latest
+
+    outputs:
+      # Export 'filter' step check result so next step can use it.
+      run_action: ${{ steps.filter.outputs.src }}
+      # These are source files matching our filter that are affected by the PR.
+      changed_files: ${{ steps.filter.outputs.src_files }}
+
+    steps:
+        # https://github.com/marketplace/actions/checkout
+      - name: "Checkout sources"
+        uses: actions/checkout@v4
+
+        # https://github.com/marketplace/actions/paths-changes-filter
+      - name: "Look for changes that matters for us…"
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          # Token is optional for public repos, but required for private repos
+          token: ${{ secrets.GITHUB_TOKEN }}
+          list-files: 'escape'
+          filters: |
+            src:
+              - '**/*.sh'
+              - '!release/**'
+
+      - name: "Will action step be run?"
+        run: |
+          found="NO"
+          [[ ${{ steps.filter.outputs.src }} == 'true' ]] && found="YES"
+          echo -e "\n****************************************\n"
+          echo "${found}"
+          echo -e "****************************************"
+
+
+  shellcheck:
+    # Will run only if analyze_sources determined it is needed.
+    needs: analyze_sources
+    if: needs.analyze_sources.outputs.run_action == 'true'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: "Checkout repository…"
+        uses: actions/checkout@v4
+
+      # https://github.com/marketplace/actions/shellcheck
+      - name: "Running ShellCheck…"
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          ignore_paths: release
