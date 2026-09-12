@@ -3,6 +3,22 @@
 
 # Changelog
 
+## dev (TBD)
+
+- Fixed widget never telling the panel how wide it is. The panel then sized it to the
+  panel thickness, so any clock wider than that overlapped its neighbours [#166].
+- Fixed widget changing its size on every `{cycle}`/`{random}` tick, which kept pushing
+  the neighbouring panel widgets aside [#166].
+- Fixed click handling being an item anchored inside a layout, which QT calls undefined
+  behavior and which could put the clock off centre in the widget [#166].
+- Fixed short `{cycle}` values being drawn off to the right of the widget. The clock label
+  kept the text width of the longest value shown before it [#166].
+- Fixed the clock painting outside the widget. A value too long for the widget is now cut
+  at its edge instead of covering the neighbouring panel widgets [#166].
+- Added automatic widget size stability: the widget keeps the size of the widest value its
+  layout can show, so `{cycle}` and `{random}` no longer make it grow and shrink.
+- Added "Minimum width" and "Maximum width" options to set the widget width explicitly.
+
 ## v2.2.1 (2026-09-11)
 
 - Fixed clock updating out of phase with the real second boundary, which made it

@@ -34,6 +34,10 @@ Kirigami.FormLayout {
 	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
 	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
 	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
+	property alias cfg_enforceWidgetMinWidth: enforceWidgetMinWidth.checked
+	property int cfg_widgetMinWidth: 100
+	property alias cfg_enforceWidgetMaxWidth: enforceWidgetMaxWidth.checked
+	property int cfg_widgetMaxWidth: 200
 	property int cfg_flipInterval: 1000
 	property int cfg_randomInterval: 1000
 
@@ -150,6 +154,48 @@ Kirigami.FormLayout {
 	PlasmaComponents.CheckBox {
 		id: widgetContainerFillHeight
 		text: i18n("Container fill height")
+	}
+
+	RowLayout {
+		QtControls.CheckBox {
+			id: enforceWidgetMinWidth
+			text: i18n("Minimum width")
+		}
+
+		QtControls.SpinBox {
+			id: widgetMinWidthSpinBox
+			enabled: cfg_enforceWidgetMinWidth
+			from: 0
+			to: 2000
+			stepSize: 5
+			value: cfg_widgetMinWidth
+			onValueChanged: cfg_widgetMinWidth = value
+		}
+
+		PlasmaComponents.Label {
+			text: i18n('px')
+		}
+	}
+
+	RowLayout {
+		QtControls.CheckBox {
+			id: enforceWidgetMaxWidth
+			text: i18n("Maximum width")
+		}
+
+		QtControls.SpinBox {
+			id: widgetMaxWidthSpinBox
+			enabled: cfg_enforceWidgetMaxWidth
+			from: 0
+			to: 2000
+			stepSize: 5
+			value: cfg_widgetMaxWidth
+			onValueChanged: cfg_widgetMaxWidth = value
+		}
+
+		PlasmaComponents.Label {
+			text: i18n('px')
+		}
 	}
 
 

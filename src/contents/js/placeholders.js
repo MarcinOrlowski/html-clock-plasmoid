@@ -147,6 +147,51 @@ function expandCycle(text, cycleIndex) {
 }
 
 /*
+** Returns the number of ticks after which all {cycle} and {flip} placeholders
+** in the template show their first values again, that is the least common
+** multiple of their value counts. Templates with no cycling placeholders give
+** 1. Callers use it to enumerate every variant a template can render, i.e. to
+** measure the widest one [#166].
+**
+** Scanning is done on the raw template, so values hidden in the branch of a
+** {flip} that is not picked right now are counted too. That only makes the
+** period longer than strictly needed, never shorter.
+**
+** Arguments:
+**  text: template to scan
+**   cap: (optional) upper limit of the returned period, default 24. Keeps
+**        exotic templates from making the caller enumerate hundreds of
+**        variants.
+*/
+function cyclePeriod(text, cap) {
+	if (cap === undefined) cap = 24
+
+	var period = 1
+	var track = function(values) {
+		var count = values.length
+		if (count > 1 && period < cap) {
+			var a = period
+			var b = count
+			while (b !== 0) {
+				var t = a % b
+				a = b
+				b = t
+			}
+			period = Math.min(period * count / a, cap)
+		}
+
+		// Only the value counts matter here, the expanded text is discarded.
+		return ''
+	}
+
+	expand(text, 'cycle', '|', undefined, track)
+	expand(text, 'flip', '|', 2, track)
+	expand(text, 'flip', ':', 2, track)
+
+	return period
+}
+
+/*
 ** Processes {random|A|B|C|...} placeholders. Picks are kept per occurrence
 ** position, so each placeholder holds its value until randomIndex changes,
 ** and never repeats the value picked in the previous round.

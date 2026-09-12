@@ -48,7 +48,9 @@ This pane allows you to select one of predefined layouts or tell the widget you 
   different time zone than your local, enable this option and provide the offset in form of
   `[+-]HH:MM`, i.e. `-03:30` or `5:00`. If no sign is specified, positive (`+`) offset is assumed.
   Faulty offset falls back to `00:00` (which means `GMT` time zone).
-* **Container fill width**: By default clock container takes as much horizontal space as needed to
+* **Container fill width**: **NOTE:** this option no longer changes anything. The clock always
+  spans the whole width of the widget now, so that short `{cycle}` values stay centred.
+  By default clock container takes as much horizontal space as needed to
   render its content. This may be incorrect behavior if i.e. you use vertical panel and would like
   to use custom background color. In such case you'd end up having ugly side borders if your clock
   content is taking less space than panel's width. To combat this, enable this option to force the
@@ -62,6 +64,12 @@ This pane allows you to select one of predefined layouts or tell the widget you 
   this option to force the widget to take as much vertical space as its parent container allows. *
   *NOTE:** this option is most useful if you use this widget in a dock/panel. For desktop widgets
   it's recommended to keep it off.
+* **Minimum width**: never let the widget be narrower than the given number of pixels. Use it if
+  you want an exact width instead of the automatic one. A minimum smaller than the widget content
+  changes nothing.
+* **Maximum width**: never let the widget be wider than the given number of pixels. Content that
+  does not fit is cut off. If the maximum is smaller than the minimum, the maximum wins.
+  **NOTE:** both width limits are ignored in a vertical panel, where the panel dictates the width.
 
 ### User Layout ###
 
