@@ -2,7 +2,7 @@
 
 # Changelog
 
-## dev (TBD)
+## v2.3.0 (2026-09-12)
 
 - Fixed widget changing its size on every `{cycle}`/`{random}` tick, which kept pushing
   the neighboring panel widgets aside [#166].
