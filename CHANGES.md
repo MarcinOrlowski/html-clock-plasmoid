@@ -1,7 +1,15 @@
 ![HTML CLock for Plasma](img/banner.webp)
 
-
 # Changelog
+
+## dev (TBD)
+
+- Fixed widget changing its size on every `{cycle}`/`{random}` tick, which kept pushing
+  the neighboring panel widgets aside [#166].
+- Fixed click handling being an item anchored inside a layout, which could put the clock off center.
+- Fixed "Container fill height" pushing the clock to the top edge of the widget.
+- Changed both "Container fill" options to stretch the widget itself.
+- Added "Minimum width" and "Maximum width" options to set the widget width explicitly.
 
 ## v2.2.1 (2026-09-11)
 

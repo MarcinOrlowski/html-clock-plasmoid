@@ -99,6 +99,18 @@ msgstr ""
 msgid "Container fill height"
 msgstr ""
 
+#: contents/ui/config/General.qml
+msgid "Minimum width"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "Maximum width"
+msgstr ""
+
+#: contents/ui/config/General.qml
+msgid "px"
+msgstr ""
+
 #: contents/ui/config/Layout.qml
 msgid "Text"
 msgstr ""

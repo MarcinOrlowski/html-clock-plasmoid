@@ -13,8 +13,6 @@ import QtQuick.Controls as QtControls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kquickcontrols as KQControls
-import org.kde.plasma.components as PlasmaComponents
-import org.kde.plasma.core as PlasmaCore
 import "../../js/layouts.js" as Layouts
 import "../../js/utils.js" as Utils
 import "../lib"
@@ -34,6 +32,10 @@ Kirigami.FormLayout {
 	property alias cfg_clockTimezoneOffset: clockTimezoneOffset.text
 	property alias cfg_widgetContainerFillWidth: widgetContainerFillWidth.checked
 	property alias cfg_widgetContainerFillHeight: widgetContainerFillHeight.checked
+	property alias cfg_enforceWidgetMinWidth: enforceWidgetMinWidth.checked
+	property int cfg_widgetMinWidth: 100
+	property alias cfg_enforceWidgetMaxWidth: enforceWidgetMaxWidth.checked
+	property int cfg_widgetMaxWidth: 200
 	property int cfg_flipInterval: 1000
 	property int cfg_randomInterval: 1000
 
@@ -49,12 +51,12 @@ Kirigami.FormLayout {
 	}
 
 	RowLayout {
-		PlasmaComponents.CheckBox {
+		QtControls.CheckBox {
 			id: useUserLayout
 			text: i18n("Use user layout")
 		}
 
-		PlasmaComponents.ComboBox {
+		QtControls.ComboBox {
 			id: activeLayoutSlotSelector
 			enabled: cfg_useUserLayout
 			model: [i18n("Slot 1"), i18n("Slot 2"), i18n("Slot 3")]
@@ -74,7 +76,7 @@ Kirigami.FormLayout {
 			value: cfg_flipInterval
 			onValueChanged: cfg_flipInterval = value
 		}
-		PlasmaComponents.Label {
+		QtControls.Label {
 			text: i18n('ms')
 		}
 	}
@@ -90,12 +92,12 @@ Kirigami.FormLayout {
 			value: cfg_randomInterval
 			onValueChanged: cfg_randomInterval = value
 		}
-		PlasmaComponents.Label {
+		QtControls.Label {
 			text: i18n('ms')
 		}
 	}
 
-	PlasmaComponents.CheckBox {
+	QtControls.CheckBox {
 		id: useCustomFont
 		text: i18n("Use custom font")
 	}
@@ -103,10 +105,10 @@ Kirigami.FormLayout {
 		enabled: cfg_useCustomFont
 
 		ColumnLayout {
-			PlasmaComponents.Label {
+			QtControls.Label {
 				text: i18n('Font: %1', cfg_customFont.family)
 			}
-			PlasmaComponents.Label {
+			QtControls.Label {
 				text: i18n('Size: %1', cfg_customFont.pointSize)
 			}
 		}
@@ -143,13 +145,55 @@ Kirigami.FormLayout {
 			enabled: cfg_clockTimezoneOffsetEnabled
 		}
 	}
-	PlasmaComponents.CheckBox {
+	QtControls.CheckBox {
 		id: widgetContainerFillWidth
 		text: i18n("Container fill width")
 	}
-	PlasmaComponents.CheckBox {
+	QtControls.CheckBox {
 		id: widgetContainerFillHeight
 		text: i18n("Container fill height")
+	}
+
+	RowLayout {
+		QtControls.CheckBox {
+			id: enforceWidgetMinWidth
+			text: i18n("Minimum width")
+		}
+
+		QtControls.SpinBox {
+			id: widgetMinWidthSpinBox
+			enabled: cfg_enforceWidgetMinWidth
+			from: 0
+			to: 2000
+			stepSize: 5
+			value: cfg_widgetMinWidth
+			onValueChanged: cfg_widgetMinWidth = value
+		}
+
+		QtControls.Label {
+			text: i18n('px')
+		}
+	}
+
+	RowLayout {
+		QtControls.CheckBox {
+			id: enforceWidgetMaxWidth
+			text: i18n("Maximum width")
+		}
+
+		QtControls.SpinBox {
+			id: widgetMaxWidthSpinBox
+			enabled: cfg_enforceWidgetMaxWidth
+			from: 0
+			to: 2000
+			stepSize: 5
+			value: cfg_widgetMaxWidth
+			onValueChanged: cfg_widgetMaxWidth = value
+		}
+
+		QtControls.Label {
+			text: i18n('px')
+		}
 	}
 
 
