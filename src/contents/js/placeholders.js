@@ -151,7 +151,7 @@ function expandCycle(text, cycleIndex) {
 ** in the template show their first values again, that is the least common
 ** multiple of their value counts. Templates with no cycling placeholders give
 ** 1. Callers use it to enumerate every variant a template can render, i.e. to
-** measure the widest one [#166].
+** measure the widest one.
 **
 ** Scanning is done on the raw template, so values hidden in the branch of a
 ** {flip} that is not picked right now are counted too. That only makes the

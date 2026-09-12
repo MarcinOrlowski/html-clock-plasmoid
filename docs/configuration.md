@@ -50,10 +50,7 @@ This pane allows you to select one of predefined layouts or tell the widget you 
   Faulty offset falls back to `00:00` (which means `GMT` time zone).
 - **Container fill width**: by default the widget is only as wide as the clock needs. Enable this
   option to make the widget take all the free width its container gives it, i.e. to let a custom
-  background color cover it all instead of leaving borders beside the clock. In a **horizontal**
-  panel that is the whole free length of the panel, which is rarely what you want, so keep it off
-  there. In a **vertical** panel the width is the panel thickness, which the widget fills anyway,
-  so the option changes nothing.
+  background color cover it all instead of leaving borders beside the clock.
 - **Container fill height**: the same, for the height. In a **vertical** panel it makes the widget
   take all the free height of the panel. In a **horizontal** panel the height is the panel
   thickness, which the widget fills anyway.
@@ -114,7 +111,7 @@ Configures built-in calendar view, shown (by default) when you tap on the widget
 - **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
 - **Show week numbers**: specifies if popup calendar view should also show week numbers.
 
-______________________________________________________________________
+---
 
 ### Tooltip
 

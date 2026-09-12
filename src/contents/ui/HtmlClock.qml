@@ -24,18 +24,18 @@ ColumnLayout {
 
 	// The clock renders before the panel can resize the widget around it, so a
 	// value longer than the one before it would paint over the neighbouring
-	// widgets for a frame. Clipping keeps those pixels inside the widget [#166].
+	// widgets for a frame.
 	//
 	// Only while the clock really is too wide, because clipping cuts height as
 	// well: "line-height" below 100% makes QT report a text height smaller than
 	// the pixels it then draws, and permanent clipping would shave the
-	// descenders off such a layout in a tight vertical panel [#166].
+	// descenders off such a layout in a tight vertical panel.
 	clip: clock.implicitWidth > width + 0.5
 
 	// Signal to notify parent to toggle expanded state
 	signal toggleExpanded()
 
-	// ------------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------
 
 	property string layoutKey: Plasmoid.configuration.layoutKey
 	property bool useUserLayout: Plasmoid.configuration.useUserLayout
@@ -94,12 +94,12 @@ ColumnLayout {
 		}
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------
 
 	// A TapHandler, not a MouseArea. This root is a ColumnLayout, and anchoring
 	// an item inside a layout is undefined behavior in QtQuick: the layout took
 	// the filled width of the old MouseArea as a size hint, which pushed the
-	// clock off centre as soon as the widget became wider than its text [#166].
+	// clock off centre as soon as the widget became wider than its text.
 	// Handlers are not items, so the layout never sees this one.
 	TapHandler {
 		onTapped: {
@@ -117,7 +117,7 @@ ColumnLayout {
 		}
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------
 
 	PlasmaComponents.Label {
 		id: clock
@@ -132,8 +132,7 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: widgetContainerFillHeight
 		// Without this the clock sticks to the top edge as soon as the label is
-		// taller than the text, which is exactly what "Container fill height"
-		// does [#166].
+		// taller than the text.
 		verticalAlignment: Text.AlignVCenter
 
 		font.family: useCustomFont ? customFont.family : Qt.application.font.family
@@ -143,9 +142,8 @@ ColumnLayout {
 		font.underline: useCustomFont ? customFont.underline : Qt.application.font.underline
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
-	// Widget size stability [#166]
-	//
+	// -----------------------------------------------------------------------------
+
 	// The label is as wide as the HTML it renders, so every {cycle}/{random}
 	// tick that swaps in a value of a different length resizes the whole
 	// widget and pushes the neighbouring panel applets around. User markup
@@ -179,11 +177,9 @@ ColumnLayout {
 	readonly property real requestedHeight: Math.max(clock.implicitHeight, stableHeight)
 
 	// The panel picks an applet width from Layout.preferredWidth, falls back to
-	// Layout.minimumWidth, and then to the panel thickness - see findPositive()
-	// in plasma-desktop containments/panel/main.qml. Publishing no width hint
+	// Layout.minimumWidth, and then to the panel thickness. Publishing no width hint
 	// at all is what made a clock wider than the panel is thick overlap its
-	// neighbours [#166], so the width goes out as the preferred one, with the
-	// same value as minimum to keep the panel from shrinking it again.
+	// neighbours.
 	Layout.preferredWidth: verticalPanel ? -1 : requestedWidth
 	Layout.minimumWidth: verticalPanel ? 0 : requestedWidth
 	Layout.maximumWidth: (!verticalPanel && enforceWidgetMaxWidth)
@@ -193,15 +189,8 @@ ColumnLayout {
 	Layout.minimumHeight: verticalPanel ? requestedHeight : 0
 
 	// Plasma copies both onto the applet, where "true" tells the panel the clock
-	// wants every free pixel of it. That is what the two "Container fill"
-	// options ask for, so they are bound here. They must stay explicit even so:
-	// this root is a ColumnLayout, and the Layout attached property of a layout
-	// reports both as true unless told otherwise, which made the clock claim
-	// the whole panel with nobody asking [#166].
-	//
-	// A horizontal panel only reads the width pair, a vertical one only the
-	// height pair. Across the other axis the panel thickness rules, and
-	// Plasmoid.constraintHints in main.qml already fills that.
+	// wants every free pixel of it. A horizontal panel only reads the width
+	// pair, a vertical one only the height pair.
 	Layout.fillWidth: widgetContainerFillWidth
 	Layout.fillHeight: widgetContainerFillHeight
 
@@ -332,6 +321,6 @@ ColumnLayout {
 		measureStableSize(layoutHtml, localeToUse, finalOffsetOrNull)
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------
 
 } // mainContainer
