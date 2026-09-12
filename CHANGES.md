@@ -18,6 +18,8 @@
 - Fixed the bottom of the clock being cut in a vertical panel, for layouts using a
   `line-height` below 100% [#166].
 - Fixed "Container fill height" pushing the clock to the top edge of the widget [#166].
+- Fixed rows of the "General" settings page sitting at uneven distances, caused by two
+  checkboxes using the panel widget style instead of the desktop one [#166].
 - Added automatic widget size stability: the widget keeps the size of the widest value its
   layout can show, so `{cycle}` and `{random}` no longer make it grow and shrink.
 - Added "Minimum width" and "Maximum width" options to set the widget width explicitly.
