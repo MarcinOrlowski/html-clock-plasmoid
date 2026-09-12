@@ -1,0 +1,73 @@
+##################################################################################
+#
+# Pull Request Source Branch Name Validation
+#
+# Author: Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+#
+##################################################################################
+#
+# This workflow validates that PR source branches (the branch being merged FROM)
+# follow the project's naming convention.
+#
+# Required Format:
+#   <digits>-<lowercase-alphanumeric-dashes>
+#
+# Pattern: ^\d+-[a-z0-9-]+$
+#
+# Format Rules:
+# - Must start with one or more digits (ticket ID)
+# - Followed by a single dash separator
+# - Followed by lowercase letters (a-z), digits (0-9), or dashes only
+# - No uppercase letters, underscores, or other special characters
+#
+# Valid Examples:
+#   123-feature-name
+#   1-fix
+#   42-add-new-endpoint
+#   999-update-user-controller-v2
+#
+# Trigger: Runs when PR is opened, reopened, or synchronized
+# Action: Validates branch name and fails check if format is incorrect
+#
+##################################################################################
+
+name: "PR Branch Name Validation"
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  validate_branch_name:
+    name: "Validate Source Branch Name"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Validate branch name format"
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const branchName = context.payload.pull_request.head.ref;
+            console.log(`Validating source branch name: "${branchName}"`);
+
+            // Pattern: digits followed by dash and lowercase alphanumeric with dashes
+            const branchPattern = /^(\d+-[a-z0-9-]+)$/;
+
+            if (!branchPattern.test(branchName)) {
+              let errorMessage = '❌ Source branch name validation failed\n\n';
+              errorMessage += '**Issue**: Invalid branch name format\n\n';
+              errorMessage += '**Required Format**:\n';
+              errorMessage += '```\n';
+              errorMessage += '<ticket_id>-<description>\n';
+              errorMessage += '```\n\n';
+              errorMessage += `**Pattern**: \`${branchPattern}\`\n\n`;
+              errorMessage += `**Your branch**: \`${branchName}\``;
+
+              core.setFailed(errorMessage);
+              return;
+            }
+
+            console.log('Source branch name validation successful!');
