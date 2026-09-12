@@ -24,6 +24,18 @@
 		<entry name="widgetContainerFillHeight" type="Bool">
 			<default>false</default>
 		</entry>
+		<entry name="enforceWidgetMinWidth" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="widgetMinWidth" type="Int">
+			<default>100</default>
+		</entry>
+		<entry name="enforceWidgetMaxWidth" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="widgetMaxWidth" type="Int">
+			<default>200</default>
+		</entry>
 		<entry name="flipInterval" type="Int">
 			<default>1000</default>
 		</entry>
@@ -44,18 +56,6 @@
 		</entry>
 		<entry name="activeLayoutSlot" type="Int">
 			<default>1</default>
-		</entry>
-		<entry name="enforceWidgetMinWidth" type="Bool">
-			<default>true</default>
-		</entry>
-		<entry name="widgetMinWidth" type="Int">
-			<default>100</default>
-		</entry>
-		<entry name="enforceWidgetMaxWidth" type="Bool">
-			<default>true</default>
-		</entry>
-		<entry name="widgetMaxWidth" type="Int">
-			<default>200</default>
 		</entry>
 		<entry name="widgetBg" type="String">
 			<default>#ff000000</default>

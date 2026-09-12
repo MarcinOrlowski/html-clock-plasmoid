@@ -1,0 +1,89 @@
+##############################################################################
+#
+# Author Marcin Orlowski <mail@MarcinOrlowski.com>
+#
+# See https://pre-commit.com for more information about pre-commit.
+# See https://pre-commit.com/hooks.html for more available hooks.
+#
+##############################################################################
+#
+# Using pre-commit hooks
+#
+# To improve quality of your commit, it's recommended to use "pre-commit"
+# (http://pre-commit.com) hooks, that will block  your commits unless all tests
+# pass.
+#
+# Brief installation instruction:
+#
+# * Install pipx package manager: https://pipx.pypa.io/latest/index.html
+# * Install pre-commit: `pipx install pre-commit`
+# * Go to your project source code root directory
+# * Plug hooks into Git pipeline: `pre-commit install`
+#
+# See `pre-commit` official installation docs too: https://pre-commit.com/#install
+#
+# To see how pre-commit identifies given file (i.e. for 'exclude_type' config)
+# use `identify-cli <FILE>`
+#
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # Prevent giant files from being committed
+      - id: check-added-large-files
+        args: [ '--maxkb=1555550' ]
+      # This hook checks yaml files for parseable syntax
+      - id: check-yaml
+      # Check for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      # Ensures that (non-binary) executables have a shebang.
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      # Check for files that contain merge conflict strings
+      - id: check-merge-conflict
+      # Prevent addition of new git submodules
+      - id: forbid-new-submodules
+      # Replaces or checks mixed line ending
+      - id: mixed-line-ending
+        args: [ '--fix=no' ]
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-yaml
+      - id: check-toml
+      - id: pretty-format-json
+        args: [ '--autofix', '--no-sort-keys' ]
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      # Non-executable shell script filename ends in .sh
+      - id: script-must-have-extension
+      # ShellCheck - shell script linter
+      - id: shellcheck
+        args: ['--exclude=SC2148']
+
+  - repo: https://github.com/hukkin/mdformat
+    rev: 1.0.0  # Use the ref you want to point at
+    hooks:
+    - id: mdformat
+      # Optionally add plugins
+      additional_dependencies:
+      - mdformat-gfm
+      - mdformat-black
+      - mdformat-frontmatter
+
+  # Markdown linting with markdownlint-cli
+  # https://github.com/igorshubovych/markdownlint-cli
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.49.1
+    hooks:
+      - id: markdownlint
+        args: ["--config", ".markdownlint.yaml"]
+
+  - repo: https://github.com/MarcinOrlowski/pre-commit-hooks
+    rev: 1.8.0
+    hooks:
+      - id: no-ai-slop
+      - id: commit-msg
