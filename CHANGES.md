@@ -1,6 +1,5 @@
 ![HTML CLock for Plasma](img/banner.webp)
 
-
 # Changelog
 
 ## dev (TBD)
@@ -18,6 +17,8 @@
 - Fixed the bottom of the clock being cut in a vertical panel, for layouts using a
   `line-height` below 100% [#166].
 - Fixed "Container fill height" pushing the clock to the top edge of the widget [#166].
+- Changed both "Container fill" options to stretch the widget itself, which is what they
+  always promised. The clock inside the widget now always spans it [#166].
 - Fixed rows of the "General" settings page sitting at uneven distances, caused by two
   checkboxes using the panel widget style instead of the desktop one [#166].
 - Added automatic widget size stability: the widget keeps the size of the widest value its

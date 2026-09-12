@@ -42,6 +42,7 @@ ColumnLayout {
 	property int activeLayoutSlot: Plasmoid.configuration.activeLayoutSlot
 	property bool useCustomFont: Plasmoid.configuration.useCustomFont
 	property font customFont: Plasmoid.configuration.customFont
+	property bool widgetContainerFillWidth: Plasmoid.configuration.widgetContainerFillWidth
 	property bool widgetContainerFillHeight: Plasmoid.configuration.widgetContainerFillHeight
 	property bool enforceWidgetMinWidth: Plasmoid.configuration.enforceWidgetMinWidth
 	property int widgetMinWidth: Plasmoid.configuration.widgetMinWidth
@@ -191,14 +192,18 @@ ColumnLayout {
 	Layout.preferredHeight: verticalPanel ? requestedHeight : -1
 	Layout.minimumHeight: verticalPanel ? requestedHeight : 0
 
-	// Must stay explicit. This root is a ColumnLayout, and the Layout attached
-	// property of a layout reports fillWidth/fillHeight as true unless told
-	// otherwise. Plasma copies both onto the applet, where "true" tells the
-	// panel the clock wants all the free space in it. The widget has its own
-	// fill options for the label, and the panel thickness is already handled
-	// by Plasmoid.constraintHints in main.qml.
-	Layout.fillWidth: false
-	Layout.fillHeight: false
+	// Plasma copies both onto the applet, where "true" tells the panel the clock
+	// wants every free pixel of it. That is what the two "Container fill"
+	// options ask for, so they are bound here. They must stay explicit even so:
+	// this root is a ColumnLayout, and the Layout attached property of a layout
+	// reports both as true unless told otherwise, which made the clock claim
+	// the whole panel with nobody asking [#166].
+	//
+	// A horizontal panel only reads the width pair, a vertical one only the
+	// height pair. Across the other axis the panel thickness rules, and
+	// Plasmoid.constraintHints in main.qml already fills that.
+	Layout.fillWidth: widgetContainerFillWidth
+	Layout.fillHeight: widgetContainerFillHeight
 
 	// The size hints have to be right before Plasma reads them, and the clock
 	// timer only fires once the event loop runs, which is too late.
